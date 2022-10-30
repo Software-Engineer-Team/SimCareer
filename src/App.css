@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
+
+:root {
+  --left-bg-color: rgba(53, 41, 0, 0.6);
+  --right-bg-color: rgba(0, 0, 25, 0.6);
+  --left-btn-hover-color: rgba(232, 247, 35, 0.9);
+  --right-btn-hover-color: rgba(0, 0, 25, 1);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  display: block;
+  scroll-behavior: smooth;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+h2 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  font-family: "Nunito";
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Open Sans", "Roboto", sans-serif;
+  margin: 0;
+  line-height: 1.5;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000000;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
