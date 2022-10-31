@@ -1,4 +1,4 @@
-import { LoginPage } from "@pages/index";
+import { LoginPage, DashBoard } from "@pages/index";
 
 export const routes = [
   {
@@ -8,5 +8,9 @@ export const routes = [
   {
     path: "/",
     element: LoginPage,
+  },
+  {
+    path: "/dash-board",
+    element: DashBoard,
   },
 ];
