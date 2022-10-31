@@ -113,6 +113,7 @@ export const SignOut = styled.div`
   cursor: pointer;
   height: 58px;
   width: 58px;
+  margin-right: 10px;
   &:hover {
     ${DropDown} {
       opacity: 1;

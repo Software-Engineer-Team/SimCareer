@@ -46,3 +46,7 @@ body {
   width: 100%;
   /* overflow: scroll; */
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}

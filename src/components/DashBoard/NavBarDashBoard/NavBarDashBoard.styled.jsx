@@ -14,7 +14,7 @@ export const NavBar = styled.div`
     height: 52px;
     background-color: #f8f9fa;
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin: 10px 0;
     img {
       width: 100%;
       height: 100%;
@@ -36,7 +36,7 @@ export const UlNav = styled.ul`
   width: 100%;
   list-style: none;
   padding-left: 0;
-  margin: 0;
+  margin-top: 20px;
   & a {
     position: relative;
     width: 100%;
