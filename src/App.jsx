@@ -1,10 +1,18 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { routes } from "@routes/index";
 
 function App() {
   return (
     <Routes>
-      {/* <Route path={"/home-page/*"} element={<HomePage />} /> */}
+      {routes.map(({ path, element: Page }, idx) => {
+        if (path === "/") {
+          return (
+            <Route key={idx} path={path} element={<Navigate to={"/login"} />} />
+          );
+        }
+        return <Route key={idx} path={path} element={<Page />} />;
+      })}
     </Routes>
   );
 }
