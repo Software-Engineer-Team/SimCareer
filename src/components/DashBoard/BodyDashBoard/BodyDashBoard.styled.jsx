@@ -245,6 +245,7 @@ export const Events = styled.div`
   }
 `;
 
+<<<<<<< HEAD
 export const JobTrackers = styled(Events)`
   background-color: rgb(0 0 0 / 7%);
   padding: 30px;
@@ -311,3 +312,6 @@ export const JobTrackers = styled(Events)`
     }
   }
 `;
+=======
+export const JobTrackers = styled.div``;
+>>>>>>> a6c8ecd ([feat]: Weekly News and Events complete)

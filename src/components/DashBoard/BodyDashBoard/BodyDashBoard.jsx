@@ -19,7 +19,10 @@ import { FaPeopleCarry, FaCampground } from "react-icons/fa";
 import { GiTwirlCenter } from "react-icons/gi";
 import { SiAppveyor } from "react-icons/si";
 import { RiMapPinLine } from "react-icons/ri";
+<<<<<<< HEAD
 import { RiArrowDropDownLine } from "react-icons/ri";
+=======
+>>>>>>> a6c8ecd ([feat]: Weekly News and Events complete)
 
 const BodyDashBoard = () => {
   const quickLinks = [
@@ -151,6 +154,7 @@ const BodyDashBoard = () => {
                 ))}
             </div>
           </Events>
+<<<<<<< HEAD
           <JobTrackers>
             <div className="header">
               <div>Job Trackers</div>
@@ -178,6 +182,9 @@ const BodyDashBoard = () => {
                 ))}
             </div>
           </JobTrackers>
+=======
+          <JobTrackers>555t</JobTrackers>
+>>>>>>> a6c8ecd ([feat]: Weekly News and Events complete)
         </Functions>
       </Content>
     </Container>
