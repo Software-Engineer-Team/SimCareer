@@ -20,9 +20,13 @@ import { GiTwirlCenter } from "react-icons/gi";
 import { SiAppveyor } from "react-icons/si";
 import { RiMapPinLine } from "react-icons/ri";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { RiArrowDropDownLine } from "react-icons/ri";
 =======
 >>>>>>> a6c8ecd ([feat]: Weekly News and Events complete)
+=======
+import { RiArrowDropDownLine } from "react-icons/ri";
+>>>>>>> a57af6f ([feat]: Complete Job Trackers)
 
 const BodyDashBoard = () => {
   const quickLinks = [
@@ -155,6 +159,9 @@ const BodyDashBoard = () => {
             </div>
           </Events>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a57af6f ([feat]: Complete Job Trackers)
           <JobTrackers>
             <div className="header">
               <div>Job Trackers</div>
@@ -182,9 +189,12 @@ const BodyDashBoard = () => {
                 ))}
             </div>
           </JobTrackers>
+<<<<<<< HEAD
 =======
           <JobTrackers>555t</JobTrackers>
 >>>>>>> a6c8ecd ([feat]: Weekly News and Events complete)
+=======
+>>>>>>> a57af6f ([feat]: Complete Job Trackers)
         </Functions>
       </Content>
     </Container>
