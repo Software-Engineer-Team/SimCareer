@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   height: 100%;
+  /* margin-left: 70px; */
 `;
 
 export const Content = styled.div`
@@ -11,7 +12,11 @@ export const Content = styled.div`
   align-items: flex-start;
   width: 100%;
   height: 100%;
-  padding: 50px;
+  padding: 50px 50px 100px 120px;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Title = styled.div`

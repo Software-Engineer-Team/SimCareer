@@ -104,7 +104,7 @@ const BodyDashBoard = () => {
             <div className="header">Weekly News Summary</div>
             <div className="weekly-news">
               {weeklyNews.map(({ url, titleNews, time, para }) => (
-                <div class="news">
+                <div className="news">
                   <div className="img">
                     <img src={url} alt="" />
                   </div>
@@ -164,7 +164,7 @@ const BodyDashBoard = () => {
               {Array(3)
                 .fill(undefined)
                 .map((el) => (
-                  <div class="job">
+                  <div className="job">
                     <div className="img">
                       <img src="/images/rounded_logo.png" alt="" />
                     </div>

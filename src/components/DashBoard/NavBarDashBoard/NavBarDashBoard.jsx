@@ -1,5 +1,4 @@
 import { NavBar, UlNav, LiTag } from "./NavBarDashBoard.styled";
-import { RiMessengerLine } from "react-icons/ri";
 import { MdOutlineDashboard, MdDeviceHub } from "react-icons/md";
 import { HiOutlineInbox } from "react-icons/hi";
 import { Link } from "react-router-dom";
@@ -13,17 +12,26 @@ const NavBarDashBoard = (props) => {
       <UlNav>
         <Link to="" className="active">
           <LiTag w="1.5rem" h="1.5rem">
-            <MdOutlineDashboard />
+            <div className="svg">
+              <MdOutlineDashboard />
+            </div>
+            <span>Dash Board</span>
           </LiTag>
         </Link>
         <Link to="">
           <LiTag w="1.5rem" h="1.5rem">
-            <HiOutlineInbox />
+            <div className="svg">
+              <HiOutlineInbox />
+            </div>
+            <span>Inbox</span>
           </LiTag>
         </Link>
         <Link to="">
           <LiTag w="1.5rem" h="1.5rem">
-            <MdDeviceHub />
+            <div className="svg">
+              <MdDeviceHub />
+            </div>
+            <span>Skill Tree</span>
           </LiTag>
         </Link>
       </UlNav>

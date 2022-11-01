@@ -5,6 +5,4 @@ export const ContainerDashBoard = styled.div`
   width: 100%;
   height: 100%;
   top: 70px;
-  display: grid;
-  grid-template-columns: 0fr 1fr;
 `;
