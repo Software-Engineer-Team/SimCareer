@@ -6,6 +6,7 @@ const useScript = (url) => {
 
     script.src = url;
     script.async = true;
+    script.type = "module";
 
     document.body.appendChild(script);
 

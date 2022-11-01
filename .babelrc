@@ -5,11 +5,24 @@
       {
         "alias": {
           "~": "./src",
-          "@components": ["./src/components"],
-          "@pages": ["./src/pages"],
-          "@routes": ["./src/routes"],
-          "@hooks": ["./src/hooks"],
-          "@utils": ["./src/utils"]
+          "@components": [
+            "./src/components"
+          ],
+          "@pages": [
+            "./src/pages"
+          ],
+          "@routes": [
+            "./src/routes"
+          ],
+          "@hooks": [
+            "./src/hooks"
+          ],
+          "@assets": [
+            "./src/assets"
+          ],
+          "@utils": [
+            "./src/utils"
+          ]
         }
       }
     ]

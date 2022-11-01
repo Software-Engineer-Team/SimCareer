@@ -5,13 +5,13 @@ import { routes } from "@routes/index";
 function App() {
   return (
     <Routes>
-      {routes.map(({ path, element: Page }, idx) => {
+      {routes.map(({ path, element: Page, type }, idx) => {
         if (path === "/") {
           return (
             <Route key={idx} path={path} element={<Navigate to={"/login"} />} />
           );
         }
-        return <Route key={idx} path={path} element={<Page />} />;
+        return <Route key={idx} path={path} element={<Page type={type} />} />;
       })}
     </Routes>
   );
