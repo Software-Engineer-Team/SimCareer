@@ -10,6 +10,7 @@ import { validateEmail } from "@utils/utils";
 import { Link } from "react-router-dom";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { gapi } from "gapi-script";
+import { Zoom } from "react-reveal";
 
 const LoginLeftContent = () => {
   const [passVisible, setPassVisible] = useState(false);
@@ -55,99 +56,101 @@ const LoginLeftContent = () => {
 
   return (
     <>
-      <div className="login-left-content">
-        <div className="login-left-content-inner">
-          <div className="login-left-title">Login in</div>
-          <div className="login-left-welcome">
-            Welcome to SimCareer, please login below to start your career
-            hacking journey with us!
-          </div>
-          <LoginLeftForm>
-            <LoginLeftFormItem>
-              <div className="form-input-type">Email</div>
-              <div className="form-input-container">
-                <div className="form-input-content">
-                  <input
-                    type="email"
-                    name="email"
-                    value={email}
-                    required
-                    onFocus={(e) =>
-                      e.target.parentElement.classList.add("focus")
-                    }
-                    onBlur={(e) =>
-                      e.target.parentElement.classList.remove("focus")
-                    }
-                    onChange={emailHandler}
-                  />
-                  <div className="form-input-content-icon">
-                    <AiOutlineMail />
+      <Zoom>
+        <div className="login-left-content">
+          <div className="login-left-content-inner">
+            <div className="login-left-title">Login in</div>
+            <div className="login-left-welcome">
+              Welcome to SimCareer, please login below to start your career
+              hacking journey with us!
+            </div>
+            <LoginLeftForm>
+              <LoginLeftFormItem>
+                <div className="form-input-type">Email</div>
+                <div className="form-input-container">
+                  <div className="form-input-content">
+                    <input
+                      type="email"
+                      name="email"
+                      value={email}
+                      required
+                      onFocus={(e) =>
+                        e.target.parentElement.classList.add("focus")
+                      }
+                      onBlur={(e) =>
+                        e.target.parentElement.classList.remove("focus")
+                      }
+                      onChange={emailHandler}
+                    />
+                    <div className="form-input-content-icon">
+                      <AiOutlineMail />
+                    </div>
                   </div>
+                  <p className="form-input-error">{errorEmail}</p>
                 </div>
-                <p className="form-input-error">{errorEmail}</p>
-              </div>
-            </LoginLeftFormItem>
-            <LoginLeftFormItem>
-              <div className="form-input-type">Password</div>
-              <div className="form-input-container">
-                <div className="form-input-content">
-                  <input
-                    type={!passVisible ? "password" : "text"}
-                    name="password"
-                    value={password}
-                    required
-                    onFocus={(e) =>
-                      e.target.parentElement.classList.add("focus")
-                    }
-                    onBlur={(e) =>
-                      e.target.parentElement.classList.remove("focus")
-                    }
-                    onChange={passHandler}
-                  />
-                  <div
-                    className="form-input-content-icon"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => setPassVisible(!passVisible)}
-                  >
-                    {passVisible ? (
-                      <MdOutlineVisibility />
-                    ) : (
-                      <MdOutlineVisibilityOff />
-                    )}
+              </LoginLeftFormItem>
+              <LoginLeftFormItem>
+                <div className="form-input-type">Password</div>
+                <div className="form-input-container">
+                  <div className="form-input-content">
+                    <input
+                      type={!passVisible ? "password" : "text"}
+                      name="password"
+                      value={password}
+                      required
+                      onFocus={(e) =>
+                        e.target.parentElement.classList.add("focus")
+                      }
+                      onBlur={(e) =>
+                        e.target.parentElement.classList.remove("focus")
+                      }
+                      onChange={passHandler}
+                    />
+                    <div
+                      className="form-input-content-icon"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => setPassVisible(!passVisible)}
+                    >
+                      {passVisible ? (
+                        <MdOutlineVisibility />
+                      ) : (
+                        <MdOutlineVisibilityOff />
+                      )}
+                    </div>
                   </div>
+                  <p className="form-input-error">{errorPass}</p>
                 </div>
-                <p className="form-input-error">{errorPass}</p>
-              </div>
-            </LoginLeftFormItem>
-            <Link to="/forget_password">Forget Password ?</Link>
-          </LoginLeftForm>
-          <LoginLeftBtnContainer>
-            <button
-              type="submit"
-              className={
-                password && email && errorPass === null && errorEmail === null
-                  ? ""
-                  : "disabled"
-              }
-            >
-              Log in
-            </button>
-          </LoginLeftBtnContainer>
-          <div className="break-line">
-            <div></div>
-          </div>
-          <div className="login-google">
-            <GoogleLogin
-              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-              buttonText="Sign in with Google"
-              onSuccess={(s) => console.log(s)}
-              onFailure={() => console.log("Success")}
-              cookiePolicy={"single_host_origin"}
-              isSignedIn={true}
-            />
+              </LoginLeftFormItem>
+              <Link to="/forget_password">Forget Password ?</Link>
+            </LoginLeftForm>
+            <LoginLeftBtnContainer>
+              <button
+                type="submit"
+                className={
+                  password && email && errorPass === null && errorEmail === null
+                    ? ""
+                    : "disabled"
+                }
+              >
+                Log in
+              </button>
+            </LoginLeftBtnContainer>
+            <div className="break-line">
+              <div></div>
+            </div>
+            <div className="login-google">
+              <GoogleLogin
+                clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                buttonText="Sign in with Google"
+                onSuccess={(s) => console.log(s)}
+                onFailure={() => console.log("Success")}
+                cookiePolicy={"single_host_origin"}
+                isSignedIn={true}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </Zoom>
 
       <div className="login-left-register">
         <div className="login-left-register-text">

@@ -1,19 +1,52 @@
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { routes } from "@routes/index";
+import LoadingAnimation from "./components/LoadingAnimation/LoadingAnimation";
 
 function App() {
+  const [isPageLoading, setIsPageLoading] = useState(true);
+
+  useEffect(() => {
+    const onPageLoad = () => {
+      setTimeout(() => {
+        setIsPageLoading(false);
+      }, 2000);
+    };
+
+    if (document.readyState === "complete") {
+      onPageLoad();
+    } else {
+      window.addEventListener("load", onPageLoad);
+
+      return () => window.removeEventListener("load", onPageLoad);
+    }
+  }, []);
+
   return (
-    <Routes>
-      {routes.map(({ path, element: Page, type }, idx) => {
-        if (path === "/") {
+    <>
+      {isPageLoading && <LoadingAnimation />}
+      <Routes>
+        {routes.map(({ path, element: Page, type }, idx) => {
+          if (path === "/") {
+            return (
+              <Route
+                key={idx}
+                path={path}
+                element={<Navigate to={"/login"} />}
+              />
+            );
+          }
           return (
-            <Route key={idx} path={path} element={<Navigate to={"/login"} />} />
+            <Route
+              key={idx}
+              path={path}
+              element={<Page isPageLoading={isPageLoading} type={type} />}
+            />
           );
-        }
-        return <Route key={idx} path={path} element={<Page type={type} />} />;
-      })}
-    </Routes>
+        })}
+      </Routes>
+    </>
   );
 }
 

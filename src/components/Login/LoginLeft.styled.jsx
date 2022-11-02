@@ -10,12 +10,17 @@ export const LoginLeftContainer = styled.div`
   width: 40%;
   overflow: hidden;
 
+  .react-reveal {
+    animation-duration: 700ms !important;
+  }
+
   .login-left-content {
     padding: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 450px;
+    transition: all 100ms ease-in-out;
     min-height: 700px;
 
     .login-left-content-inner {
@@ -28,6 +33,73 @@ export const LoginLeftContainer = styled.div`
         font-weight: 600;
         line-height: 1.1;
         color: rgb(52, 52, 52);
+      }
+
+      .registration-steps-breadcrumb {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 4rem;
+        gap: 8px;
+
+        .step-circle {
+          width: 9px;
+          height: 9px;
+          border-radius: 50%;
+          border: 1px solid rgb(110, 110, 110);
+
+          &.current {
+            border: none;
+            background: rgb(36, 36, 36);
+          }
+        }
+
+        .next-line {
+          width: 69px;
+          height: 0.5px;
+          border: 0.5px solid rgb(151, 151, 151);
+        }
+      }
+
+      .registration-content {
+        font-size: 20px;
+        margin-bottom: 3.2rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .registration-content-verification {
+        font-size: 16px;
+        color: rgb(110, 110, 110);
+        margin-bottom: 40px;
+        text-align: center;
+
+        .text-red {
+          font-size: 20px;
+          color: rgb(244, 67, 54);
+        }
+      }
+
+      .enter-text {
+        font-weight: 700;
+        font-size: 16px;
+        color: rgb(110, 110, 110);
+        text-align: center;
+        margin-bottom: 0.8rem;
+      }
+
+      .get-code-again {
+        font-size: 11px;
+        color: rgb(233, 11, 53);
+        text-align: center;
+        cursor: pointer;
+        margin-top: 0.4rem;
+        margin-bottom: 2.8rem;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
 
       .login-left-welcome {
@@ -97,7 +169,6 @@ export const LoginLeftContainer = styled.div`
     justify-content: center;
     font-size: 14px;
     padding-bottom: 3.2rem;
-    margin-top: 80px;
 
     .login-left-register-text,
     .signup-left-text {
@@ -131,6 +202,9 @@ export const LoginLeftForm = styled.form`
     color: rgb(52, 52, 52);
     font-weight: 700;
   }
+  .ReactInputVerificationCode__container {
+    justify-content: flex-start;
+  }
 `;
 
 export const LoginLeftFormItem = styled.div`
@@ -142,7 +216,7 @@ export const LoginLeftFormItem = styled.div`
   .form-input-type {
     font-weight: 700;
     font-size: 16px;
-    width: 200px;
+    width: 220px;
     padding-top: 10px;
     text-align: left;
   }
@@ -198,13 +272,18 @@ export const LoginLeftFormItem = styled.div`
         cursor: pointer;
       }
 
+      & > input[type="date"] {
+        cursor: pointer;
+        padding-right: 8px;
+      }
+
       .form-input-content-icon {
         margin-left: 8px;
         margin-right: 8px;
         display: flex;
         align-items: center;
         color: rgba(0, 0, 0, 0.54);
-        font-size: 1.5rem;
+        font-size: 1.2rem;
       }
     }
 

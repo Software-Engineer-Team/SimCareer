@@ -5,7 +5,7 @@ import Registration from "./Registration";
 
 const LoginLeft = (props) => {
   return (
-    <LoginLeftContainer>
+    <LoginLeftContainer type={props.type}>
       {props.type === "login" ? <LoginLeftContent /> : <Registration />}
     </LoginLeftContainer>
   );

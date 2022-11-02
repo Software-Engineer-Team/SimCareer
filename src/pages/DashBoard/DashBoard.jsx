@@ -1,4 +1,8 @@
-import { HeaderDashBoard, NavBarDashBoard, BodyDashBoard } from "@components";
+import {
+  HeaderDashBoard,
+  NavBarDashBoard,
+  BodyDashBoard,
+} from "@components/index";
 import { ContainerDashBoard } from "./DashBoard.styled";
 
 const DashBoard = () => {

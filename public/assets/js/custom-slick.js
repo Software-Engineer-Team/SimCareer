@@ -12,7 +12,7 @@ let nIntervId = 0,
 
 const changeImageSlider = () => {
   if (!nIntervId) {
-    nIntervId = setInterval(flashImage, 2000);
+    nIntervId = setInterval(flashImage, 3000);
   }
 };
 

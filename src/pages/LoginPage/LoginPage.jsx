@@ -5,7 +5,7 @@ import { LoginRight, LoginLeft } from "@components/index";
 const LoginPage = (props) => {
   return (
     <LoginContainer>
-      <LoginContent>
+      <LoginContent isLoading={props.isPageLoading}>
         <LoginLeft type={props.type} />
         <LoginRight />
       </LoginContent>

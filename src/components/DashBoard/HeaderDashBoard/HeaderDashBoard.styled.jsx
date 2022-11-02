@@ -10,7 +10,7 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   letter-spacing: 1.5px;
-  z-index: 300;
+  z-index: 300 !important;
   box-shadow: 3px 4px 4px rgb(0 0 0 / 7%);
 `;
 
@@ -87,6 +87,7 @@ export const NavMenu = styled.div`
 export const UserImg = styled.img`
   height: 48px;
   width: 48px;
+  display: block;
   border-radius: 50%;
 `;
 

@@ -14,6 +14,6 @@ export const LoginContent = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
-  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  /* transform: scale(0); */
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: ${({ isLoading }) => (isLoading ? "scale(0)" : "scale(1)")};
 `;

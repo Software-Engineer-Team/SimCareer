@@ -21,6 +21,9 @@ export default LoadingAnimation;
 const Container = styled.div`
   width: 100%;
   height: 100%;
+  z-index: 9999;
+  position: absolute;
+  top: 0;
 
   &:before {
     position: absolute;
@@ -29,6 +32,7 @@ const Container = styled.div`
     background-color: #000;
     z-index: -1;
   }
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,7 +72,6 @@ const Content = styled.div`
   display: flex;
   flex-wrap: wrap;
   animation: rotate 3s linear infinite;
-  z-index: 100;
   justify-self: flex-start;
   & span {
     width: 32px;
