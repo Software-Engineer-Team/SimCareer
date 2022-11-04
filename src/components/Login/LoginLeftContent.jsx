@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { gapi } from "gapi-script";
 import { Zoom } from "react-reveal";
+import axios from "axios";
 
 const LoginLeftContent = () => {
   const [passVisible, setPassVisible] = useState(false);
@@ -52,6 +53,11 @@ const LoginLeftContent = () => {
       e.target.parentElement.classList.remove("error");
       setErrorPass(null);
     }
+  };
+
+  const submitHandler = () => {
+    console.log("hello");
+    /* axios.post("http://localhost:8080/api/user/sign-in"); */
   };
 
   return (
@@ -121,7 +127,7 @@ const LoginLeftContent = () => {
                   <p className="form-input-error">{errorPass}</p>
                 </div>
               </LoginLeftFormItem>
-              <Link to="/forget_password">Forget Password ?</Link>
+              <Link to="/forgot-password">Forget Password ?</Link>
             </LoginLeftForm>
             <LoginLeftBtnContainer>
               <button
@@ -131,6 +137,7 @@ const LoginLeftContent = () => {
                     ? ""
                     : "disabled"
                 }
+                onClick={submitHandler}
               >
                 Log in
               </button>

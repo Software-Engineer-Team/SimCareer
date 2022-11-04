@@ -12,6 +12,11 @@ export const routes = [
     type: "register",
   },
   {
+    path: "/forgot-password",
+    element: LoginPage,
+    type: "forgot-password",
+  },
+  {
     path: "/",
     element: LoginPage,
   },

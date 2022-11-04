@@ -35,7 +35,8 @@ export const LoginLeftContainer = styled.div`
         color: rgb(52, 52, 52);
       }
 
-      .registration-steps-breadcrumb {
+      .registration-steps-breadcrumb,
+      .forgot-pass-steps-breadcrumb {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -69,7 +70,17 @@ export const LoginLeftContainer = styled.div`
         text-align: center;
       }
 
-      .registration-content-verification {
+      .forgot-pass-content {
+        font-weight: 600;
+        font-size: 16px;
+        color: rgb(110, 110, 110);
+        text-align: center;
+        margin-bottom: 12px;
+        margin-top: 40px;
+      }
+
+      .registration-content-verification,
+      .forgot-pass-content-verification {
         font-size: 16px;
         color: rgb(110, 110, 110);
         margin-bottom: 40px;
@@ -163,7 +174,8 @@ export const LoginLeftContainer = styled.div`
   }
 
   .login-left-register,
-  .signup-left {
+  .signup-left,
+  .forgot-pass-left {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -171,7 +183,8 @@ export const LoginLeftContainer = styled.div`
     padding-bottom: 3.2rem;
 
     .login-left-register-text,
-    .signup-left-text {
+    .signup-left-text,
+    .forgot-pass-left-text {
       text-align: center;
 
       & > span {
@@ -224,6 +237,7 @@ export const LoginLeftFormItem = styled.div`
   .form-input-container {
     display: inline-flex;
     flex-direction: column;
+    align-items: ${({ type }) => type === "forgot-pass" && "center"};
     position: relative;
     width: 100%;
 
@@ -241,6 +255,7 @@ export const LoginLeftFormItem = styled.div`
       position: relative;
       border: 1px solid rgba(0, 0, 0, 0.23);
       height: 40px;
+      width: ${({ type }) => type === "forgot-pass" && "332px"};
 
       &.focus {
         border-color: #0e7fe1 !important;
@@ -261,6 +276,7 @@ export const LoginLeftFormItem = styled.div`
         border-bottom-left-radius: 7px;
         height: 100%;
         width: 100%;
+
         background-color: transparent;
         outline: none;
         font: inherit;
