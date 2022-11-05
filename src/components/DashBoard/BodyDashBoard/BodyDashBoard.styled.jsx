@@ -28,46 +28,76 @@ export const Title = styled.div`
   width: 100%;
 `;
 export const QuickLinks = styled.div`
-  padding: 30px;
   margin-bottom: 50px;
   width: 100%;
-  background-color: rgb(0 0 0 / 7%);
-  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   & .title {
-    width: 100%;
+    min-width: 280px;
     font-size: 30px;
     line-height: 1;
     letter-spacing: 1.1;
     font-weight: 600;
+    text-transform: uppercase;
     margin-bottom: 20px;
+    font-family: "Anton", sans-serif;
+    font-weight: 500;
+    font-size: 50px;
+    letter-spacing: 1.3px;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 125px;
+      background: rgb(148, 121, 209);
+      background: linear-gradient(
+        90deg,
+        rgba(148, 121, 209, 1) 20%,
+        rgba(196, 177, 240, 1) 50%,
+        rgba(148, 121, 209, 1) 80%
+      );
+      bottom: -14px;
+      left: -10px;
+      height: 20px;
+      z-index: -1;
+    }
   }
   & .links {
+    /* background-color: rgb(0 0 0 / 7%); */
+    padding: 10px;
+    border-radius: 50px;
+    border: 2px solid #000;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     & .link {
-      min-width: 25%;
+      min-width: 33%;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
       margin: 10px 0;
+      span {
+        min-width: 150px;
+      }
       & .svg {
-        margin-right: 20px;
-        width: 55px;
-        height: 55px;
+        margin-right: 10px;
+        width: 75px;
+        height: 75px;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #000;
+        background-color: white;
         border-radius: 6px;
-      }
-      img,
-      svg {
-        width: 35px;
-        height: 35px;
-        color: #fff;
+        img,
+        svg {
+          border-radius: 6px;
+          width: 100%;
+          height: 100%;
+          color: #fff;
+        }
       }
     }
   }

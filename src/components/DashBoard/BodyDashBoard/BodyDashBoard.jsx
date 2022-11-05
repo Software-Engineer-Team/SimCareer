@@ -24,36 +24,28 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 const BodyDashBoard = () => {
   const quickLinks = [
     {
-      name: "App Test Database",
-      icon: GoDatabase,
-    },
-    {
       name: "Inteview Source",
-      icon: FaPeopleCarry,
+      url: "/images/interview-source-icon.png",
     },
     {
-      name: "Apprenticeship Application",
-      icon: SiAppveyor,
+      name: "Mentoring",
+      url: "/images/mentoring-icon.png",
     },
     {
-      name: "Our BackGround",
-      icon: FaCampground,
+      name: "Tests",
+      url: "/images/tests-icon.png",
     },
     {
-      name: "SimCareer Instagram",
-      icon: BsInstagram,
+      name: "Study Cources",
+      url: "/images/study-courses-icon.png",
     },
     {
-      name: "Resources Center",
-      icon: GiTwirlCenter,
+      name: "Community",
+      url: "/images/community-icon.png",
     },
     {
-      name: "Frequently Asked Questions",
-      icon: BsFillQuestionCircleFill,
-    },
-    {
-      name: "Schedule a Call",
-      icon: ImPhone,
+      name: "References",
+      url: "/images/ref-icon.png",
     },
   ];
   const weeklyNews = [
@@ -89,96 +81,16 @@ const BodyDashBoard = () => {
         <QuickLinks>
           <div className="title">Quick Links</div>
           <div className="links">
-            {quickLinks.map(({ name, icon: Svg }, idx) => (
+            {quickLinks.map(({ name, url }, idx) => (
               <div className="link" key={idx}>
                 <div className="svg">
-                  <Svg />
+                  <img src={url} alt="" />
                 </div>
                 <span>{name}</span>
               </div>
             ))}
           </div>
         </QuickLinks>
-        <Functions>
-          <WeeklyNews>
-            <div className="header">Weekly News Summary</div>
-            <div className="weekly-news">
-              {weeklyNews.map(({ url, titleNews, time, para }) => (
-                <div className="news">
-                  <div className="img">
-                    <img src={url} alt="" />
-                  </div>
-                  <div className="content">
-                    <div className="title-news">
-                      <h5>{titleNews}</h5>
-                      <p className="text-muted">{time}</p>
-                    </div>
-                    <div className="text-truncated">{para}</div>
-                  </div>
-                </div>
-              ))}
-              <div className="header read-all">Read All (34)</div>
-            </div>
-          </WeeklyNews>
-          <Events>
-            <div className="header">
-              <div>Events</div>
-              <span className="view-all">View All</span>
-            </div>
-            <div className="schedule">
-              <div className="day-time">Tomorrow, Wednesday, May 25</div>
-              {Array(3)
-                .fill(undefined)
-                .map(() => (
-                  <div className="time-content">
-                    <div className="time">8:00 PM</div>
-
-                    <div className="content">
-                      <div className="content-title">
-                        BeHaviour Question Practice
-                      </div>
-                      <div className="trainner">with Cao Tuan Kiet</div>
-                      <div className="no_people">
-                        <BsPeople />
-                        <span>2 / 3</span>
-                      </div>
-                      <div className="zoom-meeting">
-                        <RiMapPinLine />
-                        <span>Zoom Meeting</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </Events>
-          <JobTrackers>
-            <div className="header">
-              <div>Job Trackers</div>
-              <span className="view-all">40 New Jobs This Week</span>
-            </div>
-            <div className="job-content">
-              <div className="category">
-                <span>Banking</span>
-                <RiArrowDropDownLine />
-              </div>
-              {Array(3)
-                .fill(undefined)
-                .map((el) => (
-                  <div className="job">
-                    <div className="img">
-                      <img src="/images/rounded_logo.png" alt="" />
-                    </div>
-                    <div className="content">
-                      <div>
-                        <h5>Some Job Name</h5>
-                        <p className="text-muted">Deadline: 30th, Jun</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </JobTrackers>
-        </Functions>
       </Content>
     </Container>
   );
