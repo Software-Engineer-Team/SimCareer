@@ -323,8 +323,12 @@ export const LoginLeftBtnContainer = styled.div`
   padding-right: 0.4rem;
   width: 100%;
   margin-top: 28px;
+  position: relative;
 
   button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
       box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
       border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,

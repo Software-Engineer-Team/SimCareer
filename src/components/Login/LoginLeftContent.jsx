@@ -6,12 +6,12 @@ import {
 } from "./LoginLeft.styled";
 import { AiOutlineMail } from "react-icons/ai";
 import { MdOutlineVisibility, MdOutlineVisibilityOff } from "react-icons/md";
-import { validateEmail } from "@utils/utils";
+import { postData, validateEmail } from "@utils/utils";
 import { Link } from "react-router-dom";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { gapi } from "gapi-script";
 import { Zoom } from "react-reveal";
-import axios from "axios";
+import { CircularProgress } from "@components/index";
 
 const LoginLeftContent = () => {
   const [passVisible, setPassVisible] = useState(false);
@@ -19,6 +19,7 @@ const LoginLeftContent = () => {
   const [errorEmail, setErrorEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorPass, setErrorPass] = useState("");
+  const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
     const initClient = () => {
@@ -55,9 +56,22 @@ const LoginLeftContent = () => {
     }
   };
 
-  const submitHandler = () => {
-    console.log("hello");
-    /* axios.post("http://localhost:8080/api/user/sign-in"); */
+  const submitHandler = async () => {
+    try {
+      setIsFetching(true);
+      const { data } = await postData(
+        { email, password },
+        "http://localhost:8080/api/user/sign-in"
+      );
+      console.log(data);
+      setPassword("");
+      setEmail("");
+    } catch (err) {
+      console.log(err.response.data.error);
+    }
+    setTimeout(() => {
+      setIsFetching(false);
+    }, 1500);
   };
 
   return (
@@ -139,7 +153,7 @@ const LoginLeftContent = () => {
                 }
                 onClick={submitHandler}
               >
-                Log in
+                {isFetching ? <CircularProgress top="-10" /> : "Log in"}
               </button>
             </LoginLeftBtnContainer>
             <div className="break-line">
@@ -150,7 +164,7 @@ const LoginLeftContent = () => {
                 clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                 buttonText="Sign in with Google"
                 onSuccess={(s) => console.log(s)}
-                onFailure={() => console.log("Success")}
+                onFailure={() => console.log("Failure")}
                 cookiePolicy={"single_host_origin"}
                 isSignedIn={true}
               />
