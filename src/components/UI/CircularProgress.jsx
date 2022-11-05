@@ -14,11 +14,11 @@ const CircularProgressContainer = styled.div`
   &:after {
     content: "";
     display: block;
-    width: 34px;
-    height: 34px;
+    width: 24px;
+    height: 24px;
     margin: 13px 3px 3px 3px;
     border-radius: 50%;
-    border: 6px solid teal;
+    border: 1px solid teal;
     border-color: white white white transparent;
     animation: spinner 1.2s linear infinite;
   }

@@ -11,6 +11,9 @@ import { MdOutlineVisibility, MdOutlineVisibilityOff } from "react-icons/md";
 import ReactInputVerificationCode from "react-input-verification-code";
 import Fade from "react-reveal/Fade";
 import axios from "axios";
+import { CircularProgress } from "..";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ForgotPass = () => {
   const [passVisible, setPassVisible] = useState(false);
@@ -22,6 +25,7 @@ const ForgotPass = () => {
   const [email, setEmail] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
   const [verificationCode, setVerificationCode] = useState("");
+  const [isFetching, setIsFetching] = useState(false);
   const [step, setStep] = useState(1);
   const btnRef = useRef(null);
 
@@ -82,32 +86,72 @@ const ForgotPass = () => {
   };
 
   const buttonHandler = async () => {
-    if (step !== 3) {
-      setStep(step + 1);
-    }
+    setIsFetching(true);
+    try {
+      switch (step) {
+        case 1: {
+          const res = await axios.post(
+            `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/forgot-pass`,
+            null,
+            { params: { email } }
+          );
+          console.log(res);
+          break;
+        }
+        case 2: {
+          const res = await axios.post(
+            `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/forgot-pass-verify`,
+            null,
+            { params: { code: verificationCode } }
+          );
+          console.log(res);
+          break;
+        }
+        case 3: {
+          const res = await toast.promise(
+            axios.post(
+              `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/forgot-pass-update`,
+              { email, password }
+            ),
+            {
+              success: "You have already get your password 👌",
+              error: "Get your password fail 🤯",
+            }
+          );
+          console.log(res);
+          break;
+        }
+        default:
+          break;
+      }
 
-    switch (step) {
-      case 1: {
-        const res = await axios.post(
-          `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/forgot-pass`,
-          null,
-          { params: { email } }
-        );
-        console.log(res);
-        break;
+      if (step !== 3) {
+        setStep(step + 1);
       }
-      case 2: {
-        const res = await axios.post(
-          `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/forgot-pass`,
-          null,
-          { params: { code: verificationCode } }
-        );
-        console.log(res);
-        break;
-      }
-      default:
-        break;
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response.data.error, {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    } finally {
+      setIsFetching(false);
     }
+  };
+
+  const getCodeAgainHandler = async () => {
+    await toast.promise(
+      axios.post(
+        `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/get-code-again`,
+        null,
+        {
+          params: { email },
+        }
+      ),
+      {
+        success: "Verification code resent successfully 👌",
+        error: "Verification code resent fail 🤯",
+      }
+    );
   };
 
   return (
@@ -269,7 +313,7 @@ const ForgotPass = () => {
 
             {step === 2 && (
               <Fade right>
-                <div className="get-code-again">
+                <div className="get-code-again" onClick={getCodeAgainHandler}>
                   Didn’t get a verfication code?
                 </div>
               </Fade>
@@ -292,7 +336,7 @@ const ForgotPass = () => {
                     : "disabled"
                 }
               >
-                Next
+                {isFetching ? <CircularProgress top="-5" /> : "Next"}
               </button>
             </LoginLeftBtnContainer>
           </div>
@@ -305,6 +349,8 @@ const ForgotPass = () => {
           <Link to="/login">Login</Link>
         </div>
       </div>
+
+      <ToastContainer style={{ width: "380px" }} position="top-center" />
     </>
   );
 };

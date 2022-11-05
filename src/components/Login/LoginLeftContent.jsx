@@ -12,6 +12,8 @@ import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { gapi } from "gapi-script";
 import { Zoom } from "react-reveal";
 import { CircularProgress } from "@components/index";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginLeftContent = () => {
   const [passVisible, setPassVisible] = useState(false);
@@ -67,11 +69,15 @@ const LoginLeftContent = () => {
       setPassword("");
       setEmail("");
     } catch (err) {
+      if (err.response.data.error === "Bad credentials") {
+        return toast.error("Incorrect username or password", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      }
       console.log(err.response.data.error);
-    }
-    setTimeout(() => {
+    } finally {
       setIsFetching(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -81,8 +87,8 @@ const LoginLeftContent = () => {
           <div className="login-left-content-inner">
             <div className="login-left-title">Login in</div>
             <div className="login-left-welcome">
-              Welcome to SimCareer, please login below to start your career
-              hacking journey with us!
+              Chào mừng bạn đến với SimCareer, vui lòng đăng nhập bên dưới để
+              bắt đầu hành trình hack sự nghiệp của bạn với chúng tôi!
             </div>
             <LoginLeftForm>
               <LoginLeftFormItem>
@@ -153,7 +159,7 @@ const LoginLeftContent = () => {
                 }
                 onClick={submitHandler}
               >
-                {isFetching ? <CircularProgress top="-10" /> : "Log in"}
+                {isFetching ? <CircularProgress top="-5" /> : "Log in"}
               </button>
             </LoginLeftBtnContainer>
             <div className="break-line">
@@ -179,6 +185,8 @@ const LoginLeftContent = () => {
           <Link to="/register">Sign up</Link>
         </div>
       </div>
+
+      <ToastContainer style={{ width: "380px" }} />
     </>
   );
 };

@@ -5,7 +5,7 @@ import {
   LoginLeftFormItem,
 } from "./LoginLeft.styled";
 import { validateEmail } from "@utils/utils";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineMail } from "react-icons/ai";
 import { MdOutlineVisibility, MdOutlineVisibilityOff } from "react-icons/md";
 import { BsFillPersonFill } from "react-icons/bs";
@@ -14,6 +14,9 @@ import { IoSchoolOutline } from "react-icons/io5";
 import ReactInputVerificationCode from "react-input-verification-code";
 import Fade from "react-reveal/Fade";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { CircularProgress } from "..";
 
 const Registration = () => {
   const [passVisible, setPassVisible] = useState(false);
@@ -35,6 +38,8 @@ const Registration = () => {
   const [verificationCode, setVerificationCode] = useState("");
   const [step, setStep] = useState(1);
   const btnRef = useRef(null);
+  const [isFetching, setIsFetching] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const stepCircles = document.querySelectorAll(
@@ -136,26 +141,90 @@ const Registration = () => {
     setVerificationCode(value);
   };
 
-  const buttonHandler = () => {
-    if (step !== 3) {
-      setStep(step + 1);
-    }
-    if (step === 2) {
-      console.log("post");
-      axios
-        .post("http://localhost:8080/api/user/sign-up", {
-          email,
-          password,
-          imgUrl: "default",
-          major,
-          graduationYear,
-          verificationCode,
-          name: fullName,
-        })
-        .then((res) => {
+  const buttonHandler = async () => {
+    setIsFetching(true);
+    try {
+      switch (step) {
+        case 1: {
+          break;
+        }
+        case 2: {
+          const res = await axios.post(
+            `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/sign-up`,
+            {
+              email,
+              password,
+              major,
+              graduationYear,
+              university,
+              imgUrl: "1111111",
+              name: fullName,
+            }
+          );
           console.log(res);
-        });
+          break;
+        }
+        case 3: {
+          const res = await axios.post(
+            `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/sign-up-verify`,
+            null,
+            { params: { code: verificationCode } }
+          );
+
+          console.log(res);
+
+          toast
+            .promise(
+              axios.post(
+                `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/sign-up-update`,
+                {
+                  email,
+                  password,
+                  major,
+                  graduationYear,
+                  university,
+                  verificationCode: null,
+                }
+              ),
+              {
+                success: "Sign up successfully 👌",
+                error: "Sign up fail 🤯",
+              }
+            )
+            .then(() => {
+              navigate("/login");
+            });
+          break;
+        }
+        default:
+          break;
+      }
+
+      if (step !== 3) {
+        setStep(step + 1);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response.data.error);
+    } finally {
+      setIsFetching(false);
     }
+  };
+
+  const getCodeAgainHandler = async () => {
+    await toast.promise(
+      axios.post(
+        `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/get-code-again`,
+        null,
+        {
+          params: { email },
+        }
+      ),
+      {
+        success: "Verification code resent successfully 👌",
+        error: "Verification code resent fail 🤯",
+      }
+    );
   };
 
   return (
@@ -411,7 +480,7 @@ const Registration = () => {
 
             {step === 3 && (
               <Fade right>
-                <div className="get-code-again">
+                <div className="get-code-again" onClick={getCodeAgainHandler}>
                   Didn’t get a verfication code?
                 </div>
               </Fade>
@@ -442,7 +511,7 @@ const Registration = () => {
                     : "disabled"
                 }
               >
-                Next
+                {isFetching ? <CircularProgress top="-5" /> : "Next"}
               </button>
             </LoginLeftBtnContainer>
           </div>
@@ -455,6 +524,8 @@ const Registration = () => {
           <Link to="/login">Login</Link>
         </div>
       </div>
+
+      <ToastContainer style={{ width: "380px" }} position="top-center" />
     </>
   );
 };
