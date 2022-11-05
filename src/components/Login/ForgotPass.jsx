@@ -10,6 +10,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import { MdOutlineVisibility, MdOutlineVisibilityOff } from "react-icons/md";
 import ReactInputVerificationCode from "react-input-verification-code";
 import Fade from "react-reveal/Fade";
+import axios from "axios";
 
 const ForgotPass = () => {
   const [passVisible, setPassVisible] = useState(false);
@@ -80,9 +81,32 @@ const ForgotPass = () => {
     setVerificationCode(value);
   };
 
-  const buttonHandler = () => {
+  const buttonHandler = async () => {
     if (step !== 3) {
       setStep(step + 1);
+    }
+
+    switch (step) {
+      case 1: {
+        const res = await axios.post(
+          `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/forgot-pass`,
+          null,
+          { params: { email } }
+        );
+        console.log(res);
+        break;
+      }
+      case 2: {
+        const res = await axios.post(
+          `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/forgot-pass`,
+          null,
+          { params: { code: verificationCode } }
+        );
+        console.log(res);
+        break;
+      }
+      default:
+        break;
     }
   };
 

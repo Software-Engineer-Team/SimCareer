@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export const validateEmail = (email) => {
   return String(email)
     .toLowerCase()
