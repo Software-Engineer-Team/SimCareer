@@ -23,6 +23,7 @@ export const LiTag = styled.li`
     min-width: 250px;
     transition: opacity 0.2s ease-in-out;
     width: 100%;
+    z-index: -1;
   }
 `;
 
@@ -40,15 +41,49 @@ export const NavBar = styled.div`
   transition: all 0.2s ease-in-out;
   background-color: #fff;
 
+  div.menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    margin-left: 18px;
+    .menu-logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 35px;
+        height: 35px;
+        object-fit: cover;
+      }
+      div {
+        font-family: "Anton", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        height: 15px;
+      }
+    }
+    svg {
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+    }
+  }
+
   & > a {
-    width: 52px;
+    width: 100%;
     height: 52px;
-    background-color: #f8f9fa;
+    background-color: rgba(192, 0, 0, 0.03);
     border-radius: 4px;
     margin: 10px 0;
+    text-decoration: none;
+    color: black;
     img {
       width: 100%;
-      margin-left: 9px;
       height: 100%;
       color: #9e9e9e;
       font-size: 23px;
@@ -62,6 +97,7 @@ export const NavBar = styled.div`
     ${LiTag} {
       & span {
         opacity: 1;
+        z-index: 1;
       }
     }
   }

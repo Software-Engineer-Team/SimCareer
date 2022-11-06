@@ -3,23 +3,9 @@ import {
   Content,
   Events,
   Functions,
-  JobTrackers,
   QuickLinks,
-  Title,
-  WeeklyNews,
 } from "./BodyDashBoard.styled";
-import {
-  BsPeople,
-  BsInstagram,
-  BsFillQuestionCircleFill,
-} from "react-icons/bs";
-import { ImPhone } from "react-icons/im";
-import { GoDatabase } from "react-icons/go";
-import { FaPeopleCarry, FaCampground } from "react-icons/fa";
-import { GiTwirlCenter } from "react-icons/gi";
-import { SiAppveyor } from "react-icons/si";
-import { RiMapPinLine } from "react-icons/ri";
-import { RiArrowDropDownLine } from "react-icons/ri";
+import Title from "./Title/Title";
 
 const BodyDashBoard = () => {
   const quickLinks = [
@@ -75,9 +61,10 @@ const BodyDashBoard = () => {
   return (
     <Container>
       <Content>
-        <Title>
-          Hello Cao Tuan Kiet, are you ready to simulate your career today?
-        </Title>
+        <Title
+          text={"Hello Cao Tuan Kiet, are you ready for our race ?"}
+          fontSize={25}
+        />
         <QuickLinks>
           <div className="title">Quick Links</div>
           <div className="links">
@@ -92,142 +79,94 @@ const BodyDashBoard = () => {
           </div>
         </QuickLinks>
         <Functions>
-          <Events>
-            <div className="event-item">
-              <div className="event-left-container">
-                <div className="day-time">thứ sáu</div>
-                <div className="month-year">4/11</div>
-              </div>
-              <div className="event-right-container">
-                <div className="event-right-content">
-                  <div className="event-img">
-                    <img src="/images/event-1.png" alt="" />
+          <div className="container">
+            <div className="img-bg">
+              <Events>
+                <div className="event-item">
+                  <div className="event-left-container">
+                    <div className="day-time">thứ sáu</div>
+                    <div className="month-year">4/11</div>
                   </div>
-                  <div className="event-content">
-                    <div className="title">
-                      Talkshow "Customer centric in social commerce era"
-                    </div>
-                    <div className="time">
-                      <span>Thứ 6|04/11/2022|15:00 - 17:30</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="event-register">
-                  <a href="#" className="event-register-content">
-                    <span>đăng kí</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="event-item">
-              <div className="event-left-container">
-                <div className="day-time">thứ sáu</div>
-                <div className="month-year">4/11</div>
-              </div>
-              <div className="event-right-container">
-                <div className="event-right-content">
-                  <div className="event-img">
-                    <img src="/images/event-1.png" alt="" />
-                  </div>
-                  <div className="event-content">
-                    <div className="title">
-                      Talkshow "Customer centric in social commerce era"
-                    </div>
-                    <div className="time">
-                      <span>Thứ 6|04/11/2022|15:00 - 17:30</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="event-register">
-                  <a href="#" className="event-register-content">
-                    <span>đăng kí</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="event-item">
-              <div className="event-left-container">
-                <div className="day-time">thứ sáu</div>
-                <div className="month-year">4/11</div>
-              </div>
-              <div className="event-right-container">
-                <div className="event-right-content">
-                  <div className="event-img">
-                    <img src="/images/event-1.png" alt="" />
-                  </div>
-                  <div className="event-content">
-                    <div className="title">
-                      Talkshow "Customer centric in social commerce era"
-                    </div>
-                    <div className="time">
-                      <span>Thứ 6|04/11/2022|15:00 - 17:30</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="event-register">
-                  <a href="#" className="event-register-content">
-                    <span>đăng kí</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="event-item">
-              <div className="event-left-container">
-                <div className="day-time">thứ sáu</div>
-                <div className="month-year">4/11</div>
-              </div>
-              <div className="event-right-container">
-                <div className="event-right-content">
-                  <div className="event-img">
-                    <img src="/images/event-1.png" alt="" />
-                  </div>
-                  <div className="event-content">
-                    <div className="title">
-                      Talkshow "Customer centric in social commerce era"
-                    </div>
-                    <div className="time">
-                      <span>Thứ 6|04/11/2022|15:00 - 17:30</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="event-register">
-                  <a href="#" className="event-register-content">
-                    <span>đăng kí</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </Events>
-          <JobTrackers>
-            <div className="header">
-              <div>Job Trackers</div>
-              <span className="view-all">40 New Jobs This Week</span>
-            </div>
-            <div className="job-content">
-              <div className="category">
-                <span>Banking</span>
-                <RiArrowDropDownLine />
-              </div>
-              {Array(3)
-                .fill(undefined)
-                .map((el) => (
-                  <div className="job">
-                    <div className="img">
-                      <img src="/images/rounded_logo.png" alt="" />
-                    </div>
-                    <div className="content">
-                      <div>
-                        <h5>Some Job Name</h5>
-                        <p className="text-muted">Deadline: 30th, Jun</p>
+                  <div className="event-right-container">
+                    <div className="event-right-content">
+                      <div className="event-img">
+                        <img src="/images/event-1.png" alt="" />
+                      </div>
+                      <div className="event-content">
+                        <div className="title">
+                          Talkshow "Customer centric in social commerce era"
+                        </div>
+                        <div className="time">
+                          <span>Thứ 6|04/11/2022|15:00 - 17:30</span>
+                        </div>
+                        <div className="event-register">
+                          <a href="#" className="event-register-content">
+                            <span>đăng kí</span>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                ))}
+                </div>
+                <div className="event-item">
+                  <div className="event-left-container">
+                    <div className="day-time">thứ sáu</div>
+                    <div className="month-year">4/11</div>
+                  </div>
+                  <div className="event-right-container">
+                    <div className="event-right-content">
+                      <div className="event-img">
+                        <img src="/images/event-1.png" alt="" />
+                      </div>
+                      <div className="event-content">
+                        <div className="title">
+                          Talkshow "Customer centric in social commerce era"
+                        </div>
+                        <div className="time">
+                          <span>Thứ 6|04/11/2022|15:00 - 17:30</span>
+                        </div>
+                        <div className="event-register">
+                          <a href="#" className="event-register-content">
+                            <span>đăng kí</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Events>
+              <Title
+                text={"Weekly News Summary"}
+                fontSize={28}
+                color="#7c00ff"
+                position="absolute"
+                left={20}
+                top={35}
+              />
+
+              <Title
+                text={"EVENTS"}
+                fontSize={28}
+                /* color="rgb(148, 121, 209)" */
+                color="#7c00ff"
+                position="absolute"
+                left={700}
+                top={35}
+              />
+
+              <Title
+                text={"CAREER TRACKER"}
+                fontSize={28}
+                fontFamily="LLPixel"
+                /* color="rgb(148, 121, 209)" */
+                color="#4e029e"
+                position="absolute"
+                left={700}
+                top={355}
+              />
+              <img src="/images/bodydashboard-bg.png" alt="BodyDashBoard" />
             </div>
-          </JobTrackers>
+          </div>
         </Functions>
       </Content>
     </Container>

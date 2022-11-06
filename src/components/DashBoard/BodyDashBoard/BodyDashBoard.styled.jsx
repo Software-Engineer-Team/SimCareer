@@ -13,20 +13,23 @@ export const Content = styled.div`
   width: 100%;
   height: 100%;
   padding: 50px 50px 100px 120px;
+  max-width: 1940px;
+  margin: 0 auto;
   overflow: scroll;
   &::-webkit-scrollbar {
     display: none;
   }
 `;
 
-export const Title = styled.div`
-  font-weight: 550;
-  font-size: 32px;
-  line-height: 1.1;
-  letter-spacing: 1.2px;
-  margin-bottom: 30px;
-  width: 100%;
-`;
+/* export const Title = styled.div` */
+/*   font-weight: 550; */
+/*   font-size: 22px; */
+/*   line-height: 1.1; */
+/*   letter-spacing: 1.2px; */
+/*   margin-bottom: 30px; */
+/*   width: 100%; */
+/*   font-family: "Origin Tech Demo", sans-serif; */
+/* `; */
 export const QuickLinks = styled.div`
   margin-bottom: 50px;
   width: 100%;
@@ -34,22 +37,21 @@ export const QuickLinks = styled.div`
   align-items: center;
   justify-content: center;
   & .title {
-    min-width: 280px;
-    font-size: 30px;
+    min-width: 250px;
     line-height: 1;
-    letter-spacing: 1.1;
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 20px;
     font-family: "Anton", sans-serif;
     font-weight: 500;
-    font-size: 50px;
+    font-size: 40px;
     letter-spacing: 1.3px;
     position: relative;
+    z-index: -1;
     &:before {
       content: "";
       position: absolute;
-      width: 125px;
+      width: 100px;
       background: rgb(148, 121, 209);
       background: linear-gradient(
         90deg,
@@ -75,12 +77,14 @@ export const QuickLinks = styled.div`
     flex-wrap: wrap;
     & .link {
       min-width: 33%;
+      font-family: "Acumin Pro", sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 10px 0;
+      margin: 5px 0;
       span {
         min-width: 150px;
+        font-size: 16px;
       }
       & .svg {
         margin-right: 10px;
@@ -105,9 +109,24 @@ export const QuickLinks = styled.div`
 export const Functions = styled.div`
   width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-  grid-column-gap: 50px;
+  & .container {
+    width: 100%;
+    height: 100%;
+    & .img-bg {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 1000px;
+      min-width: 1000px;
+      margin: 0 auto;
+      img {
+        width: 100%;
+        height: 100%;
+        max-width: 1000px;
+      }
+    }
+  }
 `;
 
 export const WeeklyNews = styled.div`
@@ -210,6 +229,9 @@ export const Events = styled.div`
   min-width: 1000px;
   max-height: 600px;
   overflow: scroll;
+  position: absolute;
+  left: -500px;
+  z-index: 100;
 
   &::-webkit-scrollbar {
     display: none;
@@ -256,6 +278,7 @@ export const Events = styled.div`
       flex-direction: column;
       margin-left: 100px;
       position: relative;
+      flex-wrap: wrap;
 
       &:before,
       &:after {
@@ -318,7 +341,8 @@ export const Events = styled.div`
       .event-register {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        margin-top: 10px;
 
         .event-register-content {
           min-width: 130px;
