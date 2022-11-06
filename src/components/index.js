@@ -4,3 +4,4 @@ export { default as BodyDashBoard } from "@components/DashBoard/BodyDashBoard/Bo
 export { default as LoginRight } from "@components/Login/LoginRight";
 export { default as LoginLeft } from "@components/Login/LoginLeft";
 export { default as CircularProgress } from "@components/UI/CircularProgress";
+export { default as Judgement } from "@components/Judgements/Judgement";
