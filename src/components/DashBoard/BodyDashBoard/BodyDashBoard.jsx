@@ -4,8 +4,11 @@ import {
   Events,
   Functions,
   QuickLinks,
+  JobTrackers,
 } from "./BodyDashBoard.styled";
 import Title from "./Title/Title";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { AiOutlinePlusSquare } from "react-icons/ai";
 
 const BodyDashBoard = () => {
   const quickLinks = [
@@ -58,6 +61,31 @@ const BodyDashBoard = () => {
       para: "Republicans may be on track to win significant victories in the upcoming midterm elections and the party could be preparing to give President Joe Biden a major headache for the next two years.",
     },
   ];
+
+  const jobTrackers = [
+    {
+      src: "/images/career-tracker-1.webp",
+      title: "Digital Marketing Intern",
+      text: "Công ty Cổ Phần Con Cưng ",
+      address: "TP Hồ Chí Minh",
+      link: "https://www.topcv.vn/viec-lam/digital-marketing-intern/860208.html?ta_source=JobSearchList&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+    },
+    {
+      src: "/images/career-tracker-2.jpg",
+      title: "Digital Marketing Intern",
+      text: "CÔNG TY CỔ PHẦN KHOÁNG SẢN VẬT LIỆU Á CỘNG",
+      address: "TP Hồ Chí Minh",
+      link: "https://www.topcv.vn/viec-lam/digital-marketing-intern/854443.html?ta_source=JobSearchList&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+    },
+    {
+      src: "/images/career-tracker-3.jpg",
+      title: "Digital Marketing Intern",
+      text: "THE FASHION JOINT STOCK COMPANY",
+      address: "TP Hồ Chí Minh",
+      link: "https://www.topcv.vn/viec-lam/digital-marketing-internship-thuc-tap-sinh/293815.html?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+    },
+  ];
+
   return (
     <Container>
       <Content>
@@ -81,60 +109,27 @@ const BodyDashBoard = () => {
         <Functions>
           <div className="container">
             <div className="img-bg">
-              <Events>
-                <div className="event-item">
-                  <div className="event-left-container">
-                    <div className="day-time">thứ sáu</div>
-                    <div className="month-year">4/11</div>
-                  </div>
-                  <div className="event-right-container">
-                    <div className="event-right-content">
-                      <div className="event-img">
-                        <img src="/images/event-1.png" alt="" />
+              <JobTrackers>
+                <div className="job-content">
+                  {jobTrackers.map(({ src, title, text, address, link }) => (
+                    <div className="job">
+                      <div className="img">
+                        <img src={src} alt="" />
                       </div>
-                      <div className="event-content">
-                        <div className="title">
-                          Talkshow "Customer centric in social commerce era"
-                        </div>
-                        <div className="time">
-                          <span>Thứ 6|04/11/2022|15:00 - 17:30</span>
-                        </div>
-                        <div className="event-register">
-                          <a href="#" className="event-register-content">
-                            <span>đăng kí</span>
-                          </a>
+                      <div className="content">
+                        <div>
+                          <h5>{title}</h5>
+                          <p className="text-muted">{text}</p>
+                          <p className="text-muted">{address}</p>
                         </div>
                       </div>
+                      <a href={link} className="icon" target="_blank">
+                        <AiOutlinePlusSquare />
+                      </a>
                     </div>
-                  </div>
+                  ))}
                 </div>
-                <div className="event-item">
-                  <div className="event-left-container">
-                    <div className="day-time">thứ sáu</div>
-                    <div className="month-year">4/11</div>
-                  </div>
-                  <div className="event-right-container">
-                    <div className="event-right-content">
-                      <div className="event-img">
-                        <img src="/images/event-1.png" alt="" />
-                      </div>
-                      <div className="event-content">
-                        <div className="title">
-                          Talkshow "Customer centric in social commerce era"
-                        </div>
-                        <div className="time">
-                          <span>Thứ 6|04/11/2022|15:00 - 17:30</span>
-                        </div>
-                        <div className="event-register">
-                          <a href="#" className="event-register-content">
-                            <span>đăng kí</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Events>
+              </JobTrackers>
               <Title
                 text={"Weekly News Summary"}
                 fontSize={28}

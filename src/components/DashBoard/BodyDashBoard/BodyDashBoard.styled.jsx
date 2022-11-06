@@ -225,8 +225,6 @@ export const Events = styled.div`
   padding: 30px;
   border-radius: 10px;
   border: 5px solid #000000;
-  max-width: 1000px;
-  min-width: 1000px;
   max-height: 600px;
   overflow: scroll;
   position: absolute;
@@ -311,6 +309,7 @@ export const Events = styled.div`
         .event-content {
           margin-left: 20px;
           font-family: "Source Code Pro", monospace;
+
           text-transform: uppercase;
 
           .title,
@@ -332,9 +331,9 @@ export const Events = styled.div`
           .time > span {
             font-size: 18.3px;
             font-weight: 400;
-            font-family: "Source Code Pro", monospace;
+            font-family: Cambria, Georgia, serif;
             text-transform: none;
-            font-style: italic;
+            letter-spacing: 1.2px;
           }
         }
       }
@@ -373,30 +372,50 @@ export const Events = styled.div`
 `;
 
 export const JobTrackers = styled(Events)`
-  background-color: rgb(0 0 0 / 7%);
-  padding: 30px;
+  padding: 0;
   border-radius: 10px;
+  position: absolute;
+  left: 600px;
+  bottom: 20px;
+  z-index: 100;
+  width: 600px;
 
   & .job-content {
-    & .category {
-      margin-bottom: 20px;
-      color: gray;
+    overflow: scroll;
+    max-height: 340px;
+
+    &::-webkit-scrollbar {
+      display: none;
     }
+
     & .job {
       display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      margin: 20px 0;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0;
+
+      /* &:first-child { */
+      /*   margin-top: 10px; */
+      /* } */
+      /* &:last-child { */
+      /*   margin-bottom: 10px; */
+      /* } */
+
       & .img {
         margin-right: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 100%;
+        height: 90px;
+        width: 90px;
+        background-color: #ffffff;
+        border: 1px solid #00000020;
+        border-radius: 50%;
+
         img {
-          width: 130px;
+          width: 60px;
+          height: 60px;
           border-radius: 10px;
-          height: 100px;
           object-fit: cover;
         }
       }
@@ -406,8 +425,9 @@ export const JobTrackers = styled(Events)`
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        width: 100%;
+        width: 250px;
         height: 100px;
+        /* margin-left: 20px; */
 
         h5,
         p {
@@ -417,23 +437,38 @@ export const JobTrackers = styled(Events)`
           text-overflow: ellipsis;
           word-break: break-word;
           display: -webkit-box;
-          -webkit-line-clamp: 1; /* number of lines to show */
+          -webkit-line-clamp: 2; /* number of lines to show */
           line-clamp: 2;
           -webkit-box-orient: vertical;
+          font-weight: 400;
+          font-family: Cambria, Georgia, serif;
+          letter-spacing: 1.2px;
+          max-width: 240px;
         }
         h5 {
-          font-size: 20px;
+          font-size: 17px;
           font-weight: 500;
-          color: #00000090;
+          color: #000000;
           width: 100%;
           line-height: 20px;
+          font-weight: 700;
         }
+
         & .text-muted {
-          font-size: 18px;
+          font-size: 16px;
+          text-transform: lowercase;
           color: #000;
-          font-weight: 600;
+          font-weight: 400;
           width: 100%;
+          display: block;
+
+          &:first-letter {
+            text-transform: uppercase;
+          }
         }
+      }
+      .icon {
+        color: red;
       }
     }
   }
