@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import {
+  Button,
   FormControl,
   FormControlLabel,
   FormLabel,
@@ -40,7 +41,7 @@ const FormControlAnswers = () => {
   return (
     <FormControl>
       <QuestionTitle id="demo-controlled-radio-buttons-group">
-        How did you hear about this program?
+        Q1/3 How did you hear about this program?
       </QuestionTitle>
       <GroupQuestions
         aria-labelledby="demo-controlled-radio-buttons-group"
@@ -49,19 +50,28 @@ const FormControlAnswers = () => {
         onChange={(e) => console.log(e)}
       >
         {answers.map(({ label }, idx) => {
-          <TextField
-            disabled
-            id="standard-disabled"
-            label="Disabled"
-            defaultValue="Hello World"
-            variant="standard"
-          />;
           if (idx === answers.length - 1) {
             return (
               <ControlLabelAnswer
                 value={label.toLowerCase()}
-                control={<Radio />}
-                label={label}
+                control={<Radio sx={{ color: "#8c39e0" }} color="secondary" />}
+                label={
+                  answer === label.toLowerCase() ? (
+                    <TextField
+                      id="standard-basic"
+                      variant="standard"
+                      placeholder={label}
+                      style={{ fontWeight: "400 !important" }}
+                    />
+                  ) : (
+                    <TextField
+                      disabled
+                      placeholder={label}
+                      variant="standard"
+                      style={{ fontWeight: "400 !important" }}
+                    />
+                  )
+                }
                 onClick={() => setAnswer(label.toLowerCase())}
               />
             );
@@ -69,12 +79,26 @@ const FormControlAnswers = () => {
           return (
             <ControlLabelAnswer
               value={label.toLowerCase()}
-              control={<Radio />}
+              control={<Radio sx={{ color: "#8c39e0" }} color="secondary" />}
               label={label}
               onClick={() => setAnswer(label.toLowerCase())}
             />
           );
         })}
+        <Button
+          variant="contained"
+          size="medium"
+          style={{
+            marginTop: "30px",
+            padding: "10px 50px",
+            background: "#fff",
+            color: "#000",
+            textTransform: "none",
+            fontFamily: "Gilroy",
+          }}
+        >
+          Continue
+        </Button>
       </GroupQuestions>
     </FormControl>
   );
@@ -83,7 +107,7 @@ const FormControlAnswers = () => {
 export default FormControlAnswers;
 
 const QuestionTitle = styled(FormLabel)`
-  color: #8c39e0;
+  color: #8c39e0 !important;
   width: 800px;
   font-size: 32px;
   max-width: 95%;
@@ -102,4 +126,8 @@ const GroupQuestions = styled(RadioGroup)`
 
 const ControlLabelAnswer = styled(FormControlLabel)`
   min-width: 300px;
+  span {
+    font-weight: 600 !important;
+    font-family: Gilroy;
+  }
 `;
