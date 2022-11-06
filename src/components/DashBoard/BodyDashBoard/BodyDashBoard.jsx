@@ -3,12 +3,17 @@ import {
   Content,
   Events,
   Functions,
+  JobTrackersContainer,
   QuickLinks,
-  JobTrackers,
+  WeeklyNewsContainer,
 } from "./BodyDashBoard.styled";
 import Title from "./Title/Title";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { AiOutlinePlusSquare } from "react-icons/ai";
+import Event from "./Event/Event";
+import WeeklyNews from "./WeeklyNews/WeeklyNews";
+import JobTrackers from "./JobTrackers/JobTrackers";
+import { Bounce, Fade, Flip, LightSpeed, Zoom } from "react-reveal";
 
 const BodyDashBoard = () => {
   const quickLinks = [
@@ -21,8 +26,9 @@ const BodyDashBoard = () => {
       url: "/images/mentoring-icon.png",
     },
     {
-      name: "Tests",
-      url: "/images/tests-icon.png",
+      name: "Study Abroad",
+      url: "/images/abroad-icon.jpg",
+      hasNewIcon: true,
     },
     {
       name: "Study Cources",
@@ -39,26 +45,58 @@ const BodyDashBoard = () => {
   ];
   const weeklyNews = [
     {
-      url: "/images/rounded_logo.png",
-      titleNews:
-        "Here's What Happens if Democrats' Worst Case Midterms Scenario Comes True",
-      time: "BY DARRAGH ROCHE ON 10/29/22 AT 9:57 AM",
-      para: "Republicans may be on track to win significant victories in the upcoming midterm elections and the party could be preparing to give President Joe Biden a major headache for the next two years.",
+      url: "/images/news-1.webp",
+      specificTime: "01/11/2022",
+      title:
+        "Founders Young Marketers “hiến kế” giải đề mùa 11: “Hãy quay lại những điều cốt lõi trong marketing”",
+      specificContent:
+        "Mùa thi thứ 11 là một mùa với một màu sắc đặc trưng, rất “Young Marketers”. Sau 10 năm hướng tới giải quyết các vấn đề ở rất nhiều ngành hàng khác nhau, lần đầu tiên Young Marketers quay trở về với chính ngành nghề của mình – quảng cáo truyền thông.",
+      link: "https://www.brandsvietnam.com/congdong/topic/328433-Founders-Young-Marketers-hien-ke-giai-de-mua-11-Hay-quay-lai-nhung-dieu-cot-loi-trong-marketing",
     },
     {
-      url: "/images/rounded_logo.png",
-      titleNews:
-        "Here's What Happens if Democrats' Worst Case Midterms Scenario Comes True",
-      time: "BY DARRAGH ROCHE ON 10/29/22 AT 9:57 AM",
-      para: "Republicans may be on track to win significant victories in the upcoming midterm elections and the party could be preparing to give President Joe Biden a major headache for the next two years.",
+      url: "/images/news-2.webp",
+      specificTime: "26/10/2022",
+      title:
+        "Asia CMO McDonald’s hé lộ kế hoạch cho World Cup 2022 và chiến lược marketing tại khu vực Châu Á",
+      specificContent:
+        "Ông Eugene Lee – CMO khu vực Châu Á của McDonald’s – chia sẻ về chiến dịch truyền thông cho sự kiện FIFA World Cup 2022 cùng Campaign Asia. Bên cạnh những thông tin về chiến dịch truyền thông mùa World Cup, ông Lee cũng chia sẻ quan điểm về việc tận dụng khả năng sáng tạo, metaverse, thực đơn của thương hiệu và vai trò của mình với cương vị Asia CMO.",
+      link: "https://www.brandsvietnam.com/congdong/topic/328321-Asia-CMO-McDonald-s-he-lo-ke-hoach-cho-World-Cup-2022-va-chien-luoc-marketing-tai-khu-vuc-Chau-A",
     },
-
     {
-      url: "/images/rounded_logo.png",
-      titleNews:
-        "Here's What Happens if Democrats' Worst Case Midterms Scenario Comes True",
-      time: "BY DARRAGH ROCHE ON 10/29/22 AT 9:57 AM",
-      para: "Republicans may be on track to win significant victories in the upcoming midterm elections and the party could be preparing to give President Joe Biden a major headache for the next two years.",
+      url: "/images/news-3.png",
+      specificTime: "03/11/2022",
+      title:
+        "Du học Marketing #3: Summer Doan @ Sheffield Hallam University – “Sốc văn hóa - thích nghi chứ đừng kỳ vọng”",
+      specificContent:
+        "Ở số thứ ba của series, chị Summer sẽ chia sẻ về hành trình du học Film & Media Production tại Sheffield Hallam University ở Anh. Vốn có quan điểm không đặt kỳ vọng trong cuộc sống, vậy chị Summer có phải đối mặt với những khó khăn, shock văn hóa – câu chuyện muôn thuở của các du học sinh?",
+      link: "https://www.brandsvietnam.com/congdong/topic/328495-Du-hoc-Marketing-3-Summer-Doan-at-Sheffield-Hallam-University-Soc-van-hoa-thich-nghi-chu-dung-ky-vong",
+    },
+    {
+      url: "/images/news-4.png",
+      specificTime: "14/10/2022",
+      title: "World Cup 2022: Nhìn lại 10 TVC thú vị qua các mùa World Cup",
+      specificContent:
+        "Sự kiện thể thao toàn cầu 4 năm một lần – World Cup được xem là thời điểm vàng để các thương hiệu “trình làng” với một lượng người theo dõi khổng lồ. Hãy cùng Brands Việt Nam điểm qua 10 TVC xưa nhưng không cũ trong suốt lịch sử hơn 90 năm tổ chức giải vô địch bóng đá thế giới.",
+      link: "https://www.brandsvietnam.com/congdong/topic/328084-World-Cup-2022-Nhin-lai-10-TVC-thu-vi-qua-cac-mua-World-Cup",
+    },
+  ];
+  const events = [
+    {
+      url: "/images/event-1.png",
+      dayTime: "thứ sáu",
+      monthYear: "4/11",
+      specificTime: "Thứ 6|04/11/2022|15:00 - 17:30",
+      title: "Talkshow 'Customer centric in social commerce era'",
+      link: "https://useinsider.com/customer-centric-in-social-commerce-era/?utm_campaign=VN%20-%20Tiktokshop%204/11/2022&utm_source=COM&fbclid=IwAR0Pn3RJdhqrMI94ue24Z1ooL5cjh9xCxBjJcvoCCt5OgXjXbHxRtQHTCVE",
+    },
+    {
+      url: "/images/event-2.jpg",
+      dayTime: "chủ nhật",
+      monthYear: "6/11",
+      specificTime:
+        "Chủ Nhật|06/11/2022|18:00. Địa điểm: Hội trường A116, cơ sở A - Đại học UEH (59C, Nguyễn Đình Chiểu, P.6, Q.3, TP.HCM)",
+      title: "KHÁM PHÁ SỰ NĂNG ĐỘNG 2022: Connæct",
+      link: "https://www.facebook.com/margroup.ueh/posts/pfbid034kUez4wTxy5DRQ8zuvKzZ1qubE8YLXXGF2V8S1SUbfcDxd16GmpSGvALap8YdKuEl",
     },
   ];
 
@@ -89,75 +127,136 @@ const BodyDashBoard = () => {
   return (
     <Container>
       <Content>
-        <Title
-          text={"Hello Cao Tuan Kiet, are you ready for our race ?"}
-          fontSize={25}
-        />
+        <Bounce right>
+          <Title
+            text={"Hello Cao Tuan Kiet, are you ready for our race ?"}
+            fontSize={25}
+          />
+        </Bounce>
         <QuickLinks>
-          <div className="title">Quick Links</div>
+          <Flip left>
+            <div className="title">Quick Links</div>
+          </Flip>
           <div className="links">
-            {quickLinks.map(({ name, url }, idx) => (
-              <div className="link" key={idx}>
-                <div className="svg">
-                  <img src={url} alt="" />
+            <LightSpeed right>
+              {quickLinks.map(({ name, url, hasNewIcon }, idx) => (
+                <div className="link" key={idx}>
+                  <div className="svg">
+                    <img src={url} alt="" />
+                  </div>
+                  <div className="content">
+                    {name}
+                    {hasNewIcon && (
+                      <img
+                        src="/images/new-icon.gif"
+                        width="30px"
+                        height="25px"
+                      />
+                    )}
+                  </div>
                 </div>
-                <span>{name}</span>
-              </div>
-            ))}
+              ))}
+            </LightSpeed>
           </div>
         </QuickLinks>
         <Functions>
           <div className="container">
             <div className="img-bg">
-              <JobTrackers>
-                <div className="job-content">
-                  {jobTrackers.map(({ src, title, text, address, link }) => (
-                    <div className="job">
-                      <div className="img">
-                        <img src={src} alt="" />
-                      </div>
-                      <div className="content">
-                        <div>
-                          <h5>{title}</h5>
-                          <p className="text-muted">{text}</p>
-                          <p className="text-muted">{address}</p>
-                        </div>
-                      </div>
-                      <a href={link} className="icon" target="_blank">
-                        <AiOutlinePlusSquare />
-                      </a>
-                    </div>
-                  ))}
+              <Events>
+                <div style={{ textAlign: "right", marginBottom: "10px" }}>
+                  See more
                 </div>
-              </JobTrackers>
+                <Zoom right>
+                  {events.map(
+                    ({
+                      url,
+                      dayTime,
+                      monthYear,
+                      specificTime,
+                      title,
+                      link,
+                    }) => {
+                      return (
+                        <Event
+                          url={url}
+                          dayTime={dayTime}
+                          monthYear={monthYear}
+                          specificTime={specificTime}
+                          title={title}
+                          link={link}
+                        />
+                      );
+                    }
+                  )}
+                </Zoom>
+              </Events>
+
+              <WeeklyNewsContainer>
+                <Zoom left>
+                  {weeklyNews.map(
+                    (
+                      { url, specificTime, title, specificContent, link },
+                      idx
+                    ) => {
+                      return (
+                        <WeeklyNews
+                          url={url}
+                          title={title}
+                          specificTime={specificTime}
+                          specificContent={specificContent}
+                          flexReverse={idx % 2 === 0 ? false : true}
+                          link={link}
+                        />
+                      );
+                    }
+                  )}
+                </Zoom>
+                <div>See more</div>
+              </WeeklyNewsContainer>
+
+              <JobTrackersContainer>
+                <div>See more</div>
+                <Fade right>
+                  <div className="job-content">
+                    {jobTrackers.map(({ src, title, text, address, link }) => (
+                      <JobTrackers
+                        src={src}
+                        title={title}
+                        text={text}
+                        address={address}
+                        link={link}
+                      />
+                    ))}
+                  </div>
+                </Fade>
+              </JobTrackersContainer>
+
               <Title
                 text={"Weekly News Summary"}
                 fontSize={28}
                 color="#7c00ff"
                 position="absolute"
-                left={20}
-                top={35}
+                left={-40}
+                top={125}
               />
 
               <Title
                 text={"EVENTS"}
                 fontSize={28}
-                /* color="rgb(148, 121, 209)" */
                 color="#7c00ff"
                 position="absolute"
-                left={700}
-                top={35}
+                left={850}
+                top={100}
               />
 
               <Title
                 text={"CAREER TRACKER"}
                 fontSize={28}
                 fontFamily="LLPixel"
-                /* color="rgb(148, 121, 209)" */
                 color="#4e029e"
                 position="absolute"
-                left={700}
-                top={355}
+                left={730}
+                top={605}
               />
               <img src="/images/bodydashboard-bg.png" alt="BodyDashBoard" />
             </div>
