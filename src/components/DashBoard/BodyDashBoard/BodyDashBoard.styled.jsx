@@ -202,77 +202,145 @@ export const WeeklyNews = styled.div`
 `;
 
 export const Events = styled.div`
-  background-color: rgb(0 0 0 / 7%);
+  background-color: #ffffff;
   padding: 30px;
   border-radius: 10px;
-  & .header {
-    width: 100%;
-    font-size: 30px;
-    line-height: 1;
-    letter-spacing: 1.1;
-    font-weight: 600;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    & .view-all {
-      font-size: 18px;
-      color: #00000090;
-      text-transform: uppercase;
-    }
+  border: 5px solid #000000;
+  max-width: 1000px;
+  min-width: 1000px;
+  max-height: 600px;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
-  & .schedule {
-    & .day-time,
-    /* & .time-content .time, */
-    & .time-content .content .content-title,
-    & .time-content .content .trainner,
-    & .time-content .content .no_people,
-    & .time-content .content .zoom-meeting {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      word-break: break-word;
-      display: -webkit-box;
-      -webkit-line-clamp: 1; /* number of lines to show */
-      line-clamp: 2;
-      -webkit-box-orient: vertical;
-    }
-    & .day-time {
-      font-size: 20px;
-      color: #00000090;
-      margin-bottom: 20px;
-    }
-    & .time-content {
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      & .time {
-        min-width: 100px;
-        text-align: left;
-        align-self: flex-start;
+
+  .event-item {
+    display: flex;
+    justify-content: space-between;
+    --event-item-margin-bottom: 35px;
+    margin-bottom: var(--event-item-margin-bottom);
+
+    &:last-child {
+      margin-bottom: 0px !important;
+      .event-right-container {
+        &:before {
+          height: 100% !important;
+        }
       }
-      & .content {
-        background-color: #fff;
-        padding: 10px;
-        border-radius: 10px;
-        width: 100%;
-        border: 1px solid #9e98b190;
-        & .content-title {
-          line-height: 20px;
+    }
+
+    .event-left-container {
+      display: flex;
+      min-width: 124px;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+
+      .day-time {
+        min-width: 100%;
+        font-family: "Anton", sans-serif;
+        font-size: 32px;
+        text-transform: uppercase;
+      }
+
+      .month-year {
+        font-family: Cambria, Georgia, serif;
+        font-size: 30px;
+        text-align: left;
+      }
+    }
+
+    .event-right-container {
+      display: flex;
+      flex-direction: column;
+      margin-left: 100px;
+      position: relative;
+
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: calc(100% + var(--event-item-margin-bottom));
+        background-color: #000000;
+        left: -100px;
+      }
+
+      &:after {
+        left: -100px;
+        top: 40px;
+        width: 70px;
+        height: 1px;
+      }
+
+      .event-right-content {
+        display: flex;
+
+        .event-img {
+          img {
+            border-radius: 20px;
+            width: 190px;
+            height: 90px;
+            object-fit: cover;
+          }
         }
-        & .zoom-meeting {
+        .event-content {
+          margin-left: 20px;
+          font-family: "Source Code Pro", monospace;
+          text-transform: uppercase;
+
+          .title,
+          .time {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* number of lines to show */
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            font-weight: 700;
+          }
+
+          .time {
+            -webkit-line-clamp: 3;
+          }
+
+          .time > span {
+            font-size: 18.3px;
+            font-weight: 400;
+            font-family: "Source Code Pro", monospace;
+            text-transform: none;
+            font-style: italic;
+          }
         }
-        & .trainner {
-          font-size: 12px;
-          color: #9e98b3;
-        }
-        & .no_people,
-        & .zoom-meeting {
-          color: #00000090;
-          display: flex;
-          align-items: center;
-          svg {
-            margin-right: 10px;
+      }
+      .event-register {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .event-register-content {
+          min-width: 130px;
+          text-align: center;
+          background-color: #6a3ce8;
+          border-radius: 37px;
+          color: #ffffff;
+          transition: all 100ms ease-in;
+          border: 1px solid #6a3ce8;
+          cursor: pointer;
+          text-decoration: none;
+
+          &:hover {
+            background-color: #ffffff;
+            color: #6a3ce8;
+          }
+
+          & > span {
+            font-family: "Anton", sans-serif;
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: 400 !important;
           }
         }
       }
