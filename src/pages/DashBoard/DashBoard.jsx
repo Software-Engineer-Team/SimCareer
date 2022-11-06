@@ -1,19 +1,25 @@
+import React from "react";
 import {
   HeaderDashBoard,
   NavBarDashBoard,
   BodyDashBoard,
 } from "@components/index";
-/* import useScript from "~/hooks/useScript"; */
+import { SkillTree, Profile } from "@components/index";
 import { ContainerDashBoard } from "./DashBoard.styled";
 
-const DashBoard = () => {
-  /* useScript("/assets/js/particles.js"); */
+const DashBoard = (props) => {
   return (
     <>
       <HeaderDashBoard />
       <ContainerDashBoard>
         <NavBarDashBoard />
-        <BodyDashBoard />
+        {props.type === "skill-trees" ? (
+          <SkillTree />
+        ) : props.type === "profile" ? (
+          <Profile />
+        ) : (
+          <BodyDashBoard />
+        )}
       </ContainerDashBoard>
     </>
   );

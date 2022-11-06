@@ -40,6 +40,7 @@ export const NavBar = styled.div`
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
   transition: all 0.2s ease-in-out;
   background-color: #fff;
+  z-index: 1000;
 
   div.menu-container {
     display: flex;

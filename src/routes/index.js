@@ -28,4 +28,14 @@ export const routes = [
     path: "/judgements",
     element: Judgements,
   },
+  {
+    path: "/skill-trees",
+    element: DashBoard,
+    type: "skill-trees",
+  },
+  {
+    path: "/profile",
+    element: DashBoard,
+    type: "profile",
+  },
 ];
