@@ -75,12 +75,15 @@ export const ProfileContent = styled.div`
     .submit-cv {
       margin-top: 42px;
       font-weight: 600;
-      font-size: 16px;
+      font-size: 18px;
       width: 890px;
       padding: 10px 0;
       text-align: left;
       font-family: Cambria, Georgia, serif;
       display: flex;
+      & > label {
+        align-self: center;
+      }
 
       & > span {
         color: red;
@@ -95,7 +98,7 @@ export const ProfileContent = styled.div`
         margin-left: 20px;
 
         .btn-submit-content {
-          padding: 0px 34px;
+          padding: 2.5px 24px;
           text-align: center;
           background-color: #6a3ce8;
           border-radius: 37px;
@@ -104,6 +107,9 @@ export const ProfileContent = styled.div`
           border: 1px solid #6a3ce8;
           cursor: pointer;
           text-decoration: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           &:hover {
             background-color: #ffffff;
@@ -112,7 +118,7 @@ export const ProfileContent = styled.div`
 
           & > span {
             font-family: "Anton", sans-serif;
-            font-size: 14px;
+            font-size: 16px;
             text-transform: uppercase;
             font-weight: 400 !important;
           }

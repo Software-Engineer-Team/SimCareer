@@ -48,7 +48,7 @@ h2 {
 }
 
 body {
-  font-family: "Open Sans", "Roboto", sans-serif;
+  font-family: "Roboto", "Open Sans", sans-serif;
   margin: 0;
   line-height: 1.5;
   font-size: 20px;
@@ -71,10 +71,6 @@ body::-webkit-scrollbar {
   width: 100% !important;
   height: 100% !important;
   background-color: #fff;
-  background-image: url("");
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
   position: fixed;
   top: 0;
   left: 0;

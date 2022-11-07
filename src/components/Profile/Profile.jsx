@@ -84,7 +84,7 @@ const Profile = () => {
               </div>
             </Flip>
             <Fade bottom>
-              <div className="profile-title">SIRI'S Profile</div>
+              <div className="profile-title">Your's Profile</div>
             </Fade>
           </div>
           <div className="input-container">

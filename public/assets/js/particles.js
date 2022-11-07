@@ -26,13 +26,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
           },
         },
         color: {
-          value: "#000",
+          value: "#e6e3e3",
         },
         shape: {
           type: "circle",
           stroke: {
             width: 0,
-            color: "#00000010",
+            color: "#968f8f",
           },
           polygon: {
             nb_sides: 5,
@@ -66,7 +66,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         line_linked: {
           enable: true,
           distance: 150,
-          color: "#969292",
+          color: "#cfcccc",
           opacity: 0.4,
           width: 1,
         },

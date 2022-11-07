@@ -8,10 +8,14 @@ export const GroupQuestions = styled(RadioGroup)`
 `;
 
 export const ControlLabelAnswer = styled(FormControlLabel)`
-  min-width: ${({ radiorow }) => (radiorow === "true" ? " 320px" : "0")};
+  min-width: ${({ radiorow }) => (radiorow === "true" ? " 380px" : "0")};
   margin: 0;
   span {
-    font-weight: 500 !important;
-    font-family: "Gilroy-Regular";
+    /* font-weight: 500 !important; */
+    /* font-family: "Gilroy-Regular"; */
+
+    font-family: "Roboto", "Open Sans", sans-serif;
+    font-weight: 300 !important;
+    font-size: 20px;
   }
 `;

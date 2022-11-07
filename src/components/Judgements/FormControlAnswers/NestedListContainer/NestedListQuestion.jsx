@@ -75,8 +75,10 @@ const Container = styled.div`
   label {
     color: #000 !important;
     font-size: 16px;
-    font-family: "Gilroy-Regular";
-    font-weight: 600 !important;
+    /* font-family: "Gilroy-Regular"; */
+    /* font-weight: 600 !important; */
+    font-family: "Roboto", "Open Sans", sans-serif;
+    font-weight: 300 !important;
   }
   fieldset {
     border-color: var(--color-general) !important;
