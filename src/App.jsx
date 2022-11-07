@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-      {/* {isPageLoading && <LoadingAnimation />} */}
+      {isPageLoading && <LoadingAnimation />}
       <Routes>
         {routes.map(({ path, element: Page, type }, idx) => {
           if (path === "/") {

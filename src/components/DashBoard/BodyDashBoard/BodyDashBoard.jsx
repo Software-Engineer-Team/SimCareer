@@ -186,6 +186,7 @@ const BodyDashBoard = () => {
                           specificTime={specificTime}
                           title={title}
                           link={link}
+                          key={uuidv4()}
                         />
                       );
                     }
@@ -202,6 +203,7 @@ const BodyDashBoard = () => {
                     ) => {
                       return (
                         <WeeklyNews
+                          key={uuidv4()}
                           url={url}
                           title={title}
                           specificTime={specificTime}
@@ -221,6 +223,7 @@ const BodyDashBoard = () => {
                 <div className="job-content">
                   {jobTrackers.map(({ src, title, text, address, link }) => (
                     <JobTrackers
+                      key={uuidv4()}
                       src={src}
                       title={title}
                       text={text}

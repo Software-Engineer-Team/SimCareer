@@ -126,7 +126,7 @@ const Profile = () => {
               <label>CV của bạn</label>
               <span>*</span>
             </Flip>
-            <div class="btn-submit">
+            <div className="btn-submit">
               <Zoom right>
                 <div
                   className="btn-submit-content"

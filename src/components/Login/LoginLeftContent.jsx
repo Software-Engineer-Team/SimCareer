@@ -7,7 +7,7 @@ import {
 import { AiOutlineMail } from "react-icons/ai";
 import { MdOutlineVisibility, MdOutlineVisibilityOff } from "react-icons/md";
 import { postData, validateEmail } from "@utils/utils";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { gapi } from "gapi-script";
 import { Zoom } from "react-reveal";
@@ -22,6 +22,7 @@ const LoginLeftContent = () => {
   const [password, setPassword] = useState("");
   const [errorPass, setErrorPass] = useState("");
   const [isFetching, setIsFetching] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const initClient = () => {
@@ -69,15 +70,18 @@ const LoginLeftContent = () => {
       setPassword("");
       setEmail("");
     } catch (err) {
-      if (err.response.data.error === "Bad credentials") {
+      if (err.response?.data.error === "Bad credentials") {
         return toast.error("Incorrect username or password", {
           position: toast.POSITION.TOP_CENTER,
         });
       }
-      console.log(err.response.data.error);
     } finally {
       setIsFetching(false);
     }
+  };
+
+  const googleSubmitHandler = (s) => {
+    navigate("/judgements");
   };
 
   return (
@@ -169,7 +173,7 @@ const LoginLeftContent = () => {
               <GoogleLogin
                 clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                 buttonText="Sign in with Google"
-                onSuccess={(s) => console.log(s)}
+                onSuccess={googleSubmitHandler}
                 onFailure={() => console.log("Failure")}
                 cookiePolicy={"single_host_origin"}
                 isSignedIn={true}

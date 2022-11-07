@@ -38,6 +38,7 @@ export const NavMenu = styled.div`
   height: 100%;
   width: 100%;
   color: #ffffff;
+
   & > a:first-child {
     padding-left: 5px;
   }
@@ -48,6 +49,12 @@ export const NavMenu = styled.div`
     align-items: center;
     color: #000;
     text-decoration: none;
+    font-family: Cambria, Georgia, serif;
+    & > span {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
     &:hover {
       & > span:before {
         transform: scaleX(1);
@@ -104,6 +111,12 @@ export const DropDown = styled.div`
   width: 100px;
   text-align: center;
   opacity: 0;
+  color: #ffffff;
+
+  span {
+    font-family: Cambria, Georgia, serif;
+    font-size: 14px;
+  }
 `;
 
 export const SignOut = styled.div`

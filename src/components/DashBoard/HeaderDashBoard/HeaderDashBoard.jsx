@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Nav,
   Logo,
@@ -9,10 +9,22 @@ import {
   SignOut,
   DropDown,
 } from "./HeaderDashBoard.styled";
+import { useGoogleLogout } from "react-google-login";
 
 import { RiArrowDropDownLine } from "react-icons/ri";
 
 const HeaderDashBoard = (props) => {
+  const { signOut, loaded } = useGoogleLogout({
+    clientId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+    scope: "",
+  });
+  /* const navigate = useNavigate(); */
+
+  const signOutHandler = () => {
+    signOut();
+    /* navigate("/login"); */
+  };
+
   return (
     <Nav>
       <Logo>
@@ -39,9 +51,11 @@ const HeaderDashBoard = (props) => {
         </NavMenu>
         <SignOut>
           <UserImg src="/images/simcareer-logo.png" />
-          {/* <DropDown> */}
-          {/*   <span>Sign Out</span> */}
-          {/* </DropDown> */}
+          <a href="/login">
+            <DropDown onClick={signOutHandler}>
+              <span>Sign Out</span>
+            </DropDown>
+          </a>
         </SignOut>
       </Fragment>
     </Nav>
