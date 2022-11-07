@@ -1,9 +1,22 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  --position-ob: 10px;
   width: 100%;
   height: 100%;
-  padding: 30px;
+  padding: var(--position-ob);
+
+  position: relative;
+  .image-logo {
+    position: absolute;
+    top: var(--position-ob);
+    left: var(--position-ob);
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+  }
 `;
 export const Content = styled.div`
   display: flex;

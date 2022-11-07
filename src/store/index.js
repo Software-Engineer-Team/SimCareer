@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import judgementReducer from "./judgement-slice";
 import userReducer from "./user-slice";
 
 const store = configureStore({
@@ -8,6 +9,7 @@ const store = configureStore({
     }),
   reducer: {
     user: userReducer,
+    judgement: judgementReducer,
   },
 });
 
