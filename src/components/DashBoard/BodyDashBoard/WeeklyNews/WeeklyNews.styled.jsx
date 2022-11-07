@@ -36,7 +36,9 @@ export const WeeklyNewsItem = styled.div`
 
     .news-content {
       margin-left: ${({ flexReverse }) => (flexReverse ? "0px" : "20px")};
-      font-family: "Source Code Pro", monospace;
+      /* font-family: "Source Code Pro", monospace; */
+
+      font-family: "Roboto", Helvetica, Arial, sans-serif !important;
       text-transform: uppercase;
 
       .day-time {
@@ -52,7 +54,8 @@ export const WeeklyNewsItem = styled.div`
         .specific-time > span {
           font-size: 11.3px;
           font-weight: 400;
-          font-family: "Source Code Pro", monospace;
+          /* font-family: "Source Code Pro", monospace; */
+          font-family: "Roboto", Helvetica, Arial, sans-serif !important;
           text-transform: none;
           font-style: italic;
           line-height: 2.2;
@@ -91,11 +94,12 @@ export const WeeklyNewsItem = styled.div`
       }
 
       .specific-content {
-        font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-          monospace;
+        /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", */
+        /*   monospace; */
+        font-family: "Roboto", Helvetica, Arial, sans-serif !important;
         text-transform: none;
         font-size: 13px;
-        font-weight: 500;
+        font-weight: 400;
         margin-top: 10px;
       }
     }

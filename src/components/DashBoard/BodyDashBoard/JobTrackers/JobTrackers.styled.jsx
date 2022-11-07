@@ -44,7 +44,8 @@ export const Container = styled.div`
         line-clamp: 2;
         -webkit-box-orient: vertical;
         font-weight: 400;
-        font-family: Cambria, Georgia, serif;
+        /* font-family: Cambria, Georgia, serif; */
+        font-family: "Roboto", Helvetica, Arial, sans-serif !important;
         letter-spacing: 1.2px;
         max-width: 240px;
       }

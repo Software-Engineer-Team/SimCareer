@@ -78,6 +78,7 @@ export const PresentationContainer = styled.div`
             font-family: "Muli";
             margin-bottom: 20px;
           }
+
           .text-muted {
             font-size: 18px;
             color: gray;
@@ -92,6 +93,21 @@ export const PresentationContainer = styled.div`
             font-weight: 800;
             margin-bottom: 20px;
             margin-top: 20px;
+          }
+
+          ul {
+            margin-left: 20px;
+            li {
+              font-size: 19px;
+              color: #292929;
+              font-weight: 400;
+              font-family: "Muli";
+              margin-bottom: 20px;
+            }
+          }
+
+          a {
+            text-decoration: none;
           }
         }
       }

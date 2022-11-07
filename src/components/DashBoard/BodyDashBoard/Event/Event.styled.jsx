@@ -33,7 +33,8 @@ export const EventItem = styled.div`
       }
 
       .month-year {
-        font-family: Cambria, Georgia, serif;
+        /* font-family: Cambria, Georgia, serif; */
+        font-family: "Roboto", Helvetica, Arial, sans-serif !important;
         font-size: 17px;
         text-align: left;
       }
@@ -76,7 +77,8 @@ export const EventItem = styled.div`
         }
         .event-content {
           margin-left: 20px;
-          font-family: "Source Code Pro", monospace;
+          /* font-family: "Source Code Pro", monospace; */
+          font-family: "Roboto", Helvetica, Arial, sans-serif !important;
           text-transform: uppercase;
 
           .title,
@@ -99,9 +101,10 @@ export const EventItem = styled.div`
           .time > span {
             font-size: 13.3px;
             font-weight: 400;
-            font-family: "Source Code Pro", monospace;
+            /* font-family: "Source Code Pro", monospace; */
+            font-family: "Roboto", Helvetica, Arial, sans-serif !important;
             text-transform: none;
-            font-style: italic;
+            /* font-style: italic; */
           }
         }
       }

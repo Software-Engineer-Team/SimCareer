@@ -49,7 +49,9 @@ export const NavMenu = styled.div`
     align-items: center;
     color: #000;
     text-decoration: none;
-    font-family: Cambria, Georgia, serif;
+    /* font-family: Cambria, Georgia, serif; */
+    font-family: "Roboto", Helvetica, Arial, sans-serif !important;
+
     & > span {
       font-size: 17px;
       font-weight: 600;
@@ -114,7 +116,8 @@ export const DropDown = styled.div`
   color: #ffffff;
 
   span {
-    font-family: Cambria, Georgia, serif;
+    /* font-family: Cambria, Georgia, serif; */
+    font-family: "Roboto", Helvetica, Arial, sans-serif !important;
     font-size: 14px;
   }
 `;

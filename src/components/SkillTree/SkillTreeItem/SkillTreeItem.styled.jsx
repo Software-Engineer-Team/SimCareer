@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SkillTreeItemContainer = styled.div`
   width: 722px;
-  height: 240px px;
+  height: 240px;
   border: 2px solid #000000;
   min-width: 1000px;
   background: rgba(251, 254, 251, 0.7);
@@ -27,10 +27,13 @@ export const SkillTreeItemContainer = styled.div`
       display: flex;
       align-items: center;
       flex-direction: column;
-      width: 80px;
-      height: 80px;
+      width: 120px;
+      height: 120px;
       position: relative;
       margin: 10px 20px 40px 20px;
+      &:first-child {
+        margin-left: 0px;
+      }
 
       .skill-tree-content-img {
         width: 70px;
@@ -56,12 +59,14 @@ export const SkillTreeItemContainer = styled.div`
       }
 
       .skill-tree-text {
-        width: 100px;
-        font-size: 14px;
+        width: 120px;
+        font-size: 16px;
         margin-top: 5px;
         text-align: center;
         line-height: 1;
-        font-family: "Gilroy-Bold";
+        /* font-family: "Gilroy-Bold"; */
+        font-family: "Roboto", Helvetica, Arial, sans-serif !important;
+        font-weight: 500;
       }
 
       .click-for-more {
@@ -73,7 +78,7 @@ export const SkillTreeItemContainer = styled.div`
         margin-left: 5px;
         border-radius: 3px;
         position: absolute;
-        right: -7px;
+        right: 16px;
         top: -5px;
         display: flex;
         align-items: center;

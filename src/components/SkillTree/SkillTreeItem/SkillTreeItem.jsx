@@ -10,8 +10,8 @@ const SkillTreeItem = ({ skillTreeTitle, skillTreeContents }) => {
         <div className="skill-tree-content-title">{skillTreeTitle}</div>
       </Fade>
       <div className="skill-tree-content-list">
-        {skillTreeContents.map(({ src, text }, idx) => (
-          <SkillContent src={src} text={text} key={idx} />
+        {skillTreeContents.map(({ src, text, content }, idx) => (
+          <SkillContent src={src} text={text} content={content} key={idx} />
         ))}
       </div>
     </SkillTreeItemContainer>

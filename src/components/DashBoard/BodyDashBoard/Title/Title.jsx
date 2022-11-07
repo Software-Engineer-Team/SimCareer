@@ -1,6 +1,15 @@
 import styled from "styled-components";
 
-const Title = ({ text, fontSize, fontFamily, color, position, top, left }) => {
+const Title = ({
+  fontWeight,
+  text,
+  fontSize,
+  fontFamily,
+  color,
+  position,
+  top,
+  left,
+}) => {
   return (
     <Text
       fontSize={fontSize}
@@ -9,6 +18,7 @@ const Title = ({ text, fontSize, fontFamily, color, position, top, left }) => {
       position={position}
       top={top}
       left={left}
+      fontWeight={fontWeight}
     >
       {text}
     </Text>
@@ -21,7 +31,7 @@ const Text = styled.div`
   position: ${({ position }) => position};
   top: ${({ top }) => top}px;
   left: ${({ left }) => left}px;
-  font-weight: 550;
+  font-weight: ${({ fontWeight }) => (fontWeight ? fontWeight : "550")};
   font-size: ${({ fontSize }) => (fontSize ? fontSize : "22")}px;
   line-height: 1.1;
   letter-spacing: 1px;

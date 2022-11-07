@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { Fade } from "react-reveal";
 import Presentation from "../../Presentation/Presentation";
 
-const SkillContent = ({ src, text }) => {
+const SkillContent = ({
+  src,
+  text,
+  content: { h1, pHead, lis, pTail, link },
+}) => {
   const [showPresentation, setShowPresentation] = useState(false);
 
   return (
@@ -24,7 +28,16 @@ const SkillContent = ({ src, text }) => {
         </div>
       </Fade>
 
-      {showPresentation && <Presentation onClose={setShowPresentation} />}
+      {showPresentation && (
+        <Presentation
+          h1={h1}
+          pHead={pHead}
+          lis={lis}
+          pTail={pTail}
+          link={link}
+          onClose={setShowPresentation}
+        />
+      )}
     </>
   );
 };

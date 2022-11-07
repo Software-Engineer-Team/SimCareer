@@ -28,7 +28,7 @@ const BodyDashBoard = () => {
     },
     {
       name: "Study Abroad",
-      url: "/images/abroad-icon.jpg",
+      url: "/images/abroad-icon.png",
       hasNewIcon: true,
     },
     {
@@ -130,8 +130,12 @@ const BodyDashBoard = () => {
       <Content>
         <Bounce right>
           <Title
-            text={"Hello Cao Tuan Kiet, are you ready for our race ?"}
-            fontSize={25}
+            text={
+              "Xin chào ! Bạn đã sẵn sàng cùng SIMCareer chinh phục nhà tuyển dụng ?"
+            }
+            fontSize={30}
+            fontFamily="'Roboto', Helvetica, Arial, sans-serif !important"
+            fontWeight={700}
           />
         </Bounce>
         <QuickLinks>
