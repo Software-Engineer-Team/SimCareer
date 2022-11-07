@@ -66,3 +66,16 @@ body::-webkit-scrollbar {
 .Toastify__toast-body > div:last-child {
   font-size: 16px;
 }
+
+#particles-js {
+  width: 100% !important;
+  height: 100% !important;
+  background-color: #fff;
+  background-image: url("");
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
