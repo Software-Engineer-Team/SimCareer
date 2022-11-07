@@ -8,6 +8,19 @@ export const validateEmail = (email) => {
     );
 };
 
+export const validatePhoneNumber = (phone) => {
+  return String(phone).match(
+    /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+  );
+};
+
+export const checkRowIsComplete = (id, rows) => {
+  const items = rows.filter(
+    ({ id: rid, status }) => rid === id && status === "Hoàn thành"
+  );
+  return items.length > 0;
+};
+
 export const postData = async (data, url) => {
   const options = {
     method: "POST",

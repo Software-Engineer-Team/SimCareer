@@ -3,6 +3,15 @@ import styled from "styled-components";
 export const SkillTreeContainer = styled.div`
   width: 100%;
   height: 100%;
+
+  .blurry {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/blurry_bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 `;
 
 export const SkillTreeContent = styled.div`
@@ -18,10 +27,6 @@ export const SkillTreeContent = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-
-  background-image: url("/images/blurry_bg.png");
-  background-size: cover;
-  background-repeat: no-repeat;
 
   .skill-tree-title {
     font-family: "Gilroy-Bold", sans-serif;

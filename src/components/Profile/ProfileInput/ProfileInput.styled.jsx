@@ -14,6 +14,12 @@ export const ProfileInputContainer = styled.div`
     padding: 10px 0;
     text-align: left;
     font-family: Cambria, Georgia, serif;
+
+    span {
+      color: red;
+      position: relative;
+      margin-left: 3px;
+    }
   }
 
   .form-input-container {
@@ -37,7 +43,7 @@ export const ProfileInputContainer = styled.div`
       position: relative;
       border: 1px solid rgba(0, 0, 0, 0.23);
       height: 40px;
-      width: ${({ type }) => type === "forgot-pass" && "332px"};
+      width: 432px;
 
       &.focus {
         border-color: #0e7fe1 !important;

@@ -6,6 +6,7 @@ import { Flip } from "react-reveal";
 const SkillTree = () => {
   return (
     <SkillTreeContainer>
+      <div className="blurry"></div>
       <SkillTreeContent>
         <Flip left>
           <div className="skill-tree-title">Skill Tree</div>

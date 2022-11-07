@@ -14,6 +14,7 @@ import Event from "./Event/Event";
 import WeeklyNews from "./WeeklyNews/WeeklyNews";
 import JobTrackers from "./JobTrackers/JobTrackers";
 import { Bounce, Fade, Flip, LightSpeed, Zoom } from "react-reveal";
+import { v4 as uuidv4 } from "uuid";
 
 const BodyDashBoard = () => {
   const quickLinks = [
@@ -139,8 +140,8 @@ const BodyDashBoard = () => {
           </Flip>
           <div className="links">
             <LightSpeed right>
-              {quickLinks.map(({ name, url, hasNewIcon }, idx) => (
-                <div className="link" key={idx}>
+              {quickLinks.map(({ name, url, hasNewIcon }) => (
+                <div className="link" key={uuidv4()}>
                   <div className="svg">
                     <img src={url} alt="" />
                   </div>
@@ -151,6 +152,7 @@ const BodyDashBoard = () => {
                         src="/images/new-icon.gif"
                         width="30px"
                         height="25px"
+                        alt=""
                       />
                     )}
                   </div>
@@ -216,19 +218,17 @@ const BodyDashBoard = () => {
 
               <JobTrackersContainer>
                 <div>See more</div>
-                <Fade right>
-                  <div className="job-content">
-                    {jobTrackers.map(({ src, title, text, address, link }) => (
-                      <JobTrackers
-                        src={src}
-                        title={title}
-                        text={text}
-                        address={address}
-                        link={link}
-                      />
-                    ))}
-                  </div>
-                </Fade>
+                <div className="job-content">
+                  {jobTrackers.map(({ src, title, text, address, link }) => (
+                    <JobTrackers
+                      src={src}
+                      title={title}
+                      text={text}
+                      address={address}
+                      link={link}
+                    />
+                  ))}
+                </div>
               </JobTrackersContainer>
 
               <Title
@@ -253,7 +253,7 @@ const BodyDashBoard = () => {
                 text={"CAREER TRACKER"}
                 fontSize={28}
                 fontFamily="LLPixel"
-                color="#4e029e"
+                color="#7c00ff"
                 position="absolute"
                 left={730}
                 top={605}

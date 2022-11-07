@@ -94,12 +94,8 @@ export const NavBar = styled.div`
     }
   }
   &:hover {
-    width: 250px;
+    /* width: 250px; */
     ${LiTag} {
-      & span {
-        opacity: 1;
-        z-index: 1;
-      }
     }
   }
 `;
@@ -142,9 +138,15 @@ export const UlNav = styled.ul`
         background: #000;
       }
     }
+    transition: all 220ms ease-in;
 
     &:hover {
-      & li {
+      background-color: rgba(192, 0, 0, 0.03);
+      span {
+        color: #000;
+        font-weight: 700;
+      }
+      & li svg {
         color: #000;
       }
     }
