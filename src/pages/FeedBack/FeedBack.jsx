@@ -101,11 +101,11 @@ const FeedBack = () => {
       </FeedBackHeader>
       <FeedBackContent>
         <FeedBackContentLeft>
-          <Zoom top>
+          <Fade left>
             <div className="file-pdf">
               <PDFDisplay />
             </div>
-          </Zoom>
+          </Fade>
         </FeedBackContentLeft>
         <FeedBackContentRight>
           <div className="feedback-content-right">
@@ -127,7 +127,7 @@ const FeedBack = () => {
                 i
               ) => {
                 return (
-                  <Fade right cascade>
+                  <Fade right>
                     <FeedbackRightContainer
                       backgroundColor={backgroundColor}
                       textAlign={textAlign}
@@ -137,9 +137,11 @@ const FeedBack = () => {
                     >
                       {feedbacks.map(({ content, type }, idx) => {
                         return (
-                          <p className={type} key={idx}>
-                            {content}
-                          </p>
+                          <Fade right>
+                            <p className={type} key={idx}>
+                              {content}
+                            </p>
+                          </Fade>
                         );
                       })}
                     </FeedbackRightContainer>

@@ -74,36 +74,37 @@ const Profile = () => {
 
   const submitHandler = () => {
     let timerInterval;
-    Swal.fire({
-      title: "<strong>Đang chờ xử lý...</strong>",
-      html: "Vui lòng đợi trong giây lát!!!",
-      timer: 2000,
-      timerProgressBar: true,
-      didOpen: () => {
-        Swal.showLoading();
-      },
-      willClose: () => {
-        clearInterval(timerInterval);
-      },
-    }).then((result) => {
-      /* Read more about handling dismissals below */
-      if (result.dismiss === Swal.DismissReason.timer) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "CV của bạn đã được gửi",
-          showConfirmButton: false,
-          timer: 1500,
-        }).then(() => {
-          setAllFiles((preFiles) => {
-            for (let index = 0; index < preFiles.length; index++) {
-              preFiles[index].status = "Đã xem xét";
-              return [...preFiles];
-            }
+    if (allFiles.length > 0) {
+      Swal.fire({
+        title: "<strong>Đang chờ xử lý...</strong>",
+        html: "Vui lòng đợi trong giây lát!!!",
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        },
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "CV của bạn đã được gửi",
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(() => {
+            setAllFiles((preFiles) => {
+              for (let index = 0; index < preFiles.length; index++) {
+                preFiles[index].status = "Đã xem xét";
+                return [...preFiles];
+              }
+            });
           });
-        });
-      }
-    });
+        }
+      });
+    }
   };
 
   return (

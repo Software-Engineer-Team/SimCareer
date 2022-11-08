@@ -355,7 +355,12 @@ export default function TableCV({ rows }) {
                       </TableCell>
                       <TableCell align="left">{row.time}</TableCell>
                       <TableCell align="right">{row.id}</TableCell>
-                      <TableCell align="right">
+                      <TableCell
+                        align="right"
+                        style={{
+                          color: row.status === "Đã xem xét" ? "green" : "red",
+                        }}
+                      >
                         {row.status}
                         {row.status === "Đã xem xét" && (
                           <Tooltip title="Link" style={{ marginLeft: 10 }}>
