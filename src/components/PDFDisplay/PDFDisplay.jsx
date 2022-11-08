@@ -1,26 +1,27 @@
 import React, { useState } from "react";
-import { Document, Page } from "react-pdf";
-import PdfFile from "@assets/data/Invoice_1123639657.pdf";
-const PDFDisplay = () => {
-  const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
+import { Document, Page, pdfjs } from "react-pdf/dist/esm/entry.webpack5";
+import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import "react-pdf/dist/esm/Page/TextLayer.css";
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-  function onDocumentLoadSuccess({ numPages }) {
-    setNumPages(numPages);
+const PDFDisplay = () => {
+  const [file, setFile] = useState("/images/Invoice_1123639657.pdf");
+  const [numPages, setNumPages] = useState(null);
+
+  function onFileChange(event) {
+    setFile(event.target.files[0]);
+  }
+
+  function onDocumentLoadSuccess({ numPages: nextNumPages }) {
+    setNumPages(nextNumPages);
   }
 
   return (
-    <div>
-      <Document
-        file={"/images/RitsIILCS_22.1pp.7-18_HOANG.pdf"}
-        onLoadSuccess={onDocumentLoadSuccess}
-      >
-        <Page pageNumber={pageNumber} />
-      </Document>
-      <p>
-        Page {pageNumber} of {numPages}
-      </p>
-    </div>
+    <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
+      {Array.from(new Array(numPages), (el, index) => (
+        <Page key={`page_${index + 1}`} pageNumber={index + 1} />
+      ))}
+    </Document>
   );
 };
 

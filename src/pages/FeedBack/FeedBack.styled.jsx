@@ -1,12 +1,20 @@
 import styled from "styled-components";
 
-export const FeedBackContainer = styled.div``;
+export const FeedBackContainer = styled.div`
+  width: 100%;
+  height: 100%;
+`;
 
 export const FeedBackContent = styled.div`
   width: 100%;
   height: 100%;
-  overflow-y: auto;
   display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 10px 12px;
+  max-width: 1940px;
+  margin: 0 auto;
+  z-index: -1;
   /* grid-template-columns: 3fr 1fr; */
 `;
 
@@ -19,7 +27,11 @@ export const FeedBackContentLeft = styled.div`
   .file-pdf {
     width: 100%;
     height: 100%;
-    padding-bottom: 35px;
+    padding-bottom: 55px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     /* padding-top: 400px; */
 
     /* img { */
@@ -38,6 +50,7 @@ export const FeedBackContentLeft = styled.div`
 `;
 
 export const FeedBackContentRight = styled.div`
+  max-width: 600px;
   padding: 20px;
   background-color: #fbfbfb;
   .feedback-content-right {
@@ -48,7 +61,7 @@ export const FeedBackContentRight = styled.div`
       justify-content: center;
       flex-direction: column;
       img {
-        width: 300px;
+        width: 200px;
       }
       .title {
         text-transform: uppercase;

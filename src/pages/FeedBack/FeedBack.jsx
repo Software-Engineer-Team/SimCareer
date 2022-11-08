@@ -27,12 +27,10 @@ const FeedBack = () => {
           <div className="file-pdf">
             <PDFDisplay></PDFDisplay>
             {/* <img src="/images/feedback-example.jpg" alt="" /> */}
-
             {/* <embed */}
             {/*   src="/images/Invoice_1123639657.pdf" */}
-            {/*   width="100%" */}
-            {/*   height="100%" */}
-            {/*   style={{ WebkitOverflowScrolling: "none" }} */}
+            {/*   width="1000px" */}
+            {/*   height="1000px" */}
             {/* /> */}
             {/* <ReactP */}
             {/*   file={{ */}
