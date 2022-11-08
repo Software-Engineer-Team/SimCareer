@@ -10,7 +10,16 @@ import {
 const FeedBack = () => {
   return (
     <FeedBackContainer>
-      <FeedBackHeader />
+      <FeedBackHeader>
+        <div className="feedback-image">
+          <img src="/images/simcareer-not-label.png" alt="" />
+          <div>SIMCV FEEDBACK</div>
+        </div>
+        <div className="cv-container">
+          <div className="cv-name">Yến Hoa</div>
+          <div className="file-name">Đặng Hoàng Yến Hoa CV_2022</div>
+        </div>
+      </FeedBackHeader>
       <FeedBackContent>
         <FeedBackContentLeft></FeedBackContentLeft>
         <FeedBackContentRight></FeedBackContentRight>

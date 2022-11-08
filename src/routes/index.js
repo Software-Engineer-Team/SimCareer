@@ -1,4 +1,4 @@
-import { LoginPage, DashBoard, Judgements } from "@pages/index";
+import { LoginPage, DashBoard, Judgements, FeedBack } from "@pages/index";
 
 export const routes = [
   {
@@ -42,5 +42,10 @@ export const routes = [
     path: "/price-list",
     element: DashBoard,
     type: "price-list",
+  },
+  {
+    path: "/feed-back",
+    element: FeedBack,
+    type: "feed-back",
   },
 ];
