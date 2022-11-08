@@ -18,9 +18,10 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import FilterListIcon from "@mui/icons-material/FilterList";
+import LinkIcon from "@mui/icons-material/Link";
 import { visuallyHidden } from "@mui/utils";
-import { checkRowIsComplete } from "~/utils/utils";
 import multiDownload from "~/utils/multi-download";
+import { useNavigate } from "react-router-dom";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -59,7 +60,7 @@ const headCells = [
   },
   {
     id: "time",
-    numeric: true,
+    numeric: false,
     disablePadding: false,
     label: "Ngày đăng",
   },
@@ -94,15 +95,15 @@ function EnhancedTableHead(props) {
     <TableHead>
       <TableRow>
         <TableCell padding="checkbox">
-          <Checkbox
-            color="primary"
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={rowCount > 0 && numSelected === rowCount}
-            onChange={onSelectAllClick}
-            inputProps={{
-              "aria-label": "select all desserts",
-            }}
-          />
+          {/* <Checkbox */}
+          {/*   color="primary" */}
+          {/*   indeterminate={numSelected > 0 && numSelected < rowCount} */}
+          {/*   checked={rowCount > 0 && numSelected === rowCount} */}
+          {/*   onChange={onSelectAllClick} */}
+          {/*   inputProps={{ */}
+          {/*     "aria-label": "select all desserts", */}
+          {/*   }} */}
+          {/* /> */}
         </TableCell>
         {headCells.map((headCell) => (
           <TableCell
@@ -140,13 +141,13 @@ EnhancedTableHead.propTypes = {
 };
 
 function EnhancedTableToolbar(props) {
-  const { numSelected, selected } = props;
+  const { numSelected, selected, rows } = props;
 
   const downloadHandler = async (rows) => {
+    console.log(rows);
     const selectedItems = rows
-      .filter(({ id }) => selected.indexOf(id) !== -1)
+      ?.filter(({ id }) => selected.indexOf(id) !== -1)
       .map((s) => s.url);
-    console.log(selectedItems);
     await multiDownload(selectedItems);
   };
 
@@ -194,7 +195,7 @@ function EnhancedTableToolbar(props) {
       )}
 
       {numSelected > 0 ? (
-        <Tooltip title="Download" onClick={downloadHandler}>
+        <Tooltip title="Download" onClick={() => downloadHandler(rows)}>
           <IconButton>
             <FileDownloadIcon />
           </IconButton>
@@ -220,6 +221,7 @@ export default function TableCV({ rows }) {
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const navigate = useNavigate();
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
@@ -228,6 +230,10 @@ export default function TableCV({ rows }) {
   };
 
   const handleSelectAllClick = (event) => {
+    if (event.target.checked) {
+      const newSelected = rows.map((n) => n.id);
+      return setSelected(newSelected);
+    }
     setSelected([]);
   };
 
@@ -235,9 +241,9 @@ export default function TableCV({ rows }) {
     const selectedIndex = selected.indexOf(id);
     let newSelected = [];
 
-    if (!checkRowIsComplete(id, rows)) {
-      return;
-    }
+    /* if (!checkRowIsComplete(id, rows)) { */
+    /*   return; */
+    /* } */
 
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, id);
@@ -264,7 +270,15 @@ export default function TableCV({ rows }) {
   };
 
   const isSelected = (id, rows) => {
-    return selected.indexOf(id) !== -1 && checkRowIsComplete(id, rows);
+    return selected.indexOf(id) !== -1;
+  };
+
+  const linkHandler = () => {
+    navigate("/feed-back");
+  };
+
+  const singleDownloadHandler = async (url) => {
+    await multiDownload([url]);
   };
 
   const emptyRows =
@@ -273,11 +287,9 @@ export default function TableCV({ rows }) {
   return (
     <Box
       sx={{
-        height: 400,
         width: "51%",
         minWidth: "900px",
         marginTop: "30px",
-        marginBottom: "120px",
       }}
     >
       <Paper
@@ -291,6 +303,7 @@ export default function TableCV({ rows }) {
         <EnhancedTableToolbar
           numSelected={selected.length}
           selected={selected}
+          rows={rows}
         />
         <TableContainer>
           <Table
@@ -316,7 +329,6 @@ export default function TableCV({ rows }) {
                   return (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, row.id)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
@@ -324,13 +336,14 @@ export default function TableCV({ rows }) {
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
-                        <Checkbox
-                          color="primary"
-                          checked={isItemSelected}
-                          inputProps={{
-                            "aria-labelledby": labelId,
-                          }}
-                        />
+                        {/* <Checkbox */}
+                        {/*   color="primary" */}
+                        {/*   checked={isItemSelected} */}
+                        {/*   onClick={(event) => handleClick(event, row.id)} */}
+                        {/*   inputProps={{ */}
+                        {/*     "aria-labelledby": labelId, */}
+                        {/*   }} */}
+                        {/* /> */}
                       </TableCell>
                       <TableCell
                         component="th"
@@ -340,9 +353,27 @@ export default function TableCV({ rows }) {
                       >
                         {row.postTitle}
                       </TableCell>
-                      <TableCell align="right">{row.time}</TableCell>
+                      <TableCell align="left">{row.time}</TableCell>
                       <TableCell align="right">{row.id}</TableCell>
-                      <TableCell align="right">{row.status}</TableCell>
+                      <TableCell align="right">
+                        {row.status}
+                        {row.status === "Đã xem xét" && (
+                          <Tooltip title="Link" style={{ marginLeft: 10 }}>
+                            <IconButton onClick={linkHandler}>
+                              <LinkIcon />
+                            </IconButton>
+                          </Tooltip>
+                        )}
+
+                        <Tooltip
+                          title="Download"
+                          onClick={() => singleDownloadHandler(row.url)}
+                        >
+                          <IconButton>
+                            <FileDownloadIcon />
+                          </IconButton>
+                        </Tooltip>
+                      </TableCell>
                     </TableRow>
                   );
                 })}

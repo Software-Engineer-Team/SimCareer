@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { Fade } from "react-reveal";
 import { SubmitCvContainer } from "./SubmitCV.styled";
-import { v4 as uuidv4 } from "uuid";
 import dayjs from "dayjs";
+import { generateRandomId } from "~/utils/utils";
 
 const SubmitCV = ({ onShowFormSubmitCV, onSetFiles, currentFile }) => {
   const [fileName] = useState("Drag and drop a file here, or click to select");
@@ -18,8 +18,8 @@ const SubmitCV = ({ onShowFormSubmitCV, onSetFiles, currentFile }) => {
           {
             postTitle: e.target.files[0].name,
             time: dayjs(Date.now()).format("DD/MM/YYYY"),
-            id: uuidv4(),
-            status: "Đã xem xét",
+            id: generateRandomId(),
+            status: "Chưa xem xét",
             url: event.target.result,
           },
         ]);

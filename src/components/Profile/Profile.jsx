@@ -5,6 +5,8 @@ import ProfileInput from "./ProfileInput/ProfileInput";
 import SubmitCV from "./SubmitCV/SubmitCV";
 import TableCV from "./TableCV/TableCV";
 import { Fade, Flip, Slide, Zoom } from "react-reveal";
+import { Button } from "@mui/material";
+import Swal from "sweetalert2";
 
 const Profile = () => {
   const [email, setEmail] = useState("");
@@ -68,6 +70,40 @@ const Profile = () => {
       e.target.parentElement.classList.remove("error");
       setErrorPhoneNumber(null);
     }
+  };
+
+  const submitHandler = () => {
+    let timerInterval;
+    Swal.fire({
+      title: "<strong>Đang chờ xử lý...</strong>",
+      html: "Vui lòng đợi trong giây lát!!!",
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+      willClose: () => {
+        clearInterval(timerInterval);
+      },
+    }).then((result) => {
+      /* Read more about handling dismissals below */
+      if (result.dismiss === Swal.DismissReason.timer) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "CV của bạn đã được gửi",
+          showConfirmButton: false,
+          timer: 1500,
+        }).then(() => {
+          setAllFiles((preFiles) => {
+            for (let index = 0; index < preFiles.length; index++) {
+              preFiles[index].status = "Đã xem xét";
+              return [...preFiles];
+            }
+          });
+        });
+      }
+    });
   };
 
   return (
@@ -148,6 +184,27 @@ const Profile = () => {
 
           <Fade bottom>
             <TableCV rows={allFiles} />
+          </Fade>
+
+          <Fade right>
+            <Button
+              variant="contained"
+              size="medium"
+              style={{
+                marginTop: "0px",
+                padding: "5px 5px",
+                background: "#fff",
+                color: "#000",
+                textTransform: "none",
+                width: "130px",
+                alignSelf: "center",
+                fontFamily: "Muli",
+                fontWeight: 700,
+              }}
+              onClick={submitHandler}
+            >
+              Nộp lên
+            </Button>
           </Fade>
         </div>
       </ProfileContent>

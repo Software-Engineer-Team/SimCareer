@@ -21,6 +21,10 @@ export const checkRowIsComplete = (id, rows) => {
   return items?.length > 0;
 };
 
+export const generateRandomId = () => {
+  return Math.floor(100000 + Math.random() * 900000);
+};
+
 export const postData = async (data, url) => {
   const options = {
     method: "POST",
