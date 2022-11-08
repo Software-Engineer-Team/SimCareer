@@ -21,7 +21,11 @@ const FeedBack = () => {
         </div>
       </FeedBackHeader>
       <FeedBackContent>
-        <FeedBackContentLeft></FeedBackContentLeft>
+        <FeedBackContentLeft>
+          <div className="file-pdf">
+            <img src="/images/feedback-example.jpg" alt="" />
+          </div>
+        </FeedBackContentLeft>
         <FeedBackContentRight></FeedBackContentRight>
       </FeedBackContent>
     </FeedBackContainer>

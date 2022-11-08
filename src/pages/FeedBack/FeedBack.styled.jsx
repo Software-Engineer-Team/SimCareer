@@ -5,9 +5,29 @@ export const FeedBackContainer = styled.div`
   height: 100%;
 `;
 
-export const FeedBackContent = styled.div``;
+export const FeedBackContent = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+`;
 
-export const FeedBackContentLeft = styled.div``;
+export const FeedBackContentLeft = styled.div`
+  max-width: 1640px;
+  min-height: 100%;
+  padding: 0 35px 35px 35px;
+
+  .file-pdf {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 35px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+`;
 
 export const FeedBackContentRight = styled.div``;
 
@@ -47,11 +67,24 @@ export const FeedBackHeader = styled.header`
     .cv-name {
       font-family: "Anton", sans-serif;
       font-size: 27px;
+      position: relative;
 
       &:after {
         content: "";
         position: absolute;
+        right: -30px;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background-color: #ffffff;
+        z-index: 100;
       }
+    }
+
+    .file-name {
+      font-family: Cambria, Georgia, serif;
+      font-weight: 550;
+      margin-left: 50px;
     }
   }
 `;
