@@ -1,5 +1,5 @@
 import React from "react";
-import { FeedbackRightContainer } from "~/components";
+import { FeedbackRightContainer } from "@components/index";
 import PDFDisplay from "~/components/PDFDisplay/PDFDisplay";
 import {
   FeedBackContainer,
@@ -25,18 +25,7 @@ const FeedBack = () => {
       <FeedBackContent>
         <FeedBackContentLeft>
           <div className="file-pdf">
-            <PDFDisplay></PDFDisplay>
-            {/* <img src="/images/feedback-example.jpg" alt="" /> */}
-            {/* <embed */}
-            {/*   src="/images/Invoice_1123639657.pdf" */}
-            {/*   width="1000px" */}
-            {/*   height="1000px" */}
-            {/* /> */}
-            {/* <ReactP */}
-            {/*   file={{ */}
-            {/*     url: "http://www.example.com/sample.pdf", */}
-            {/*   }} */}
-            {/* /> */}
+            <PDFDisplay />
           </div>
         </FeedBackContentLeft>
         <FeedBackContentRight>

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf/dist/esm/entry.webpack5";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+import { PDFContainer } from "./PDFDisplay.styled";
 
 const PDFDisplay = () => {
   const [file, setFile] = useState("/images/Invoice_1123639657.pdf");
@@ -15,6 +15,10 @@ const PDFDisplay = () => {
   function onDocumentLoadSuccess({ numPages: nextNumPages }) {
     setNumPages(nextNumPages);
   }
+
+  useEffect(() => {
+    pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+  }, []);
 
   return (
     <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
