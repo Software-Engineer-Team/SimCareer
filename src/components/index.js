@@ -7,3 +7,4 @@ export { default as CircularProgress } from "@components/UI/CircularProgress";
 export { default as Judgement } from "@components/Judgements/Judgement";
 export { default as SkillTree } from "@components/SkillTree/SkillTree";
 export { default as Profile } from "@components/Profile/Profile";
+export { default as PriceList } from "@components/PriceList/PriceList";

@@ -1,6 +1,7 @@
 import { NavBar, UlNav, LiTag } from "./NavBarDashBoard.styled";
 import { MdOutlineDashboard, MdDeviceHub } from "react-icons/md";
 import { HiOutlineInbox } from "react-icons/hi";
+import { IoIosPricetags } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -29,15 +30,7 @@ const NavBarDashBoard = (props) => {
             <div className="svg">
               <MdOutlineDashboard />
             </div>
-            <span>Dash Board</span>
-          </LiTag>
-        </Link>
-        <Link to="#">
-          <LiTag w="1.5rem" h="1.5rem">
-            <div className="svg">
-              <HiOutlineInbox />
-            </div>
-            <span>Inbox</span>
+            {/* <span>Dash Board</span> */}
           </LiTag>
         </Link>
         <Link to="/skill-trees" id="skill-trees">
@@ -45,7 +38,15 @@ const NavBarDashBoard = (props) => {
             <div className="svg">
               <MdDeviceHub />
             </div>
-            <span>Skill Tree</span>
+            {/* <span>Skill Tree</span> */}
+          </LiTag>
+        </Link>
+        <Link to="/price-list">
+          <LiTag w="1.5rem" h="1.5rem">
+            <div className="svg">
+              <IoIosPricetags />
+            </div>
+            {/* <span>Inbox</span> */}
           </LiTag>
         </Link>
       </UlNav>

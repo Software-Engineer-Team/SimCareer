@@ -38,4 +38,9 @@ export const routes = [
     element: DashBoard,
     type: "profile",
   },
+  {
+    path: "/price-list",
+    element: DashBoard,
+    type: "price-list",
+  },
 ];

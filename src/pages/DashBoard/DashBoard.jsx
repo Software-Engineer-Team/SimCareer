@@ -4,7 +4,7 @@ import {
   NavBarDashBoard,
   BodyDashBoard,
 } from "@components/index";
-import { SkillTree, Profile } from "@components/index";
+import { SkillTree, Profile, PriceList } from "@components/index";
 import { ContainerDashBoard } from "./DashBoard.styled";
 
 const DashBoard = (props) => {
@@ -17,6 +17,8 @@ const DashBoard = (props) => {
           <SkillTree />
         ) : props.type === "profile" ? (
           <Profile />
+        ) : props.type === "price-list" ? (
+          <PriceList />
         ) : (
           <BodyDashBoard />
         )}
