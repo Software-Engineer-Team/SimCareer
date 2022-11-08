@@ -10,6 +10,7 @@ import {
 } from "./FeedBack.styled";
 import { HiArrowLongRight } from "react-icons/hi2";
 import { Link } from "react-router-dom";
+import { Bounce, Fade, Flip, Zoom } from "react-reveal";
 
 const FeedBack = () => {
   const feedbackContents = [
@@ -100,16 +101,20 @@ const FeedBack = () => {
       </FeedBackHeader>
       <FeedBackContent>
         <FeedBackContentLeft>
-          <div className="file-pdf">
-            <PDFDisplay />
-          </div>
+          <Zoom top>
+            <div className="file-pdf">
+              <PDFDisplay />
+            </div>
+          </Zoom>
         </FeedBackContentLeft>
         <FeedBackContentRight>
           <div className="feedback-content-right">
-            <div className="feedback-image">
-              <img src="/images/simcareer-not-label.png" alt="Test" />
-              <div className="title">SIMCV FEEDBACK</div>
-            </div>
+            <Flip top>
+              <div className="feedback-image">
+                <img src="/images/simcareer-not-label.png" alt="Test" />
+                <div className="title">SIMCV FEEDBACK</div>
+              </div>
+            </Flip>
             {feedbackContents.map(
               (
                 {
@@ -122,33 +127,37 @@ const FeedBack = () => {
                 i
               ) => {
                 return (
-                  <FeedbackRightContainer
-                    backgroundColor={backgroundColor}
-                    textAlign={textAlign}
-                    marginTop={marginTop}
-                    marginBottom={marginBottom}
-                    key={i}
-                  >
-                    {feedbacks.map(({ content, type }, idx) => {
-                      return (
-                        <p className={type} key={idx}>
-                          {content}
-                        </p>
-                      );
-                    })}
-                  </FeedbackRightContainer>
+                  <Fade right cascade>
+                    <FeedbackRightContainer
+                      backgroundColor={backgroundColor}
+                      textAlign={textAlign}
+                      marginTop={marginTop}
+                      marginBottom={marginBottom}
+                      key={i}
+                    >
+                      {feedbacks.map(({ content, type }, idx) => {
+                        return (
+                          <p className={type} key={idx}>
+                            {content}
+                          </p>
+                        );
+                      })}
+                    </FeedbackRightContainer>
+                  </Fade>
                 );
               }
             )}
 
-            <div className="feedback-right-footer">
-              <div className="oppotunity">
-                Tham gia cùng simcareer tăng cơ hội ứng tuyển
+            <Bounce left cascade>
+              <div className="feedback-right-footer">
+                <div className="oppotunity">
+                  Tham gia cùng simcareer tăng cơ hội ứng tuyển
+                </div>
+                <Link to={"/price-list"} className="move-next">
+                  <HiArrowLongRight />
+                </Link>
               </div>
-              <Link to={"/price-list"} className="move-next">
-                <HiArrowLongRight />
-              </Link>
-            </div>
+            </Bounce>
           </div>
         </FeedBackContentRight>
       </FeedBackContent>
