@@ -52,7 +52,9 @@ export const FeedBackContentLeft = styled.div`
 export const FeedBackContentRight = styled.div`
   max-width: 600px;
   padding: 20px;
+  overflow-y: auto;
   background-color: #fbfbfb;
+
   .feedback-content-right {
     .feedback-image {
       padding: 10px;
@@ -61,7 +63,7 @@ export const FeedBackContentRight = styled.div`
       justify-content: center;
       flex-direction: column;
       img {
-        width: 200px;
+        width: 150px;
       }
       .title {
         text-transform: uppercase;
@@ -70,6 +72,42 @@ export const FeedBackContentRight = styled.div`
         font-weight: 500;
         color: #787475;
         line-height: 30px;
+      }
+    }
+    .feedback-right-footer {
+      font-family: "Anton", sans-serif;
+      color: #7d2bcc;
+      margin-bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      .oppotunity {
+        font-size: 18px;
+        max-width: 210px;
+        text-align: center;
+      }
+
+      .move-next {
+        background-color: #7d2bcc;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-top: 10px;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        svg {
+          font-size: 30px;
+          border-radius: 50%;
+          cursor: pointer;
+          color: #ffffff;
+        }
       }
     }
   }

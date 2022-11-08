@@ -1,8 +1,19 @@
 import styled from "styled-components";
 
-const FeedbackRightContainer = ({ children, backgroundColor, textAlign }) => {
+const FeedbackRightContainer = ({
+  children,
+  backgroundColor,
+  textAlign,
+  marginTop,
+  marginBottom,
+}) => {
   return (
-    <FeedbackContainer backgroundColor={backgroundColor} textAlign={textAlign}>
+    <FeedbackContainer
+      backgroundColor={backgroundColor}
+      textAlign={textAlign}
+      marginTop={marginTop}
+      marginBottom={marginBottom}
+    >
       {children}
     </FeedbackContainer>
   );
@@ -17,6 +28,8 @@ const FeedbackContainer = styled.div`
   font-family: Cambria, Georgia, serif;
   font-size: 18px;
   font-weight: 500;
+  margin-top: ${({ marginTop }) => marginTop};
+  margin-bottom: ${({ marginBottom }) => marginBottom};
 
   .italic-text {
     font-style: italic;

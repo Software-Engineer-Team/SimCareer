@@ -15,10 +15,10 @@ export const validatePhoneNumber = (phone) => {
 };
 
 export const checkRowIsComplete = (id, rows) => {
-  const items = rows.filter(
-    ({ id: rid, status }) => rid === id && status === "Hoàn thành"
+  const items = rows?.filter(
+    ({ id: rid, status }) => rid === id && status === "Đã xem xét"
   );
-  return items.length > 0;
+  return items?.length > 0;
 };
 
 export const postData = async (data, url) => {

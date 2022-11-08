@@ -8,6 +8,8 @@ import {
   FeedBackContentRight,
   FeedBackHeader,
 } from "./FeedBack.styled";
+import { HiArrowLongRight } from "react-icons/hi2";
+import { Link } from "react-router-dom";
 
 const FeedBack = () => {
   return (
@@ -34,17 +36,13 @@ const FeedBack = () => {
               <img src="/images/simcareer-not-label.png" alt="Test" />
               <div className="title">SIMCV FEEDBACK</div>
             </div>
+
             <FeedbackRightContainer
               backgroundColor={"#f3f3a9"}
               textAlign="center"
+              marginTop="20px"
+              marginBottom="40px"
             >
-              <p>
-                We think that creating beautiful reactive documents and
-                explorable explanations should be easy. Writing technical
-                documents is hard enough already, and choosing to make that
-                writing interactive is beyond the reach or time-commitment of
-                most communicators.
-              </p>
               <p className="italic-text">
                 We think that creating beautiful reactive documents and
                 explorable explanations should be easy. Writing technical
@@ -59,7 +57,22 @@ const FeedBack = () => {
                 writing interactive is beyond the reach or time-commitment of
                 most communicators.
               </p>
-              <p>
+            </FeedbackRightContainer>
+
+            <FeedbackRightContainer
+              backgroundColor={"#f9dac6"}
+              textAlign="center"
+              marginTop="20px"
+              marginBottom="30px"
+            >
+              <p className="italic-text">
+                We think that creating beautiful reactive documents and
+                explorable explanations should be easy. Writing technical
+                documents is hard enough already, and choosing to make that
+                writing interactive is beyond the reach or time-commitment of
+                most communicators.
+              </p>
+              <p className="align-text-left">
                 We think that creating beautiful reactive documents and
                 explorable explanations should be easy. Writing technical
                 documents is hard enough already, and choosing to make that
@@ -67,6 +80,15 @@ const FeedBack = () => {
                 most communicators.
               </p>
             </FeedbackRightContainer>
+
+            <div className="feedback-right-footer">
+              <div className="oppotunity">
+                Tham gia cùng simcareer tăng cơ hội ứng tuyển
+              </div>
+              <Link to={"/price-list"} className="move-next">
+                <HiArrowLongRight />
+              </Link>
+            </div>
           </div>
         </FeedBackContentRight>
       </FeedBackContent>

@@ -22,34 +22,6 @@ import { visuallyHidden } from "@mui/utils";
 import { checkRowIsComplete } from "~/utils/utils";
 import multiDownload from "~/utils/multi-download";
 
-/* function createData(postTitle, time, id, status, url = null) { */
-/*   return { */
-/*     postTitle, */
-/*     time, */
-/*     id, */
-/*     status, */
-/*     url, */
-/*   }; */
-/* } */
-
-/* const rows = [ */
-/*   createData( */
-/*     "CV1", */
-/*     "08/11/2022", */
-/*     1, */
-/*     "Hoàn thành", */
-/*     "/images/Invoice_1123639657.pdf" */
-/*   ), */
-/*   createData("CV2", "07/11/2022", 2, "Hoàn thành", "/images/simcareer.png"), */
-/*   createData( */
-/*     "CV3", */
-/*     "06/11/2022", */
-/*     3, */
-/*     "Đã Nộp", */
-/*     "/images/Invoice_1123639657.pdf" */
-/*   ), */
-/* ]; */
-
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;

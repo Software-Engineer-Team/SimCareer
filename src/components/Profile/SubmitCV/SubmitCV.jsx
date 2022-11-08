@@ -8,6 +8,26 @@ import dayjs from "dayjs";
 const SubmitCV = ({ onShowFormSubmitCV, onSetFiles, currentFile }) => {
   const [fileName] = useState("Drag and drop a file here, or click to select");
 
+  const submitCV = (e) => {
+    if (e.target.files[0]) {
+      const fReader = new FileReader();
+      fReader.readAsDataURL(e.target.files[0]);
+      fReader.onload = (event) => {
+        onSetFiles((preFiles) => [
+          ...preFiles,
+          {
+            postTitle: e.target.files[0].name,
+            time: dayjs(Date.now()).format("DD/MM/YYYY"),
+            id: uuidv4(),
+            status: "Đã xem xét",
+            url: event.target.result,
+          },
+        ]);
+      };
+      return onShowFormSubmitCV(false);
+    }
+  };
+
   return (
     <SubmitCvContainer>
       <div className="back-drop"></div>
@@ -34,31 +54,13 @@ const SubmitCV = ({ onShowFormSubmitCV, onSetFiles, currentFile }) => {
                   name="upload"
                   accept="application/pdf,application/vnd.ms-excel"
                   style={{ display: "none" }}
-                  onChange={(e) => {
-                    if (e.target.files[0]) {
-                      const fReader = new FileReader();
-                      fReader.readAsDataURL(e.target.files[0]);
-                      fReader.onload = (event) => {
-                        onSetFiles((preFiles) => [
-                          ...preFiles,
-                          {
-                            postTitle: e.target.files[0].name,
-                            time: dayjs(Date.now()).format("DD/MM/YYYY"),
-                            id: uuidv4(),
-                            status: "Chưa chỉnh sửa",
-                            url: event.target.result,
-                          },
-                        ]);
-                      };
-                      return onShowFormSubmitCV(false);
-                    }
-                  }}
+                  onChange={submitCV}
                 />
               </div>
             </label>
 
-            <div class="submit-form-footer">
-              <div class="menu-logo">
+            <div className="submit-form-footer">
+              <div className="menu-logo">
                 <img src="/images/simcareer-not-label.png" alt="Logo" />
                 <div>SIRI</div>
               </div>
