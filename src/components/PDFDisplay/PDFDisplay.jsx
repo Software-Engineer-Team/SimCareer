@@ -6,7 +6,7 @@ import "react-pdf/dist/esm/Page/TextLayer.css";
 import { PDFContainer } from "./PDFDisplay.styled";
 
 const PDFDisplay = () => {
-  const [file, setFile] = useState("/images/RitsIILCS_22.1pp.7-18_HOANG.pdf");
+  const [file, setFile] = useState("/images/feedback-01.pdf");
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(null);
 

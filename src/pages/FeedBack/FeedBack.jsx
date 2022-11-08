@@ -12,6 +12,80 @@ import { HiArrowLongRight } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 
 const FeedBack = () => {
+  const feedbackContents = [
+    {
+      backgroundColor: "#f3f3a9",
+      textAlign: "center",
+      marginTop: "20px",
+      marginBottom: "40px",
+      feedbacks: [
+        {
+          content:
+            "Thông tin cá nhân: Ứng viên cần cập nhật DOB trong hồ sơ ứng tuyển của mình",
+          type: "align-text-left",
+        },
+        {
+          content:
+            "***Thông tin này phục vụ nhà tuyển dụng trong việc đánh giá tiềm năng phát triển của bạn***",
+          type: "align-text-left",
+        },
+        {
+          content:
+            "Tóm tắt bản thân: Để giúp nhà tuyển dụng có những cái nhìn khái quát về bạn. Một đoạn giới thiệu vắn tắt Bạn là ai ? Điểm mạnh ? Mục tiêu sự nghiệp ? là rất cần thiết.",
+          type: "italic-text",
+        },
+        {
+          content:
+            "Ngoài ra mỗi bản mỗi CV cần được cá nhân hóa cho từng công ty khác nhau để thể hiện sự tôn trọng cũng như sự quan tâm về công ty.",
+          type: "italic-text",
+        },
+      ],
+    },
+    {
+      backgroundColor: "#f4dbe1",
+      textAlign: "left",
+      marginTop: "50px",
+      marginBottom: "50px",
+      feedbacks: [
+        {
+          content:
+            "Education: Ứng viên cần nêu rõ chuyên ngành hiện tại cũng như niên khóa của ngành học.",
+          type: "align-text-left",
+        },
+      ],
+    },
+    {
+      backgroundColor: "#def6e6",
+      textAlign: "left",
+      marginTop: "20px",
+      marginBottom: "40px",
+      feedbacks: [
+        {
+          content:
+            "Skills: Công việc của một digital marketer cần đáp ứng những kỹ năng liên quan đến mặt kĩ thuật nhằm gia tăng khả năng chinh phục nhà tuyển dụng;",
+          type: "align-text-left",
+        },
+        {
+          content:
+            "Các kỹ năng bạn đạt được cần được minh chứng thông qua các chứng chỉ nhằm gia tăng mức độ tin cậy.",
+          type: "align-text-left",
+        },
+      ],
+    },
+    {
+      backgroundColor: "#f6d7c3",
+      textAlign: "left",
+      marginTop: "20px",
+      marginBottom: "40px",
+      feedbacks: [
+        {
+          content:
+            "Experience: Ứng viên nên sắp xếp thứ tự ưu tiên các công việc gần nhất mà ứng viên đã hoàn thành.",
+          type: "align-text-left",
+        },
+      ],
+    },
+  ];
   return (
     <FeedBackContainer>
       <FeedBackHeader>
@@ -20,7 +94,7 @@ const FeedBack = () => {
           <div>SIMCV FEEDBACK</div>
         </div>
         <div className="cv-container">
-          <div className="cv-name">Yến Hoa</div>
+          <div className="cv-name"></div>
           <div className="file-name">Đặng Hoàng Yến Hoa CV_2022</div>
         </div>
       </FeedBackHeader>
@@ -36,50 +110,36 @@ const FeedBack = () => {
               <img src="/images/simcareer-not-label.png" alt="Test" />
               <div className="title">SIMCV FEEDBACK</div>
             </div>
-
-            <FeedbackRightContainer
-              backgroundColor={"#f3f3a9"}
-              textAlign="center"
-              marginTop="20px"
-              marginBottom="40px"
-            >
-              <p className="italic-text">
-                We think that creating beautiful reactive documents and
-                explorable explanations should be easy. Writing technical
-                documents is hard enough already, and choosing to make that
-                writing interactive is beyond the reach or time-commitment of
-                most communicators.
-              </p>
-              <p className="align-text-left">
-                We think that creating beautiful reactive documents and
-                explorable explanations should be easy. Writing technical
-                documents is hard enough already, and choosing to make that
-                writing interactive is beyond the reach or time-commitment of
-                most communicators.
-              </p>
-            </FeedbackRightContainer>
-
-            <FeedbackRightContainer
-              backgroundColor={"#f9dac6"}
-              textAlign="center"
-              marginTop="20px"
-              marginBottom="30px"
-            >
-              <p className="italic-text">
-                We think that creating beautiful reactive documents and
-                explorable explanations should be easy. Writing technical
-                documents is hard enough already, and choosing to make that
-                writing interactive is beyond the reach or time-commitment of
-                most communicators.
-              </p>
-              <p className="align-text-left">
-                We think that creating beautiful reactive documents and
-                explorable explanations should be easy. Writing technical
-                documents is hard enough already, and choosing to make that
-                writing interactive is beyond the reach or time-commitment of
-                most communicators.
-              </p>
-            </FeedbackRightContainer>
+            {feedbackContents.map(
+              (
+                {
+                  backgroundColor,
+                  textAlign,
+                  marginTop,
+                  marginBottom,
+                  feedbacks,
+                },
+                i
+              ) => {
+                return (
+                  <FeedbackRightContainer
+                    backgroundColor={backgroundColor}
+                    textAlign={textAlign}
+                    marginTop={marginTop}
+                    marginBottom={marginBottom}
+                    key={i}
+                  >
+                    {feedbacks.map(({ content, type }, idx) => {
+                      return (
+                        <p className={type} key={idx}>
+                          {content}
+                        </p>
+                      );
+                    })}
+                  </FeedbackRightContainer>
+                );
+              }
+            )}
 
             <div className="feedback-right-footer">
               <div className="oppotunity">
