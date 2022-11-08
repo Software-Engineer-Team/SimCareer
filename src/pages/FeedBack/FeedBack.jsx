@@ -1,4 +1,6 @@
 import React from "react";
+import { FeedbackRightContainer } from "~/components";
+import PDFDisplay from "~/components/PDFDisplay/PDFDisplay";
 import {
   FeedBackContainer,
   FeedBackContent,
@@ -23,10 +25,63 @@ const FeedBack = () => {
       <FeedBackContent>
         <FeedBackContentLeft>
           <div className="file-pdf">
-            <img src="/images/feedback-example.jpg" alt="" />
+            <PDFDisplay></PDFDisplay>
+            {/* <img src="/images/feedback-example.jpg" alt="" /> */}
+
+            {/* <embed */}
+            {/*   src="/images/Invoice_1123639657.pdf" */}
+            {/*   width="100%" */}
+            {/*   height="100%" */}
+            {/*   style={{ WebkitOverflowScrolling: "none" }} */}
+            {/* /> */}
+            {/* <ReactP */}
+            {/*   file={{ */}
+            {/*     url: "http://www.example.com/sample.pdf", */}
+            {/*   }} */}
+            {/* /> */}
           </div>
         </FeedBackContentLeft>
-        <FeedBackContentRight></FeedBackContentRight>
+        <FeedBackContentRight>
+          <div className="feedback-content-right">
+            <div className="feedback-image">
+              <img src="/images/simcareer-not-label.png" alt="Test" />
+              <div className="title">SIMCV FEEDBACK</div>
+            </div>
+            <FeedbackRightContainer
+              backgroundColor={"#f3f3a9"}
+              textAlign="center"
+            >
+              <p>
+                We think that creating beautiful reactive documents and
+                explorable explanations should be easy. Writing technical
+                documents is hard enough already, and choosing to make that
+                writing interactive is beyond the reach or time-commitment of
+                most communicators.
+              </p>
+              <p className="italic-text">
+                We think that creating beautiful reactive documents and
+                explorable explanations should be easy. Writing technical
+                documents is hard enough already, and choosing to make that
+                writing interactive is beyond the reach or time-commitment of
+                most communicators.
+              </p>
+              <p className="align-text-left">
+                We think that creating beautiful reactive documents and
+                explorable explanations should be easy. Writing technical
+                documents is hard enough already, and choosing to make that
+                writing interactive is beyond the reach or time-commitment of
+                most communicators.
+              </p>
+              <p>
+                We think that creating beautiful reactive documents and
+                explorable explanations should be easy. Writing technical
+                documents is hard enough already, and choosing to make that
+                writing interactive is beyond the reach or time-commitment of
+                most communicators.
+              </p>
+            </FeedbackRightContainer>
+          </div>
+        </FeedBackContentRight>
       </FeedBackContent>
     </FeedBackContainer>
   );

@@ -9,27 +9,61 @@ export const FeedBackContent = styled.div`
   width: 100%;
   height: 100%;
   overflow-y: auto;
+  display: flex;
+  /* grid-template-columns: 3fr 1fr; */
 `;
 
 export const FeedBackContentLeft = styled.div`
-  max-width: 1640px;
-  min-height: 100%;
-  padding: 0 35px 35px 35px;
+  height: 100%;
+  width: 100%;
+  /* padding: 35px 35px 35px 35px; */
+  /* overflow-y: auto; */
 
   .file-pdf {
     width: 100%;
     height: 100%;
     padding-bottom: 35px;
+    /* padding-top: 400px; */
 
-    img {
+    /* img { */
+    /*   width: 1000px; */
+    /*   height: 1000px; */
+    /*   /* object-fit: cover; */
+    */
+    /* } */
+
+    embed {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      min-width: 100%;
     }
   }
 `;
 
-export const FeedBackContentRight = styled.div``;
+export const FeedBackContentRight = styled.div`
+  padding: 20px;
+  background-color: #fbfbfb;
+  .feedback-content-right {
+    .feedback-image {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      img {
+        width: 300px;
+      }
+      .title {
+        text-transform: uppercase;
+        font-family: "Anton", sans-serif;
+        font-size: 36px;
+        font-weight: 500;
+        color: #787475;
+        line-height: 30px;
+      }
+    }
+  }
+`;
 
 export const FeedBackHeader = styled.header`
   background: #231f20;
