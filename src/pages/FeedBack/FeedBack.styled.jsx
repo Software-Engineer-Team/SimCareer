@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
-export const FeedBackContainer = styled.div`
-  width: 100%;
-  height: 100%;
-`;
+export const FeedBackContainer = styled.div``;
 
 export const FeedBackContent = styled.div`
   width: 100%;

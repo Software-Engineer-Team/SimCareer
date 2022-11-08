@@ -11,7 +11,10 @@ const PDFDisplay = () => {
 
   return (
     <div>
-      <Document file={PdfFile} onLoadSuccess={onDocumentLoadSuccess}>
+      <Document
+        file={"/images/RitsIILCS_22.1pp.7-18_HOANG.pdf"}
+        onLoadSuccess={onDocumentLoadSuccess}
+      >
         <Page pageNumber={pageNumber} />
       </Document>
       <p>
