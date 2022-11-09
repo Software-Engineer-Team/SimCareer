@@ -1,4 +1,10 @@
-import { LoginPage, DashBoard, Judgements, FeedBack } from "@pages/index";
+import {
+  LoginPage,
+  DashBoard,
+  Judgements,
+  FeedBack,
+  ScoreCV,
+} from "@pages/index";
 
 export const routes = [
   {
@@ -47,5 +53,10 @@ export const routes = [
     path: "/feed-back",
     element: FeedBack,
     type: "feed-back",
+  },
+  {
+    path: "/score-cv",
+    element: ScoreCV,
+    type: "score-cv",
   },
 ];

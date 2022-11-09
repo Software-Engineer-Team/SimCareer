@@ -8,7 +8,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import { MdOutlineVisibility, MdOutlineVisibilityOff } from "react-icons/md";
 import { postData, validateEmail } from "@utils/utils";
 import { Link, useNavigate } from "react-router-dom";
-import { GoogleLogin, GoogleLogout } from "react-google-login";
+import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 import { Zoom } from "react-reveal";
 import { CircularProgress } from "@components/index";
