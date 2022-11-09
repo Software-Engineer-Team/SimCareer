@@ -16,6 +16,7 @@ import {
   Title,
   RadialLinearScale,
 } from "chart.js";
+import { AreaChart } from "~/components/ScoreCV/AreaChart";
 
 ChartJS.register(
   RadialLinearScale,
@@ -80,6 +81,7 @@ const ScoreCV = () => {
                 <div></div>
               </div>
               <Radar data={data} style={{ width: "200px!important" }}></Radar>
+              {/* <AreaChart /> */}
             </div>
             <div className="specific-chart"></div>
             <div className="specific-chart"></div>
