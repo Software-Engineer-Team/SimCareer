@@ -93,6 +93,7 @@ export const QuickLinks = styled.div`
           width: 100%;
           height: 100%;
           color: #fff;
+          background-color: white;
         }
       }
     }

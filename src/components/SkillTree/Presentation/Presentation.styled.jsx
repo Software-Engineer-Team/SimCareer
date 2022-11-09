@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const PresentationContainer = styled.div`
+  --font--family: Cambria, Georgia, serif;
   position: fixed;
   z-index: 1300;
   inset: 0px;
@@ -66,7 +67,7 @@ export const PresentationContainer = styled.div`
             color: #292929;
             font-weight: 800;
             line-height: 40px;
-            font-family: "Muli";
+            font-family: var(--font--family);
             margin-bottom: 5px;
           }
 
@@ -75,7 +76,7 @@ export const PresentationContainer = styled.div`
             font-size: 21px;
             color: #292929;
             font-weight: 400;
-            font-family: "Muli";
+            font-family: var(--font--family);
             margin-bottom: 20px;
           }
 
@@ -83,7 +84,7 @@ export const PresentationContainer = styled.div`
             font-size: 18px;
             color: gray;
             font-weight: 300;
-            font-family: "Muli";
+            font-family: var(--font--family);
             margin-bottom: 20px;
           }
 
@@ -101,7 +102,7 @@ export const PresentationContainer = styled.div`
               font-size: 19px;
               color: #292929;
               font-weight: 400;
-              font-family: "Muli";
+              font-family: var(--font--family);
               margin-bottom: 20px;
             }
           }

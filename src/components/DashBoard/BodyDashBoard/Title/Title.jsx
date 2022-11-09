@@ -42,4 +42,5 @@ const Text = styled.div`
     sans-serif;
   min-width: 300px;
   text-transform: uppercase;
+  z-index: 100;
 `;
