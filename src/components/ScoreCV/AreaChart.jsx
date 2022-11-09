@@ -32,7 +32,6 @@ export const options = {
         font: {
           size: 20,
           family: "vazir",
-          stepSize: 50,
         },
       },
       title: {
@@ -72,7 +71,7 @@ export const data = {
   labels: ["IB", "MBB", "MT", "Big4"],
   datasets: [
     {
-      fill: true,
+      fill: "+1",
       label: "Dataset 2",
       data: [40, 13, 60, 65],
       borderColor: "#0c84fe",
@@ -86,16 +85,16 @@ export const data = {
       backgroundColor: "#fea00c",
     },
     {
-      fill: true,
-      label: "Dataset 2",
-      data: [40, 13, 60, 65],
-      borderColor: "rgb(53, 162, 235)",
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
+      fill: " ",
+      label: "Dataset 3",
+      data: [16, 7, 60, 65],
+      borderColor: "#ffd515",
+      backgroundColor: "#ffd515",
     },
     {
       fill: true,
       label: "Dataset 2",
-      data: [40, 13, 60, 65],
+      data: [10, 2, 60, 65],
       borderColor: "rgb(53, 162, 235)",
       backgroundColor: "rgba(53, 162, 235, 0.5)",
     },

@@ -17,6 +17,8 @@ import {
   RadialLinearScale,
 } from "chart.js";
 import { AreaChart } from "~/components/ScoreCV/AreaChart";
+import { PieChart } from "~/components/ScoreCV/PieChart";
+import { DoughnutChart } from "~/components/ScoreCV/DoughnutChart";
 
 ChartJS.register(
   RadialLinearScale,
@@ -80,8 +82,10 @@ const ScoreCV = () => {
               <div className="break-line">
                 <div></div>
               </div>
-              <Radar data={data} style={{ width: "200px!important" }}></Radar>
+              {/* <Radar data={data} style={{ width: "200px!important" }}></Radar> */}
               {/* <AreaChart /> */}
+              <PieChart />
+              {/* <DoughnutChart /> */}
             </div>
             <div className="specific-chart"></div>
             <div className="specific-chart"></div>
