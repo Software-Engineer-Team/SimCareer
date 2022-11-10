@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ScoreCVContainer = styled.div`
   width: 100%;
   background-color: #2d3d6e;
-  max-height: 100%;
+  height: 100%;
   overflow-y: auto;
 `;
 
@@ -54,19 +54,14 @@ export const ScoreCVBody = styled.div`
     .score-show-content {
       display: flex;
       flex-direction: column;
+      margin: 90px 0;
 
       h3 {
         margin: 0;
-        font-size: 42px;
+        font-size: 52px;
         text-align: center;
         text-transform: uppercase;
         background: rgb(255, 255, 255);
-        background: linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 1) 0%,
-          rgba(255, 255, 255, 1) 0%,
-          rgba(209, 208, 209, 1) 100%
-        );
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -104,16 +99,19 @@ export const ScoreCVBody = styled.div`
     margin: 0 auto;
     margin-bottom: 70px;
     display: flex;
+    position: relative;
+    z-index: 100;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     --btn-color: #771fd3;
 
     h3 {
-      font-size: 30px;
+      font-size: 40px;
       font-style: italic;
       font-family: Cambria, Georgia, serif;
       font-weight: 700;
+      color: #ffffff;
     }
 
     .join-logo {
@@ -138,7 +136,7 @@ export const ScoreCVBody = styled.div`
 
       .join-btn-content {
         padding: 5px 0px;
-        width: 150px;
+        width: 160px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -157,7 +155,7 @@ export const ScoreCVBody = styled.div`
 
         & > span {
           font-family: "Anton", sans-serif;
-          font-size: 17px;
+          font-size: 23px;
           text-transform: uppercase;
           font-weight: 400 !important;
         }
@@ -173,14 +171,18 @@ export const ScoreCVBody = styled.div`
 
     .specific-chart {
       position: relative;
-      &:last-child {
-        margin-bottom: 100px;
-      }
+      z-index: 100;
+      margin-bottom: 100px;
 
       height: 100%;
       h3 {
+        color: #ffffff;
         margin: 0;
-        font-size: 30px;
+        font-size: 60px;
+        font-family: Cambria, Georgia, serif;
+        font-weight: 400;
+        letter-spacing: 2.2px;
+        margin-bottom: 10px;
       }
 
       .break-line {
@@ -191,15 +193,11 @@ export const ScoreCVBody = styled.div`
         & > div {
           height: 2px;
           width: 100%;
-          background-color: #e2dfdf;
+          background-color: #354163;
+          &.another-color {
+            background-color: #525f8b;
+          }
         }
-      }
-
-      canvas {
-        min-width: 400px !important;
-        max-height: 800px !important;
-        position: relative;
-        z-index: 50;
       }
     }
   }

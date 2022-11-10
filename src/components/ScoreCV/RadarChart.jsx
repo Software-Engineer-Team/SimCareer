@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import styled from "styled-components";
 
 import { Radar } from "react-chartjs-2";
 import {
@@ -39,7 +40,7 @@ const RadarChart = () => {
     ],
     datasets: [
       {
-        label: "Điểm mạnh",
+        label: "Đánh giá chung",
         data: [58.3, 50, 58.3, 40, 41.7],
         fill: true,
         backgroundColor: "#841a9e95",
@@ -123,7 +124,7 @@ const RadarChart = () => {
           font: {
             size: 25,
           },
-          color: "#000000",
+          color: "#ffffff",
         },
       },
     },
@@ -132,22 +133,24 @@ const RadarChart = () => {
       r: {
         ticks: {
           display: false,
-          color: "#000000",
+          color: "#ffffff",
           font: {
             size: 25,
           },
           stepSize: 16.7,
         },
         angleLines: {
-          color: "#000000",
+          color: "#ffffff",
+          lineWidth: 2,
         },
         min: 0,
         max: 100,
         grid: {
-          color: "#000000",
+          color: "#ffffff",
+          lineWidth: 2,
         },
         pointLabels: {
-          color: "#595857",
+          color: "#8b93ac",
           font: {
             size: 25,
           },
@@ -155,7 +158,23 @@ const RadarChart = () => {
       },
     },
   };
-  return <Radar data={data} options={options} />;
+  return (
+    <RadarContainer>
+      <Radar data={data} options={options} />
+    </RadarContainer>
+  );
 };
 
 export default RadarChart;
+
+const RadarContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  margin-top: 60px;
+  z-index: 1000 !important;
+
+  canvas {
+    min-width: 400px !important;
+    max-height: 800px !important;
+  }
+`;

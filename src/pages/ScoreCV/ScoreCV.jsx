@@ -17,6 +17,7 @@ import {
 } from "chart.js";
 import { PieChart, RadarChart, WaveAnimation } from "@components/index";
 import { Link } from "react-router-dom";
+import { Fade, Flip } from "react-reveal";
 
 ChartJS.register(
   RadialLinearScale,
@@ -40,13 +41,17 @@ const ScoreCV = () => {
         <ScoreCVBody>
           <div className="score-show-container">
             <div className="score-show-content">
-              <h3>Your CV Score</h3>
-              <div className="score-number">6/10</div>
+              <Flip left>
+                <h3>Your CV Score</h3>
+                <div className="score-number">6/10</div>
+              </Flip>
             </div>
           </div>
           <div className="chart-container">
             <div className="specific-chart">
-              <h3>1.Điểm mạnh</h3>
+              <Fade right>
+                <h3>1. Đánh giá chung</h3>
+              </Fade>
               <div className="break-line">
                 <div></div>
               </div>
@@ -54,27 +59,33 @@ const ScoreCV = () => {
               {/* <AreaChart /> */}
             </div>
             <div className="specific-chart">
-              <h3>1.Điểm mạnh</h3>
+              <Fade right>
+                <h3>2. Tính phù hợp</h3>
+              </Fade>
               <div className="break-line">
-                <div></div>
+                <div className="another-color"></div>
               </div>
               <PieChart />
             </div>
           </div>
 
           <div className="join-with-us">
-            <h3>Tham gia ngay cùng SIMCareer để gia tăng cơ hội tuyển dụng</h3>
-            <div className="join-logo">
-              <img src="/images/simcareer-not-label.png" alt="" />
-            </div>
-            <div className="join-btn">
-              <Link to={"#"} className="join-btn-content">
-                <span>Tiếp tục</span>
-              </Link>
-            </div>
+            <Fade bottom>
+              <h3>
+                Tham gia ngay cùng SIMCareer để gia tăng cơ hội tuyển dụng
+              </h3>
+              <div className="join-logo">
+                <img src="/images/simcareer-not-label.png" alt="" />
+              </div>
+              <div className="join-btn">
+                <Link to={"/price-list"} className="join-btn-content">
+                  <span>Tiếp tục</span>
+                </Link>
+              </div>
+            </Fade>
           </div>
-          <WaveAnimation top={100} height={"900px"} />
-          <WaveAnimation top={1300} height={"100vh"} />
+          <WaveAnimation top={400} height={"1100px"} />
+          <WaveAnimation top={1800} height={"100vh"} />
         </ScoreCVBody>
       </ScoreCVContent>
     </ScoreCVContainer>

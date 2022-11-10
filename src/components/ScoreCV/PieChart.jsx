@@ -16,8 +16,9 @@ export const data = {
 
       // go together with each other
       borderWidth: 3,
-      hoverOffset: 3,
-      offset: 3,
+      borderColor: ["#2ed058", "#fed517"],
+      hoverOffset: 5,
+      offset: 15,
       /* borderJoinStyle: "round", */
       // go together with each other
     },
@@ -32,9 +33,6 @@ const options = {
     point: {
       borderWidth: 1,
     },
-  },
-  tooltips: {
-    enabled: false,
   },
   plugins: {
     title: {
@@ -64,14 +62,16 @@ const options = {
     },
     legend: {
       display: true,
-      position: "right",
+      position: "chartArea",
       align: "start",
       reverse: true,
       labels: {
         padding: 10,
         font: {
           size: 30,
+          family: "Cambria, Georgia, serif",
         },
+        color: "#ffffff",
       },
       fullSize: true,
     },
@@ -106,5 +106,11 @@ export default function PieChart() {
 const PieContainer = styled.div`
   width: 100%;
   height: 100%;
+  margin-top: 60px;
   z-index: 1000 !important;
+
+  canvas {
+    min-width: 400px !important;
+    max-height: 600px !important;
+  }
 `;

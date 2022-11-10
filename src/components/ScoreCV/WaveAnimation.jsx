@@ -9,8 +9,8 @@ export default function WayAnimation({ top, height }) {
         <Wave
           fill="url(#gradient)"
           options={{
-            height: 20,
-            amplitude: 28,
+            height: 58,
+            amplitude: 58,
             speed: 0.35,
             points: 6,
           }}
@@ -40,7 +40,6 @@ const WaveContent = styled.div`
     & svg {
       width: 100%;
       height: ${({ height }) => height};
-      max-height: 1300px;
       z-index: -100;
       & path {
         z-index: -100;
