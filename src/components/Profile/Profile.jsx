@@ -7,6 +7,8 @@ import TableCV from "./TableCV/TableCV";
 import { Fade, Flip, Slide, Zoom } from "react-reveal";
 import { Button } from "@mui/material";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +20,11 @@ const Profile = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [errorPhoneNumber, setErrorPhoneNumber] = useState("");
   const [showFormSubmitCV, setShowFormSubmitCV] = useState(false);
-  const [allFiles, setAllFiles] = useState([]);
+
+  /* ===================== Test ============================= */
+  /* const dispatch = useDispatch(); */
+  const navigate = useNavigate();
+  const { files } = useSelector((state) => state.file);
 
   const emailHandler = (e) => {
     setEmail(e.target.value);
@@ -74,7 +80,8 @@ const Profile = () => {
 
   const submitHandler = () => {
     let timerInterval;
-    if (allFiles.length > 0) {
+    /* if (allFiles.length > 0) { */
+    if (files.length > 0) {
       Swal.fire({
         title: "<strong>Đang chờ xử lý...</strong>",
         html: "Vui lòng đợi trong giây lát!!!",
@@ -95,12 +102,14 @@ const Profile = () => {
             showConfirmButton: false,
             timer: 1500,
           }).then(() => {
-            setAllFiles((preFiles) => {
-              for (let index = 0; index < preFiles.length; index++) {
-                preFiles[index].status = "Đã xem xét";
-                return [...preFiles];
-              }
-            });
+            navigate("/score-cv");
+
+            /* setAllFiles((preFiles) => { */
+            /*   for (let index = 0; index < preFiles.length; index++) { */
+            /*     preFiles[index].status = "Đã xem xét"; */
+            /*     return [...preFiles]; */
+            /*   } */
+            /* }); */
           });
         }
       });
@@ -178,13 +187,14 @@ const Profile = () => {
           {showFormSubmitCV && (
             <SubmitCV
               onShowFormSubmitCV={setShowFormSubmitCV}
-              onSetFiles={setAllFiles}
-              currentFile={allFiles[allFiles.length - 1]?.postTitle}
+              /* onSetFiles={setAllFiles} */
+              /* currentFile={allFiles[allFiles.length - 1]?.postTitle} */
+              currentFile={files[files.length - 1]?.postTitle}
             />
           )}
 
           <Fade bottom>
-            <TableCV rows={allFiles} />
+            <TableCV rows={files} />
           </Fade>
 
           <Fade right>

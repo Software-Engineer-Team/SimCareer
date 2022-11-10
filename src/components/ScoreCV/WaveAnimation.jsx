@@ -39,6 +39,7 @@ const WaveContent = styled.div`
   & > div {
     & svg {
       width: 100%;
+      min-height: 1000px;
       height: ${({ height }) => height};
       z-index: -100;
       & path {

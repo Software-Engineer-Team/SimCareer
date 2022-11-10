@@ -4,8 +4,14 @@ import { Fade } from "react-reveal";
 import { SubmitCvContainer } from "./SubmitCV.styled";
 import dayjs from "dayjs";
 import { generateRandomId } from "~/utils/utils";
+import { useDispatch, useSelector } from "react-redux";
+import { fileActions } from "~/store/file-slice";
 
 const SubmitCV = ({ onShowFormSubmitCV, onSetFiles, currentFile }) => {
+  /* ===================== Test ============================= */
+  const dispatch = useDispatch();
+  const { files } = useSelector((state) => state.file);
+
   const [fileName] = useState("Drag and drop a file here, or click to select");
 
   const submitCV = (e) => {
@@ -13,16 +19,31 @@ const SubmitCV = ({ onShowFormSubmitCV, onSetFiles, currentFile }) => {
       const fReader = new FileReader();
       fReader.readAsDataURL(e.target.files[0]);
       fReader.onload = (event) => {
-        onSetFiles((preFiles) => [
-          ...preFiles,
-          {
-            postTitle: e.target.files[0].name,
-            time: dayjs(Date.now()).format("DD/MM/YYYY"),
-            id: generateRandomId(),
-            status: "Chưa xem xét",
-            url: event.target.result,
-          },
-        ]);
+        dispatch(
+          fileActions.setFiles({
+            files: [
+              ...files,
+              {
+                postTitle: e.target.files[0].name,
+                time: dayjs(Date.now()).format("DD/MM/YYYY"),
+                id: generateRandomId(),
+                status: "Chưa xem xét",
+                url: event.target.result,
+              },
+            ],
+          })
+        );
+
+        /* onSetFiles((preFiles) => [ */
+        /*   ...preFiles, */
+        /*   { */
+        /*     postTitle: e.target.files[0].name, */
+        /*     time: dayjs(Date.now()).format("DD/MM/YYYY"), */
+        /*     id: generateRandomId(), */
+        /*     status: "Chưa xem xét", */
+        /*     url: event.target.result, */
+        /*   }, */
+        /* ]); */
       };
       return onShowFormSubmitCV(false);
     }

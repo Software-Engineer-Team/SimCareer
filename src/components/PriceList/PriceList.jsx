@@ -6,22 +6,30 @@ import {
 } from "./PriceList.styled";
 import { prices } from "@assets/data/prices";
 import { Fade, Flip, Zoom } from "react-reveal";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fileActions } from "@store/file-slice";
 
 const PriceList = () => {
+  const dispatch = useDispatch();
+
   return (
     <PriceListContainer>
       <PriceListContent>
         <div className="inner-price-content">
           {prices.map(
-            ({
-              url,
-              typeOfPriceMore,
-              typeOfPrice,
-              priceContents,
-              btn,
-              btnColor,
-              newGif,
-            }) => {
+            (
+              {
+                url,
+                typeOfPriceMore,
+                typeOfPrice,
+                priceContents,
+                btn,
+                btnColor,
+                newGif,
+              },
+              idx
+            ) => {
               return (
                 <div className="price-content">
                   <div className="image-price">
@@ -69,13 +77,19 @@ const PriceList = () => {
                     </div>
                     <Fade top>
                       <PriceBtn className="price-btn" btnColor={btnColor}>
-                        <a
-                          href={"#"}
+                        <Link
+                          to={idx === 1 ? "/profile" : "/dash-board"}
                           className="price-btn-content"
-                          target="_blank"
+                          onClick={() => {
+                            if (idx === 0) {
+                            }
+                            if (idx === 1) {
+                              dispatch(fileActions.setStatus());
+                            }
+                          }}
                         >
                           <span>{btn}</span>
-                        </a>
+                        </Link>
                       </PriceBtn>
                     </Fade>
                   </div>

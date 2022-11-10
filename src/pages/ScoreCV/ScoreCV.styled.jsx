@@ -3,8 +3,11 @@ import styled from "styled-components";
 export const ScoreCVContainer = styled.div`
   width: 100%;
   background-color: #2d3d6e;
-  height: 100%;
-  overflow-y: auto;
+  height: 100vh;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const ScoreCVContent = styled.div`
@@ -42,7 +45,6 @@ export const ScoreCVHeader = styled.header`
 
 export const ScoreCVBody = styled.div`
   position: relative;
-  padding: 15px 0;
   height: 100%;
   width: 100%;
 

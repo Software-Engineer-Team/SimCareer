@@ -20,7 +20,7 @@ import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import LinkIcon from "@mui/icons-material/Link";
 import { visuallyHidden } from "@mui/utils";
-import multiDownload from "~/utils/multi-download";
+import multiDownload from "@utils/multi-download";
 import { useNavigate } from "react-router-dom";
 
 function descendingComparator(a, b, orderBy) {
