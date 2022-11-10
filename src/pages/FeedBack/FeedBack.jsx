@@ -96,7 +96,7 @@ const FeedBack = () => {
         </div>
         <div className="cv-container">
           <div className="cv-name"></div>
-          <div className="file-name">Đặng Hoàng Yến Hoa CV_2022</div>
+          <div className="file-name">D__H__Y__H__</div>
         </div>
       </FeedBackHeader>
       <FeedBackContent>
