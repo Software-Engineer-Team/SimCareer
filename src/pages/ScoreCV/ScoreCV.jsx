@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   ScoreCVBody,
   ScoreCVContainer,
@@ -30,40 +30,132 @@ ChartJS.register(
 );
 
 const ScoreCV = () => {
+  const delayed = useRef(null);
+
   const data = {
     labels: [
-      "Eating",
-      "Drinking",
-      "Sleeping",
-      "Designing",
-      "Coding",
-      "Cycling",
-      "Running",
+      "Trình độ học vấn",
+      "Kĩ năng",
+      "Hình thức",
+      "Thương hiệu cá nhân",
+      "Kinh nghiệm",
     ],
     datasets: [
       {
-        label: "My First Dataset",
-        data: [65, 59, 90, 81, 56, 55, 40],
-        /* fill: true, */
-        backgroundColor: "rgba(255, 99, 132, 0.2)",
-        borderColor: "rgb(255, 99, 132)",
-        pointBackgroundColor: "rgb(255, 99, 132)",
-        pointBorderColor: "#fff",
-        pointHoverBackgroundColor: "#fff",
-        pointHoverBorderColor: "rgb(255, 99, 132)",
-      },
-      {
-        label: "My Second Dataset",
-        data: [28, 48, 40, 19, 96, 27, 100],
-        /* fill: true, */
-        backgroundColor: "rgba(54, 162, 235, 0.2)",
-        borderColor: "rgb(54, 162, 235)",
-        pointBackgroundColor: "rgb(54, 162, 235)",
-        pointBorderColor: "#fff",
-        pointHoverBackgroundColor: "#fff",
-        pointHoverBorderColor: "rgb(54, 162, 235)",
+        label: "Điểm mạnh",
+        data: [58.3, 50, 58.3, 40, 41.7],
+        fill: true,
+        backgroundColor: "#841a9e95",
+        borderColor: "#841a9e95",
+        pointBackgroundColor: "#841a9e95",
+        pointBorderColor: "#841a9e95",
+        pointHoverBackgroundColor: "#841a9e",
+        pointHoverBorderColor: "#841a9e",
       },
     ],
+  };
+
+  const options = {
+    elements: {
+      line: {
+        borderWidth: 3,
+      },
+      point: {
+        borderWidth: 1,
+      },
+    },
+    animation: {
+      onComplete: () => {
+        delayed.current = true;
+      },
+      delay: (context) => {
+        let delay = 0;
+        if (
+          context.type === "data" &&
+          context.mode === "default" &&
+          !delayed.current
+        ) {
+          delay = context.dataIndex * 300 + context.datasetIndex * 100;
+        }
+        return delay;
+      },
+    },
+    hoverRadius: 12,
+    interaction: {
+      mode: "nearest",
+      intersect: false,
+      axis: "x",
+    },
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: "Đánh giá chung",
+        padding: {
+          top: 0,
+        },
+        font: {
+          size: 35,
+        },
+        color: "#000000",
+      },
+      tooltip: {
+        enabled: true,
+        position: "average",
+        titleFont: {
+          size: 20,
+          color: "#ffffff",
+          lineHeight: 1.2,
+        },
+        bodyFont: {
+          size: 18,
+          color: "#ffffff",
+          lineHeight: 1.2,
+        },
+        bodyAlign: "left",
+        padding: 10,
+        boxPadding: 10,
+      },
+      legend: {
+        display: true,
+        position: "chartArea",
+        align: "start",
+        labels: {
+          padding: 150,
+          font: {
+            size: 25,
+          },
+          color: "#000000",
+        },
+      },
+    },
+    maintainAspectRatio: true,
+    scales: {
+      r: {
+        ticks: {
+          display: false,
+          color: "#000000",
+          font: {
+            size: 25,
+          },
+          stepSize: 16.7,
+        },
+        angleLines: {
+          color: "#000000",
+        },
+        min: 0,
+        max: 100,
+        grid: {
+          color: "#000000",
+        },
+        pointLabels: {
+          color: "#595857",
+          font: {
+            size: 25,
+          },
+        },
+      },
+    },
   };
 
   return (
@@ -82,7 +174,7 @@ const ScoreCV = () => {
               <div className="break-line">
                 <div></div>
               </div>
-              {/* <Radar data={data} style={{ width: "200px!important" }}></Radar> */}
+              <Radar data={data} options={options}></Radar>
               {/* <AreaChart /> */}
               <PieChart />
               {/* <DoughnutChart /> */}

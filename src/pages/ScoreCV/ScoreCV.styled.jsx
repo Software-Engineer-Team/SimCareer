@@ -1,8 +1,14 @@
 import styled from "styled-components";
 
-export const ScoreCVContainer = styled.div``;
+export const ScoreCVContainer = styled.div`
+  width: 100%;
+  height: 100%;
+`;
 
-export const ScoreCVContent = styled.div``;
+export const ScoreCVContent = styled.div`
+  width: 100%;
+  height: 100%;
+`;
 
 export const ScoreCVHeader = styled.header`
   background: #231f20;
@@ -36,10 +42,12 @@ export const ScoreCVBody = styled.div`
   padding: 15px;
   height: 100%;
   width: 100%;
+  overflow-y: auto;
 
   .chart-container {
     max-width: 1400px;
     margin: 0 auto;
+    height: 100%;
 
     .specific-chart {
       height: 100%;
@@ -51,11 +59,17 @@ export const ScoreCVBody = styled.div`
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        margin-bottom: 20px;
         & > div {
           height: 2px;
-          width: 70%;
+          width: 100%;
           background-color: #e2dfdf;
         }
+      }
+
+      canvas {
+        min-width: 400px !important;
+        max-height: 800px !important;
       }
     }
   }
