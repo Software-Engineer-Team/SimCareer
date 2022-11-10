@@ -15,7 +15,7 @@ import {
   Title,
   RadialLinearScale,
 } from "chart.js";
-import { PieChart, RadarChart } from "@components/index";
+import { PieChart, RadarChart, WaveAnimation } from "@components/index";
 
 ChartJS.register(
   RadialLinearScale,
@@ -179,8 +179,6 @@ const ScoreCV = () => {
               </div>
               <RadarChart />
               {/* <AreaChart /> */}
-
-              {/* <DoughnutChart /> */}
             </div>
             <div className="specific-chart">
               <h3>1.Điểm mạnh</h3>
@@ -191,6 +189,8 @@ const ScoreCV = () => {
             </div>
             {/* <div className="specific-chart"></div> */}
           </div>
+          <WaveAnimation top={100} height={"900px"} />
+          <WaveAnimation top={1300} height={"100vh"} />
         </ScoreCVBody>
       </ScoreCVContent>
     </ScoreCVContainer>

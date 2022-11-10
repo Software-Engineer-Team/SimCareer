@@ -11,3 +11,4 @@ export { default as PriceList } from "@components/PriceList/PriceList";
 export { default as FeedbackRightContainer } from "@components/FeedBack/FeedbackRightContainer";
 export { default as PieChart } from "@components/ScoreCV/PieChart";
 export { default as RadarChart } from "@components/ScoreCV/RadarChart";
+export { default as WaveAnimation } from "@components/ScoreCV/WaveAnimation";

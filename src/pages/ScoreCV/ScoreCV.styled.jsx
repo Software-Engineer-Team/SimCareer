@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ScoreCVContainer = styled.div`
   width: 100%;
   height: 100%;
+  background-color: #2d3d6e;
 `;
 
 export const ScoreCVContent = styled.div`
@@ -39,7 +40,8 @@ export const ScoreCVHeader = styled.header`
 `;
 
 export const ScoreCVBody = styled.div`
-  padding: 15px;
+  position: relative;
+  padding: 15px 0;
   height: 100%;
   width: 100%;
   overflow-y: auto;
@@ -73,11 +75,11 @@ export const ScoreCVBody = styled.div`
   .chart-container {
     max-width: 1400px;
     margin: 0 auto;
-    min-height: 100%;
     display: flex;
     flex-direction: column;
 
     .specific-chart {
+      position: relative;
       &:last-child {
         margin-bottom: 100px;
       }
@@ -103,6 +105,8 @@ export const ScoreCVBody = styled.div`
       canvas {
         min-width: 400px !important;
         max-height: 800px !important;
+        position: relative;
+        z-index: 50;
       }
     }
   }

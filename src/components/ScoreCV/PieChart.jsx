@@ -2,6 +2,7 @@ import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
+import styled from "styled-components";
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -37,7 +38,7 @@ const options = {
   },
   plugins: {
     title: {
-      display: true,
+      display: false,
       text: "Pie Chart",
       padding: 60,
       font: {
@@ -63,7 +64,7 @@ const options = {
     },
     legend: {
       display: true,
-      position: "center",
+      position: "right",
       align: "start",
       reverse: true,
       labels: {
@@ -95,5 +96,15 @@ const options = {
 };
 
 export default function PieChart() {
-  return <Pie data={data} options={options} />;
+  return (
+    <PieContainer>
+      <Pie data={data} options={options} />;
+    </PieContainer>
+  );
 }
+
+const PieContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  z-index: 1000 !important;
+`;
