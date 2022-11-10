@@ -87,6 +87,7 @@ export const QuickLinks = styled.div`
         justify-content: center;
         background-color: white;
         border-radius: 6px;
+        border: 1px solid #000000;
         img,
         svg {
           border-radius: 6px;

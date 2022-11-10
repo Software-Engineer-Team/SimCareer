@@ -1,30 +1,31 @@
 export const quickLinks = [
   {
     name: "Inteview Source",
-    url: "/images/interview-source-icon.png",
+    url: "/images/interview-source-icon.jpg",
   },
   {
     name: "Mentoring",
-    url: "/images/mentoring-icon.png",
+    url: "/images/mentoring-icon.jpg",
   },
   {
     name: "Study Abroad",
-    url: "/images/abroad-icon.png",
+    url: "/images/abroad-icon.jpg",
     hasNewIcon: true,
   },
   {
     name: "Study Cources",
-    url: "/images/study-courses-icon.png",
+    url: "/images/study-courses-icon.jpg",
   },
   {
     name: "Community",
-    url: "/images/community-icon.png",
+    url: "/images/community-icon.jpg",
   },
   {
     name: "References",
-    url: "/images/ref-icon.png",
+    url: "/images/ref-icon.jpg",
   },
 ];
+
 export const weeklyNews = [
   {
     url: "/images/news-1.webp",
