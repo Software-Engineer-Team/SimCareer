@@ -1,11 +1,6 @@
 import React, { useRef } from "react";
-import {
-  ScoreCVBody,
-  ScoreCVContainer,
-  ScoreCVContent,
-  ScoreCVHeader,
-} from "./ScoreCV.styled";
 
+import { Radar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   LineController,
@@ -13,9 +8,11 @@ import {
   PointElement,
   LinearScale,
   Title,
+  Legend,
+  Tooltip,
+  Filler,
   RadialLinearScale,
 } from "chart.js";
-import { PieChart, RadarChart } from "@components/index";
 
 ChartJS.register(
   RadialLinearScale,
@@ -23,10 +20,13 @@ ChartJS.register(
   LineElement,
   PointElement,
   LinearScale,
-  Title
+  Title,
+  Legend,
+  Filler,
+  Tooltip
 );
 
-const ScoreCV = () => {
+const RadarChart = () => {
   const delayed = useRef(null);
 
   const data = {
@@ -86,8 +86,9 @@ const ScoreCV = () => {
     responsive: true,
     plugins: {
       title: {
-        display: true,
+        display: false,
         text: "Đánh giá chung",
+        position: "bottom",
         padding: {
           top: 0,
         },
@@ -154,47 +155,7 @@ const ScoreCV = () => {
       },
     },
   };
-
-  return (
-    <ScoreCVContainer>
-      <ScoreCVContent>
-        <ScoreCVHeader>
-          <div className="score-header">
-            <img src="/images/simcareer-not-label.png" alt="" />
-            <div>SIMCV FEEDBACK</div>
-          </div>
-        </ScoreCVHeader>
-        <ScoreCVBody>
-          <div className="score-show-container">
-            <div className="score-show-content">
-              <h3>Your CV Score</h3>
-              <div className="score-number">6/10</div>
-            </div>
-          </div>
-          <div className="chart-container">
-            <div className="specific-chart">
-              <h3>1.Điểm mạnh</h3>
-              <div className="break-line">
-                <div></div>
-              </div>
-              <RadarChart />
-              {/* <AreaChart /> */}
-
-              {/* <DoughnutChart /> */}
-            </div>
-            <div className="specific-chart">
-              <h3>1.Điểm mạnh</h3>
-              <div className="break-line">
-                <div></div>
-              </div>
-              <PieChart />
-            </div>
-            {/* <div className="specific-chart"></div> */}
-          </div>
-        </ScoreCVBody>
-      </ScoreCVContent>
-    </ScoreCVContainer>
-  );
+  return <Radar data={data} options={options} />;
 };
 
-export default ScoreCV;
+export default RadarChart;

@@ -44,15 +44,48 @@ export const ScoreCVBody = styled.div`
   width: 100%;
   overflow-y: auto;
 
+  .score-show-container {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    .score-show-content {
+      display: flex;
+      flex-direction: column;
+
+      h3 {
+        margin: 0;
+        font-size: 72px;
+        color: #fff;
+        background: -webkit-linear-gradient(#eee, #333);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 1s linear infinite;
+        @keyframes shine {
+          to {
+            background-position: 200% center;
+          }
+        }
+      }
+    }
+  }
+
   .chart-container {
     max-width: 1400px;
     margin: 0 auto;
-    height: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 
     .specific-chart {
+      &:last-child {
+        margin-bottom: 100px;
+      }
+
       height: 100%;
       h3 {
         margin: 0;
+        font-size: 30px;
       }
 
       .break-line {

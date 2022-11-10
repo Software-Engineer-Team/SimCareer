@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
@@ -94,6 +94,6 @@ const options = {
   },
 };
 
-export function PieChart() {
+export default function PieChart() {
   return <Pie data={data} options={options} />;
 }
