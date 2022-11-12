@@ -161,7 +161,6 @@ const Registration = () => {
               name: fullName,
             }
           );
-          console.log(res);
           break;
         }
         case 3: {
@@ -170,8 +169,6 @@ const Registration = () => {
             null,
             { params: { code: verificationCode } }
           );
-
-          console.log(res);
 
           toast
             .promise(

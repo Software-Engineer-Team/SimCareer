@@ -41,7 +41,7 @@ const NavBarDashBoard = (props) => {
             {/* <span>Skill Tree</span> */}
           </LiTag>
         </Link>
-        <Link to="/price-list">
+        <Link to="/price-list" id="price-list">
           <LiTag w="1.5rem" h="1.5rem">
             <div className="svg">
               <IoIosPricetags />

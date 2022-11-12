@@ -26,7 +26,6 @@ const flashImagePre = () => {
     idx2,
     length = images.length;
 
-  console.log(imgIndex);
   if (imgIndex >= 0) {
     idx1 = imgIndex % length;
     idx2 = (imgIndex + 1) % length;

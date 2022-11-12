@@ -144,7 +144,6 @@ function EnhancedTableToolbar(props) {
   const { numSelected, selected, rows } = props;
 
   const downloadHandler = async (rows) => {
-    console.log(rows);
     const selectedItems = rows
       ?.filter(({ id }) => selected.indexOf(id) !== -1)
       .map((s) => s.url);

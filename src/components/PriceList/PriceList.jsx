@@ -31,7 +31,7 @@ const PriceList = () => {
               idx
             ) => {
               return (
-                <div className="price-content">
+                <div className="price-content" key={idx}>
                   <div className="image-price">
                     <img src={url} alt="Test" />
                     <Flip top>
@@ -45,8 +45,8 @@ const PriceList = () => {
                         {priceContents.map((content, idx) => {
                           if (idx === priceContents.length - 1) {
                             return (
-                              <Zoom right cascade>
-                                <div key={idx}>
+                              <Zoom right cascade key={idx}>
+                                <div>
                                   <p className="text last-row-text">
                                     {content}
                                     {newGif && (
@@ -63,10 +63,10 @@ const PriceList = () => {
                             );
                           }
                           return (
-                            <Zoom right cascade>
-                              <div key={idx}>
+                            <Zoom right cascade key={idx}>
+                              <div>
                                 <p className="text">{content}</p>
-                                <div class="break-line">
+                                <div className="break-line">
                                   <div></div>
                                 </div>
                               </div>

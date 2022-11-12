@@ -95,7 +95,6 @@ const ForgotPass = () => {
             null,
             { params: { email } }
           );
-          console.log(res);
           break;
         }
         case 2: {
@@ -104,7 +103,6 @@ const ForgotPass = () => {
             null,
             { params: { code: verificationCode } }
           );
-          console.log(res);
           break;
         }
         case 3: {
@@ -118,7 +116,6 @@ const ForgotPass = () => {
               error: "Get your password fail 🤯",
             }
           );
-          console.log(res);
           break;
         }
         default:
