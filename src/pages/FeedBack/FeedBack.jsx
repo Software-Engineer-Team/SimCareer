@@ -155,7 +155,7 @@ const FeedBack = () => {
                 <div className="oppotunity">
                   Tham gia cùng SIMCareer tăng cơ hội ứng tuyển
                 </div>
-                <Link to={"/price-list"} className="move-next">
+                <Link to={"/skill-trees"} className="move-next">
                   <HiArrowLongRight />
                 </Link>
               </div>
