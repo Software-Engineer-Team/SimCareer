@@ -16,35 +16,12 @@ import {
 } from "./Resume.styled";
 
 const Resume = () => {
-  /* const [showImageForm, setShowImageForm] = useState(false); */
-  /* const [image, setImage] = useState({}); */
-  /* const uploadImageHandler = (imgRef) => { */
-  /*   if (imgRef.current.files[0]) { */
-  /*     const fReader = new FileReader(); */
-  /*     const file = imgRef.current.files[0]; */
-  /*     fReader.readAsDataURL(imgRef.current.files[0]); */
-  /*     fReader.onload = () => { */
-  /*       setImage({ */
-  /*         url: fReader.result, */
-  /*         name: file.name, */
-  /*         size: (file.size / 1024).toFixed(2), */
-  /*       }); */
-  /*       closeImageFormHandler(); */
-  /*     }; */
-  /*   } */
-  /* }; */
-  /* const closeImageFormHandler = () => { */
-  /*   setShowImageForm(false); */
-  /* }; */
-  /* const openImageFormHandler = () => { */
-  /*   setShowImageForm(true); */
-  /* }; */
   return (
     <FeedBackContainer>
       <FeedBackHeader>
         <div className="feedback-image">
           <img src="/images/simcareer-not-label.png" alt="" />
-          <div>SIMCV FEEDBACK</div>
+          <div>SIMCV RESUME</div>
         </div>
         <div className="cv-container">
           <div className="cv-name"></div>

@@ -21,6 +21,7 @@ export const FeedBackContent = styled.div`
 export const FeedBackContentLeft = styled.div`
   height: 100%;
   width: 100%;
+  position: relative;
 
   .file-pdf {
     width: 100%;
@@ -30,7 +31,6 @@ export const FeedBackContentLeft = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     &::-webkit-scrollbar {
       display: none;
     }
@@ -53,6 +53,8 @@ export const FeedBackHeader = styled.header`
   width: 100%;
   color: #ffffff;
   display: flex;
+  position: relative;
+  z-index: 20;
   padding: 15px 35px;
 
   .feedback-image {
