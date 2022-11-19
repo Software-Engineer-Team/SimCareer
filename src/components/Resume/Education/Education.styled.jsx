@@ -71,6 +71,19 @@ export const EducationContainer = styled(PersonalDetailContainer)`
         align-items: center;
         justify-content: space-between;
       }
+
+      .description {
+        width: 100%;
+        margin-top: 20px;
+        .form-type {
+          font-weight: 500;
+          font-size: 16px;
+          text-align: left;
+          color: #52525a;
+          margin-bottom: 0.25rem;
+          font-family: Cambria, Georgia, serif;
+        }
+      }
     }
 
     .add-btn {

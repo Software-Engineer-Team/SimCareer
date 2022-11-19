@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { IoIosArrowDown } from "react-icons/io";
-const SelectOptions = ({ width, widthContainer }) => {
+const SelectOptions = ({ width, widthContainer, formType }) => {
   return (
     <SelectionOptionsContainer width={width} widthContainer={widthContainer}>
       <div className="form-type">
-        <label>Start date</label>
+        <label>{formType}</label>
       </div>
       <div className="form-container">
         <div className="form-content">
@@ -70,7 +70,7 @@ export const SelectionOptionsContainer = styled.div`
     text-align: left;
     color: #52525a;
     margin-bottom: 0.25rem;
-    font-family: "Poppins", sans-serif;
+    font-family: Cambria, Georgia, serif;
   }
 
   .form-container {

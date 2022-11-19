@@ -11,8 +11,9 @@ import { FiMoreVertical } from "react-icons/fi";
 
 import { MdPhotoCamera, MdEdit } from "react-icons/md";
 import { BiPlus } from "react-icons/bi";
-import styled from "styled-components";
 import { EducationContainer } from "./Education.styled";
+import Draft from "../Draft/Draft";
+
 const Education = () => {
   const months = [""];
   const [showEducationContent, setShowEducationContent] = useState(false);
@@ -74,8 +75,22 @@ const Education = () => {
                 />
               </div>
               <div className="education-date">
-                <SelectOptions width={"145px"} widthContainer={"50%"} />
-                <SelectOptions width={"160px"} widthContainer={"50%"} />
+                <SelectOptions
+                  formType={"Ngày bắt đầu"}
+                  width={"145px"}
+                  widthContainer={"50%"}
+                />
+                <SelectOptions
+                  formType={"Ngày kết thúc"}
+                  width={"160px"}
+                  widthContainer={"50%"}
+                />
+              </div>
+              <div className="description">
+                <div className="form-type">
+                  <label>Mô tả</label>
+                </div>
+                <Draft />
               </div>
             </div>
           </div>

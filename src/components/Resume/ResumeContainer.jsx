@@ -24,7 +24,7 @@ export default ResumeRightContainer;
 const ResumeContainer = styled.div`
   background-color: ${({ backgroundColor }) => backgroundColor};
   text-align: ${({ textAlign }) => textAlign};
-  padding: 15px;
+  padding: 25px;
   font-family: Cambria, Georgia, serif;
   font-size: 18px;
   font-weight: 500;
@@ -32,6 +32,12 @@ const ResumeContainer = styled.div`
   margin-bottom: ${({ marginBottom }) => marginBottom};
   position: relative;
   z-index: 10;
+  overflow: scroll;
+  min-width: 750px;
+  /* &::-webkit-scrollbar { */
+  /*   width: 2px; */
+  /*   background-color: black; */
+  /* } */
 
   .italic-text {
     font-style: italic;
