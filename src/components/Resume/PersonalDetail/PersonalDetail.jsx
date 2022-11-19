@@ -4,6 +4,7 @@ import { Button, Input, Portal, SubmitImage } from "@components";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FiMoreVertical } from "react-icons/fi";
 import { MdPhotoCamera } from "react-icons/md";
+import { PersonalDetailContainer } from "./PersonalDetail.styeld";
 
 const PersonalDetail = () => {
   const [showImageForm, setShowImageForm] = useState(false);
@@ -152,5 +153,3 @@ const PersonalDetail = () => {
 };
 
 export default PersonalDetail;
-
-const PersonalDetailContainer = styled.div``;

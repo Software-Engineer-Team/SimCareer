@@ -56,12 +56,6 @@ export const InputContainer = styled.div`
     text-align: left;
     color: #52525a;
     margin-bottom: 0.25rem;
-
-    span {
-      color: red;
-      position: relative;
-      margin-left: 3px;
-    }
   }
 
   .form-input-container {
