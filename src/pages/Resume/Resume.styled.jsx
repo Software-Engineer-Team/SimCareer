@@ -49,64 +49,129 @@ export const FeedBackContentLeft = styled.div`
   }
 `;
 
-export const FeedBackContentRight = styled.div`
-  max-width: 600px;
-  padding: 20px;
-  overflow-y: auto;
-  background-color: #fbfbfb;
+export const ResumeContentRight = styled.div`
+  max-width: 700px;
+  min-width: 700px;
+  width: 50%;
+  background-color: #ffffff;
 
-  .feedback-content-right {
-    .feedback-image {
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      img {
-        width: 150px;
-      }
-      .title {
-        text-transform: uppercase;
-        font-family: "Anton", sans-serif;
-        font-size: 36px;
-        font-weight: 500;
-        color: #787475;
-        line-height: 30px;
-      }
-    }
-    .feedback-right-footer {
-      font-family: "Anton", sans-serif;
-      color: #7d2bcc;
-      margin-bottom: 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-
-      .oppotunity {
-        font-size: 18px;
-        max-width: 210px;
-        text-align: center;
-      }
-
-      .move-next {
-        background-color: #7d2bcc;
-        width: 40px;
-        height: 40px;
+  .resume-content-right {
+    margin: 0 auto;
+    .personal-detail {
+      width: 100%;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e4e4e7;
+      .personal-detail-header {
+        /* border-bottom: 1px solid #e4e4e7; */
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 50%;
-        margin-top: 10px;
-
-        &:hover {
-          opacity: 0.8;
+        padding: 10px 5px 10px 0;
+        .header-title {
+          font-family: "Poppins", sans-serif;
+          text-align: left;
+          padding: 0.5rem 0;
+          flex-grow: 1;
+          color: #2e2e33;
+          font-size: 1.25rem;
+          font-weight: 500;
+          line-height: 1.75rem;
+          overflow: hidden;
         }
-
-        svg {
-          font-size: 30px;
-          border-radius: 50%;
-          cursor: pointer;
-          color: #ffffff;
+        .header-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          /* .toggle-icon { */
+          /*   --tw-border-opacity: 1; */
+          /*   border: 1px solid rgb(162 162 168 / var(--tw-border-opacity)); */
+          /*   padding: 0.25rem; */
+          /*   border-radius: 5px; */
+          /*   cursor: pointer; */
+          /*   svg { */
+          /*     font-size: 1.25rem; */
+          /*     line-height: 1.5rem; */
+          /*     display: flex; */
+          /*     align-items: center; */
+          /*     justify-content: center; */
+          /*     font-weight: bold; */
+          /*   } */
+          /* } */
+        }
+      }
+      .personal-detail-content {
+        width: 100%;
+        .detail-intro {
+          display: flex;
+          .detail-intro-img-container {
+            padding-right: 1rem;
+            .detail-intro-img-content {
+              width: 8rem;
+              padding: 0.5rem 0;
+              display: flex;
+              flex-direction: column;
+              .img-header {
+                display: flex;
+                margin-bottom: 0.25rem;
+                --tw-text-opacity: 1;
+                color: rgb(82 82 90 / var(--tw-text-opacity));
+                font-size: 1rem;
+                font-weight: 500;
+                line-height: 1.25rem;
+                .img-header-text {
+                  flex-grow: 1;
+                }
+                .img-header-btn {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                }
+              }
+              .img-content {
+                position: relative;
+                font-size: 1rem;
+                line-height: 1.5rem;
+                padding: 0.5rem 0.75rem;
+                background-color: #f4f4f5;
+                min-width: 124px;
+                min-height: 124px;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 0.25rem;
+                border: 1px solid #f4f4f5;
+                cursor: pointer;
+                transition: all 0.1s ease-in-out;
+                &:hover {
+                  border-color: #5d25e7;
+                }
+                .show-img {
+                  img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 0.25rem;
+                  }
+                }
+                svg {
+                  color: #a2a2a8;
+                  font-size: 22px;
+                }
+              }
+            }
+          }
+          .detail-intro-input {
+            padding-top: 8px;
+            flex-grow: 1;
+            display: flex;
+            flex-wrap: wrap;
+          }
         }
       }
     }
