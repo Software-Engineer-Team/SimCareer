@@ -4,6 +4,7 @@ import {
   Judgements,
   FeedBack,
   ScoreCV,
+  Resume,
 } from "@pages/index";
 
 export const routes = [
@@ -52,6 +53,11 @@ export const routes = [
   {
     path: "/feed-back",
     element: FeedBack,
+    type: "feed-back",
+  },
+  {
+    path: "/create-resume",
+    element: Resume,
     type: "feed-back",
   },
   {
