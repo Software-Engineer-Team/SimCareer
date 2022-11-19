@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { PersonalDetail, ResumeRightContainer } from "@components/index";
+import {
+  PersonalDetail,
+  ResumeRightContainer,
+  Document,
+} from "@components/index";
+import PDFDisplay from "@components/PDFDisplay/PDFDisplay";
 import {
   FeedBackContainer,
   FeedBackContent,
@@ -46,12 +51,12 @@ const Resume = () => {
         </div>
       </FeedBackHeader>
       <FeedBackContent>
-        {/* <FeedBackContentLeft> */}
-        {/*   <div className="file-pdf"> */}
-        {/*     <PDFDisplay /> */}
-        {/*   </div> */}
-        {/* </FeedBackContentLeft> */}
-        <ResumeRightContainer>
+        <FeedBackContentLeft>
+          <div className="file-pdf">
+            <Document />
+          </div>
+        </FeedBackContentLeft>
+        <ResumeRightContainer backgroundColor={"#ffffff"}>
           <ResumeContentRight>
             <div className="resume-content-right">
               <PersonalDetail />

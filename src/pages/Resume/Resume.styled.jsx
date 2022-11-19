@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const FeedBackContainer = styled.div`
   width: 100%;
   height: 100%;
+  background: #f5f5f5f5;
 `;
 
 export const FeedBackContent = styled.div`
@@ -12,39 +13,26 @@ export const FeedBackContent = styled.div`
   width: 100%;
   height: 100%;
   padding: 10px 10px 10px 12px;
-  max-width: 1940px;
-  margin: 0 auto;
+  /* max-width: 1940px; */
+  /* margin: 0 auto; */
   z-index: -1;
-  /* grid-template-columns: 3fr 1fr; */
 `;
 
 export const FeedBackContentLeft = styled.div`
   height: 100%;
   width: 100%;
-  /* padding: 35px 35px 35px 35px; */
-  /* overflow-y: auto; */
 
   .file-pdf {
     width: 100%;
     height: 100%;
     padding-bottom: 55px;
-    overflow-y: scroll;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     &::-webkit-scrollbar {
       display: none;
-    }
-    /* padding-top: 400px; */
-
-    /* img { */
-    /*   width: 1000px; */
-    /*   height: 1000px; */
-    /*   /* object-fit: cover; */
-    */
-    /* } */
-
-    embed {
-      width: 100%;
-      height: 100%;
-      min-width: 100%;
     }
   }
 `;

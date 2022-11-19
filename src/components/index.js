@@ -18,3 +18,4 @@ export { default as Button } from "@components/UI/Button";
 export { default as Portal } from "@components/UI/Portal";
 export { default as Input } from "@components/UI/Input";
 export { default as PersonalDetail } from "@components/Resume/PersonalDetail/PersonalDetail";
+export { default as Document } from "@components/Resume/Document";
