@@ -30,6 +30,8 @@ const ResumeContainer = styled.div`
   font-weight: 500;
   margin-top: ${({ marginTop }) => marginTop};
   margin-bottom: ${({ marginBottom }) => marginBottom};
+  position: relative;
+  z-index: 10;
 
   .italic-text {
     font-style: italic;

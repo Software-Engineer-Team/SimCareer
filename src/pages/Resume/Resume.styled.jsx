@@ -1,24 +1,23 @@
 import styled from "styled-components";
 
-export const FeedBackContainer = styled.div`
+export const ResumeContainer = styled.div`
   width: 100%;
   height: 100%;
   background: #f5f5f5f5;
 `;
 
-export const FeedBackContent = styled.div`
+export const ResumeContent = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: row-reverse;
   width: 100%;
   height: 100%;
-  padding: 10px 10px 10px 12px;
-  /* max-width: 1940px; */
-  /* margin: 0 auto; */
+  /* padding: 10px 10px 10px 12px; */
   z-index: -1;
 `;
 
-export const FeedBackContentLeft = styled.div`
+export const ResumeContentLeft = styled.div`
   height: 100%;
   width: 100%;
   position: relative;
@@ -48,7 +47,7 @@ export const ResumeContentRight = styled.div`
   }
 `;
 
-export const FeedBackHeader = styled.header`
+export const ResumeHeader = styled.header`
   background: #231f20;
   width: 100%;
   color: #ffffff;

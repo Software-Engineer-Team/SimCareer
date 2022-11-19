@@ -7,18 +7,17 @@ import {
 } from "@components/index";
 import PDFDisplay from "@components/PDFDisplay/PDFDisplay";
 import {
-  FeedBackContainer,
-  FeedBackContent,
-  FeedBackContentLeft,
-  FeedBackContentRight,
-  FeedBackHeader,
+  ResumeContainer,
+  ResumeContent,
+  ResumeContentLeft,
   ResumeContentRight,
+  ResumeHeader,
 } from "./Resume.styled";
 
 const Resume = () => {
   return (
-    <FeedBackContainer>
-      <FeedBackHeader>
+    <ResumeContainer>
+      <ResumeHeader>
         <div className="feedback-image">
           <img src="/images/simcareer-not-label.png" alt="" />
           <div>SIMCV RESUME</div>
@@ -27,13 +26,13 @@ const Resume = () => {
           <div className="cv-name"></div>
           <div className="file-name">D__H__Y__H__</div>
         </div>
-      </FeedBackHeader>
-      <FeedBackContent>
-        <FeedBackContentLeft>
+      </ResumeHeader>
+      <ResumeContent>
+        <ResumeContentLeft>
           <div className="file-pdf">
             <Document />
           </div>
-        </FeedBackContentLeft>
+        </ResumeContentLeft>
         <ResumeRightContainer backgroundColor={"#ffffff"}>
           <ResumeContentRight>
             <div className="resume-content-right">
@@ -42,8 +41,8 @@ const Resume = () => {
             </div>
           </ResumeContentRight>
         </ResumeRightContainer>
-      </FeedBackContent>
-    </FeedBackContainer>
+      </ResumeContent>
+    </ResumeContainer>
   );
 };
 

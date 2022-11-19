@@ -15,6 +15,7 @@ export const DocumentContent = styled.div`
   background: #ffffff;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 25%);
   width: 31cm;
+  min-width: 31cm;
   min-height: 29.7cm;
   display: inline-block;
   transform-origin: 0px 0px 0px;
