@@ -1,38 +1,65 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import useImportWidget from "@hooks/useImportWidget";
+const ExperienceItem = ({
+  company,
+  position,
+  city,
+  startDate,
+  endDate,
+  descriptionHtml,
+  idx,
+}) => {
+  useImportWidget({ html: descriptionHtml, elId: "EXPERIENCE_" + idx });
+  return (
+    <>
+      <h4>
+        {company}
+        {city && ", " + city}
+      </h4>
+      <p className="time">
+        <i>
+          {startDate.month + "/" + startDate.year} -{" "}
+          {endDate.month + "/" + endDate.year}
+        </i>
+      </p>
+      <div className="company-content">
+        <div className="company-content-item" id={"EXPERIENCE_" + idx}>
+          <h4>{position}</h4>
+        </div>
+      </div>
+    </>
+  );
+};
 
 const Experience = () => {
+  const { experience } = useSelector((state) => state.resume);
   return (
     <ExperienceContainer>
       <div className="company">
         <div className="title">
           <span>Kinh nghiệm</span>
         </div>
-        <h4>
-          Ngoài ra mỗi bản mỗi CV cần được cá nhân hóa cho từng công tyssssssss
-        </h4>
-        <p className="time">12/2020 - 5/2021</p>
-        <div className="company-content">
-          {Array(3)
-            .fill(null)
-            .map(() => {
-              return (
-                <div className="company-content-item">
-                  <h4>Thực tập sinh bán hàng | 12/2020 - 2/2021</h4>
-                  <ul>
-                    <li>
-                      Thông tin cá nhân: Ứng viên cần cập nhật DOB trong hồ sơ
-                      ứng tuyển của mình
-                    </li>
-                    <li>
-                      Thông tin cá nhân: Ứng viên cần cập nhật DOB trong hồ sơ
-                      ứng tuyển của mình
-                    </li>
-                  </ul>
-                </div>
-              );
-            })}
-        </div>
+        {experience.map(
+          (
+            { company, position, city, startDate, endDate, descriptionHtml },
+            idx
+          ) => {
+            return (
+              <ExperienceItem
+                company={company}
+                position={position}
+                city={city}
+                startDate={startDate}
+                endDate={endDate}
+                descriptionHtml={descriptionHtml}
+                key={idx}
+                idx={idx}
+              />
+            );
+          }
+        )}
       </div>
     </ExperienceContainer>
   );
@@ -82,7 +109,8 @@ const ExperienceContainer = styled.div`
           margin-top: 3px;
           font-size: 24px;
         }
-        ul {
+        ul,
+        ol {
           margin: 0;
         }
       }
