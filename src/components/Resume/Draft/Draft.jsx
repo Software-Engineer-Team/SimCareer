@@ -28,8 +28,6 @@ import {
 } from "./Draft.styled";
 import { useDispatch } from "react-redux";
 import { resumeActions } from "~/store/resume-slice";
-import { switchClasses } from "@mui/material";
-import { defaults } from "react-reveal/globals";
 
 const HeadlinesPicker = (props) => {
   useEffect(() => {
@@ -85,6 +83,9 @@ const Draft = (props) => {
         break;
       }
       case "Education": {
+        break;
+      }
+      case "Experience": {
         break;
       }
       default:

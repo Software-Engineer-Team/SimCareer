@@ -2,7 +2,21 @@ import React from "react";
 import styled from "styled-components";
 import { IoIosArrowDown } from "react-icons/io";
 import { getYears, months } from "@utils/utils";
-const SelectOptions = ({ width, widthContainer, formType }) => {
+const SelectOptions = ({
+  width,
+  widthContainer,
+  formType,
+  selectOptionsHandler,
+}) => {
+  const selectMonthHandler = (e) => {
+    console.log(e.target.value);
+    selectOptionsHandler({ month: e.target.value });
+  };
+
+  const selectYearHandler = (e) => {
+    console.log(e.target.value);
+    selectOptionsHandler({ year: e.target.value });
+  };
   return (
     <SelectionOptionsContainer width={width} widthContainer={widthContainer}>
       <div className="form-type">
@@ -11,9 +25,9 @@ const SelectOptions = ({ width, widthContainer, formType }) => {
       <div className="form-container">
         <div className="form-content">
           <div className="form-month">
-            <select data-value={0}>
+            <select data-value={0} onChange={selectMonthHandler}>
               {months.map((month, idx) => (
-                <option value={idx} key={idx}>
+                <option value={idx + 1} key={idx}>
                   {month}
                 </option>
               ))}
@@ -23,11 +37,11 @@ const SelectOptions = ({ width, widthContainer, formType }) => {
             </div>
           </div>
           <div className="form-year">
-            <select data-value="01">
+            <select data-value="01" onChange={selectYearHandler}>
               {getYears(1963, 2025)
                 .reverse()
                 .map((year, idx) => (
-                  <option value={idx} key={idx}>
+                  <option value={year} key={idx}>
                     {year}
                   </option>
                 ))}

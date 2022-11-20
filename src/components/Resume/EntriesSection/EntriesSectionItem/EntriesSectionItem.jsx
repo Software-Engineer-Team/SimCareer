@@ -6,13 +6,204 @@ import { TiTick } from "react-icons/ti";
 import { Input, Button, SelectOptions } from "@components/index";
 import { useState } from "react";
 import { EntriesSectionItemContainer } from "./EntriesSectionItem.styled";
-import { useDispatch } from "react-redux";
-const EntriesSectionItem = ({ title, type }) => {
+import { useDispatch, useSelector } from "react-redux";
+import { resumeActions } from "~/store/resume-slice";
+const EntriesSectionItem = ({ title, type, idx }) => {
   const [showDetail, setShowDetail] = useState(false);
   const toggleDetailHandler = () => {
     setShowDetail(!showDetail);
   };
+  const resumeState = useSelector((state) => state.resume);
+  console.log(resumeState);
   const dispatch = useDispatch();
+  console.log(type);
+
+  const input1Handler = (type, value = "", idx = 0) => {
+    switch (type) {
+      case "Education": {
+        return {
+          label: "Trường học",
+          handler: () => {
+            dispatch(
+              resumeActions.setEducationSchool({ index: idx, school: value })
+            );
+          },
+        };
+      }
+      case "Experience": {
+        return {
+          label: "Công ty",
+          handler: () => {
+            dispatch(
+              resumeActions.setExperienceCompany({ index: idx, company: value })
+            );
+          },
+        };
+      }
+      case "Skill": {
+        return {
+          label: "Tên kỹ năng",
+          handler: () => {
+            dispatch(resumeActions.setSkillName({ index: idx, name: value }));
+          },
+        };
+      }
+      case "Certificate": {
+        return {
+          label: "Chứng chỉ",
+          handler: () => {
+            dispatch(
+              resumeActions.setCertificateName({ index: idx, name: value })
+            );
+          },
+        };
+      }
+      case "Hobby": {
+        return {
+          label: "Tên sở thích",
+          handler: () => {
+            dispatch(resumeActions.setHobbyName({ index: idx, name: value }));
+          },
+        };
+      }
+      default:
+        return {
+          label: "Tiêu đề",
+          handler: () => {},
+        };
+    }
+  };
+
+  const input2Handler = (type, title = "", value = "", idx = 0) => {
+    console.log(title);
+    switch (type) {
+      case "Education": {
+        return {
+          label: title,
+          handler: () => {
+            dispatch(
+              resumeActions.setEducationSpecialize({
+                index: idx,
+                specialize: value,
+              })
+            );
+          },
+        };
+      }
+      case "Experience": {
+        return {
+          label: title,
+          handler: () => {
+            dispatch(
+              resumeActions.setExperiencePosition({
+                index: idx,
+                position: value,
+              })
+            );
+          },
+        };
+      }
+      default:
+        return {
+          label: "Tóm tắt",
+          handler: () => {},
+        };
+    }
+  };
+
+  const input3Handler = (type, value = "", idx = 0) => {
+    switch (type) {
+      case "Education": {
+        return {
+          label: "Thành phố",
+          handler: () => {
+            dispatch(
+              resumeActions.setEducationCity({
+                index: idx,
+                city: value,
+              })
+            );
+          },
+        };
+      }
+      case "Experience": {
+        return {
+          label: "Thành phố",
+          handler: () => {
+            dispatch(
+              resumeActions.setExperienceCity({
+                index: idx,
+                city: value,
+              })
+            );
+          },
+        };
+      }
+      default:
+        return {
+          label: "Tóm tắt",
+          handler: () => {},
+        };
+    }
+  };
+
+  const selectOptionsHandler = (
+    type,
+    isStartDate = true,
+    idx = 0,
+    value = {}
+  ) => {
+    switch (type) {
+      case "Education": {
+        return isStartDate
+          ? () =>
+              dispatch(
+                resumeActions.setEducationStartDate({
+                  index: idx,
+                  startDate: { ...value },
+                })
+              )
+          : () =>
+              dispatch(
+                resumeActions.setEducationEndDate({
+                  index: idx,
+                  endDate: { ...value },
+                })
+              );
+      }
+      case "Experience": {
+        console.log("Testttt");
+        return isStartDate
+          ? () => {
+              console.log(value);
+              dispatch(
+                resumeActions.setExperienceStartDate({
+                  index: idx,
+                  startDate: { ...value },
+                })
+              );
+            }
+          : () =>
+              dispatch(
+                resumeActions.setExperienceEndDate({
+                  index: idx,
+                  endDate: { ...value },
+                })
+              );
+      }
+      case "Certificate": {
+        return () =>
+          dispatch(
+            resumeActions.setCertificateDate({
+              index: idx,
+              date: { ...value },
+            })
+          );
+      }
+      default:
+        return () => {};
+    }
+  };
   return (
     <EntriesSectionItemContainer>
       <div className="item-container">
@@ -32,20 +223,10 @@ const EntriesSectionItem = ({ title, type }) => {
             <div className="item-intro">
               <Input
                 type="text"
-                label={
-                  type === "Experience"
-                    ? "Công ty"
-                    : type === "Education"
-                    ? "Trường học"
-                    : type === "Skill"
-                    ? "Tên kỹ năng"
-                    : type === "Hobby"
-                    ? "Tên sở thích"
-                    : type === "Certificate"
-                    ? "Chứng chỉ"
-                    : "Tiêu đề"
-                }
-                handler={() => {}}
+                label={input1Handler(type).label}
+                handler={(e) => {
+                  input1Handler(type, e.target.value, idx).handler();
+                }}
                 value={() => {}}
                 error={() => {}}
                 width={"100%"}
@@ -57,12 +238,10 @@ const EntriesSectionItem = ({ title, type }) => {
                 type !== "Certificate" && (
                   <Input
                     type="text"
-                    label={
-                      type === "Experience" || type === "Education"
-                        ? title
-                        : "Tóm tắt"
-                    }
-                    handler={() => {}}
+                    label={input2Handler(type, title).label}
+                    handler={(e) => {
+                      input2Handler(type, title, e.target.value, idx).handler();
+                    }}
                     value={() => {}}
                     error={() => {}}
                     width={type ? "90%" : "100%"}
@@ -75,12 +254,10 @@ const EntriesSectionItem = ({ title, type }) => {
                 type !== "Certificate" && (
                   <Input
                     type="text"
-                    label={
-                      type === "Experience" || type === "Education"
-                        ? "Thành phố"
-                        : "Tóm tắt"
-                    }
-                    handler={() => {}}
+                    label={input3Handler(type).label}
+                    handler={(e) => {
+                      input3Handler(type, e.target.value, idx).handler();
+                    }}
                     value={() => {}}
                     error={() => {}}
                     width={"100%"}
@@ -95,6 +272,9 @@ const EntriesSectionItem = ({ title, type }) => {
                     formType={"Giai đoạn"}
                     width={"325px"}
                     widthContainer={"100%"}
+                    selectOptionsHandler={(value) => {
+                      selectOptionsHandler(type, true, idx, value)();
+                    }}
                   />
                 ) : (
                   <>
@@ -102,11 +282,17 @@ const EntriesSectionItem = ({ title, type }) => {
                       formType={"Ngày bắt đầu"}
                       width={"145px"}
                       widthContainer={"50%"}
+                      selectOptionsHandler={(value) => {
+                        selectOptionsHandler(type, true, idx, value)();
+                      }}
                     />
                     <SelectOptions
                       formType={"Ngày kết thúc"}
                       width={"160px"}
                       widthContainer={"50%"}
+                      selectOptionsHandler={(value) => {
+                        selectOptionsHandler(type, false, idx, value)();
+                      }}
                     />
                   </>
                 )}

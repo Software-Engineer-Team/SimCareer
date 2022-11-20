@@ -72,10 +72,10 @@ const Resume = () => {
                 type={"Achievements"}
               />
 
-              <EntriesSection
-                headerTitle={"Phần tùy chỉnh"}
-                btnText={"Thêm bản ghi"}
-              />
+              {/* <EntriesSection */}
+              {/*   headerTitle={"Phần tùy chỉnh"} */}
+              {/*   btnText={"Thêm bản ghi"} */}
+              {/* /> */}
             </div>
           </ResumeContentRight>
         </ResumeRightContainer>

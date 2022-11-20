@@ -16,38 +16,60 @@ export const resumeSlice = createSlice({
     education: [
       {
         school: "",
-        schoolAtCity: "",
-        nthYearStudent: "",
-        specialized: "",
+        city: "",
+        startDate: {
+          month: "January",
+          year: 2024,
+        },
+        endDate: {
+          month: "January",
+          year: 2024,
+        },
+        specialize: "",
         descriptionHtml: null,
+        editorState: null,
       },
     ],
     experience: [
       {
         company: "",
-        companyAddress: "",
-        companyAtCity: "",
-        date: "",
+        position: "",
+        city: "",
+        startDate: {
+          month: "January",
+          year: 2024,
+        },
+        endDate: {
+          month: "January",
+          year: 2024,
+        },
         descriptionHtml: null,
+        editorState: null,
       },
     ],
     skill: [
       {
         name: "",
         descriptionHtml: null,
+        editorState: null,
       },
     ],
     certificate: [
       {
         name: "",
-        date: "",
+        date: {
+          month: "January",
+          year: 2024,
+        },
         descriptionHtml: null,
+        editorState: null,
       },
     ],
     hobby: [
       {
         name: "",
         descriptionHtml: null,
+        editorState: null,
       },
     ],
     achivementHTMl: null,
@@ -80,8 +102,110 @@ export const resumeSlice = createSlice({
     setPersonalDetail(state, action) {
       state.personalDetail = action.payload.personalDetail;
     },
-    setResume(state, action) {
-      state.resume = action.payload.resume;
+
+    ////////////////////////// Experience /////////////////////////
+    setExperienceCompany(state, action) {
+      state.experience[action.payload.index].company = action.payload.company;
+    },
+    setExperiencePosition(state, action) {
+      state.experience[action.payload.index].position = action.payload.position;
+    },
+    setExperienceCity(state, action) {
+      state.experience[action.payload.index].city = action.payload.city;
+    },
+    setExperienceStartDate(state, action) {
+      state.experience[action.payload.index].startDate = {
+        ...state.experience[action.payload.index].startDate,
+        ...action.payload.startDate,
+      };
+    },
+    setExperienceEndDate(state, action) {
+      state.experience[action.payload.index].endDate = {
+        ...state.experience[action.payload.index].endDate,
+        ...action.payload.endDate,
+      };
+    },
+    setExperienceDescriptionHtml(state, action) {
+      state.experience[action.payload.index].descriptionHtml =
+        action.payload.descriptionHtml;
+    },
+    setExperienceEditorState(state, action) {
+      state.experience[action.payload.index].editorState =
+        action.payload.editorState;
+    },
+    ////////////////////////// Education /////////////////////////
+    setEducationSchool(state, action) {
+      state.education[action.payload.index].school = action.payload.school;
+    },
+    setEducationCity(state, action) {
+      state.education[action.payload.index].city = action.payload.city;
+    },
+    setEducationStartDate(state, action) {
+      state.education[action.payload.index].startDate = {
+        ...state.education[action.payload.index].startDate,
+        ...action.payload.startDate,
+      };
+    },
+    setEducationEndDate(state, action) {
+      state.education[action.payload.index].endDate = {
+        ...state.education[action.payload.index].endDate,
+        ...action.payload.endDate,
+      };
+    },
+    setEducationSpecialize(state, action) {
+      state.education[action.payload.index].specialize =
+        action.payload.specialize;
+    },
+    setEducationDescriptionHtml(state, action) {
+      state.education[action.payload.index].descriptionHtml =
+        action.payload.descriptionHtml;
+    },
+    setEducationEditorState(state, action) {
+      state.education[action.payload.index].editorState =
+        action.payload.editorState;
+    },
+    ////////////////////////// Skill /////////////////////////
+    setSkillName(state, action) {
+      state.skill[action.payload.index].name = action.payload.name;
+    },
+    setSkillDescriptionHtml(state, action) {
+      state.skill[action.payload.index].descriptionHtml =
+        action.payload.descriptionHtml;
+    },
+    setSkillEditorState(state, action) {
+      state.skill[action.payload.index].editorState =
+        action.payload.editorState;
+    },
+    ////////////////////////// Certificate /////////////////////////
+    setCertificateName(state, action) {
+      state.certificate[action.payload.index].name = action.payload.name;
+    },
+    setCertificateDate(state, action) {
+      state.certificate[action.payload.index].date = {
+        ...state.certificate[action.payload.index].date,
+        ...action.payload.date,
+      };
+    },
+    setCertificateDescriptionHtml(state, action) {
+      state.certificate[action.payload.index].descriptionHtml =
+        action.payload.descriptionHtml;
+    },
+    setCertificateEditorState(state, action) {
+      state.certificate[action.payload.index].editorState =
+        action.payload.editorState;
+    },
+
+    ////////////////////////// Certificate /////////////////////////
+    setHobbyName(state, action) {
+      state.hobby[action.payload.index].name = action.payload.name;
+    },
+    setHobbyDescriptionHtml(state, action) {
+      state.hobby[action.payload.index].descriptionHtml =
+        action.payload.descriptionHtml;
+    },
+    setHobbyEditorState(state, action) {
+      state.hobby[action.payload.index].editorState =
+        action.payload.editorState;
     },
   },
 });

@@ -41,6 +41,7 @@ const EntriesSection = ({ headerTitle, btnText, type }) => {
                   : "Tiêu đề"
               }
               type={type}
+              idx={0}
             />
 
             <div className="add-btn">
