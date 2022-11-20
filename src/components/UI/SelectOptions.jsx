@@ -85,12 +85,6 @@ export const SelectionOptionsContainer = styled.div`
           -moz-appearance: none;
           text-indent: 1px;
           text-overflow: "";
-          /* --tw-text-opacity: 1; */
-          /* color: rgb(162 162 168 / var(--tw-text-opacity)); */
-          option {
-            /* --tw-bg-opacity: 1; */
-            /* background-color: rgb(255 255 255 / var(--tw-bg-opacity)); */
-          }
         }
 
         .btn-list {

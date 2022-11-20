@@ -32,7 +32,7 @@ const ResumeContainer = styled.div`
   margin-bottom: ${({ marginBottom }) => marginBottom};
   position: relative;
   z-index: 10;
-  overflow: scroll;
+  overflow: auto;
   min-width: 750px;
   /* &::-webkit-scrollbar { */
   /*   width: 2px; */

@@ -6,7 +6,7 @@ import { Container } from "./EntriesSection.styled";
 import { BiPlus } from "react-icons/bi";
 import EntriesSectionItem from "./EntriesSectionItem/EntriesSectionItem";
 
-const EntriesSection = ({ headerTitle, btnText }) => {
+const EntriesSection = ({ headerTitle, btnText, type }) => {
   const [showContent, setShowContent] = useState(false);
   const toggleContentHandler = () => {
     setShowContent(!showContent);
@@ -25,8 +25,22 @@ const EntriesSection = ({ headerTitle, btnText }) => {
 
         {showContent && (
           <div className="items">
-            <EntriesSectionItem />
-            <EntriesSectionItem />
+            <EntriesSectionItem
+              title={
+                type === "Experience"
+                  ? "Vị trí"
+                  : type === "Education"
+                  ? "Học vấn"
+                  : type === "Skill"
+                  ? "Kỹ năng"
+                  : type === "Hobby"
+                  ? "Sở thích"
+                  : type === "Certificate"
+                  ? "Chứng chỉ"
+                  : "Tiêu đề"
+              }
+              type={type}
+            />
 
             <div className="add-btn">
               <div className="btn-icon-container">
@@ -34,7 +48,7 @@ const EntriesSection = ({ headerTitle, btnText }) => {
                   <span className="btn-icon">
                     <BiPlus />
                   </span>
-                  <span className="btn-text">Add {btnText}</span>
+                  <span className="btn-text">{btnText}</span>
                 </div>
               </div>
             </div>

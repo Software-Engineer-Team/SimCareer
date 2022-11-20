@@ -41,6 +41,7 @@ export const ResumeContentRight = styled.div`
   min-width: 700px;
   width: 50%;
   background-color: #ffffff;
+  padding-bottom: 50px;
 
   .resume-content-right {
     margin: 0 auto;

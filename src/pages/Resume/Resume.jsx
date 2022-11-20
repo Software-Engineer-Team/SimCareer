@@ -3,8 +3,8 @@ import {
   PersonalDetail,
   ResumeRightContainer,
   Document,
-  Education,
   EntriesSection,
+  DescriptionSection,
 } from "@components/index";
 import PDFDisplay from "@components/PDFDisplay/PDFDisplay";
 import {
@@ -38,8 +38,41 @@ const Resume = () => {
           <ResumeContentRight>
             <div className="resume-content-right">
               <PersonalDetail />
-              <Education />
-              <EntriesSection />
+
+              <DescriptionSection headerTitle={"Tóm tắt"} />
+              <EntriesSection
+                headerTitle={"Học vấn"}
+                btnText={"Thêm bản ghi"}
+                type={"Education"}
+              />
+              <EntriesSection
+                headerTitle={"Kinh nghiệm"}
+                btnText={"Thêm bản ghi"}
+                type={"Experience"}
+              />
+              <EntriesSection
+                headerTitle={"Kỹ năng"}
+                btnText={"Thêm kỹ năng"}
+                type={"Skill"}
+              />
+
+              <EntriesSection
+                headerTitle={"Chứng chỉ"}
+                btnText={"Thêm chứng chỉ"}
+                type={"Certificate"}
+              />
+
+              <EntriesSection
+                headerTitle={"Sở thích"}
+                btnText={"Thêm sở thích"}
+                type={"Hobby"}
+              />
+              <DescriptionSection headerTitle={"Thành tích"} />
+
+              <EntriesSection
+                headerTitle={"Phần tùy chỉnh"}
+                btnText={"Thêm bản ghi"}
+              />
             </div>
           </ResumeContentRight>
         </ResumeRightContainer>

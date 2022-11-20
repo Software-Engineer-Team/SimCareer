@@ -64,7 +64,7 @@ export const InputContainer = styled.div`
     flex-direction: column;
     align-items: ${({ type }) => type === "forgot-pass" && "center"};
     position: relative;
-    width: ${({ width }) => width};
+    width: ${({ width }) => (width ? width : "100%")};
 
     .form-input-content {
       border-radius: 4px;

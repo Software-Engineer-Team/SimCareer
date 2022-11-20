@@ -6,12 +6,7 @@ import { TiTick } from "react-icons/ti";
 import { Input, Button, SelectOptions } from "@components/index";
 import { useState } from "react";
 import { EntriesSectionItemContainer } from "./EntriesSectionItem.styled";
-const EntriesSectionItem = ({
-  inputLabel1,
-  inputLabel2,
-  inputLabel3,
-  title,
-}) => {
+const EntriesSectionItem = ({ title, type }) => {
   const [showDetail, setShowDetail] = useState(false);
   const toggleDetailHandler = () => {
     setShowDetail(!showDetail);
@@ -35,44 +30,89 @@ const EntriesSectionItem = ({
             <div className="item-intro">
               <Input
                 type="text"
-                label={inputLabel1 ? inputLabel1 : "Tiêu đề"}
+                label={
+                  type === "Experience"
+                    ? "Công ty"
+                    : type === "Education"
+                    ? "Trường học"
+                    : type === "Skill"
+                    ? "Tên kỹ năng"
+                    : type === "Hobby"
+                    ? "Tên sở thích"
+                    : type === "Certificate"
+                    ? "Chứng chỉ"
+                    : "Tiêu đề"
+                }
                 handler={() => {}}
                 value={() => {}}
                 error={() => {}}
                 width={"100%"}
                 widthContainer={"100%"}
               />
-              <Input
-                type="text"
-                label={inputLabel2 ? inputLabel2 : "Tóm tắt"}
-                handler={() => {}}
-                value={() => {}}
-                error={() => {}}
-                width={"90%"}
-                widthContainer={"50%"}
-              />
-              <Input
-                type="text"
-                label={inputLabel3 ? inputLabel3 : "Tóm tắt"}
-                handler={() => {}}
-                value={() => {}}
-                error={() => {}}
-                width={"100%"}
-                widthContainer={"50%"}
-              />
+              {type &&
+                type !== "Skill" &&
+                type !== "Hobby" &&
+                type !== "Certificate" && (
+                  <Input
+                    type="text"
+                    label={
+                      type === "Experience" || type === "Education"
+                        ? title
+                        : "Tóm tắt"
+                    }
+                    handler={() => {}}
+                    value={() => {}}
+                    error={() => {}}
+                    width={type ? "90%" : "100%"}
+                    widthContainer={type ? "50%" : "100%"}
+                  />
+                )}
+              {type &&
+                type !== "Skill" &&
+                type !== "Hobby" &&
+                type !== "Certificate" && (
+                  <Input
+                    type="text"
+                    label={
+                      type === "Experience" || type === "Education"
+                        ? "Thành phố"
+                        : "Tóm tắt"
+                    }
+                    handler={() => {}}
+                    value={() => {}}
+                    error={() => {}}
+                    width={"100%"}
+                    widthContainer={"50%"}
+                  />
+                )}
             </div>
-            <div className="date">
-              <SelectOptions
-                formType={"Ngày bắt đầu"}
-                width={"145px"}
-                widthContainer={"50%"}
-              />
-              <SelectOptions
-                formType={"Ngày kết thúc"}
-                width={"160px"}
-                widthContainer={"50%"}
-              />
-            </div>
+            {type && type !== "Skill" && type !== "Hobby" && (
+              <div className="date">
+                {
+                  type === "Certificate" ? (
+                    <SelectOptions
+                      formType={"Giai đoạn"}
+                      width={"325px"}
+                      widthContainer={"100%"}
+                    />
+                  ) : (
+                    <>
+                      <SelectOptions
+                        formType={"Ngày bắt đầu"}
+                        width={"145px"}
+                        widthContainer={"50%"}
+                      />
+                      <SelectOptions
+                        formType={"Ngày kết thúc"}
+                        width={"160px"}
+                        widthContainer={"50%"}
+                      />
+                    </>
+                  )
+                  /* Giai đoạn */
+                }
+              </div>
+            )}
             <div className="description">
               <div className="form-type">
                 <label>Mô tả</label>
