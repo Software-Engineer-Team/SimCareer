@@ -1,15 +1,18 @@
 import styled from "styled-components";
 import React, { useState } from "react";
-import { Button, Input, Portal, SubmitImage } from "@components";
+import { Button, Input, Portal, SubmitImage } from "@components/index";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FiMoreVertical } from "react-icons/fi";
 import { MdPhotoCamera } from "react-icons/md";
 import { PersonalDetailContainer } from "./PersonalDetail.styeld";
+import { useDispatch, useSelector } from "react-redux";
+import { resumeActions } from "~/store/resume-slice";
 
 const PersonalDetail = () => {
   const [showImageForm, setShowImageForm] = useState(false);
   const [image, setImage] = useState({});
   const [showPersonalContent, setShowPersonalContent] = useState(false);
+  const dispatch = useDispatch();
 
   const uploadImageHandler = (imgRef) => {
     if (imgRef.current.files[0]) {
@@ -22,6 +25,9 @@ const PersonalDetail = () => {
           name: file.name,
           size: (file.size / 1024).toFixed(2),
         });
+        dispatch(
+          resumeActions.setPersonalDetailImage({ image: fReader.result })
+        );
         closeImageFormHandler();
       };
     }
@@ -35,6 +41,55 @@ const PersonalDetail = () => {
   const togglePersonalContentHandler = () => {
     setShowPersonalContent(!showPersonalContent);
   };
+
+  const nameHandler = (e) => {
+    dispatch(
+      resumeActions.setPersonalDetailName({
+        name: e.target.value,
+      })
+    );
+  };
+
+  const emailHanlder = (e) => {
+    dispatch(
+      resumeActions.setPersonalDetailEmail({
+        email: e.target.value,
+      })
+    );
+  };
+
+  const occupationHandler = (e) => {
+    dispatch(
+      resumeActions.setPersonalDetailOccupation({
+        occupation: e.target.value,
+      })
+    );
+  };
+
+  const phoneHandler = (e) => {
+    dispatch(
+      resumeActions.setPersonalDetailPhoneNum({
+        phoneNum: e.target.value,
+      })
+    );
+  };
+
+  const addressHandler = (e) => {
+    dispatch(
+      resumeActions.setPersonalDetailAddress({
+        address: e.target.value,
+      })
+    );
+  };
+
+  const linkedinUrlHandler = (e) => {
+    dispatch(
+      resumeActions.setPersonalDetailLinkedinUrl({
+        linkedinUrl: e.target.value,
+      })
+    );
+  };
+
   return (
     <PersonalDetailContainer>
       <div className="personal-detail">
@@ -81,7 +136,7 @@ const PersonalDetail = () => {
                 <Input
                   type="text"
                   label="Họ và tên"
-                  handler={() => {}}
+                  handler={nameHandler}
                   value={() => {}}
                   error={() => {}}
                   width={"90%"}
@@ -90,7 +145,7 @@ const PersonalDetail = () => {
                 <Input
                   type="text"
                   label="E-mail"
-                  handler={() => {}}
+                  handler={emailHanlder}
                   value={() => {}}
                   error={() => {}}
                   width={"100%"}
@@ -99,7 +154,7 @@ const PersonalDetail = () => {
                 <Input
                   type="text"
                   label="Tiêu đề"
-                  handler={() => {}}
+                  handler={occupationHandler}
                   value={() => {}}
                   error={() => {}}
                   width={"100%"}
@@ -111,7 +166,16 @@ const PersonalDetail = () => {
               <Input
                 type="number"
                 label="Số điện thoại"
-                handler={() => {}}
+                handler={phoneHandler}
+                value={() => {}}
+                error={() => {}}
+                width={"100%"}
+                paddingContainer={5}
+              />
+              <Input
+                type="url"
+                label="Linkedin"
+                handler={linkedinUrlHandler}
                 value={() => {}}
                 error={() => {}}
                 width={"100%"}
@@ -120,25 +184,7 @@ const PersonalDetail = () => {
               <Input
                 type="text"
                 label="Địa chỉ nhà"
-                handler={() => {}}
-                value={() => {}}
-                error={() => {}}
-                width={"100%"}
-                paddingContainer={5}
-              />
-              <Input
-                type="number"
-                label="Mã bưu điện"
-                handler={() => {}}
-                value={() => {}}
-                error={() => {}}
-                width={"100%"}
-                paddingContainer={5}
-              />
-              <Input
-                type="text"
-                label="Thành phố"
-                handler={() => {}}
+                handler={addressHandler}
                 value={() => {}}
                 error={() => {}}
                 width={"100%"}

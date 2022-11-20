@@ -4,43 +4,71 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
 import { SlHome } from "react-icons/sl";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 const Heading = () => {
+  const { personalDetail } = useSelector((state) => state.resume);
   return (
     <HeaderContainer>
       <HeaderContent>
         <HeaderContentLeft>
-          <h1 className="name">Nguyen Thi A</h1>
-          <h1 className="occupation">Thực tập sinh Marketing</h1>
+          {personalDetail.name && (
+            <h1 className="name">{personalDetail.name}</h1>
+          )}
+
+          {personalDetail.occupation && (
+            <h1 className="occupation">{personalDetail.occupation}</h1>
+          )}
+
           <div className="introduction">
-            <div className="item">
-              <div className="icon">
-                <FaPhoneAlt />
+            {personalDetail.phoneNum && (
+              <div className="item phone">
+                <div className="icon">
+                  <FaPhoneAlt />
+                </div>
+                <span>{personalDetail.phoneNum}</span>
               </div>
-              <span>0123456789</span>
-            </div>
-            <div className="item">
-              <div className="icon">
-                <TfiEmail />
+            )}
+
+            {personalDetail.email && (
+              <div className="item email">
+                <div className="icon">
+                  <TfiEmail />
+                </div>
+                <span>{personalDetail.email}</span>
               </div>
-              <span>anniennguyen.work@gmail.com</span>
-            </div>
-            <div className="item">
-              <div className="icon">
-                <AiOutlineLink />
+            )}
+
+            {personalDetail.linkedinUrl && (
+              <div className="item linkedin">
+                <div className="icon">
+                  <AiOutlineLink />
+                </div>
+
+                <a
+                  href={`${personalDetail.linkedinUrl}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {`${personalDetail.linkedinUrl}`}
+                </a>
               </div>
-              <span>LinkedIn: Annien Nguyen</span>
-            </div>
-            <div className="item">
-              <div className="icon">
-                <SlHome />
+            )}
+
+            {personalDetail.address && (
+              <div className="item address">
+                <div className="icon">
+                  <SlHome />
+                </div>
+                <span>{personalDetail.address}</span>
               </div>
-              <span>123 nguyễn tri phương, quận 10, tp hồ chí minh</span>
-            </div>
+            )}
           </div>
         </HeaderContentLeft>
         <HeaderContentRight>
-          <img src="/images/simcareer.png" alt="" />
+          {personalDetail.image && (
+            <img src={`${personalDetail.image}`} alt="" />
+          )}
         </HeaderContentRight>
       </HeaderContent>
     </HeaderContainer>
@@ -58,6 +86,7 @@ const HeaderContainer = styled.div`
 const HeaderContent = styled.div`
   display: flex;
   padding: 25px 55px;
+  justify-content: space-between;
 `;
 
 const HeaderContentLeft = styled.div`
@@ -77,11 +106,23 @@ const HeaderContentLeft = styled.div`
   .introduction {
     display: flex;
     flex-wrap: wrap;
+    min-width: 514px;
 
     .item {
       display: flex;
-      /* width: 50%; */
+      width: 50%;
       padding: 15px;
+      min-width: 257px;
+
+      &.address,
+      &.linkedin {
+        width: 100%;
+      }
+
+      &.phone,
+      &.email {
+        width: 50%;
+      }
 
       .icon {
         background: #ffffff;
@@ -100,16 +141,21 @@ const HeaderContentLeft = styled.div`
         }
       }
       gap: 15px;
-      max-width: 500px;
 
-      & > span {
+      & > span,
+      & > a {
         overflow: hidden;
         text-overflow: ellipsis;
         word-break: break-word;
         display: -webkit-box;
-        -webkit-line-clamp: 2; /* number of lines to show */
-        line-clamp: 2;
+        -webkit-line-clamp: 1; /* number of lines to show */
+        line-clamp: 1;
         -webkit-box-orient: vertical;
+      }
+
+      & > a {
+        text-decoration: none;
+        color: #ffffff;
       }
     }
   }
@@ -121,9 +167,9 @@ const HeaderContentRight = styled.div`
   justify-content: center;
 
   img {
-    border-radius: 50%;
-    width: 345px;
-    height: 345px;
+    border-radius: 9px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
   }
 `;
