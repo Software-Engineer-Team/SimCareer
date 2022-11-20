@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 
 const Heading = () => {
   const { personalDetail } = useSelector((state) => state.resume);
+
   return (
     <HeaderContainer>
       <HeaderContent>
@@ -21,21 +22,21 @@ const Heading = () => {
           )}
 
           <div className="introduction">
-            {personalDetail.phoneNum && (
-              <div className="item phone">
-                <div className="icon">
-                  <FaPhoneAlt />
-                </div>
-                <span>{personalDetail.phoneNum}</span>
-              </div>
-            )}
-
             {personalDetail.email && (
               <div className="item email">
                 <div className="icon">
                   <TfiEmail />
                 </div>
                 <span>{personalDetail.email}</span>
+              </div>
+            )}
+
+            {personalDetail.phoneNum && (
+              <div className="item phone">
+                <div className="icon">
+                  <FaPhoneAlt />
+                </div>
+                <span>{personalDetail.phoneNum}</span>
               </div>
             )}
 
@@ -81,6 +82,7 @@ const HeaderContainer = styled.div`
   width: 100%;
   background-color: #000000;
   color: #ffffff;
+  min-height: 365px;
 `;
 
 const HeaderContent = styled.div`
@@ -119,9 +121,14 @@ const HeaderContentLeft = styled.div`
         width: 100%;
       }
 
-      &.phone,
       &.email {
-        width: 50%;
+        width: 65%;
+        min-width: 400.1px;
+      }
+
+      &.phone {
+        width: 35%;
+        min-width: 250.5px;
       }
 
       .icon {
@@ -162,6 +169,7 @@ const HeaderContentLeft = styled.div`
 `;
 
 const HeaderContentRight = styled.div`
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

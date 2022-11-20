@@ -23,7 +23,7 @@ import { useReactToPrint } from "react-to-print";
 let a = 0.544816,
   b = 0,
   c = 0,
-  d = 0.464816,
+  d = 0.544816,
   tx = 232.161,
   ty = 375.849;
 
@@ -39,13 +39,13 @@ const Document = () => {
 
   const documentWheelHandler = (e) => {
     if (e.deltaY > 0) {
-      a = a - 0.01;
+      a = a - 0.02;
       d = d - 0.02;
       /* tx = tx + 32; */
       /* ty = ty + 28; */
       docContentRef.current.style.transform = `matrix(${a}, ${b}, ${c}, ${d}, ${tx}, ${ty})`;
     } else {
-      a = a + 0.01;
+      a = a + 0.02;
       d = d + 0.02;
       /* tx = tx - 13; */
       /* ty = ty - 20; */
@@ -55,13 +55,13 @@ const Document = () => {
 
   const zoomInHandler = () => {
     a = a + 0.05;
-    d = d + 0.06;
+    d = d + 0.05;
     docContentRef.current.style.transform = `matrix(${a}, ${b}, ${c}, ${d}, ${tx}, ${ty})`;
   };
 
   const zoomOutHandler = () => {
     a = a - 0.05;
-    d = d - 0.06;
+    d = d - 0.05;
     docContentRef.current.style.transform = `matrix(${a}, ${b}, ${c}, ${d}, ${tx}, ${ty})`;
   };
 

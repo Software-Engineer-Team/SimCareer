@@ -1,7 +1,39 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import useImportWidget from "~/hooks/useImportWidget";
+
+const EducationItem = ({
+  idx,
+  school,
+  city,
+  specialize,
+  startDate,
+  endDate,
+  descriptionHtml,
+}) => {
+  useImportWidget({ html: descriptionHtml, elId: "EDUCATION_" + idx });
+  return (
+    <div className="education-content" id={"EDUCATION_" + idx}>
+      <h4>
+        {school}
+        {city && ", " + city}
+      </h4>
+      <div className="education-content-item">
+        <ul>
+          <li>Chuyên ngành: {specialize}</li>
+          <li>
+            Niên khóa: {startDate.year} - {endDate.year}
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+};
 
 const Education = () => {
+  const { education } = useSelector((state) => state.resume);
+
   return (
     <EducationContainer>
       <div className="education">
@@ -9,27 +41,25 @@ const Education = () => {
           <span>Học vấn</span>
         </div>
 
-        <div className="education-content">
-          <h4>Thông tin cá nhân: Ứng viên cần cập nhật DOB trong hồ sơ ứng</h4>
-          <div>
-            {Array(2)
-              .fill(null)
-              .map(() => {
-                return (
-                  <div className="education-content-item">
-                    <ul>
-                      <li>
-                        Thông tin cá nhân: Ứng viên cần cập nhật DOB trong hồ sơ
-                      </li>
-                      <li>
-                        Thông tin cá nhân: Ứng viên cần cập nhật DOB trong hồ sơ
-                      </li>
-                    </ul>
-                  </div>
-                );
-              })}
-          </div>
-        </div>
+        {education.map(
+          (
+            { school, city, startDate, endDate, specialize, descriptionHtml },
+            idx
+          ) => {
+            return (
+              <EducationItem
+                idx={idx}
+                school={school}
+                startDate={startDate}
+                endDate={endDate}
+                city={city}
+                specialize={specialize}
+                descriptionHtml={descriptionHtml}
+                key={idx}
+              />
+            );
+          }
+        )}
       </div>
     </EducationContainer>
   );
@@ -79,6 +109,11 @@ const EducationContainer = styled.div`
             font-size: 20px;
           }
         }
+      }
+
+      ol,
+      ul {
+        margin: 0;
       }
     }
   }

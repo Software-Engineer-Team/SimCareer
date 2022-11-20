@@ -27,6 +27,7 @@ const Input = ({
           <input
             type={type}
             name="email"
+            value={value}
             required
             onFocus={(e) => e.target.parentElement.classList.add("focus")}
             onBlur={(e) => e.target.parentElement.classList.remove("focus")}

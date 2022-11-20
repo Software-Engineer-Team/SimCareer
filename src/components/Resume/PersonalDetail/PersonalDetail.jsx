@@ -9,8 +9,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { resumeActions } from "~/store/resume-slice";
 
 const PersonalDetail = () => {
+  const {
+    personalDetail: {
+      name,
+      email,
+      occupation,
+      phoneNum,
+      address,
+      image,
+      linkedinUrl,
+    },
+  } = useSelector((state) => state.resume);
   const [showImageForm, setShowImageForm] = useState(false);
-  const [image, setImage] = useState({});
+  /* const [image, setImage] = useState({}); */
   const [showPersonalContent, setShowPersonalContent] = useState(false);
   const dispatch = useDispatch();
 
@@ -18,13 +29,13 @@ const PersonalDetail = () => {
     if (imgRef.current.files[0]) {
       const fReader = new FileReader();
       const file = imgRef.current.files[0];
-      fReader.readAsDataURL(imgRef.current.files[0]);
+      fReader.readAsDataURL(file);
       fReader.onload = () => {
-        setImage({
-          url: fReader.result,
-          name: file.name,
-          size: (file.size / 1024).toFixed(2),
-        });
+        /* setImage({ */
+        /*   url: fReader.result, */
+        /*   name: file.name, */
+        /*   size: (file.size / 1024).toFixed(2), */
+        /* }); */
         dispatch(
           resumeActions.setPersonalDetailImage({ image: fReader.result })
         );
@@ -137,7 +148,7 @@ const PersonalDetail = () => {
                   type="text"
                   label="Họ và tên"
                   handler={nameHandler}
-                  value={() => {}}
+                  value={name}
                   error={() => {}}
                   width={"90%"}
                   widthContainer={"40%"}
@@ -146,7 +157,7 @@ const PersonalDetail = () => {
                   type="text"
                   label="E-mail"
                   handler={emailHanlder}
-                  value={() => {}}
+                  value={email}
                   error={() => {}}
                   width={"100%"}
                   widthContainer={"60%"}
@@ -155,7 +166,7 @@ const PersonalDetail = () => {
                   type="text"
                   label="Tiêu đề"
                   handler={occupationHandler}
-                  value={() => {}}
+                  value={occupation}
                   error={() => {}}
                   width={"100%"}
                 />
@@ -167,7 +178,7 @@ const PersonalDetail = () => {
                 type="number"
                 label="Số điện thoại"
                 handler={phoneHandler}
-                value={() => {}}
+                value={phoneNum}
                 error={() => {}}
                 width={"100%"}
                 paddingContainer={5}
@@ -176,7 +187,7 @@ const PersonalDetail = () => {
                 type="url"
                 label="Linkedin"
                 handler={linkedinUrlHandler}
-                value={() => {}}
+                value={linkedinUrl}
                 error={() => {}}
                 width={"100%"}
                 paddingContainer={5}
@@ -185,7 +196,7 @@ const PersonalDetail = () => {
                 type="text"
                 label="Địa chỉ nhà"
                 handler={addressHandler}
-                value={() => {}}
+                value={address}
                 error={() => {}}
                 width={"100%"}
                 paddingContainer={5}

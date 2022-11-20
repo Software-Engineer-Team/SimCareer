@@ -7,7 +7,7 @@ export const DocumentContainer = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 50px;
+  top: -70px;
   left: 20px;
 `;
 
@@ -19,8 +19,7 @@ export const DocumentContent = styled.div`
   min-height: 29.7cm;
   display: inline-block;
   transform-origin: 0px 0px 0px;
-  transform: matrix(0.544816, 0, 0, 0.464816, 232.161, 375.849);
-  /* zoom: inherit; */
+  transform: matrix(0.544816, 0, 0, 0.544816, 232.161, 375.849);
   transition: all 0.1s linear 0s;
   will-change: transform;
 

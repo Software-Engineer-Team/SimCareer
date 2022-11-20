@@ -19,7 +19,7 @@ export const PersonalDetailContainer = styled.div`
         flex-grow: 1;
         color: #2e2e33;
         font-size: 1.25rem;
-        font-weight: 500;
+        font-weight: 700 !important;
         line-height: 1.75rem;
         overflow: hidden;
       }

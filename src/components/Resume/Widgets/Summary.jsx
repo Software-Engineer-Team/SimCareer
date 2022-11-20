@@ -4,8 +4,10 @@ import styled from "styled-components";
 import useImportWidget from "~/hooks/useImportWidget";
 
 const Summary = () => {
-  const { summaryHtml } = useSelector((state) => state.resume);
-  useImportWidget({ html: summaryHtml, elId: "SUMMARY" });
+  const {
+    summary: { descriptionHtml },
+  } = useSelector((state) => state.resume);
+  useImportWidget({ html: descriptionHtml, elId: "SUMMARY" });
 
   return (
     <SummaryContainer id="SUMMARY">
@@ -35,11 +37,20 @@ const SummaryContainer = styled.div`
     }
   }
 
+  ul,
+  ol {
+    margin: 0;
+    font-family: Cambria, Georgia, serif;
+  }
+
   p {
     margin: 0;
     min-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-word;
+    font-size: 22px;
+    font-family: Cambria, Georgia, serif;
+    font-weight: 400;
   }
 `;

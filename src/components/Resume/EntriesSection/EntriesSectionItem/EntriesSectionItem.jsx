@@ -13,16 +13,17 @@ const EntriesSectionItem = ({ title, type, idx }) => {
   const toggleDetailHandler = () => {
     setShowDetail(!showDetail);
   };
-  const resumeState = useSelector((state) => state.resume);
-  console.log(resumeState);
+  const { education, experience, skill, certificate, hobby } = useSelector(
+    (state) => state.resume
+  );
   const dispatch = useDispatch();
-  console.log(type);
 
   const input1Handler = (type, value = "", idx = 0) => {
     switch (type) {
       case "Education": {
         return {
           label: "Trường học",
+          inputVal: education?.[idx].school,
           handler: () => {
             dispatch(
               resumeActions.setEducationSchool({ index: idx, school: value })
@@ -33,6 +34,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
       case "Experience": {
         return {
           label: "Công ty",
+          inputVal: experience?.[idx].company,
           handler: () => {
             dispatch(
               resumeActions.setExperienceCompany({ index: idx, company: value })
@@ -43,6 +45,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
       case "Skill": {
         return {
           label: "Tên kỹ năng",
+          inputVal: skill?.[idx].name,
           handler: () => {
             dispatch(resumeActions.setSkillName({ index: idx, name: value }));
           },
@@ -51,6 +54,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
       case "Certificate": {
         return {
           label: "Chứng chỉ",
+          inputVal: certificate?.[idx].name,
           handler: () => {
             dispatch(
               resumeActions.setCertificateName({ index: idx, name: value })
@@ -61,6 +65,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
       case "Hobby": {
         return {
           label: "Tên sở thích",
+          inputVal: hobby?.[idx].name,
           handler: () => {
             dispatch(resumeActions.setHobbyName({ index: idx, name: value }));
           },
@@ -69,17 +74,18 @@ const EntriesSectionItem = ({ title, type, idx }) => {
       default:
         return {
           label: "Tiêu đề",
+          inputVal: "",
           handler: () => {},
         };
     }
   };
 
   const input2Handler = (type, title = "", value = "", idx = 0) => {
-    console.log(title);
     switch (type) {
       case "Education": {
         return {
           label: title,
+          inputVal: education?.[idx].specialize,
           handler: () => {
             dispatch(
               resumeActions.setEducationSpecialize({
@@ -93,6 +99,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
       case "Experience": {
         return {
           label: title,
+          inputVal: experience?.[idx].position,
           handler: () => {
             dispatch(
               resumeActions.setExperiencePosition({
@@ -106,6 +113,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
       default:
         return {
           label: "Tóm tắt",
+          inputVal: "",
           handler: () => {},
         };
     }
@@ -116,6 +124,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
       case "Education": {
         return {
           label: "Thành phố",
+          inputVal: education?.[idx].city,
           handler: () => {
             dispatch(
               resumeActions.setEducationCity({
@@ -129,6 +138,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
       case "Experience": {
         return {
           label: "Thành phố",
+          inputVal: experience?.[idx].city,
           handler: () => {
             dispatch(
               resumeActions.setExperienceCity({
@@ -142,6 +152,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
       default:
         return {
           label: "Tóm tắt",
+          inputVal: "",
           handler: () => {},
         };
     }
@@ -156,52 +167,69 @@ const EntriesSectionItem = ({ title, type, idx }) => {
     switch (type) {
       case "Education": {
         return isStartDate
-          ? () =>
-              dispatch(
-                resumeActions.setEducationStartDate({
-                  index: idx,
-                  startDate: { ...value },
-                })
-              )
-          : () =>
-              dispatch(
-                resumeActions.setEducationEndDate({
-                  index: idx,
-                  endDate: { ...value },
-                })
-              );
+          ? {
+              handler: () =>
+                dispatch(
+                  resumeActions.setEducationStartDate({
+                    index: idx,
+                    startDate: { ...value },
+                  })
+                ),
+              selectVal: education?.[idx].startDate,
+            }
+          : {
+              handler: () =>
+                dispatch(
+                  resumeActions.setEducationEndDate({
+                    index: idx,
+                    endDate: { ...value },
+                  })
+                ),
+              selectVal: education?.[idx].endDate,
+            };
       }
       case "Experience": {
-        console.log("Testttt");
         return isStartDate
-          ? () => {
-              console.log(value);
-              dispatch(
-                resumeActions.setExperienceStartDate({
-                  index: idx,
-                  startDate: { ...value },
-                })
-              );
+          ? {
+              handler: () => {
+                console.log(value);
+                dispatch(
+                  resumeActions.setExperienceStartDate({
+                    index: idx,
+                    startDate: { ...value },
+                  })
+                );
+              },
+              selectVal: experience?.[idx].startDate,
             }
-          : () =>
-              dispatch(
-                resumeActions.setExperienceEndDate({
-                  index: idx,
-                  endDate: { ...value },
-                })
-              );
+          : {
+              handler: () =>
+                dispatch(
+                  resumeActions.setExperienceEndDate({
+                    index: idx,
+                    endDate: { ...value },
+                  })
+                ),
+              selectVal: experience?.[idx].endDate,
+            };
       }
       case "Certificate": {
-        return () =>
-          dispatch(
-            resumeActions.setCertificateDate({
-              index: idx,
-              date: { ...value },
-            })
-          );
+        return {
+          handler: () =>
+            dispatch(
+              resumeActions.setCertificateDate({
+                index: idx,
+                date: { ...value },
+              })
+            ),
+          selectVal: certificate?.[idx].date,
+        };
       }
       default:
-        return () => {};
+        return {
+          handler: () => {},
+          selectVal: { month: "January", year: 2024 },
+        };
     }
   };
   return (
@@ -227,7 +255,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
                 handler={(e) => {
                   input1Handler(type, e.target.value, idx).handler();
                 }}
-                value={() => {}}
+                value={input1Handler(type).inputVal}
                 error={() => {}}
                 width={"100%"}
                 widthContainer={"100%"}
@@ -242,7 +270,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
                     handler={(e) => {
                       input2Handler(type, title, e.target.value, idx).handler();
                     }}
-                    value={() => {}}
+                    value={input2Handler(type).inputVal}
                     error={() => {}}
                     width={type ? "90%" : "100%"}
                     widthContainer={type ? "50%" : "100%"}
@@ -258,7 +286,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
                     handler={(e) => {
                       input3Handler(type, e.target.value, idx).handler();
                     }}
-                    value={() => {}}
+                    value={input3Handler(type).inputVal}
                     error={() => {}}
                     width={"100%"}
                     widthContainer={"50%"}
@@ -271,9 +299,10 @@ const EntriesSectionItem = ({ title, type, idx }) => {
                   <SelectOptions
                     formType={"Giai đoạn"}
                     width={"325px"}
+                    selectVal={selectOptionsHandler(type, true, idx).selectVal}
                     widthContainer={"100%"}
                     selectOptionsHandler={(value) => {
-                      selectOptionsHandler(type, true, idx, value)();
+                      selectOptionsHandler(type, true, idx, value).handler();
                     }}
                   />
                 ) : (
@@ -281,17 +310,23 @@ const EntriesSectionItem = ({ title, type, idx }) => {
                     <SelectOptions
                       formType={"Ngày bắt đầu"}
                       width={"145px"}
+                      selectVal={
+                        selectOptionsHandler(type, true, idx).selectVal
+                      }
                       widthContainer={"50%"}
                       selectOptionsHandler={(value) => {
-                        selectOptionsHandler(type, true, idx, value)();
+                        selectOptionsHandler(type, true, idx, value).handler();
                       }}
                     />
                     <SelectOptions
                       formType={"Ngày kết thúc"}
                       width={"160px"}
+                      selectVal={
+                        selectOptionsHandler(type, false, idx).selectVal
+                      }
                       widthContainer={"50%"}
                       selectOptionsHandler={(value) => {
-                        selectOptionsHandler(type, false, idx, value)();
+                        selectOptionsHandler(type, false, idx, value).handler();
                       }}
                     />
                   </>
@@ -302,7 +337,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
               <div className="form-type">
                 <label>Mô tả</label>
               </div>
-              <Draft type={type} />
+              <Draft type={type} idx={idx} isEntriesSection={true} />
             </div>
             <div className="btns">
               <Button>

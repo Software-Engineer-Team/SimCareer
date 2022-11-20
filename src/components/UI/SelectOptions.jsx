@@ -7,6 +7,7 @@ const SelectOptions = ({
   widthContainer,
   formType,
   selectOptionsHandler,
+  selectVal,
 }) => {
   const selectMonthHandler = (e) => {
     console.log(e.target.value);
@@ -25,7 +26,7 @@ const SelectOptions = ({
       <div className="form-container">
         <div className="form-content">
           <div className="form-month">
-            <select data-value={0} onChange={selectMonthHandler}>
+            <select value={selectVal?.month} onChange={selectMonthHandler}>
               {months.map((month, idx) => (
                 <option value={idx + 1} key={idx}>
                   {month}
@@ -37,7 +38,7 @@ const SelectOptions = ({
             </div>
           </div>
           <div className="form-year">
-            <select data-value="01" onChange={selectYearHandler}>
+            <select value={selectVal?.year} onChange={selectYearHandler}>
               {getYears(1963, 2025)
                 .reverse()
                 .map((year, idx) => (

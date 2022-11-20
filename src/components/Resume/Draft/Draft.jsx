@@ -26,7 +26,7 @@ import {
   HeadlineButton,
   HeadlineButtonWrapper,
 } from "./Draft.styled";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { resumeActions } from "~/store/resume-slice";
 
 const HeadlinesPicker = (props) => {
@@ -67,29 +67,140 @@ const { Toolbar } = toolbarPlugin;
 const plugins = [toolbarPlugin];
 
 const Draft = (props) => {
-  const [editor, setEditor] = useState(createEditorStateWithText(""));
+  const {
+    achievement,
+    summary,
+    education,
+    experience,
+    hobby,
+    skill,
+    certificate,
+  } = useSelector((state) => state.resume);
+
+  const editorStateEntriesSection = (type, value = {}, dHtml = "", idx = 0) => {
+    switch (type) {
+      case "Education": {
+        dispatch(
+          resumeActions.setEducationDescriptionHtml({
+            index: idx,
+            descriptionHtml: dHtml,
+          })
+        );
+
+        return dispatch(
+          resumeActions.setEducationEditorState({
+            index: idx,
+            editorState: value,
+          })
+        );
+      }
+      case "Experience": {
+        dispatch(
+          resumeActions.setExperienceDescriptionHtml({
+            index: idx,
+            descriptionHtml: dHtml,
+          })
+        );
+        return dispatch(
+          resumeActions.setExperienceEditorState({
+            index: idx,
+            editorState: value,
+          })
+        );
+      }
+      case "Skill": {
+        dispatch(
+          resumeActions.setSkillDescriptionHtml({
+            index: idx,
+            descriptionHtml: dHtml,
+          })
+        );
+        return dispatch(
+          resumeActions.setSkillEditorState({ index: idx, editorState: value })
+        );
+      }
+      case "Certificate": {
+        dispatch(
+          resumeActions.setCertificateDescriptionHtml({
+            index: idx,
+            descriptionHtml: dHtml,
+          })
+        );
+        return dispatch(
+          resumeActions.setCertificateEditorState({
+            index: idx,
+            editorState: value,
+          })
+        );
+      }
+      case "Hobby": {
+        dispatch(
+          resumeActions.setHobbyDescriptionHtml({
+            index: idx,
+            descriptionHtml: dHtml,
+          })
+        );
+        return dispatch(
+          resumeActions.setHobbyEditorState({ index: idx, editorState: value })
+        );
+      }
+      default:
+        return null;
+    }
+  };
+  console.log(props);
+  console.log(education);
+  const editorState =
+    props.type === "Summary"
+      ? summary?.editorState
+      : props.type === "Achievements"
+      ? achievement?.editorState
+      : props.type === "Education"
+      ? education?.[props.idx].editorState
+      : props.type === "Experience"
+      ? experience?.[props.idx].editorState
+      : props.type === "Skill"
+      ? skill?.[props.idx].editorState
+      : props.type === "Hobby"
+      ? hobby?.[props.idx].editorState
+      : props.type === "Certificate"
+      ? certificate?.[props.idx].editorState
+      : createEditorStateWithText("");
+  /* const [editor, setEditor] = useState( */
+  /*   editorState || createEditorStateWithText("") */
+  /* ); */
   const editorEl = useRef(null),
     editorContainerEl = useRef(null);
   const dispatch = useDispatch();
 
   const editorHanlder = (editorState) => {
-    setEditor(editorState);
+    /* setEditor(editorState); */
     const rawContentState = convertToRaw(editorState.getCurrentContent());
 
     const html = draftToHtml(rawContentState);
-    switch (props.type) {
-      case "Summary": {
-        dispatch(resumeActions.setSummary({ html }));
-        break;
+    if (props.isEntriesSection) {
+      editorStateEntriesSection(props.type, editorState, html, props.idx);
+    } else {
+      switch (props.type) {
+        case "Summary": {
+          dispatch(
+            resumeActions.setSummary({
+              summary: { descriptionHtml: html, editorState },
+            })
+          );
+          break;
+        }
+        case "Achievements": {
+          dispatch(
+            resumeActions.setAchievement({
+              achievement: { descriptionHtml: html, editorState },
+            })
+          );
+          break;
+        }
+        default:
+          break;
       }
-      case "Education": {
-        break;
-      }
-      case "Experience": {
-        break;
-      }
-      default:
-        break;
     }
   };
 
@@ -109,7 +220,7 @@ const Draft = (props) => {
       }}
     >
       <Editor
-        editorState={editor}
+        editorState={editorState}
         onChange={editorHanlder}
         plugins={plugins}
         ref={editorEl}

@@ -1,22 +1,20 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import useImportWidget from "~/hooks/useImportWidget";
 
 const Achivements = () => {
+  const {
+    achievement: { descriptionHtml },
+  } = useSelector((state) => state.resume);
+  useImportWidget({ html: descriptionHtml, elId: "ACHIEVEMENTS" });
+
   return (
     <AchivementContainer>
-      <div className="achivement">
+      <div className="achivement" id="ACHIEVEMENTS">
         <div className="title">
           <span>Thành tích</span>
         </div>
-        <p>
-          Tóm tắt bản thân: Để giúp nhà tuyển dụng có những cái nhìn khái quát
-          về bạn. Một đoạn giới thiệu vắn tắt Bạn là ai ? Điểm mạnh ? Mục tiêu
-          sự nghiệp ? là rất cần thiết.
-        </p>
-        <p>
-          Công việc của một digital marketer cần đáp ứng những kỹ năng liên quan
-          đến mặt kĩ thuật nhằm gia tăng khả năng chinh phục nhà tuyển dụng;
-        </p>
       </div>
     </AchivementContainer>
   );
@@ -40,6 +38,12 @@ const AchivementContainer = styled.div`
       span {
         margin-left: 0px;
       }
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      font-family: Cambria, Georgia, serif;
     }
 
     p {

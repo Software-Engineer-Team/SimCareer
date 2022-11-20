@@ -1,33 +1,37 @@
+import { createEditorStateWithText } from "@draft-js-plugins/editor";
 import { createSlice } from "@reduxjs/toolkit";
 
 export const resumeSlice = createSlice({
   name: "resume",
   initialState: {
     personalDetail: {
-      name: "Nguyen Thi A",
-      email: "anniennguyen.work@gmail.com",
-      occupation: "Thực tập sinh Marketing",
-      phoneNum: "0123456789",
-      address: "123 nguyễn tri phương, quận 10, tp hồ chí minh",
+      name: "",
+      email: "",
+      occupation: "",
+      phoneNum: "",
+      address: "",
       image: "/images/simcareer.png",
-      linkedinUrl: "https://www.linkedin.com/in/chk842",
+      linkedinUrl: "",
     },
-    summaryHtml: "<p>mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</p>",
+    summary: {
+      descriptionHtml: null,
+      editorState: createEditorStateWithText(""),
+    },
     education: [
       {
         school: "",
         city: "",
         startDate: {
-          month: "January",
-          year: 2024,
+          month: "1",
+          year: 2020,
         },
         endDate: {
-          month: "January",
+          month: "5",
           year: 2024,
         },
         specialize: "",
         descriptionHtml: null,
-        editorState: null,
+        editorState: createEditorStateWithText(""),
       },
     ],
     experience: [
@@ -44,14 +48,14 @@ export const resumeSlice = createSlice({
           year: 2024,
         },
         descriptionHtml: null,
-        editorState: null,
+        editorState: createEditorStateWithText(""),
       },
     ],
     skill: [
       {
         name: "",
         descriptionHtml: null,
-        editorState: null,
+        editorState: createEditorStateWithText(""),
       },
     ],
     certificate: [
@@ -62,22 +66,31 @@ export const resumeSlice = createSlice({
           year: 2024,
         },
         descriptionHtml: null,
-        editorState: null,
+        editorState: createEditorStateWithText(""),
       },
     ],
     hobby: [
       {
         name: "",
         descriptionHtml: null,
-        editorState: null,
+        editorState: createEditorStateWithText(""),
       },
     ],
-    achivementHTMl: null,
+    achievement: {
+      descriptionHtml: null,
+      editorState: createEditorStateWithText(""),
+    },
   },
   reducers: {
-    setSummary(state, action) {
-      state.summaryHtml = action.payload.html;
+    ////////////////////////// Achievement /////////////////////////
+    setAchievement(state, action) {
+      state.achievement = action.payload.achievement;
     },
+    ////////////////////////// Summary /////////////////////////
+    setSummary(state, action) {
+      state.summary = action.payload.summary;
+    },
+    ////////////////////////// PersonalDetail /////////////////////////
     setPersonalDetailName(state, action) {
       state.personalDetail.name = action.payload.name;
     },
@@ -102,7 +115,6 @@ export const resumeSlice = createSlice({
     setPersonalDetail(state, action) {
       state.personalDetail = action.payload.personalDetail;
     },
-
     ////////////////////////// Experience /////////////////////////
     setExperienceCompany(state, action) {
       state.experience[action.payload.index].company = action.payload.company;

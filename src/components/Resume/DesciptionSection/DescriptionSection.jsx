@@ -26,7 +26,7 @@ const DescriptionSection = ({ headerTitle, type }) => {
               <div className="form-type">
                 <label>Mô tả</label>
               </div>
-              <Draft type={type} />
+              <Draft type={type} isEntriesSection={false} />
             </div>
           </div>
         )}
