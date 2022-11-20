@@ -14,6 +14,29 @@ export const validatePhoneNumber = (phone) => {
   );
 };
 
+export const getYears = (startYear, endYear) => {
+  const years = [];
+  for (let index = startYear; index < endYear; index++) {
+    years.push(index);
+  }
+  return years;
+};
+
+export const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 export const checkRowIsComplete = (id, rows) => {
   const items = rows?.filter(
     ({ id: rid, status }) => rid === id && status === "Đã xem xét"

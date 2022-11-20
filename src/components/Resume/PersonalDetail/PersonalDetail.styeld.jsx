@@ -11,7 +11,7 @@ export const PersonalDetailContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 5px 10px 0;
+      padding: 10px 0px 10px 0;
       .header-title {
         font-family: "Poppins", sans-serif;
         text-align: left;

@@ -49,6 +49,7 @@ export const InputContainer = styled.div`
   padding: ${({ paddingContainer }) =>
       paddingContainer ? paddingContainer : 0}px
     0;
+  margin-top: 5px;
 
   .form-input-type {
     font-weight: 500;

@@ -20,4 +20,5 @@ export { default as Input } from "@components/UI/Input";
 export { default as Document } from "@components/Resume/Document";
 export { default as PersonalDetail } from "@components/Resume/PersonalDetail/PersonalDetail";
 export { default as Education } from "@components/Resume/Education/Education";
+export { default as EntriesSection } from "@components/Resume/EntriesSection/EntriesSection";
 export { default as SelectOptions } from "@components/UI/SelectOptions";

@@ -7,7 +7,7 @@ export const EditorContainer = styled.div`
   padding: 16px;
   min-height: 200px;
   border-radius: 5px;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   background: #f4f4f5;
 
   .DraftEditor-root {

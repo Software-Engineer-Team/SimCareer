@@ -4,6 +4,7 @@ import {
   ResumeRightContainer,
   Document,
   Education,
+  EntriesSection,
 } from "@components/index";
 import PDFDisplay from "@components/PDFDisplay/PDFDisplay";
 import {
@@ -38,6 +39,7 @@ const Resume = () => {
             <div className="resume-content-right">
               <PersonalDetail />
               <Education />
+              <EntriesSection />
             </div>
           </ResumeContentRight>
         </ResumeRightContainer>

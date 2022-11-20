@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { IoIosArrowDown } from "react-icons/io";
+import { getYears, months } from "@utils/utils";
 const SelectOptions = ({ width, widthContainer, formType }) => {
   return (
     <SelectionOptionsContainer width={width} widthContainer={widthContainer}>
@@ -10,20 +11,12 @@ const SelectOptions = ({ width, widthContainer, formType }) => {
       <div className="form-container">
         <div className="form-content">
           <div className="form-month">
-            <select data-value="01">
-              <option value="">Month</option>
-              <option value="01">January</option>
-              <option value="02">February</option>
-              <option value="03">March</option>
-              <option value="04">April</option>
-              <option value="05">May</option>
-              <option value="06">June</option>
-              <option value="07">July</option>
-              <option value="08">August</option>
-              <option value="09">September</option>
-              <option value="10">October</option>
-              <option value="11">November</option>
-              <option value="12">December</option>
+            <select data-value={0}>
+              {months.map((month, idx) => (
+                <option value={idx} key={idx}>
+                  {month}
+                </option>
+              ))}
             </select>
             <div className="btn-list">
               <IoIosArrowDown />
@@ -31,19 +24,13 @@ const SelectOptions = ({ width, widthContainer, formType }) => {
           </div>
           <div className="form-year">
             <select data-value="01">
-              <option value="">Month</option>
-              <option value="01">January</option>
-              <option value="02">February</option>
-              <option value="03">March</option>
-              <option value="04">April</option>
-              <option value="05">May</option>
-              <option value="06">June</option>
-              <option value="07">July</option>
-              <option value="08">August</option>
-              <option value="09">September</option>
-              <option value="10">October</option>
-              <option value="11">November</option>
-              <option value="12">December</option>
+              {getYears(1963, 2025)
+                .reverse()
+                .map((year, idx) => (
+                  <option value={idx} key={idx}>
+                    {year}
+                  </option>
+                ))}
             </select>
             <div className="btn-list">
               <IoIosArrowDown />
@@ -63,6 +50,7 @@ export const SelectionOptionsContainer = styled.div`
   flex-direction: column;
   font-family: "Poppins", sans-serif;
   width: ${({ widthContainer }) => (widthContainer ? widthContainer : "100%")};
+  margin-top: 5px;
 
   .form-type {
     font-weight: 500;
