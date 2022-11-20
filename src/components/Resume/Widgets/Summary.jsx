@@ -1,16 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import useImportWidget from "~/hooks/useImportWidget";
 
 const Summary = () => {
+  const { summaryHtml } = useSelector((state) => state.resume);
+  useImportWidget({ html: summaryHtml, elId: "SUMMARY" });
+
   return (
-    <SummaryContainer>
+    <SummaryContainer id="SUMMARY">
       <div className="title">
         <span>Tóm tắt</span>
       </div>
-      <p>
-        mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-        mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-      </p>
     </SummaryContainer>
   );
 };
@@ -27,6 +28,7 @@ const SummaryContainer = styled.div`
     font-size: 40px;
     text-transform: uppercase;
     font-weight: 500;
+    margin-bottom: 20px;
 
     span {
       margin-left: 20px;
@@ -34,6 +36,7 @@ const SummaryContainer = styled.div`
   }
 
   p {
+    margin: 0;
     min-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;

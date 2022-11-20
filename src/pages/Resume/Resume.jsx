@@ -39,7 +39,7 @@ const Resume = () => {
             <div className="resume-content-right">
               <PersonalDetail />
 
-              <DescriptionSection headerTitle={"Tóm tắt"} />
+              <DescriptionSection headerTitle={"Tóm tắt"} type={"Summary"} />
               <EntriesSection
                 headerTitle={"Học vấn"}
                 btnText={"Thêm bản ghi"}
@@ -67,7 +67,10 @@ const Resume = () => {
                 btnText={"Thêm sở thích"}
                 type={"Hobby"}
               />
-              <DescriptionSection headerTitle={"Thành tích"} />
+              <DescriptionSection
+                headerTitle={"Thành tích"}
+                type={"Achievements"}
+              />
 
               <EntriesSection
                 headerTitle={"Phần tùy chỉnh"}

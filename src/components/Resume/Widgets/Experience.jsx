@@ -42,6 +42,7 @@ export default Experience;
 
 const ExperienceContainer = styled.div`
   width: 100%;
+  margin-top: 20px;
   .company {
     width: 100%;
     .title {

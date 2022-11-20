@@ -26,6 +26,10 @@ import {
   HeadlineButton,
   HeadlineButtonWrapper,
 } from "./Draft.styled";
+import { useDispatch } from "react-redux";
+import { resumeActions } from "~/store/resume-slice";
+import { switchClasses } from "@mui/material";
+import { defaults } from "react-reveal/globals";
 
 const HeadlinesPicker = (props) => {
   useEffect(() => {
@@ -64,21 +68,28 @@ const toolbarPlugin = createToolbarPlugin();
 const { Toolbar } = toolbarPlugin;
 const plugins = [toolbarPlugin];
 
-const Draft = () => {
-  const [editor, setEditor] = useState(
-    createEditorStateWithText(
-      "In this editor a toolbar shows up once you select part of the text …"
-    )
-  );
+const Draft = (props) => {
+  const [editor, setEditor] = useState(createEditorStateWithText(""));
   const editorEl = useRef(null),
     editorContainerEl = useRef(null);
+  const dispatch = useDispatch();
 
   const editorHanlder = (editorState) => {
     setEditor(editorState);
     const rawContentState = convertToRaw(editorState.getCurrentContent());
 
-    const markup = draftToHtml(rawContentState);
-    console.log(markup);
+    const html = draftToHtml(rawContentState);
+    switch (props.type) {
+      case "Summary": {
+        dispatch(resumeActions.setSummary({ html }));
+        break;
+      }
+      case "Education": {
+        break;
+      }
+      default:
+        break;
+    }
   };
 
   const focusHandler = () => {

@@ -12,8 +12,50 @@ export const resumeSlice = createSlice({
       image: "/images/simcareer.png",
       linkedinUrl: "https://www.linkedin.com/in/chk842",
     },
+    summaryHtml: "<p>mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</p>",
+    education: [
+      {
+        school: "",
+        schoolAtCity: "",
+        nthYearStudent: "",
+        specialized: "",
+        descriptionHtml: null,
+      },
+    ],
+    experience: [
+      {
+        company: "",
+        companyAddress: "",
+        companyAtCity: "",
+        date: "",
+        descriptionHtml: null,
+      },
+    ],
+    skill: [
+      {
+        name: "",
+        descriptionHtml: null,
+      },
+    ],
+    certificate: [
+      {
+        name: "",
+        date: "",
+        descriptionHtml: null,
+      },
+    ],
+    hobby: [
+      {
+        name: "",
+        descriptionHtml: null,
+      },
+    ],
+    achivementHTMl: null,
   },
   reducers: {
+    setSummary(state, action) {
+      state.summaryHtml = action.payload.html;
+    },
     setPersonalDetailName(state, action) {
       state.personalDetail.name = action.payload.name;
     },

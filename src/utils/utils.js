@@ -59,3 +59,38 @@ export const postData = async (data, url) => {
   };
   return await axios(options);
 };
+
+export const switchWidget = (type, callback) => {
+  switch (type) {
+    case "Summary": {
+      callback();
+      break;
+    }
+    case "Education": {
+      callback();
+      break;
+    }
+    case "Experience": {
+      callback();
+      break;
+    }
+    case "Skill": {
+      callback();
+      break;
+    }
+    case "Certificate": {
+      callback();
+      break;
+    }
+    case "Hobby": {
+      callback();
+      break;
+    }
+    case "Achievements": {
+      callback();
+      break;
+    }
+    default:
+      break;
+  }
+};

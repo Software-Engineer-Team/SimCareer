@@ -6,11 +6,13 @@ import { TiTick } from "react-icons/ti";
 import { Input, Button, SelectOptions } from "@components/index";
 import { useState } from "react";
 import { EntriesSectionItemContainer } from "./EntriesSectionItem.styled";
+import { useDispatch } from "react-redux";
 const EntriesSectionItem = ({ title, type }) => {
   const [showDetail, setShowDetail] = useState(false);
   const toggleDetailHandler = () => {
     setShowDetail(!showDetail);
   };
+  const dispatch = useDispatch();
   return (
     <EntriesSectionItemContainer>
       <div className="item-container">
@@ -88,36 +90,33 @@ const EntriesSectionItem = ({ title, type }) => {
             </div>
             {type && type !== "Skill" && type !== "Hobby" && (
               <div className="date">
-                {
-                  type === "Certificate" ? (
+                {type === "Certificate" ? (
+                  <SelectOptions
+                    formType={"Giai đoạn"}
+                    width={"325px"}
+                    widthContainer={"100%"}
+                  />
+                ) : (
+                  <>
                     <SelectOptions
-                      formType={"Giai đoạn"}
-                      width={"325px"}
-                      widthContainer={"100%"}
+                      formType={"Ngày bắt đầu"}
+                      width={"145px"}
+                      widthContainer={"50%"}
                     />
-                  ) : (
-                    <>
-                      <SelectOptions
-                        formType={"Ngày bắt đầu"}
-                        width={"145px"}
-                        widthContainer={"50%"}
-                      />
-                      <SelectOptions
-                        formType={"Ngày kết thúc"}
-                        width={"160px"}
-                        widthContainer={"50%"}
-                      />
-                    </>
-                  )
-                  /* Giai đoạn */
-                }
+                    <SelectOptions
+                      formType={"Ngày kết thúc"}
+                      width={"160px"}
+                      widthContainer={"50%"}
+                    />
+                  </>
+                )}
               </div>
             )}
             <div className="description">
               <div className="form-type">
                 <label>Mô tả</label>
               </div>
-              <Draft />
+              <Draft type={type} />
             </div>
             <div className="btns">
               <Button>

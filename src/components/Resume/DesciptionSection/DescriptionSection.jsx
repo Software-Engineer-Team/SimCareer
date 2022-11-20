@@ -3,7 +3,7 @@ import { Button, Draft } from "@components/index";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Container } from "./DescriptionSection.styled";
 
-const DescriptionSection = ({ headerTitle }) => {
+const DescriptionSection = ({ headerTitle, type }) => {
   const [showContent, setShowContent] = useState(false);
   const toggleContentHandler = () => {
     setShowContent(!showContent);
@@ -26,7 +26,7 @@ const DescriptionSection = ({ headerTitle }) => {
               <div className="form-type">
                 <label>Mô tả</label>
               </div>
-              <Draft />
+              <Draft type={type} />
             </div>
           </div>
         )}
