@@ -11,6 +11,7 @@ const EntriesSection = ({ headerTitle, btnText, type }) => {
   const toggleContentHandler = () => {
     setShowContent(!showContent);
   };
+
   return (
     <Container>
       <div className="personal-detail">

@@ -18,6 +18,8 @@ import {
   BlockquoteButton,
   CodeBlockButton,
 } from "@draft-js-plugins/buttons";
+import { convertToRaw } from "draft-js";
+import draftToHtml from "draftjs-to-html";
 import { useEffect, useState } from "react";
 import {
   EditorContainer,
@@ -62,7 +64,7 @@ const toolbarPlugin = createToolbarPlugin();
 const { Toolbar } = toolbarPlugin;
 const plugins = [toolbarPlugin];
 
-const Draft = (props) => {
+const Draft = () => {
   const [editor, setEditor] = useState(
     createEditorStateWithText(
       "In this editor a toolbar shows up once you select part of the text …"
@@ -73,6 +75,10 @@ const Draft = (props) => {
 
   const editorHanlder = (editorState) => {
     setEditor(editorState);
+    const rawContentState = convertToRaw(editorState.getCurrentContent());
+
+    const markup = draftToHtml(rawContentState);
+    console.log(markup);
   };
 
   const focusHandler = () => {
