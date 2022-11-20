@@ -1,35 +1,41 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import useImportWidget from "@hooks/useImportWidget";
+
+const SkillItem = ({ name, descriptionHtml, idx }) => {
+  useImportWidget({ html: descriptionHtml, elId: "SKILL_" + idx });
+  return (
+    <div className="skill-content">
+      <h4>{name}</h4>
+      <div className="skill-content-item" id={"SKILL_" + idx}>
+        {/* <h4>{name}</h4> */}
+        {/* <ul> */}
+        {/*   <li>Thông tin cá nhân: Ứng viên cần cập nhật DOB trong hồ sơ</li> */}
+        {/*   <li>Thông tin cá nhân: Ứng viên cần cập nhật DOB trong hồ sơ</li> */}
+        {/* </ul> */}
+      </div>
+    </div>
+  );
+};
 
 const Skill = () => {
+  const { skill } = useSelector((state) => state.resume);
   return (
     <SkillContainer>
       <div className="skill">
         <div className="title">
           <span>Kỹ năng</span>
         </div>
-        <div className="skill-content">
-          <h4>Ngoài ra</h4>
-          <div>
-            {Array(2)
-              .fill(null)
-              .map(() => {
-                return (
-                  <div className="skill-content-item">
-                    <h4>Thực tập sinh bán hàng | 12/2020 - 2/2021</h4>
-                    <ul>
-                      <li>
-                        Thông tin cá nhân: Ứng viên cần cập nhật DOB trong hồ sơ
-                      </li>
-                      <li>
-                        Thông tin cá nhân: Ứng viên cần cập nhật DOB trong hồ sơ
-                      </li>
-                    </ul>
-                  </div>
-                );
-              })}
-          </div>
-        </div>
+        {skill.map(({ name, descriptionHtml }, idx) => {
+          return (
+            <SkillItem
+              name={name}
+              descriptionHtml={descriptionHtml}
+              key={idx}
+            />
+          );
+        })}
       </div>
     </SkillContainer>
   );
@@ -75,12 +81,14 @@ const SkillContainer = styled.div`
       padding: 0px 20px 20px 20px;
 
       .skill-content-item {
+        margin-left: 20px;
         h4 {
           margin-top: 0;
           font-size: 22px;
           text-transform: none;
         }
-        ul {
+        ul,
+        ol {
           margin: 0;
         }
       }

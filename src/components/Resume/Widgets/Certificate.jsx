@@ -1,36 +1,43 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import useImportWidget from "@hooks/useImportWidget";
+const CertificateItem = ({ name, date, descriptionHtml, idx }) => {
+  useImportWidget({ html: descriptionHtml, elId: "CERTIFICATE_" + idx });
+  return (
+    <div className="certificate-content">
+      <h4>
+        {name} - <span>{date.month + "/" + date.year}</span>
+      </h4>
+      <div>
+        <div
+          className="certificate-content-item"
+          id={"CERTIFICATE_" + idx}
+        ></div>
+      </div>
+    </div>
+  );
+};
 
 const Certificate = () => {
+  const { certificate } = useSelector((state) => state.resume);
   return (
     <CertificateContainer>
       <div className="certificate">
         <div className="title">
           <span>Chứng chỉ</span>
         </div>
-
-        <div className="certificate-content">
-          <h4>Ngoại ngữ</h4>
-          <div>
-            <div className="certificate-content-item">
-              <ul>
-                <li>Ielts: 6.5</li>
-                <li>HSK: 2</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="certificate-content">
-          <h4>Tin học</h4>
-          <div>
-            <div className="certificate-content-item">
-              <ul>
-                <li>IC3</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        {certificate.map(({ name, date, descriptionHtml }, idx) => {
+          return (
+            <CertificateItem
+              name={name}
+              date={date}
+              descriptionHtml={descriptionHtml}
+              key={idx}
+              idx={idx}
+            />
+          );
+        })}
       </div>
     </CertificateContainer>
   );
@@ -73,6 +80,11 @@ const CertificateContainer = styled.div`
 
     .certificate-content {
       margin-left: 6px;
+      h4 {
+        span {
+          font-weight: 400;
+        }
+      }
       .certificate-content-item {
         ul {
           margin: 0;
