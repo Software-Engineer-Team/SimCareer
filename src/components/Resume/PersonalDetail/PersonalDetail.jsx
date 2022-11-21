@@ -7,6 +7,7 @@ import { MdPhotoCamera } from "react-icons/md";
 import { PersonalDetailContainer } from "./PersonalDetail.styeld";
 import { useDispatch, useSelector } from "react-redux";
 import { resumeActions } from "~/store/resume-slice";
+import CustomSelections from "~/components/UI/CustomSelections";
 
 const PersonalDetail = () => {
   const {
@@ -22,6 +23,7 @@ const PersonalDetail = () => {
   } = useSelector((state) => state.resume);
   const [showImageForm, setShowImageForm] = useState(false);
   const [showPersonalContent, setShowPersonalContent] = useState(false);
+  const [socialOption, setSocialOption] = useState("Twitter");
   const dispatch = useDispatch();
 
   const uploadImageHandler = (imgRef) => {
@@ -176,15 +178,24 @@ const PersonalDetail = () => {
                 width={"100%"}
                 paddingContainer={5}
               />
-              <Input
-                type="url"
-                label="Linkedin"
-                handler={linkedinUrlHandler}
-                value={linkedinUrl}
-                error={() => {}}
-                width={"100%"}
-                paddingContainer={5}
-              />
+              <CustomSelections
+                width={"85%"}
+                widthContainer={"25%"}
+                options={["Twitter", "Linkedin", "Facebook"]}
+                formType={"Mạng xã hội"}
+                selectVal={socialOption}
+                selectOptionsHandler={setSocialOption}
+              >
+                <Input
+                  type="url"
+                  label={socialOption}
+                  handler={linkedinUrlHandler}
+                  value={linkedinUrl}
+                  error={() => {}}
+                  width={"100%"}
+                  paddingContainer={5}
+                />
+              </CustomSelections>
               <Input
                 type="text"
                 label="Địa chỉ nhà"

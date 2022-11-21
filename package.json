@@ -29,7 +29,6 @@
     "draft-js": "^0.11.7",
     "draft-js-export-html": "^1.4.1",
     "draft-js-inline-toolbar-plugin": "^3.0.1",
-    "draftjs-to-html": "^0.9.1",
     "gapi-script": "^1.2.0",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",

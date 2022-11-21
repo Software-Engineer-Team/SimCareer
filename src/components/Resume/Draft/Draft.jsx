@@ -30,7 +30,6 @@ import {
   ContentState,
   CompositeDecorator,
 } from "draft-js";
-import draftToHtml from "draftjs-to-html";
 import { useEffect, useState } from "react";
 import {
   EditorContainer,
