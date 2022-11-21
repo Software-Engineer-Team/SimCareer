@@ -293,10 +293,12 @@ const Draft = (props) => {
             <BoldButton {...externalProps} />
             <ItalicButton {...externalProps} />
             <UnderlineButton {...externalProps} />
+            <Separator {...externalProps} />
             <LinkButton {...externalProps} />
             <Separator {...externalProps} />
             <UnorderedListButton {...externalProps} />
             <OrderedListButton {...externalProps} />
+            <Separator {...externalProps} />
             <TextAlignment {...externalProps} />
           </Fragment>
         )}

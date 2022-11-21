@@ -73,10 +73,6 @@ const Resume = () => {
                   btnText={"Thêm thành tích"}
                   type={"Achievements"}
                 />
-                {/* <DescriptionSection */}
-                {/*   headerTitle={"Thành tích"} */}
-                {/*   type={"Achievements"} */}
-                {/* /> */}
               </div>
             </ResumeContentRight>
           </ResumeRightContainer>

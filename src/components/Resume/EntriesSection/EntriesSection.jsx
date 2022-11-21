@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { Button } from "@components/index";
+import { Button, Portal, TipsSection } from "@components/index";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Container } from "./EntriesSection.styled";
 
 import { BiPlus } from "react-icons/bi";
 import EntriesSectionItem from "./EntriesSectionItem/EntriesSectionItem";
 import { useDispatch, useSelector } from "react-redux";
-import { resumeActions } from "~/store/resume-slice";
+import { resumeActions } from "@store/resume-slice";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
 
 const EntriesSection = ({ headerTitle, btnText, type }) => {
   const dispatch = useDispatch();
+  const [showTips, setShowTips] = useState(false);
   const { education, experience, skill, certificate, hobby, achievement } =
     useSelector((state) => state.resume);
   const [showContent, setShowContent] = useState(false);
@@ -83,13 +84,18 @@ const EntriesSection = ({ headerTitle, btnText, type }) => {
     }
   };
 
+  const toggleTipsSection = (e) => {
+    console.log(":1111111111111111");
+    setShowTips(!showTips);
+  };
+
   return (
     <Container>
       <div className="personal-detail">
         <div className="personal-detail-header">
           <div className="header-title">{headerTitle}</div>
           <div className="header-btn">
-            <Button style={{ marginRight: "10px" }}>
+            <Button style={{ marginRight: "10px" }} onClick={toggleTipsSection}>
               <MdOutlineTipsAndUpdates />{" "}
             </Button>
             <Button onClick={toggleContentHandler}>
@@ -125,6 +131,11 @@ const EntriesSection = ({ headerTitle, btnText, type }) => {
           </div>
         )}
       </div>
+      {showTips && (
+        <Portal>
+          <TipsSection />
+        </Portal>
+      )}
     </Container>
   );
 };

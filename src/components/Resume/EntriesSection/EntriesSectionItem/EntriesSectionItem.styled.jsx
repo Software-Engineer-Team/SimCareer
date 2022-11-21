@@ -22,6 +22,13 @@ export const EntriesSectionItemContainer = styled.div`
           padding: 0.5rem;
           font-size: 18px;
           font-family: "Poppins", sans-serif;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          word-break: break-word;
+          display: -webkit-box;
+          -webkit-line-clamp: 1; /* number of lines to show */
+          line-clamp: 1;
+          -webkit-box-orient: vertical;
         }
       }
       .btn {

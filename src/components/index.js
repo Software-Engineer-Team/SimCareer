@@ -14,6 +14,7 @@ export { default as RadarChart } from "@components/ScoreCV/RadarChart";
 export { default as WaveAnimation } from "@components/ScoreCV/WaveAnimation";
 export { default as ResumeRightContainer } from "@components/Resume/ResumeContainer";
 export { default as SubmitImage } from "@components/Resume/SubmitImage/SubmitImage";
+export { default as TipsSection } from "@components/Resume/TipsSection/TipsSection";
 export { default as Button } from "@components/UI/Button";
 export { default as Portal } from "@components/UI/Portal";
 export { default as Input } from "@components/UI/Input";

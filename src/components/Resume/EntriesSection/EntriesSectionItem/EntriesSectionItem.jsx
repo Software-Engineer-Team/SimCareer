@@ -294,7 +294,9 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
           <div className="item-content" onClick={toggleDetailHandler}>
             <div className="item-title">
               <div className="title-container">
-                {input2Handler(type, "", "", idx).inputVal || title}
+                {input2Handler(type, "", "", idx).inputVal ||
+                  input1Handler(type, "", idx).inputVal ||
+                  title}
               </div>
             </div>
             <div className="btn">

@@ -6,14 +6,13 @@ export const PersonalDetailContainer = styled.div`
     padding-bottom: 10px;
     border-bottom: 1px solid #e4e4e7;
     .personal-detail-header {
-      /* border-bottom: 1px solid #e4e4e7; */
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 10px 0px 10px 0;
       .header-title {
-        font-family: "Poppins", sans-serif;
+        font-family: Cambria, Georgia, serif;
         text-align: left;
         padding: 0.5rem 0;
         flex-grow: 1;
