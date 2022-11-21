@@ -31,7 +31,7 @@ const EntriesSection = ({ headerTitle, btnText, type }) => {
                 type === "Experience"
                   ? "Vị trí"
                   : type === "Education"
-                  ? "Học vấn"
+                  ? "Chuyên ngành"
                   : type === "Skill"
                   ? "Kỹ năng"
                   : type === "Hobby"

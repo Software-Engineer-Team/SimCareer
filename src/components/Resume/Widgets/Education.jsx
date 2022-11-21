@@ -13,11 +13,14 @@ const EducationItem = ({
   descriptionHtml,
 }) => {
   useImportWidget({ html: descriptionHtml, elId: "EDUCATION_" + idx });
+
   return (
     <div className="education-content" id={"EDUCATION_" + idx}>
       <h4>
-        {school}
-        {city && ", " + city}
+        <span className="school">{school}</span>
+        <span className="city">
+          {city && school ? ", ".concat(city) : city}
+        </span>
       </h4>
       <div className="education-content-item">
         <ul>
@@ -94,6 +97,10 @@ const EducationContainer = styled.div`
       font-family: Cambria, Georgia, serif;
       font-weight: 600;
     }
+    .city {
+      color: #ffffff90;
+      font-size: 18px;
+    }
 
     p {
       margin: 0;
@@ -105,6 +112,9 @@ const EducationContainer = styled.div`
           margin: 0;
           padding-left: 20px;
           list-style: none;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          word-break: break-word;
           li {
             font-size: 20px;
           }
