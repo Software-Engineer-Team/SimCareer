@@ -7,12 +7,12 @@ import { BiPlus } from "react-icons/bi";
 import EntriesSectionItem from "./EntriesSectionItem/EntriesSectionItem";
 import { useDispatch, useSelector } from "react-redux";
 import { resumeActions } from "~/store/resume-slice";
+import { MdOutlineTipsAndUpdates } from "react-icons/md";
 
 const EntriesSection = ({ headerTitle, btnText, type }) => {
   const dispatch = useDispatch();
-  const { education, experience, skill, certificate, hobby } = useSelector(
-    (state) => state.resume
-  );
+  const { education, experience, skill, certificate, hobby, achievement } =
+    useSelector((state) => state.resume);
   const [showContent, setShowContent] = useState(false);
   const toggleContentHandler = () => {
     setShowContent(!showContent);
@@ -65,6 +65,15 @@ const EntriesSection = ({ headerTitle, btnText, type }) => {
           },
         };
       }
+      case "Achievements": {
+        return {
+          title: "Thành tích",
+          entryItem: achievement,
+          handler: () => {
+            dispatch(resumeActions.addAchievementEntry());
+          },
+        };
+      }
       default:
         return {
           title: "Tiêu đề",
@@ -80,6 +89,9 @@ const EntriesSection = ({ headerTitle, btnText, type }) => {
         <div className="personal-detail-header">
           <div className="header-title">{headerTitle}</div>
           <div className="header-btn">
+            <Button style={{ marginRight: "10px" }}>
+              <MdOutlineTipsAndUpdates />{" "}
+            </Button>
             <Button onClick={toggleContentHandler}>
               {showContent ? <IoIosArrowDown /> : <IoIosArrowUp />}
             </Button>

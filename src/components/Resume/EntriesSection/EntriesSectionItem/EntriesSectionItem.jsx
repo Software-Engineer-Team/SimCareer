@@ -1,5 +1,4 @@
-import { FiMoreVertical } from "react-icons/fi";
-import { MdPhotoCamera, MdEdit } from "react-icons/md";
+import { MdEdit } from "react-icons/md";
 import Draft from "../../Draft/Draft";
 import { FaTrashAlt } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
@@ -13,9 +12,8 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
   const toggleDetailHandler = () => {
     setShowDetail(!showDetail);
   };
-  const { education, experience, skill, certificate, hobby } = useSelector(
-    (state) => state.resume
-  );
+  const { education, experience, skill, certificate, hobby, achievement } =
+    useSelector((state) => state.resume);
   const dispatch = useDispatch();
 
   const input1Handler = (type, value = "", idx = 0) => {
@@ -68,6 +66,17 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
           inputVal: hobby?.[idx].name,
           handler: () => {
             dispatch(resumeActions.setHobbyName({ index: idx, name: value }));
+          },
+        };
+      }
+      case "Achievements": {
+        return {
+          label: "Tên thành tích",
+          inputVal: achievement?.[idx].name,
+          handler: () => {
+            dispatch(
+              resumeActions.setAchievementName({ index: idx, name: value })
+            );
           },
         };
       }
@@ -266,6 +275,12 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
         }
         dispatch(resumeActions.deleteEntryHobby({ index: idx }));
         break;
+      case "Achievements":
+        if (achievement.length === 1) {
+          toggleContentHandler();
+        }
+        dispatch(resumeActions.deleteEntryAchievement({ index: idx }));
+        break;
 
       default:
         break;
@@ -305,6 +320,7 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
               {type &&
                 type !== "Skill" &&
                 type !== "Hobby" &&
+                type !== "Achievements" &&
                 type !== "Certificate" && (
                   <Input
                     type="text"
@@ -321,6 +337,7 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
               {type &&
                 type !== "Skill" &&
                 type !== "Hobby" &&
+                type !== "Achievements" &&
                 type !== "Certificate" && (
                   <Input
                     type="text"
@@ -335,46 +352,61 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
                   />
                 )}
             </div>
-            {type && type !== "Skill" && type !== "Hobby" && (
-              <div className="date">
-                {type === "Certificate" ? (
-                  <SelectOptions
-                    formType={"Giai đoạn"}
-                    width={"325px"}
-                    selectVal={selectOptionsHandler(type, true, idx).selectVal}
-                    widthContainer={"100%"}
-                    selectOptionsHandler={(value) => {
-                      selectOptionsHandler(type, true, idx, value).handler();
-                    }}
-                  />
-                ) : (
-                  <>
+            {type &&
+              type !== "Skill" &&
+              type !== "Hobby" &&
+              type !== "Achievements" && (
+                <div className="date">
+                  {type === "Certificate" ? (
                     <SelectOptions
-                      formType={"Ngày bắt đầu"}
-                      width={"145px"}
+                      formType={"Giai đoạn"}
+                      width={"325px"}
                       selectVal={
                         selectOptionsHandler(type, true, idx).selectVal
                       }
-                      widthContainer={"50%"}
+                      widthContainer={"100%"}
                       selectOptionsHandler={(value) => {
                         selectOptionsHandler(type, true, idx, value).handler();
                       }}
                     />
-                    <SelectOptions
-                      formType={"Ngày kết thúc"}
-                      width={"160px"}
-                      selectVal={
-                        selectOptionsHandler(type, false, idx).selectVal
-                      }
-                      widthContainer={"50%"}
-                      selectOptionsHandler={(value) => {
-                        selectOptionsHandler(type, false, idx, value).handler();
-                      }}
-                    />
-                  </>
-                )}
-              </div>
-            )}
+                  ) : (
+                    <>
+                      <SelectOptions
+                        formType={"Ngày bắt đầu"}
+                        width={"145px"}
+                        selectVal={
+                          selectOptionsHandler(type, true, idx).selectVal
+                        }
+                        widthContainer={"50%"}
+                        selectOptionsHandler={(value) => {
+                          selectOptionsHandler(
+                            type,
+                            true,
+                            idx,
+                            value
+                          ).handler();
+                        }}
+                      />
+                      <SelectOptions
+                        formType={"Ngày kết thúc"}
+                        width={"160px"}
+                        selectVal={
+                          selectOptionsHandler(type, false, idx).selectVal
+                        }
+                        widthContainer={"50%"}
+                        selectOptionsHandler={(value) => {
+                          selectOptionsHandler(
+                            type,
+                            false,
+                            idx,
+                            value
+                          ).handler();
+                        }}
+                      />
+                    </>
+                  )}
+                </div>
+              )}
             <div className="description">
               {type !== "Education" && (
                 <>

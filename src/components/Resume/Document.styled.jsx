@@ -9,6 +9,12 @@ export const DocumentContainer = styled.div`
   position: absolute;
   top: -70px;
   left: 20px;
+
+  a {
+    outline: none;
+    text-decoration: none;
+    color: #009afe;
+  }
 `;
 
 export const DocumentContent = styled.div`

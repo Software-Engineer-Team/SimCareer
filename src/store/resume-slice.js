@@ -73,10 +73,13 @@ const hobbyInit = [
     editorState: createEditorStateWithText(""),
   },
 ];
-const achievementInit = {
-  descriptionHtml: null,
-  editorState: createEditorStateWithText(""),
-};
+const achievementInit = [
+  {
+    name: "",
+    descriptionHtml: null,
+    editorState: createEditorStateWithText(""),
+  },
+];
 
 export const resumeSlice = createSlice({
   name: "resume",
@@ -92,11 +95,28 @@ export const resumeSlice = createSlice({
   },
   reducers: {
     ////////////////////////// Achievement /////////////////////////
-    deleteAchievement(state, action) {
-      state.achievement = achievementInit;
+    deleteEntryAchievement(state, action) {
+      let cloneAchievement = [...state.achievement];
+      cloneAchievement.splice(action.payload.index, 1);
+      if (cloneAchievement.length === 0) {
+        state.achievement = achievementInit;
+      } else {
+        state.achievement = cloneAchievement;
+      }
     },
-    setAchievement(state, action) {
-      state.achievement = action.payload.achievement;
+    setAchievementName(state, action) {
+      state.achievement[action.payload.index].name = action.payload.name;
+    },
+    setAchievementDescriptionHtml(state, action) {
+      state.achievement[action.payload.index].descriptionHtml =
+        action.payload.descriptionHtml;
+    },
+    setAchievementEditorState(state, action) {
+      state.achievement[action.payload.index].editorState =
+        action.payload.editorState;
+    },
+    addAchievementEntry(state, action) {
+      state.achievement.push(achievementInit[0]);
     },
     ////////////////////////// Summary /////////////////////////
     deleteSummary(state, action) {

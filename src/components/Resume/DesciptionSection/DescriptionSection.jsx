@@ -6,6 +6,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
 import { useDispatch } from "react-redux";
 import { resumeActions } from "~/store/resume-slice";
+import { MdOutlineTipsAndUpdates } from "react-icons/md";
 
 const DescriptionSection = ({ headerTitle, type }) => {
   const dispatch = useDispatch();
@@ -15,17 +16,11 @@ const DescriptionSection = ({ headerTitle, type }) => {
   };
 
   const deleteEntryHandler = (type) => {
-    console.log(type);
     switch (type) {
       case "Summary": {
         dispatch(resumeActions.deleteSummary());
         break;
       }
-      case "Achievements": {
-        dispatch(resumeActions.deleteAchievement());
-        break;
-      }
-
       default:
         break;
     }
@@ -38,6 +33,9 @@ const DescriptionSection = ({ headerTitle, type }) => {
         <div className="personal-detail-header">
           <div className="header-title">{headerTitle}</div>
           <div className="header-btn">
+            <Button style={{ marginRight: "10px" }}>
+              <MdOutlineTipsAndUpdates />
+            </Button>
             <Button onClick={toggleContentHandler}>
               {showContent ? <IoIosArrowDown /> : <IoIosArrowUp />}
             </Button>

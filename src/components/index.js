@@ -20,6 +20,7 @@ export { default as Input } from "@components/UI/Input";
 export { default as Document } from "@components/Resume/Document";
 export { default as PersonalDetail } from "@components/Resume/PersonalDetail/PersonalDetail";
 export { default as SelectOptions } from "@components/UI/SelectOptions";
+export { default as CustomSelections } from "@components/UI/CustomSelections";
 export { default as EntriesSection } from "@components/Resume/EntriesSection/EntriesSection";
 export { default as DescriptionSection } from "@components/Resume/DesciptionSection/DescriptionSection";
 export { default as Draft } from "@components/Resume/Draft/Draft";

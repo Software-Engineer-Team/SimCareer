@@ -174,6 +174,21 @@ const Draft = (props) => {
           resumeActions.setHobbyEditorState({ index: idx, editorState: value })
         );
       }
+
+      case "Achievements": {
+        dispatch(
+          resumeActions.setAchievementDescriptionHtml({
+            index: idx,
+            descriptionHtml: dHtml,
+          })
+        );
+        return dispatch(
+          resumeActions.setAchievementEditorState({
+            index: idx,
+            editorState: value,
+          })
+        );
+      }
       default:
         return null;
     }
@@ -182,7 +197,7 @@ const Draft = (props) => {
     props.type === "Summary"
       ? summary?.editorState
       : props.type === "Achievements"
-      ? achievement?.editorState
+      ? achievement?.[props.idx].editorState
       : props.type === "Education"
       ? education?.[props.idx].editorState
       : props.type === "Experience"
@@ -242,14 +257,6 @@ const Draft = (props) => {
           dispatch(
             resumeActions.setSummary({
               summary: { descriptionHtml: html, editorState },
-            })
-          );
-          break;
-        }
-        case "Achievements": {
-          dispatch(
-            resumeActions.setAchievement({
-              achievement: { descriptionHtml: html, editorState },
             })
           );
           break;

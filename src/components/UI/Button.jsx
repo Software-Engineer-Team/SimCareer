@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
-const Button = ({ children, onClick }) => {
-  return <ButtonContainer onClick={onClick}>{children}</ButtonContainer>;
+const Button = ({ children, onClick, style }) => {
+  return (
+    <ButtonContainer style={style} onClick={onClick}>
+      {children}
+    </ButtonContainer>
+  );
 };
 
 export default Button;

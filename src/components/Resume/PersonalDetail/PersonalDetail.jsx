@@ -1,13 +1,17 @@
-import styled from "styled-components";
 import React, { useState } from "react";
-import { Button, Input, Portal, SubmitImage } from "@components/index";
+import {
+  Button,
+  Input,
+  Portal,
+  SubmitImage,
+  CustomSelections,
+} from "@components/index";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FiMoreVertical } from "react-icons/fi";
-import { MdPhotoCamera } from "react-icons/md";
+import { MdOutlineTipsAndUpdates, MdPhotoCamera } from "react-icons/md";
 import { PersonalDetailContainer } from "./PersonalDetail.styeld";
 import { useDispatch, useSelector } from "react-redux";
-import { resumeActions } from "~/store/resume-slice";
-import CustomSelections from "~/components/UI/CustomSelections";
+import { resumeActions } from "@store/resume-slice";
 
 const PersonalDetail = () => {
   const {
@@ -102,6 +106,9 @@ const PersonalDetail = () => {
         <div className="personal-detail-header">
           <div className="header-title">Chi tiết cá nhân</div>
           <div className="header-btn">
+            <Button style={{ marginRight: "10px" }}>
+              <MdOutlineTipsAndUpdates />
+            </Button>
             <Button onClick={togglePersonalContentHandler}>
               {showPersonalContent ? <IoIosArrowDown /> : <IoIosArrowUp />}
             </Button>
