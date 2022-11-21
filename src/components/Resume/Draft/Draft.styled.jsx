@@ -18,32 +18,32 @@ export const EditorContainer = styled.div`
     }
   }
 
-  & > div:last-child {
-    background: transparent;
-    border: 0 !important;
-    border-top: 1px solid rgb(228, 228, 231) !important;
-    box-shadow: none;
-    padding: 10px;
-    padding-bottom: 0;
-    padding-left: 0;
-
-    div button {
-      background-color: transparent;
-      transition: all 0.15s ease-in-out;
-      margin: 0 1px;
-      cursor: pointer;
-      border: 1px solid transparent;
-      svg {
-        color: #000;
-        fill: #3f3f45;
-      }
-      &:hover {
-        background-color: #f9f6fe;
-        border: 1px solid #5d25e7;
-        border-radius: 4px;
-      }
-    }
-  }
+  /* & > div:last-child { */
+  /*   background: transparent; */
+  /*   border: 0 !important; */
+  /*   border-top: 1px solid rgb(228, 228, 231) !important; */
+  /*   box-shadow: none; */
+  /*   padding: 10px; */
+  /*   padding-bottom: 0; */
+  /*   padding-left: 0; */
+  /**/
+  /*   div button { */
+  /*     background-color: transparent; */
+  /*     transition: all 0.15s ease-in-out; */
+  /*     margin: 0 1px; */
+  /*     cursor: pointer; */
+  /*     border: 1px solid transparent; */
+  /*     svg { */
+  /*       color: #000; */
+  /*       fill: #3f3f45; */
+  /*     } */
+  /*     &:hover { */
+  /*       background-color: #f9f6fe; */
+  /*       border: 1px solid #5d25e7; */
+  /*       border-radius: 4px; */
+  /*     } */
+  /*   } */
+  /* } */
 `;
 
 export const HeadlineButtonWrapper = styled.div`
