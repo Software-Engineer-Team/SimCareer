@@ -17,10 +17,8 @@ const EducationItem = ({
   return (
     <div className="education-content" id={"EDUCATION_" + idx}>
       <h4>
-        <span className="school">{school}</span>
-        <span className="city">
-          {city && school ? ", ".concat(city) : city}
-        </span>
+        <div className="school">{school}</div>
+        <div className="city">{city}</div>
       </h4>
       <div className="education-content-item">
         <ul>
@@ -58,7 +56,6 @@ const Education = () => {
                 },
                 idx
               ) => {
-                console.log(startDate);
                 return (
                   <EducationItem
                     idx={idx}
@@ -110,8 +107,13 @@ const EducationContainer = styled.div`
       font-weight: 600;
     }
     .city {
-      color: #ffffff90;
-      font-size: 18px;
+      color: #ffffff;
+      font-size: 23px;
+      line-height: 22px;
+    }
+    .city,
+    .school {
+      letter-spacing: 0.5px;
     }
 
     p {

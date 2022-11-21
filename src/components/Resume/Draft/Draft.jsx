@@ -3,15 +3,15 @@ import Editor, { createEditorStateWithText } from "@draft-js-plugins/editor";
 import createInlineToolbarPlugin from "@draft-js-plugins/inline-toolbar";
 import createTextAlignmentPlugin from "@draft-js-plugins/text-alignment";
 import createLinkPlugin from "@draft-js-plugins/anchor";
-/* import "@draft-js-plugins/static-toolbar/lib/plugin.css"; */
+import "@draft-js-plugins/static-toolbar/lib/plugin.css";
 import "@draft-js-plugins/text-alignment/lib/plugin.css";
 import "@draft-js-plugins/anchor/lib/plugin.css";
 import "@draft-js-plugins/inline-toolbar/lib/plugin.css";
 import linkStyles from "./linkStyles.module.css";
 
-/* import createToolbarPlugin, { */
-/*   Separator, */
-/* } from "@draft-js-plugins/static-toolbar"; */
+import createToolbarPlugin, {
+  Separator,
+} from "@draft-js-plugins/static-toolbar";
 import {
   ItalicButton,
   BoldButton,
@@ -76,7 +76,7 @@ const HeadlinesButton = (props) => {
 
 const linkPlugin = createLinkPlugin({
   theme: linkStyles,
-  placeholder: "http://…",
+  placeholder: "https://.......................",
 });
 
 const { LinkButton } = linkPlugin;
@@ -84,14 +84,14 @@ const { LinkButton } = linkPlugin;
 const textAlignmentPlugin = createTextAlignmentPlugin();
 const { TextAlignment } = textAlignmentPlugin;
 
-/* const toolbarPlugin = createToolbarPlugin(); */
-/* const { Toolbar } = toolbarPlugin; */
+const toolbarPlugin = createToolbarPlugin();
+const { Toolbar } = toolbarPlugin;
 
 const inlineToolbarPlugin = createInlineToolbarPlugin();
 const { InlineToolbar } = inlineToolbarPlugin;
 
 const plugins = [
-  /* toolbarPlugin, */
+  toolbarPlugin,
   inlineToolbarPlugin,
   linkPlugin,
   textAlignmentPlugin,
@@ -200,25 +200,7 @@ const Draft = (props) => {
   const editorContainerEl = useRef(null);
   const dispatch = useDispatch();
 
-  /* const blockStyleFn = (block) => { */
-  /*   let alignment = "left"; */
-  /*   console.log(block); */
-  /*   block.findStyleRanges((e) => { */
-  /*     console.log(e); */
-  /*     if (e.hasStyle("center")) { */
-  /*       alignment = "center"; */
-  /*     } */
-  /*     if (e.hasStyle("right")) { */
-  /*       alignment = "right"; */
-  /*     } */
-  /*   }); */
-  /*   console.log(alignment); */
-  /*   return `editor-alignment-${alignment}`; */
-  /* }; */
-
   const editorHanlder = (editorState) => {
-    const rawContentState = convertToRaw(editorState.getCurrentContent());
-    console.log(rawContentState);
     let options = {
       defaultBlockTag: "p",
       blockStyleFn: (block) => {
@@ -235,25 +217,24 @@ const Draft = (props) => {
         let style = { textAlign: alignment };
         return { style };
       },
-      /* entityStyleFn: (entity) => { */
-      /*   const entityType = entity.get("type").toLowerCase(); */
-      /*   console.log(entityType); */
-      /*   if (entityType === "image") { */
-      /*     const data = entity.getData(); */
-      /*     return { */
-      /*       element: "img", */
-      /*       attributes: { */
-      /*         src: data.src, */
-      /*       }, */
-      /*       style: { */
-      /*         // Put styles here... */
-      /*       }, */
-      /*     }; */
-      /*   } */
-      /* }, */
+      entityStyleFn: (entity) => {
+        const entityType = entity.get("type").toLowerCase();
+        if (entityType === "link") {
+          const data = entity.getData();
+          return {
+            element: "a",
+            attributes: {
+              href: data.url,
+              target: "_blank",
+            },
+            style: {
+              // Put styles here...
+            },
+          };
+        }
+      },
     };
     let html = stateToHTML(editorState.getCurrentContent(), options);
-    console.log(html);
     if (props.isEntriesSection) {
       editorStateEntriesSection(props.type, editorState, html, props.idx);
     } else {
@@ -281,7 +262,6 @@ const Draft = (props) => {
   };
 
   const focusHandler = () => {
-    editorEl.current.focus();
     editorContainerEl.current.style.background = "#f9f6fe";
     editorContainerEl.current.style.borderColor = "#5d25e7";
   };
@@ -300,39 +280,37 @@ const Draft = (props) => {
         onChange={editorHanlder}
         plugins={plugins}
         ref={editorEl}
-        /* blockStyleFn={blockStyleFn} */
       />
-      {/* <Toolbar> */}
-      {/*   {(externalProps) => ( */}
-      {/*     <Fragment> */}
-      {/*       <BoldButton {...externalProps} /> */}
-      {/*       <ItalicButton {...externalProps} /> */}
-      {/*       <UnderlineButton {...externalProps} /> */}
-      {/*       <LinkButton {...externalProps} /> */}
-      {/*       <Separator {...externalProps} /> */}
-      {/*       <UnorderedListButton {...externalProps} /> */}
-      {/*       <OrderedListButton {...externalProps} /> */}
-      {/*       <TextAlignment {...externalProps} /> */}
-      {/*     </Fragment> */}
-      {/*   )} */}
-      {/* </Toolbar> */}
+      <Toolbar>
+        {(externalProps) => (
+          <Fragment>
+            <BoldButton {...externalProps} />
+            <ItalicButton {...externalProps} />
+            <UnderlineButton {...externalProps} />
+            <LinkButton {...externalProps} />
+            <Separator {...externalProps} />
+            <UnorderedListButton {...externalProps} />
+            <OrderedListButton {...externalProps} />
+            <TextAlignment {...externalProps} />
+          </Fragment>
+        )}
+      </Toolbar>
 
-      <InlineToolbar>
-        {
-          // may be use React.Fragment instead of div to improve perfomance after React 16
-          (externalProps) => (
-            <div>
-              <BoldButton {...externalProps} />
-              <ItalicButton {...externalProps} />
-              <UnderlineButton {...externalProps} />
-              <UnorderedListButton {...externalProps} />
-              <OrderedListButton {...externalProps} />
-              <TextAlignment {...externalProps} />
-              <LinkButton {...externalProps} />
-            </div>
-          )
-        }
-      </InlineToolbar>
+      {/* <InlineToolbar> */}
+      {/*   { */}
+      {/*     (externalProps) => ( */}
+      {/*       <div> */}
+      {/*         <BoldButton {...externalProps} /> */}
+      {/*         <ItalicButton {...externalProps} /> */}
+      {/*         <UnderlineButton {...externalProps} /> */}
+      {/*         <UnorderedListButton {...externalProps} /> */}
+      {/*         <OrderedListButton {...externalProps} /> */}
+      {/*         <TextAlignment {...externalProps} /> */}
+      {/*         <LinkButton {...externalProps} /> */}
+      {/*       </div> */}
+      {/*     ) */}
+      {/*   } */}
+      {/* </InlineToolbar> */}
     </EditorContainer>
   );
 };

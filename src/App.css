@@ -38,6 +38,11 @@ h2 {
   width: 100%;
   overflow: hidden;
 }
+#root a {
+  outline: none;
+  text-decoration: none;
+  color: #009afe;
+}
 
 body {
   font-family: "Roboto", "Open Sans", sans-serif;

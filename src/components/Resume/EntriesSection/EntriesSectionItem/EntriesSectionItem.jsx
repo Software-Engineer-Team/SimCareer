@@ -8,7 +8,6 @@ import { useState } from "react";
 import { EntriesSectionItemContainer } from "./EntriesSectionItem.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { resumeActions } from "~/store/resume-slice";
-import CustomLinkPluginEditor from "../../Draft/CustomLinkPluginEditor";
 const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
   const [showDetail, setShowDetail] = useState(false);
   const toggleDetailHandler = () => {
@@ -377,11 +376,14 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
               </div>
             )}
             <div className="description">
-              <div className="form-type">
-                <label>Mô tả</label>
-              </div>
-              <Draft type={type} idx={idx} isEntriesSection={true} />
-              <CustomLinkPluginEditor />
+              {type !== "Education" && (
+                <>
+                  <div className="form-type">
+                    <label>Mô tả</label>
+                  </div>
+                  <Draft type={type} idx={idx} isEntriesSection={true} />
+                </>
+              )}
             </div>
             <div className="btns">
               <Button onClick={() => deleteEntryHandler(type, idx)}>
