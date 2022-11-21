@@ -46,7 +46,7 @@ const Education = () => {
               <span>Học vấn</span>
             </div>
 
-            {education.map(
+            {education?.map(
               (
                 {
                   school,

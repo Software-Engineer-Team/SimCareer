@@ -92,6 +92,7 @@ const EntriesSection = ({ headerTitle, btnText, type }) => {
               return (
                 <EntriesSectionItem
                   title={addEntryHandler(type).title}
+                  toggleContentHandler={toggleContentHandler}
                   type={type}
                   idx={idx}
                   key={idx}

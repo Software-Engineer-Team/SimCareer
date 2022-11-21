@@ -92,10 +92,16 @@ export const resumeSlice = createSlice({
   },
   reducers: {
     ////////////////////////// Achievement /////////////////////////
+    deleteAchievement(state, action) {
+      state.achievement = achievementInit;
+    },
     setAchievement(state, action) {
       state.achievement = action.payload.achievement;
     },
     ////////////////////////// Summary /////////////////////////
+    deleteSummary(state, action) {
+      state.summary = summaryInit;
+    },
     setSummary(state, action) {
       state.summary = action.payload.summary;
     },
@@ -125,6 +131,15 @@ export const resumeSlice = createSlice({
       state.personalDetail = action.payload.personalDetail;
     },
     ////////////////////////// Experience /////////////////////////
+    deleteEntryExperience(state, action) {
+      let cloneExperience = [...state.experience];
+      cloneExperience.splice(action.payload.index, 1);
+      if (cloneExperience.length === 0) {
+        state.experience = experienceInit;
+      } else {
+        state.experience = cloneExperience;
+      }
+    },
     setExperienceCompany(state, action) {
       state.experience[action.payload.index].company = action.payload.company;
     },
@@ -158,6 +173,15 @@ export const resumeSlice = createSlice({
       state.experience.push(experienceInit[0]);
     },
     ////////////////////////// Education /////////////////////////
+    deleteEntryEducation(state, action) {
+      let cloneEducation = [...state.education];
+      cloneEducation.splice(action.payload.index, 1);
+      if (cloneEducation.length === 0) {
+        state.education = educationInit;
+      } else {
+        state.education = cloneEducation;
+      }
+    },
     setEducationSchool(state, action) {
       state.education[action.payload.index].school = action.payload.school;
     },
@@ -192,6 +216,15 @@ export const resumeSlice = createSlice({
       state.education.push(educationInit[0]);
     },
     ////////////////////////// Skill /////////////////////////
+    deleteEntrySkill(state, action) {
+      let cloneSkill = [...state.skill];
+      cloneSkill.splice(action.payload.index, 1);
+      if (cloneSkill.length === 0) {
+        state.skill = skillInit;
+      } else {
+        state.skill = cloneSkill;
+      }
+    },
     setSkillName(state, action) {
       state.skill[action.payload.index].name = action.payload.name;
     },
@@ -207,6 +240,15 @@ export const resumeSlice = createSlice({
       state.skill.push(skillInit[0]);
     },
     ////////////////////////// Certificate /////////////////////////
+    deleteEntryCertificate(state, action) {
+      let cloneCertificate = [...state.certificate];
+      cloneCertificate.splice(action.payload.index, 1);
+      if (cloneCertificate.length === 0) {
+        state.certificate = certificateInit;
+      } else {
+        state.certificate = cloneCertificate;
+      }
+    },
     setCertificateName(state, action) {
       state.certificate[action.payload.index].name = action.payload.name;
     },
@@ -227,7 +269,17 @@ export const resumeSlice = createSlice({
     addCertificateEntry(state, action) {
       state.certificate.push(certificateInit[0]);
     },
+
     ////////////////////////// Hobby /////////////////////////
+    deleteEntryHobby(state, action) {
+      let cloneHobby = [...state.hobby];
+      cloneHobby.splice(action.payload.index, 1);
+      if (cloneHobby.length === 0) {
+        state.hobby = hobbyInit;
+      } else {
+        state.hobby = cloneHobby;
+      }
+    },
     setHobbyName(state, action) {
       state.hobby[action.payload.index].name = action.payload.name;
     },

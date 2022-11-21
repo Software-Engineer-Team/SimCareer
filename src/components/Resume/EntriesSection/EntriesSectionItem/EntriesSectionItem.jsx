@@ -8,7 +8,7 @@ import { useState } from "react";
 import { EntriesSectionItemContainer } from "./EntriesSectionItem.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { resumeActions } from "~/store/resume-slice";
-const EntriesSectionItem = ({ title, type, idx }) => {
+const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
   const [showDetail, setShowDetail] = useState(false);
   const toggleDetailHandler = () => {
     setShowDetail(!showDetail);
@@ -232,13 +232,55 @@ const EntriesSectionItem = ({ title, type, idx }) => {
         };
     }
   };
+
+  const deleteEntryHandler = (type, idx) => {
+    switch (type) {
+      case "Education":
+        if (education.length === 1) {
+          toggleContentHandler();
+        }
+        console.log(education);
+        dispatch(resumeActions.deleteEntryEducation({ index: idx }));
+        break;
+      case "Experience":
+        if (experience.length === 1) {
+          toggleContentHandler();
+        }
+        dispatch(resumeActions.deleteEntryExperience({ index: idx }));
+        break;
+      case "Skill":
+        if (skill.length === 1) {
+          toggleContentHandler();
+        }
+        dispatch(resumeActions.deleteEntrySkill({ index: idx }));
+        break;
+      case "Certificate":
+        if (certificate.length === 1) {
+          toggleContentHandler();
+        }
+        dispatch(resumeActions.deleteEntryCertificate({ index: idx }));
+        break;
+      case "Hobby":
+        if (hobby.length === 1) {
+          toggleContentHandler();
+        }
+        dispatch(resumeActions.deleteEntryHobby({ index: idx }));
+        break;
+
+      default:
+        break;
+    }
+  };
+
   return (
     <EntriesSectionItemContainer>
       <div className="item-container">
         {!showDetail ? (
           <div className="item-content" onClick={toggleDetailHandler}>
             <div className="item-title">
-              <div className="title-container">{title}</div>
+              <div className="title-container">
+                {input2Handler(type, "", "", idx).inputVal || title}
+              </div>
             </div>
             <div className="btn">
               <Button>
@@ -340,7 +382,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
               <Draft type={type} idx={idx} isEntriesSection={true} />
             </div>
             <div className="btns">
-              <Button>
+              <Button onClick={() => deleteEntryHandler(type, idx)}>
                 <FaTrashAlt />
               </Button>
               <div className="btn-done" onClick={toggleDetailHandler}>

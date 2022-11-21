@@ -2,12 +2,36 @@ import React, { useState } from "react";
 import { Button, Draft } from "@components/index";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Container } from "./DescriptionSection.styled";
+import { FaTrashAlt } from "react-icons/fa";
+import { TiTick } from "react-icons/ti";
+import { useDispatch } from "react-redux";
+import { resumeActions } from "~/store/resume-slice";
 
 const DescriptionSection = ({ headerTitle, type }) => {
+  const dispatch = useDispatch();
   const [showContent, setShowContent] = useState(false);
   const toggleContentHandler = () => {
     setShowContent(!showContent);
   };
+
+  const deleteEntryHandler = (type) => {
+    console.log(type);
+    switch (type) {
+      case "Summary": {
+        dispatch(resumeActions.deleteSummary());
+        break;
+      }
+      case "Achievements": {
+        dispatch(resumeActions.deleteAchievement());
+        break;
+      }
+
+      default:
+        break;
+    }
+    toggleContentHandler();
+  };
+
   return (
     <Container>
       <div className="personal-detail">
@@ -27,6 +51,19 @@ const DescriptionSection = ({ headerTitle, type }) => {
                 <label>Mô tả</label>
               </div>
               <Draft type={type} isEntriesSection={false} />
+            </div>
+            <div className="btns">
+              <Button
+                onClick={() => {
+                  deleteEntryHandler(type);
+                }}
+              >
+                <FaTrashAlt />
+              </Button>
+              <div className="btn-done" onClick={toggleContentHandler}>
+                <TiTick />
+                <span>Done</span>
+              </div>
             </div>
           </div>
         )}
