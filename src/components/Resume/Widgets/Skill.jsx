@@ -28,6 +28,7 @@ const Skill = () => {
                 <SkillItem
                   name={name}
                   descriptionHtml={descriptionHtml}
+                  idx={idx}
                   key={idx}
                 />
               );
@@ -52,6 +53,7 @@ const SkillContainer = styled.div`
       font-size: 40px;
       text-transform: uppercase;
       font-weight: 500;
+      margin-bottom: 20px;
 
       span {
         margin-left: 20px;
@@ -65,7 +67,7 @@ const SkillContainer = styled.div`
       word-break: break-word;
       text-transform: uppercase;
       margin: 0px;
-      margin-top: 20px;
+      /* margin-top: 20px; */
       font-size: 25px;
       font-family: Cambria, Georgia, serif;
       font-weight: 600;

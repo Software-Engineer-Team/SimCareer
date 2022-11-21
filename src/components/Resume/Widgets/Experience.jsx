@@ -93,6 +93,7 @@ const ExperienceContainer = styled.div`
       font-size: 40px;
       text-transform: uppercase;
       font-weight: 500;
+      margin-bottom: 20px;
 
       span {
         margin-left: 20px;
@@ -105,7 +106,6 @@ const ExperienceContainer = styled.div`
       text-overflow: ellipsis;
       word-break: break-word;
       margin: 0px;
-      margin-top: 20px;
       font-size: 25px;
       font-family: Cambria, Georgia, serif;
       font-weight: 600;

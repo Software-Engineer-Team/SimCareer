@@ -1,85 +1,94 @@
 import { createEditorStateWithText } from "@draft-js-plugins/editor";
 import { createSlice } from "@reduxjs/toolkit";
 
+const personalDetailInit = {
+  name: "",
+  email: "",
+  occupation: "",
+  phoneNum: "",
+  address: "",
+  image: "/images/simcareer.png",
+  linkedinUrl: "",
+};
+const summaryInit = {
+  descriptionHtml: null,
+  editorState: createEditorStateWithText(""),
+};
+const educationInit = [
+  {
+    school: "",
+    city: "",
+    startDate: {
+      month: "1",
+      year: 2020,
+    },
+    endDate: {
+      month: "5",
+      year: 2024,
+    },
+    specialize: "",
+    descriptionHtml: null,
+    editorState: createEditorStateWithText(""),
+  },
+];
+const experienceInit = [
+  {
+    company: "",
+    position: "",
+    city: "",
+    startDate: {
+      month: "1",
+      year: 2024,
+    },
+    endDate: {
+      month: "10",
+      year: 2024,
+    },
+    descriptionHtml: null,
+    editorState: createEditorStateWithText(""),
+  },
+];
+const skillInit = [
+  {
+    name: "",
+    descriptionHtml: null,
+    editorState: createEditorStateWithText(""),
+  },
+];
+const certificateInit = [
+  {
+    name: "",
+    date: {
+      month: "1",
+      year: 2024,
+    },
+    descriptionHtml: null,
+    editorState: createEditorStateWithText(""),
+  },
+];
+const hobbyInit = [
+  {
+    name: "",
+    descriptionHtml: null,
+    editorState: createEditorStateWithText(""),
+  },
+];
+const achievementInit = {
+  descriptionHtml: null,
+  editorState: createEditorStateWithText(""),
+};
+
 export const resumeSlice = createSlice({
   name: "resume",
   initialState: {
-    personalDetail: {
-      name: "",
-      email: "",
-      occupation: "",
-      phoneNum: "",
-      address: "",
-      image: "/images/simcareer.png",
-      linkedinUrl: "",
-    },
-    summary: {
-      descriptionHtml: null,
-      editorState: createEditorStateWithText(""),
-    },
-    education: [
-      {
-        school: "",
-        city: "",
-        startDate: {
-          month: "1",
-          year: 2020,
-        },
-        endDate: {
-          month: "5",
-          year: 2024,
-        },
-        specialize: "",
-        descriptionHtml: null,
-        editorState: createEditorStateWithText(""),
-      },
-    ],
-    experience: [
-      {
-        company: "",
-        position: "",
-        city: "",
-        startDate: {
-          month: "1",
-          year: 2024,
-        },
-        endDate: {
-          month: "10",
-          year: 2024,
-        },
-        descriptionHtml: null,
-        editorState: createEditorStateWithText(""),
-      },
-    ],
-    skill: [
-      {
-        name: "",
-        descriptionHtml: null,
-        editorState: createEditorStateWithText(""),
-      },
-    ],
-    certificate: [
-      {
-        name: "",
-        date: {
-          month: "1",
-          year: 2024,
-        },
-        descriptionHtml: null,
-        editorState: createEditorStateWithText(""),
-      },
-    ],
-    hobby: [
-      {
-        name: "",
-        descriptionHtml: null,
-        editorState: createEditorStateWithText(""),
-      },
-    ],
-    achievement: {
-      descriptionHtml: null,
-      editorState: createEditorStateWithText(""),
-    },
+    personalDetail: personalDetailInit,
+    summary: summaryInit,
+    education: educationInit,
+    experience: experienceInit,
+    skill: skillInit,
+    certificate: certificateInit,
+    hobby: hobbyInit,
+    achievement: achievementInit,
   },
   reducers: {
     ////////////////////////// Achievement /////////////////////////
@@ -145,6 +154,9 @@ export const resumeSlice = createSlice({
       state.experience[action.payload.index].editorState =
         action.payload.editorState;
     },
+    addExperienceEntry(state, action) {
+      state.experience.push(experienceInit[0]);
+    },
     ////////////////////////// Education /////////////////////////
     setEducationSchool(state, action) {
       state.education[action.payload.index].school = action.payload.school;
@@ -176,6 +188,9 @@ export const resumeSlice = createSlice({
       state.education[action.payload.index].editorState =
         action.payload.editorState;
     },
+    addEducationEntry(state, action) {
+      state.education.push(educationInit[0]);
+    },
     ////////////////////////// Skill /////////////////////////
     setSkillName(state, action) {
       state.skill[action.payload.index].name = action.payload.name;
@@ -187,6 +202,9 @@ export const resumeSlice = createSlice({
     setSkillEditorState(state, action) {
       state.skill[action.payload.index].editorState =
         action.payload.editorState;
+    },
+    addSkillEntry(state, action) {
+      state.skill.push(skillInit[0]);
     },
     ////////////////////////// Certificate /////////////////////////
     setCertificateName(state, action) {
@@ -206,8 +224,10 @@ export const resumeSlice = createSlice({
       state.certificate[action.payload.index].editorState =
         action.payload.editorState;
     },
-
-    ////////////////////////// Certificate /////////////////////////
+    addCertificateEntry(state, action) {
+      state.certificate.push(certificateInit[0]);
+    },
+    ////////////////////////// Hobby /////////////////////////
     setHobbyName(state, action) {
       state.hobby[action.payload.index].name = action.payload.name;
     },
@@ -218,6 +238,9 @@ export const resumeSlice = createSlice({
     setHobbyEditorState(state, action) {
       state.hobby[action.payload.index].editorState =
         action.payload.editorState;
+    },
+    addHobbyEntry(state, action) {
+      state.hobby.push(hobbyInit[0]);
     },
   },
 });

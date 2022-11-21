@@ -255,7 +255,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
                 handler={(e) => {
                   input1Handler(type, e.target.value, idx).handler();
                 }}
-                value={input1Handler(type).inputVal}
+                value={input1Handler(type, "", idx).inputVal}
                 error={() => {}}
                 width={"100%"}
                 widthContainer={"100%"}
@@ -270,7 +270,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
                     handler={(e) => {
                       input2Handler(type, title, e.target.value, idx).handler();
                     }}
-                    value={input2Handler(type).inputVal}
+                    value={input2Handler(type, "", "", idx).inputVal}
                     error={() => {}}
                     width={type ? "90%" : "100%"}
                     widthContainer={type ? "50%" : "100%"}
@@ -286,7 +286,7 @@ const EntriesSectionItem = ({ title, type, idx }) => {
                     handler={(e) => {
                       input3Handler(type, e.target.value, idx).handler();
                     }}
-                    value={input3Handler(type).inputVal}
+                    value={input3Handler(type, "", idx).inputVal}
                     error={() => {}}
                     width={"100%"}
                     widthContainer={"50%"}

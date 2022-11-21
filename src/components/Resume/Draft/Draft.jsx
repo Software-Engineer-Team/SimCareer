@@ -148,8 +148,6 @@ const Draft = (props) => {
         return null;
     }
   };
-  console.log(props);
-  console.log(education);
   const editorState =
     props.type === "Summary"
       ? summary?.editorState
@@ -166,15 +164,11 @@ const Draft = (props) => {
       : props.type === "Certificate"
       ? certificate?.[props.idx].editorState
       : createEditorStateWithText("");
-  /* const [editor, setEditor] = useState( */
-  /*   editorState || createEditorStateWithText("") */
-  /* ); */
   const editorEl = useRef(null),
     editorContainerEl = useRef(null);
   const dispatch = useDispatch();
 
   const editorHanlder = (editorState) => {
-    /* setEditor(editorState); */
     const rawContentState = convertToRaw(editorState.getCurrentContent());
 
     const html = draftToHtml(rawContentState);

@@ -58,6 +58,7 @@ const Education = () => {
                 },
                 idx
               ) => {
+                console.log(startDate);
                 return (
                   <EducationItem
                     idx={idx}
