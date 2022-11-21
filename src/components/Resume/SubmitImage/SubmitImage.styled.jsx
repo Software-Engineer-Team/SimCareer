@@ -133,6 +133,43 @@ export const SubmitImageContainer = styled.div`
         }
       }
 
+      .btn-confirm {
+        padding-top: 0.35rem;
+        display: flex;
+        justify-content: flex-end;
+
+        .btn-confirm-content {
+          width: auto;
+          display: flex;
+          button {
+            &:hover {
+              background-color: #4314b6;
+            }
+            background-color: #5d25e7;
+            outline: none;
+            color: #fff;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            font-weight: 500;
+            padding: 5px 16px;
+            border: 1px solid #0000;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            & > div {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              height: 1.5rem;
+            }
+          }
+        }
+      }
+
       .submit-form-footer {
         display: flex;
         flex-wrap: wrap;

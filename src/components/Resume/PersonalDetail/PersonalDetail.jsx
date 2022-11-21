@@ -21,7 +21,6 @@ const PersonalDetail = () => {
     },
   } = useSelector((state) => state.resume);
   const [showImageForm, setShowImageForm] = useState(false);
-  /* const [image, setImage] = useState({}); */
   const [showPersonalContent, setShowPersonalContent] = useState(false);
   const dispatch = useDispatch();
 
@@ -31,15 +30,9 @@ const PersonalDetail = () => {
       const file = imgRef.current.files[0];
       fReader.readAsDataURL(file);
       fReader.onload = () => {
-        /* setImage({ */
-        /*   url: fReader.result, */
-        /*   name: file.name, */
-        /*   size: (file.size / 1024).toFixed(2), */
-        /* }); */
         dispatch(
           resumeActions.setPersonalDetailImage({ image: fReader.result })
         );
-        closeImageFormHandler();
       };
     }
   };
