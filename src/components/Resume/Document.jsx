@@ -41,14 +41,14 @@ const Document = () => {
     if (e.deltaY > 0) {
       a = a - 0.02;
       d = d - 0.02;
-      /* tx = tx + 32; */
-      /* ty = ty + 28; */
+      tx = tx + 13;
+      ty = ty + 20;
       docContentRef.current.style.transform = `matrix(${a}, ${b}, ${c}, ${d}, ${tx}, ${ty})`;
     } else {
       a = a + 0.02;
       d = d + 0.02;
-      /* tx = tx - 13; */
-      /* ty = ty - 20; */
+      tx = tx - 13;
+      ty = ty - 20;
       docContentRef.current.style.transform = `matrix(${a}, ${b}, ${c}, ${d}, ${tx}, ${ty})`;
     }
   };
@@ -56,18 +56,24 @@ const Document = () => {
   const zoomInHandler = () => {
     a = a + 0.05;
     d = d + 0.05;
+    tx = tx - 17;
+    ty = ty - 20;
     docContentRef.current.style.transform = `matrix(${a}, ${b}, ${c}, ${d}, ${tx}, ${ty})`;
   };
 
   const zoomOutHandler = () => {
     a = a - 0.05;
     d = d - 0.05;
+    tx = tx + 17;
+    ty = ty + 20;
     docContentRef.current.style.transform = `matrix(${a}, ${b}, ${c}, ${d}, ${tx}, ${ty})`;
   };
 
   const focusStrong = () => {
     a = 1;
     d = 1;
+    tx = -30.161;
+    ty = 105.849;
     docContentRef.current.style.transform = `matrix(${a}, ${b}, ${c}, ${d}, ${tx}, ${ty})`;
   };
 
