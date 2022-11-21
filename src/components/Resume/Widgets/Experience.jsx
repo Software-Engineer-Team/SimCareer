@@ -16,13 +16,16 @@ const ExperienceItem = ({
     <>
       <h4>
         {company}
-        {city && ", " + city}
+
+        {city && company ? ", ".concat(city) : city}
       </h4>
       <p className="time">
-        <i>
-          {startDate.month + "/" + startDate.year} -{" "}
-          {endDate.month + "/" + endDate.year}
-        </i>
+        {company && (
+          <i>
+            {startDate.month + "/" + startDate.year} -{" "}
+            {endDate.month + "/" + endDate.year}
+          </i>
+        )}
       </p>
       <div className="company-content">
         <div className="company-content-item" id={"EXPERIENCE_" + idx}>

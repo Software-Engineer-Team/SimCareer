@@ -17,7 +17,8 @@ export const DocumentContent = styled.div`
   width: 31cm;
   min-width: 31cm;
   min-height: 29.7cm;
-  height: 27cm;
+  height: 29.7cm;
+  /* max-height: 40cm; */
   display: inline-block;
   transform-origin: 0px 0px 0px;
   transform: matrix(0.544816, 0, 0, 0.544816, 232.161, 195.849);

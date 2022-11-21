@@ -48,6 +48,7 @@ const AchivementContainer = styled.div`
     ol {
       margin: 0;
       font-family: Cambria, Georgia, serif;
+      word-break: break-word;
     }
 
     p {

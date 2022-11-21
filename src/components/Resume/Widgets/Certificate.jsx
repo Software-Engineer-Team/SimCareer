@@ -91,9 +91,12 @@ const CertificateContainer = styled.div`
       }
       .certificate-content-item {
         ul,
-        ol {
+        ol,
+        p {
           margin: 0;
           margin-left: 20px;
+          word-break: break-word;
+
           li {
             font-size: 20px;
           }

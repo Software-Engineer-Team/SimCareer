@@ -86,8 +86,10 @@ const SkillContainer = styled.div`
           text-transform: none;
         }
         ul,
-        ol {
+        ol,
+        p {
           margin: 0;
+          word-break: break-word;
         }
       }
     }

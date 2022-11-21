@@ -119,7 +119,9 @@ const EducationContainer = styled.div`
 
     .education-content {
       .education-content-item {
-        ul {
+        ul,
+        ol,
+        p {
           margin: 0;
           padding-left: 20px;
           list-style: none;
@@ -133,7 +135,9 @@ const EducationContainer = styled.div`
       }
 
       ol,
-      ul {
+      ul,
+      p {
+        word-break: break-word;
         margin: 0;
       }
     }
