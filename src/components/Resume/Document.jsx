@@ -25,7 +25,7 @@ let a = 0.544816,
   c = 0,
   d = 0.544816,
   tx = 232.161,
-  ty = 375.849;
+  ty = 195.849;
 
 const Document = () => {
   const docRef = useRef(null);

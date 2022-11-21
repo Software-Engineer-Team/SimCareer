@@ -34,8 +34,9 @@ h2 {
 }
 
 #root {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -47,12 +48,11 @@ body {
   color: #000000;
   height: 100%;
   width: 100%;
-  /* overflow: scroll; */
 }
 
-body::-webkit-scrollbar {
-  display: none;
-}
+/* body::-webkit-scrollbar { */
+/*   display: none; */
+/* } */
 
 .Toastify__toast-body > div:last-child {
   font-size: 16px;

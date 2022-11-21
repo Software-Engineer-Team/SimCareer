@@ -10,11 +10,15 @@ const Summary = () => {
   useImportWidget({ html: descriptionHtml, elId: "SUMMARY" });
 
   return (
-    <SummaryContainer id="SUMMARY">
-      <div className="title">
-        <span>Tóm tắt</span>
-      </div>
-    </SummaryContainer>
+    <>
+      {descriptionHtml && (
+        <SummaryContainer id="SUMMARY">
+          <div className="title">
+            <span>Tóm tắt</span>
+          </div>
+        </SummaryContainer>
+      )}
+    </>
   );
 };
 
@@ -41,6 +45,9 @@ const SummaryContainer = styled.div`
   ol {
     margin: 0;
     font-family: Cambria, Georgia, serif;
+    li {
+      word-break: break-word;
+    }
   }
 
   p {

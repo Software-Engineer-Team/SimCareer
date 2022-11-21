@@ -15,24 +15,28 @@ const HobbyItem = ({ name, descriptionHtml, idx }) => {
 const Hobby = () => {
   const { hobby } = useSelector((state) => state.resume);
   return (
-    <HobbyContainer>
-      <div className="hobby">
-        <div className="title">
-          <span>Sở thích cá nhân</span>
-        </div>
+    <>
+      {hobby?.[0].descriptionHtml && (
+        <HobbyContainer>
+          <div className="hobby">
+            <div className="title">
+              <span>Sở thích cá nhân</span>
+            </div>
 
-        {hobby.map(({ name, descriptionHtml }, idx) => {
-          return (
-            <HobbyItem
-              name={name}
-              descriptionHtml={descriptionHtml}
-              idx={idx}
-              key={idx}
-            />
-          );
-        })}
-      </div>
-    </HobbyContainer>
+            {hobby.map(({ name, descriptionHtml }, idx) => {
+              return (
+                <HobbyItem
+                  name={name}
+                  descriptionHtml={descriptionHtml}
+                  idx={idx}
+                  key={idx}
+                />
+              );
+            })}
+          </div>
+        </HobbyContainer>
+      )}
+    </>
   );
 };
 
@@ -79,7 +83,7 @@ const HobbyContainer = styled.div`
         text-overflow: ellipsis;
         word-break: break-word;
         margin: 0px;
-        font-size: 22px;
+        font-size: 24px;
         font-family: Cambria, Georgia, serif;
         font-weight: 600;
       }
@@ -89,6 +93,7 @@ const HobbyContainer = styled.div`
         font-size: 20px;
         font-family: Cambria, Georgia, serif;
         margin: 0;
+        word-break: break-word;
       }
     }
   }

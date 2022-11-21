@@ -8,13 +8,7 @@ const SkillItem = ({ name, descriptionHtml, idx }) => {
   return (
     <div className="skill-content">
       <h4>{name}</h4>
-      <div className="skill-content-item" id={"SKILL_" + idx}>
-        {/* <h4>{name}</h4> */}
-        {/* <ul> */}
-        {/*   <li>Thông tin cá nhân: Ứng viên cần cập nhật DOB trong hồ sơ</li> */}
-        {/*   <li>Thông tin cá nhân: Ứng viên cần cập nhật DOB trong hồ sơ</li> */}
-        {/* </ul> */}
-      </div>
+      <div className="skill-content-item" id={"SKILL_" + idx}></div>
     </div>
   );
 };
@@ -22,22 +16,26 @@ const SkillItem = ({ name, descriptionHtml, idx }) => {
 const Skill = () => {
   const { skill } = useSelector((state) => state.resume);
   return (
-    <SkillContainer>
-      <div className="skill">
-        <div className="title">
-          <span>Kỹ năng</span>
-        </div>
-        {skill.map(({ name, descriptionHtml }, idx) => {
-          return (
-            <SkillItem
-              name={name}
-              descriptionHtml={descriptionHtml}
-              key={idx}
-            />
-          );
-        })}
-      </div>
-    </SkillContainer>
+    <>
+      {skill?.[0].descriptionHtml && (
+        <SkillContainer>
+          <div className="skill">
+            <div className="title">
+              <span>Kỹ năng</span>
+            </div>
+            {skill.map(({ name, descriptionHtml }, idx) => {
+              return (
+                <SkillItem
+                  name={name}
+                  descriptionHtml={descriptionHtml}
+                  key={idx}
+                />
+              );
+            })}
+          </div>
+        </SkillContainer>
+      )}
+    </>
   );
 };
 

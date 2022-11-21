@@ -36,32 +36,43 @@ const ExperienceItem = ({
 const Experience = () => {
   const { experience } = useSelector((state) => state.resume);
   return (
-    <ExperienceContainer>
-      <div className="company">
-        <div className="title">
-          <span>Kinh nghiệm</span>
-        </div>
-        {experience.map(
-          (
-            { company, position, city, startDate, endDate, descriptionHtml },
-            idx
-          ) => {
-            return (
-              <ExperienceItem
-                company={company}
-                position={position}
-                city={city}
-                startDate={startDate}
-                endDate={endDate}
-                descriptionHtml={descriptionHtml}
-                key={idx}
-                idx={idx}
-              />
-            );
-          }
-        )}
-      </div>
-    </ExperienceContainer>
+    <>
+      {experience?.[0].descriptionHtml && (
+        <ExperienceContainer>
+          <div className="company">
+            <div className="title">
+              <span>Kinh nghiệm</span>
+            </div>
+            {experience.map(
+              (
+                {
+                  company,
+                  position,
+                  city,
+                  startDate,
+                  endDate,
+                  descriptionHtml,
+                },
+                idx
+              ) => {
+                return (
+                  <ExperienceItem
+                    company={company}
+                    position={position}
+                    city={city}
+                    startDate={startDate}
+                    endDate={endDate}
+                    descriptionHtml={descriptionHtml}
+                    key={idx}
+                    idx={idx}
+                  />
+                );
+              }
+            )}
+          </div>
+        </ExperienceContainer>
+      )}
+    </>
   );
 };
 
@@ -110,8 +121,10 @@ const ExperienceContainer = styled.div`
           font-size: 24px;
         }
         ul,
-        ol {
+        ol,
+        p {
           margin: 0;
+          word-break: break-word;
         }
       }
     }

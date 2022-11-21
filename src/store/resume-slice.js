@@ -40,11 +40,11 @@ export const resumeSlice = createSlice({
         position: "",
         city: "",
         startDate: {
-          month: "January",
+          month: "1",
           year: 2024,
         },
         endDate: {
-          month: "January",
+          month: "10",
           year: 2024,
         },
         descriptionHtml: null,
@@ -62,7 +62,7 @@ export const resumeSlice = createSlice({
       {
         name: "",
         date: {
-          month: "January",
+          month: "1",
           year: 2024,
         },
         descriptionHtml: null,

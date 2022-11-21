@@ -10,13 +10,17 @@ const Achivements = () => {
   useImportWidget({ html: descriptionHtml, elId: "ACHIEVEMENTS" });
 
   return (
-    <AchivementContainer>
-      <div className="achivement" id="ACHIEVEMENTS">
-        <div className="title">
-          <span>Thành tích</span>
-        </div>
-      </div>
-    </AchivementContainer>
+    <>
+      {descriptionHtml && (
+        <AchivementContainer>
+          <div className="achivement" id="ACHIEVEMENTS">
+            <div className="title">
+              <span>Thành tích</span>
+            </div>
+          </div>
+        </AchivementContainer>
+      )}
+    </>
   );
 };
 

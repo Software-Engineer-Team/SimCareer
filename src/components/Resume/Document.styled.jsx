@@ -17,9 +17,10 @@ export const DocumentContent = styled.div`
   width: 31cm;
   min-width: 31cm;
   min-height: 29.7cm;
+  height: 27cm;
   display: inline-block;
   transform-origin: 0px 0px 0px;
-  transform: matrix(0.544816, 0, 0, 0.544816, 232.161, 375.849);
+  transform: matrix(0.544816, 0, 0, 0.544816, 232.161, 195.849);
   transition: all 0.1s linear 0s;
   will-change: transform;
 
@@ -37,6 +38,8 @@ export const Body = styled.div`
 
 export const BodyLeft = styled.div`
   width: 65%;
+  background-color: #ffffff;
+  height: 100%;
   padding: 20px;
 `;
 

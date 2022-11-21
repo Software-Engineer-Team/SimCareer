@@ -11,8 +11,6 @@ export const ResumeContent = styled.div`
   height: 100%;
   display: flex;
   flex-direction: row-reverse;
-  width: 100%;
-  height: 100%;
   /* padding: 10px 10px 10px 12px; */
   z-index: -1;
 `;

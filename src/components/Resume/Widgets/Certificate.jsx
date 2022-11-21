@@ -7,7 +7,8 @@ const CertificateItem = ({ name, date, descriptionHtml, idx }) => {
   return (
     <div className="certificate-content">
       <h4>
-        {name} - <span>{date.month + "/" + date.year}</span>
+        {name && name.concat(" - ")}
+        {name && <span>{date.month + "/" + date.year}</span>}
       </h4>
       <div>
         <div
@@ -22,24 +23,28 @@ const CertificateItem = ({ name, date, descriptionHtml, idx }) => {
 const Certificate = () => {
   const { certificate } = useSelector((state) => state.resume);
   return (
-    <CertificateContainer>
-      <div className="certificate">
-        <div className="title">
-          <span>Chứng chỉ</span>
-        </div>
-        {certificate.map(({ name, date, descriptionHtml }, idx) => {
-          return (
-            <CertificateItem
-              name={name}
-              date={date}
-              descriptionHtml={descriptionHtml}
-              key={idx}
-              idx={idx}
-            />
-          );
-        })}
-      </div>
-    </CertificateContainer>
+    <>
+      {certificate?.[0].descriptionHtml && (
+        <CertificateContainer>
+          <div className="certificate">
+            <div className="title">
+              <span>Chứng chỉ</span>
+            </div>
+            {certificate.map(({ name, date, descriptionHtml }, idx) => {
+              return (
+                <CertificateItem
+                  name={name}
+                  date={date}
+                  descriptionHtml={descriptionHtml}
+                  key={idx}
+                  idx={idx}
+                />
+              );
+            })}
+          </div>
+        </CertificateContainer>
+      )}
+    </>
   );
 };
 
@@ -70,8 +75,7 @@ const CertificateContainer = styled.div`
       word-break: break-word;
       margin: 0px;
       font-size: 22px;
-      font-family: Cambria, Georgia, serif;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     p {
@@ -86,10 +90,10 @@ const CertificateContainer = styled.div`
         }
       }
       .certificate-content-item {
-        ul {
+        ul,
+        ol {
           margin: 0;
-          padding-left: 20px;
-          list-style: none;
+          margin-left: 20px;
           li {
             font-size: 20px;
           }

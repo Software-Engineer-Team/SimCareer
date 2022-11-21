@@ -34,6 +34,8 @@ const ResumeContainer = styled.div`
   z-index: 10;
   overflow: auto;
   min-width: 750px;
+  height: 100%;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 25%);
   /* &::-webkit-scrollbar { */
   /*   width: 2px; */
   /*   background-color: black; */

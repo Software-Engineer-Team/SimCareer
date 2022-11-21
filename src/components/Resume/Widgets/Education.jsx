@@ -38,33 +38,44 @@ const Education = () => {
   const { education } = useSelector((state) => state.resume);
 
   return (
-    <EducationContainer>
-      <div className="education">
-        <div className="title">
-          <span>Học vấn</span>
-        </div>
+    <>
+      {education?.[0].descriptionHtml && (
+        <EducationContainer>
+          <div className="education">
+            <div className="title">
+              <span>Học vấn</span>
+            </div>
 
-        {education.map(
-          (
-            { school, city, startDate, endDate, specialize, descriptionHtml },
-            idx
-          ) => {
-            return (
-              <EducationItem
-                idx={idx}
-                school={school}
-                startDate={startDate}
-                endDate={endDate}
-                city={city}
-                specialize={specialize}
-                descriptionHtml={descriptionHtml}
-                key={idx}
-              />
-            );
-          }
-        )}
-      </div>
-    </EducationContainer>
+            {education.map(
+              (
+                {
+                  school,
+                  city,
+                  startDate,
+                  endDate,
+                  specialize,
+                  descriptionHtml,
+                },
+                idx
+              ) => {
+                return (
+                  <EducationItem
+                    idx={idx}
+                    school={school}
+                    startDate={startDate}
+                    endDate={endDate}
+                    city={city}
+                    specialize={specialize}
+                    descriptionHtml={descriptionHtml}
+                    key={idx}
+                  />
+                );
+              }
+            )}
+          </div>
+        </EducationContainer>
+      )}
+    </>
   );
 };
 

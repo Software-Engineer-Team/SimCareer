@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   PersonalDetail,
   ResumeRightContainer,
@@ -6,7 +6,6 @@ import {
   EntriesSection,
   DescriptionSection,
 } from "@components/index";
-import PDFDisplay from "@components/PDFDisplay/PDFDisplay";
 import {
   ResumeContainer,
   ResumeContent,
@@ -14,6 +13,7 @@ import {
   ResumeContentRight,
   ResumeHeader,
 } from "./Resume.styled";
+import { Fade } from "react-reveal";
 
 const Resume = () => {
   return (
@@ -25,7 +25,7 @@ const Resume = () => {
         </div>
         <div className="cv-container">
           <div className="cv-name"></div>
-          <div className="file-name">D__H__Y__H__</div>
+          <div className="file-name">RESUME</div>
         </div>
       </ResumeHeader>
       <ResumeContent>
@@ -34,51 +34,48 @@ const Resume = () => {
             <Document />
           </div>
         </ResumeContentLeft>
-        <ResumeRightContainer backgroundColor={"#ffffff"}>
-          <ResumeContentRight>
-            <div className="resume-content-right">
-              <PersonalDetail />
+        <Fade left>
+          <ResumeRightContainer backgroundColor={"#ffffff"}>
+            <ResumeContentRight>
+              <div className="resume-content-right">
+                <PersonalDetail />
 
-              <DescriptionSection headerTitle={"Tóm tắt"} type={"Summary"} />
-              <EntriesSection
-                headerTitle={"Học vấn"}
-                btnText={"Thêm bản ghi"}
-                type={"Education"}
-              />
-              <EntriesSection
-                headerTitle={"Kinh nghiệm"}
-                btnText={"Thêm bản ghi"}
-                type={"Experience"}
-              />
-              <EntriesSection
-                headerTitle={"Kỹ năng"}
-                btnText={"Thêm kỹ năng"}
-                type={"Skill"}
-              />
+                <DescriptionSection headerTitle={"Tóm tắt"} type={"Summary"} />
+                <EntriesSection
+                  headerTitle={"Học vấn"}
+                  btnText={"Thêm bản ghi"}
+                  type={"Education"}
+                />
+                <EntriesSection
+                  headerTitle={"Kinh nghiệm"}
+                  btnText={"Thêm bản ghi"}
+                  type={"Experience"}
+                />
+                <EntriesSection
+                  headerTitle={"Kỹ năng"}
+                  btnText={"Thêm kỹ năng"}
+                  type={"Skill"}
+                />
 
-              <EntriesSection
-                headerTitle={"Chứng chỉ"}
-                btnText={"Thêm chứng chỉ"}
-                type={"Certificate"}
-              />
+                <EntriesSection
+                  headerTitle={"Chứng chỉ"}
+                  btnText={"Thêm chứng chỉ"}
+                  type={"Certificate"}
+                />
 
-              <EntriesSection
-                headerTitle={"Sở thích"}
-                btnText={"Thêm sở thích"}
-                type={"Hobby"}
-              />
-              <DescriptionSection
-                headerTitle={"Thành tích"}
-                type={"Achievements"}
-              />
-
-              {/* <EntriesSection */}
-              {/*   headerTitle={"Phần tùy chỉnh"} */}
-              {/*   btnText={"Thêm bản ghi"} */}
-              {/* /> */}
-            </div>
-          </ResumeContentRight>
-        </ResumeRightContainer>
+                <EntriesSection
+                  headerTitle={"Sở thích"}
+                  btnText={"Thêm sở thích"}
+                  type={"Hobby"}
+                />
+                <DescriptionSection
+                  headerTitle={"Thành tích"}
+                  type={"Achievements"}
+                />
+              </div>
+            </ResumeContentRight>
+          </ResumeRightContainer>
+        </Fade>
       </ResumeContent>
     </ResumeContainer>
   );
