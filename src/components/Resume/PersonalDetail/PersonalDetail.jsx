@@ -124,9 +124,9 @@ const PersonalDetail = () => {
                     </div>
                   </div>
                   <div className="img-content" onClick={openImageFormHandler}>
-                    {image?.url && (
+                    {image && (
                       <div className="show-img">
-                        <img src={image?.url} alt="" />
+                        <img src={image} alt="" />
                       </div>
                     )}
                     <div className="icon">

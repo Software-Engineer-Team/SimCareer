@@ -98,6 +98,16 @@ const HeaderContentLeft = styled.div`
   & > h1 {
     margin: 0;
     text-transform: uppercase;
+    width: 744px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+
     font-family: Cambria, Georgia, serif;
   }
 
