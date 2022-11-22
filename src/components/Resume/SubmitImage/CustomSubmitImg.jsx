@@ -44,7 +44,7 @@ const CustomSubmitImg = ({
     setImage(null, "");
   };
 
-  useBackDrop("custom-submit-image");
+  useBackDrop("root-portal");
 
   return (
     <CustomSubmitImgContainer id="custom-submit-image">

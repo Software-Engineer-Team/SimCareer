@@ -1,6 +1,6 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { Gallery, ImagesPreview } from "@components/index";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Gallery, ImagesPreview, PdfDisplay, Portal } from "@components/index";
 import styled from "styled-components";
 import useImportWidget from "@hooks/useImportWidget";
 const ExperienceItem = ({
@@ -15,6 +15,11 @@ const ExperienceItem = ({
   idx,
 }) => {
   useImportWidget({ html: descriptionHtml, elId: "EXPERIENCE_" + idx });
+
+  const toggleShowFile = () => {
+    setShowFile(!showFile);
+  };
+  const [showFile, setShowFile] = useState(false);
   return (
     <>
       <h4>
@@ -42,7 +47,22 @@ const ExperienceItem = ({
             />
           </Gallery>
         )}
+        {file?.url && (
+          <div
+            style={{ color: "blue" }}
+            onClick={() => {
+              setShowFile(!showFile);
+            }}
+          >
+            {file.name}
+          </div>
+        )}
       </div>
+      {showFile && (
+        <Portal>
+          <PdfDisplay cb={toggleShowFile} url={file?.url} />
+        </Portal>
+      )}
     </>
   );
 };

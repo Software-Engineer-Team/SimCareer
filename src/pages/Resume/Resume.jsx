@@ -16,20 +16,8 @@ import {
   ResumeHeader,
 } from "./Resume.styled";
 import { Fade } from "react-reveal";
-import useShowMenu from "@hooks/useShowMenu";
 
 const Resume = () => {
-  const [showMenu, setShowMenu] = useState(true);
-
-  const toggleShowMenu = () => {
-    console.log("233333333333333333");
-    setShowMenu(!showMenu);
-  };
-
-  /* useShowMenu(showMenu, () => { */
-  /*   setShowMenu(false); */
-  /* }); */
-
   return (
     <ResumeContainer>
       <ResumeHeader>
@@ -91,12 +79,6 @@ const Resume = () => {
             </ResumeContentRight>
           </ResumeRightContainer>
         </Fade>
-
-        {showMenu && (
-          <Portal>
-            <PdfDisplay toggleShowMenu={toggleShowMenu} />
-          </Portal>
-        )}
       </ResumeContent>
     </ResumeContainer>
   );

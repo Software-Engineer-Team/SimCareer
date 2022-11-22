@@ -1,24 +1,26 @@
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf/dist/esm/entry.webpack5";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 import useBackDrop from "@hooks/useBackDrop";
 import { PdfContainer, PdfContent } from "./PdfDisplay.styled";
+import LoadingAnimation from "../LoadingAnimation/LoadingAnimation";
+import { Fade } from "react-reveal";
 
-const PdfDisplay = ({ toggleShowMenu }) => {
-  /* const [file, setFile] = useState("/images/feedback-01.pdf"); */
-  const [file, setFile] = useState("/images/RitsIILCS_22.1pp.7-18_HOANG.pdf");
+const PdfDisplay = ({ cb, url }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [file, setFile] = useState(url);
+  useEffect(() => {
+    console.log(isLoading);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 750);
+  }, [isLoading]);
 
-  /* const [file, setFile] = useState("/images/simcareer-not-label.png"); */
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(null);
-  useBackDrop("pdf-container", toggleShowMenu);
-  console.log("useBackDrop");
-
-  function onFileChange(event) {
-    setFile(event.target.files[0]);
-  }
+  useBackDrop("pdf-container", cb);
 
   function onDocumentLoadSuccess({ numPages: nextNumPages }) {
     setNumPages(nextNumPages);
@@ -48,9 +50,14 @@ const PdfDisplay = ({ toggleShowMenu }) => {
   }, []);
 
   return (
-    <PdfContainer id="pdf-container">
-      <div className="file-pdf">
+    <PdfContainer
+      id="pdf-container"
+      onClick={(e) => e.stopPropagation()}
+      onWheel={(e) => e.stopPropagation()}
+    >
+      <div className="file-pdf" id="file-pdf">
         <PdfContent>
+          {/* <Fade top> */}
           <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
             <Page key={`page_${pageNumber}`} pageNumber={pageNumber} />
             <p>
@@ -95,6 +102,7 @@ const PdfDisplay = ({ toggleShowMenu }) => {
               </Button>
             </div>
           </Document>
+          {/* </Fade> */}
         </PdfContent>
       </div>
     </PdfContainer>

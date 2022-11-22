@@ -71,6 +71,18 @@ export const uploadImageHandler = (imgRef, callback) => {
   }
 };
 
+export const uploadFileHandler = (fileRef, callback) => {
+  if (fileRef.current.files[0]) {
+    const fReader = new FileReader();
+    const file = fileRef.current.files[0];
+    console.log(file);
+    fReader.readAsDataURL(file);
+    fReader.onload = () => {
+      callback(fReader.result, file.name);
+    };
+  }
+};
+
 export const showMenuHandler = (cb, showMenu) => {
   const checkIsClickOutside = () => {
     if (showMenu) cb();

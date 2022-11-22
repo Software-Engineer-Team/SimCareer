@@ -9,15 +9,17 @@ import {
   Portal,
   CustomSubmitImg,
 } from "@components/index";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { EntriesSectionItemContainer } from "./EntriesSectionItem.styled";
 import { useDispatch, useSelector } from "react-redux";
-import { resumeActions } from "~/store/resume-slice";
+import { resumeActions } from "@store/resume-slice";
 import { FiUpload } from "react-icons/fi";
 import { IoImageOutline } from "react-icons/io5";
+import { uploadFileHandler } from "@utils/utils";
 const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
   const [showDetail, setShowDetail] = useState(false);
   const [showImgSubmitForm, setShowImgSubmitForm] = useState(false);
+  const fileRef = useRef(null);
   const toggleDetailHandler = () => {
     setShowDetail(!showDetail);
   };
@@ -455,12 +457,32 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
                       />
                     </Portal>
                   )}
-                  <Button
-                    style={{ marginRight: "10px" }}
-                    onClick={() => console.log("sssssssssss")}
-                  >
-                    <FiUpload />
-                  </Button>
+
+                  <label htmlFor="attachment">
+                    <Button
+                      style={{ marginRight: "10px" }}
+                      onClick={() => console.log("sssssssssss")}
+                    >
+                      <FiUpload />
+                    </Button>
+                    <input
+                      type="file"
+                      style={{ display: "none" }}
+                      id="attachment"
+                      onChange={() =>
+                        uploadFileHandler(fileRef, (url, fileName) => {
+                          dispatch(
+                            resumeActions.setFileExperience({
+                              index: idx,
+                              file: { url: url, name: fileName },
+                            })
+                          );
+                        })
+                      }
+                      accept=".xlsx,.xls,.doc, .docx, .ppt, .pptx,.txt, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                      ref={fileRef}
+                    />
+                  </label>
                 </>
               )}
               <Button onClick={() => deleteEntryHandler(type, idx)}>
