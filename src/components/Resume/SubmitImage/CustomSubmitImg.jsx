@@ -1,19 +1,22 @@
 import React, { useRef, useState } from "react";
 import { IoClose, IoImageOutline } from "react-icons/io5";
 import { Fade } from "react-reveal";
-import { SubmitImageContainer } from "./SubmitImage.styled";
+import { CustomSubmitImgContainer } from "./CustomSubmitImg.styled";
 import { Button } from "@components/index";
 import ImageCropDialog from "./ImageCropDialog";
 import ImageCropDialogControls from "./ImageCropDialogControls";
 import getCroppedImg from "@utils/crop-image";
-import { useDispatch, useSelector } from "react-redux";
-import { resumeActions } from "@store/resume-slice";
+import { useDispatch } from "react-redux";
 import useBackDrop from "@hooks/useBackDrop";
+import { uploadImageHandler } from "@utils/utils";
 
-const SubmitImage = ({ closeImageFormHandler, uploadImageHandler }) => {
+const CustomSubmitImg = ({
+  closeImageFormHandler,
+  image,
+  setImage,
+  aspectInit,
+}) => {
   const imgRef = useRef(null);
-  const { personalDetail } = useSelector((state) => state.resume);
-  const dispatch = useDispatch();
   const [zoom, setZoom] = useState(0);
   const [rotation, setRotation] = useState(0);
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
@@ -31,23 +34,20 @@ const SubmitImage = ({ closeImageFormHandler, uploadImageHandler }) => {
   };
 
   const confirmHandler = async () => {
-    const croppedImageUrl = await getCroppedImg(
-      personalDetail?.image,
-      croppedAreaPixels
-    );
+    const croppedImageUrl = await getCroppedImg(image.url, croppedAreaPixels);
 
-    dispatch(resumeActions.setPersonalDetailImage({ image: croppedImageUrl }));
+    setImage(croppedImageUrl, image.name);
     closeImageFormHandler();
   };
 
   const newImgHandler = () => {
-    dispatch(resumeActions.setPersonalDetailImage({ image: "" }));
+    setImage(null, "");
   };
 
-  useBackDrop("submit-image");
+  useBackDrop("custom-submit-image");
 
   return (
-    <SubmitImageContainer id="submit-image">
+    <CustomSubmitImgContainer id="custom-submit-image">
       <Fade bottom>
         <div className="submit-form">
           <div className="submit-form-content">
@@ -60,10 +60,10 @@ const SubmitImage = ({ closeImageFormHandler, uploadImageHandler }) => {
               </div>
             </div>
 
-            {!personalDetail?.image ? (
+            {!image?.url ? (
               <label
                 htmlFor="images"
-                onChange={() => uploadImageHandler(imgRef)}
+                onChange={() => uploadImageHandler(imgRef, setImage)}
               >
                 <div className="submit-form-middle">
                   <div className="icon">
@@ -84,11 +84,12 @@ const SubmitImage = ({ closeImageFormHandler, uploadImageHandler }) => {
             ) : (
               <>
                 <ImageCropDialog
-                  imageUrl={personalDetail?.image && personalDetail.image}
+                  imageUrl={image?.url && image.url}
                   zoomInit={zoom}
                   rotationInit={rotation}
                   onZoomChange={onZoomChange}
                   onCropComplete={onCropComplete}
+                  aspectInit={aspectInit}
                 />
                 <ImageCropDialogControls
                   onZoomChange={onZoomChange}
@@ -109,8 +110,8 @@ const SubmitImage = ({ closeImageFormHandler, uploadImageHandler }) => {
           </div>
         </div>
       </Fade>
-    </SubmitImageContainer>
+    </CustomSubmitImgContainer>
   );
 };
 
-export default SubmitImage;
+export default CustomSubmitImg;

@@ -48,6 +48,7 @@ const PersonalDetail = () => {
       };
     }
   };
+
   const closeImageFormHandler = () => {
     setShowImageForm(false);
   };

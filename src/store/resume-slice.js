@@ -44,6 +44,14 @@ const experienceInit = [
       month: "10",
       year: 2024,
     },
+    image: {
+      url: null,
+      name: "",
+    },
+    file: {
+      url: null,
+      name: "",
+    },
     descriptionHtml: null,
     editorState: createEditorStateWithText(""),
   },
@@ -188,6 +196,12 @@ export const resumeSlice = createSlice({
     setExperienceEditorState(state, action) {
       state.experience[action.payload.index].editorState =
         action.payload.editorState;
+    },
+    setImageExperience(state, action) {
+      state.experience[action.payload.index].image = action.payload.image;
+    },
+    setFileExperience(state, action) {
+      state.experience[action.payload.index].file = action.payload.file;
     },
     addExperienceEntry(state, action) {
       state.experience.push(experienceInit[0]);

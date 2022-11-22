@@ -17,6 +17,7 @@ const ImageCropDialog = ({
   onZoomChange,
   onCropComplete,
 }) => {
+  console.log(aspectInit);
   const [crop, setCrop] = useState(cropInit || { x: 0, y: 0 });
   const [aspect] = useState(aspectInit || aspectRatios[0]);
 

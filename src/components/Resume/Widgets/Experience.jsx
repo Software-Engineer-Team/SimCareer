@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Gallery, ImagesPreview } from "@components/index";
 import styled from "styled-components";
 import useImportWidget from "@hooks/useImportWidget";
 const ExperienceItem = ({
@@ -8,6 +9,8 @@ const ExperienceItem = ({
   city,
   startDate,
   endDate,
+  image,
+  file,
   descriptionHtml,
   idx,
 }) => {
@@ -16,7 +19,6 @@ const ExperienceItem = ({
     <>
       <h4>
         {company}
-
         {city && company ? ", ".concat(city) : city}
       </h4>
       <p className="time">
@@ -31,6 +33,15 @@ const ExperienceItem = ({
         <div className="company-content-item" id={"EXPERIENCE_" + idx}>
           <h4>{position}</h4>
         </div>
+        {image?.url && (
+          <Gallery>
+            <ImagesPreview
+              url={image?.url}
+              fileName={image?.name}
+              isRight={false}
+            />
+          </Gallery>
+        )}
       </div>
     </>
   );
@@ -54,6 +65,8 @@ const Experience = () => {
                   city,
                   startDate,
                   endDate,
+                  image,
+                  file,
                   descriptionHtml,
                 },
                 idx
@@ -66,6 +79,8 @@ const Experience = () => {
                     startDate={startDate}
                     endDate={endDate}
                     descriptionHtml={descriptionHtml}
+                    image={image}
+                    file={file}
                     key={idx}
                     idx={idx}
                   />

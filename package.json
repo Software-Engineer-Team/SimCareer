@@ -32,6 +32,7 @@
     "gapi-script": "^1.2.0",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
+    "lightgallery": "^2.7.0",
     "particles.js": "^2.0.0",
     "qs": "^6.11.0",
     "react": "^18.2.0",

@@ -2,13 +2,22 @@ import { MdEdit } from "react-icons/md";
 import Draft from "../../Draft/Draft";
 import { FaTrashAlt } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
-import { Input, Button, SelectOptions } from "@components/index";
+import {
+  Input,
+  Button,
+  SelectOptions,
+  Portal,
+  CustomSubmitImg,
+} from "@components/index";
 import { useState } from "react";
 import { EntriesSectionItemContainer } from "./EntriesSectionItem.styled";
 import { useDispatch, useSelector } from "react-redux";
 import { resumeActions } from "~/store/resume-slice";
+import { FiUpload } from "react-icons/fi";
+import { IoImageOutline } from "react-icons/io5";
 const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
   const [showDetail, setShowDetail] = useState(false);
+  const [showImgSubmitForm, setShowImgSubmitForm] = useState(false);
   const toggleDetailHandler = () => {
     setShowDetail(!showDetail);
   };
@@ -248,7 +257,6 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
         if (education.length === 1) {
           toggleContentHandler();
         }
-        console.log(education);
         dispatch(resumeActions.deleteEntryEducation({ index: idx }));
         break;
       case "Experience":
@@ -420,6 +428,41 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
               )}
             </div>
             <div className="btns">
+              {type === "Experience" && (
+                <>
+                  <Button
+                    style={{ marginRight: "10px" }}
+                    onClick={() => setShowImgSubmitForm(true)}
+                  >
+                    <IoImageOutline />
+                  </Button>
+                  {showImgSubmitForm && (
+                    <Portal>
+                      <CustomSubmitImg
+                        closeImageFormHandler={() =>
+                          setShowImgSubmitForm(false)
+                        }
+                        image={experience?.[idx].image}
+                        setImage={(url, fileName) => {
+                          dispatch(
+                            resumeActions.setImageExperience({
+                              index: idx,
+                              image: { url, name: fileName },
+                            })
+                          );
+                        }}
+                        aspectInit={{ value: 8 / 7, text: "8/7" }}
+                      />
+                    </Portal>
+                  )}
+                  <Button
+                    style={{ marginRight: "10px" }}
+                    onClick={() => console.log("sssssssssss")}
+                  >
+                    <FiUpload />
+                  </Button>
+                </>
+              )}
               <Button onClick={() => deleteEntryHandler(type, idx)}>
                 <FaTrashAlt />
               </Button>
