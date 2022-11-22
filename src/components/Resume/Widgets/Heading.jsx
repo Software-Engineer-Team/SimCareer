@@ -113,6 +113,7 @@ const HeaderContentLeft = styled.div`
 
   .occupation {
     font-weight: 400;
+    font-size: 32px;
   }
 
   .introduction {

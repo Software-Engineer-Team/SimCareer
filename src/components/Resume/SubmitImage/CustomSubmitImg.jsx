@@ -10,6 +10,7 @@ import useBackDrop from "@hooks/useBackDrop";
 import { uploadImageHandler } from "@utils/utils";
 
 const CustomSubmitImg = ({
+  idx,
   closeImageFormHandler,
   image,
   setImage,
@@ -35,15 +36,16 @@ const CustomSubmitImg = ({
   const confirmHandler = async () => {
     const croppedImageUrl = await getCroppedImg(image.url, croppedAreaPixels);
 
-    setImage(croppedImageUrl, image.name);
+    setImage(croppedImageUrl, image.name, idx);
     closeImageFormHandler();
   };
 
   const newImgHandler = () => {
-    setImage(null, "");
+    setImage(null, "", idx);
   };
 
   useBackDrop("root-portal");
+  console.log(!image?.url);
 
   return (
     <CustomSubmitImgContainer id="custom-submit-image">
@@ -62,7 +64,7 @@ const CustomSubmitImg = ({
             {!image?.url ? (
               <label
                 htmlFor="images"
-                onChange={() => uploadImageHandler(imgRef, setImage)}
+                onChange={() => uploadImageHandler(imgRef, setImage, idx)}
               >
                 <div className="submit-form-middle">
                   <div className="icon">

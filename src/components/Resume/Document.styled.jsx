@@ -13,7 +13,7 @@ export const DocumentContainer = styled.div`
   a {
     outline: none;
     text-decoration: none;
-    color: blue;
+    color: #453a98;
   }
 `;
 

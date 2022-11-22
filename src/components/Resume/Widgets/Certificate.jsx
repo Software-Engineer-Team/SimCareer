@@ -1,22 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import useImportWidget from "@hooks/useImportWidget";
-const CertificateItem = ({ name, date, descriptionHtml, idx }) => {
+import { Gallery, ImagesPreview, PdfDisplay, Portal } from "@components/index";
+
+const CertificateItem = ({ name, date, descriptionHtml, image, file, idx }) => {
   useImportWidget({ html: descriptionHtml, elId: "CERTIFICATE_" + idx });
+
+  const toggleShowFile = () => {
+    setShowFile(!showFile);
+  };
+  const [showFile, setShowFile] = useState(false);
   return (
-    <div className="certificate-content">
-      <h4>
-        {name && name.concat(" - ")}
-        {name && <span>{date.month + "/" + date.year}</span>}
-      </h4>
-      <div>
-        <div
-          className="certificate-content-item"
-          id={"CERTIFICATE_" + idx}
-        ></div>
+    <>
+      <div className="certificate-content">
+        {!image?.url ? (
+          <h4>
+            {name && name.concat(" - ")}
+            {name && <span>{date.month + "/" + date.year}</span>}
+          </h4>
+        ) : (
+          <Gallery>
+            <ImagesPreview
+              url={image?.url}
+              fileName={name.concat(" - ") + date.month + "/" + date.year}
+              style={{ color: "white" }}
+            />
+          </Gallery>
+        )}
+        <div>
+          <div
+            className="certificate-content-item"
+            id={"CERTIFICATE_" + idx}
+          ></div>
+          {file?.url && (
+            <div
+              style={{ color: "#ffffff" }}
+              onClick={() => {
+                setShowFile(!showFile);
+              }}
+            >
+              {file.name}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+
+      {showFile && (
+        <Portal>
+          <PdfDisplay cb={toggleShowFile} url={file?.url} />
+        </Portal>
+      )}
+    </>
   );
 };
 
@@ -30,17 +65,21 @@ const Certificate = () => {
             <div className="title">
               <span>Chứng chỉ</span>
             </div>
-            {certificate.map(({ name, date, descriptionHtml }, idx) => {
-              return (
-                <CertificateItem
-                  name={name}
-                  date={date}
-                  descriptionHtml={descriptionHtml}
-                  key={idx}
-                  idx={idx}
-                />
-              );
-            })}
+            {certificate.map(
+              ({ name, date, file, image, descriptionHtml }, idx) => {
+                return (
+                  <CertificateItem
+                    name={name}
+                    date={date}
+                    file={file}
+                    image={image}
+                    descriptionHtml={descriptionHtml}
+                    key={idx}
+                    idx={idx}
+                  />
+                );
+              }
+            )}
           </div>
         </CertificateContainer>
       )}
@@ -74,7 +113,7 @@ const CertificateContainer = styled.div`
       text-overflow: ellipsis;
       word-break: break-word;
       margin: 0px;
-      font-size: 22px;
+      font-size: 25px;
       font-weight: 500;
     }
 

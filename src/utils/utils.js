@@ -60,13 +60,13 @@ export const postData = async (data, url) => {
   return await axios(options);
 };
 
-export const uploadImageHandler = (imgRef, callback) => {
+export const uploadImageHandler = (imgRef, callback, idx) => {
   if (imgRef.current.files[0]) {
     const fReader = new FileReader();
     const file = imgRef.current.files[0];
     fReader.readAsDataURL(file);
     fReader.onload = () => {
-      callback(fReader.result, file.name);
+      callback(fReader.result, file.name, idx);
     };
   }
 };
@@ -75,7 +75,6 @@ export const uploadFileHandler = (fileRef, callback) => {
   if (fileRef.current.files[0]) {
     const fReader = new FileReader();
     const file = fileRef.current.files[0];
-    console.log(file);
     fReader.readAsDataURL(file);
     fReader.onload = () => {
       callback(fReader.result, file.name);

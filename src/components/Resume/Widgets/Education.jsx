@@ -103,13 +103,13 @@ const EducationContainer = styled.div`
       text-overflow: ellipsis;
       word-break: break-word;
       margin: 0px;
-      font-size: 22px;
-      font-family: Cambria, Georgia, serif;
-      font-weight: 600;
+      font-size: 25px;
+      /* font-family: Cambria, Georgia, serif; */
+      font-weight: 500;
     }
     .city {
       color: #ffffff;
-      font-size: 23px;
+      font-size: 22px;
       line-height: 22px;
     }
     .city,

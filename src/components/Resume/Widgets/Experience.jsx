@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Gallery, ImagesPreview, PdfDisplay, Portal } from "@components/index";
 import styled from "styled-components";
 import useImportWidget from "@hooks/useImportWidget";
@@ -22,10 +22,18 @@ const ExperienceItem = ({
   const [showFile, setShowFile] = useState(false);
   return (
     <>
-      <h4>
-        {company}
-        {city && company ? ", ".concat(city) : city}
-      </h4>
+      {company && !image?.url ? (
+        <h4>
+          {company} {city && company ? ", ".concat(city) : city}
+        </h4>
+      ) : (
+        <Gallery>
+          <ImagesPreview
+            url={image.url}
+            fileName={company + (city && company ? ", ".concat(city) : city)}
+          />
+        </Gallery>
+      )}
       <p className="time">
         {company && (
           <i>
@@ -38,18 +46,9 @@ const ExperienceItem = ({
         <div className="company-content-item" id={"EXPERIENCE_" + idx}>
           <h4>{position}</h4>
         </div>
-        {image?.url && (
-          <Gallery>
-            <ImagesPreview
-              url={image?.url}
-              fileName={image?.name}
-              isRight={false}
-            />
-          </Gallery>
-        )}
         {file?.url && (
           <div
-            style={{ color: "blue" }}
+            style={{ color: "#453a98" }}
             onClick={() => {
               setShowFile(!showFile);
             }}
@@ -142,8 +141,7 @@ const ExperienceContainer = styled.div`
       word-break: break-word;
       margin: 0px;
       font-size: 25px;
-      font-family: Cambria, Georgia, serif;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     p {
@@ -154,9 +152,12 @@ const ExperienceContainer = styled.div`
       padding: 0px 20px 20px 20px;
 
       .company-content-item {
+        & > div > p:last-child {
+          display: none;
+        }
         h4 {
           margin-top: 3px;
-          font-size: 24px;
+          font-size: 23px;
         }
         ul,
         ol,

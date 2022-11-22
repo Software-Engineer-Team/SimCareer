@@ -66,9 +66,8 @@ const HobbyContainer = styled.div`
       text-overflow: ellipsis;
       word-break: break-word;
       margin: 0px;
-      font-size: 22px;
-      font-family: Cambria, Georgia, serif;
-      font-weight: 600;
+      font-size: 25px;
+      font-weight: 500;
     }
 
     p {

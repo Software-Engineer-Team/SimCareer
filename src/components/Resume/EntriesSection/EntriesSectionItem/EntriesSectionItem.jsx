@@ -23,6 +23,7 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
   const toggleDetailHandler = () => {
     setShowDetail(!showDetail);
   };
+  console.log(idx);
   const { education, experience, skill, certificate, hobby, achievement } =
     useSelector((state) => state.resume);
   const dispatch = useDispatch();
@@ -297,6 +298,98 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
     }
   };
 
+  const uploadHandler = (type) => {
+    switch (type) {
+      case "Experience": {
+        return {
+          image: experience?.[idx].image,
+          file: experience?.[idx].file,
+          handlerImg: (url, fileName, idx) => {
+            dispatch(
+              resumeActions.setImageExperience({
+                index: idx,
+                image: { url, name: fileName },
+              })
+            );
+          },
+          handlerFile: (url, fileName, idx) => {
+            dispatch(
+              resumeActions.setFileExperience({
+                index: idx,
+                file: { url, name: fileName },
+              })
+            );
+          },
+        };
+      }
+      case "Skill":
+        return {
+          image: skill?.[idx].image,
+          file: skill?.[idx].file,
+          handlerImg: (url, fileName, idx) => {
+            dispatch(
+              resumeActions.setImageSkill({
+                index: idx,
+                image: { url, name: fileName },
+              })
+            );
+          },
+          handlerFile: (url, fileName, idx) => {
+            dispatch(
+              resumeActions.setFileSkill({
+                index: idx,
+                file: { url, name: fileName },
+              })
+            );
+          },
+        };
+      case "Achievements":
+        return {
+          image: achievement?.[idx].image,
+          file: achievement?.[idx].file,
+          handlerImg: (url, fileName, idx) => {
+            dispatch(
+              resumeActions.setImageAchievement({
+                index: idx,
+                image: { url, name: fileName },
+              })
+            );
+          },
+          handlerFile: (url, fileName, idx) => {
+            dispatch(
+              resumeActions.setFileAchievement({
+                index: idx,
+                file: { url, name: fileName },
+              })
+            );
+          },
+        };
+      case "Certificate":
+        return {
+          image: certificate?.[idx].image,
+          file: certificate?.[idx].file,
+          handlerImg: (url, fileName, idx) => {
+            dispatch(
+              resumeActions.setImageCertificate({
+                index: idx,
+                image: { url, name: fileName },
+              })
+            );
+          },
+          handlerFile: (url, fileName, idx) => {
+            dispatch(
+              resumeActions.setFileCertificate({
+                index: idx,
+                file: { url, name: fileName },
+              })
+            );
+          },
+        };
+      default:
+        break;
+    }
+  };
+
   return (
     <EntriesSectionItemContainer>
       <div className="item-container">
@@ -430,7 +523,10 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
               )}
             </div>
             <div className="btns">
-              {type === "Experience" && (
+              {(type === "Experience" ||
+                type === "Skill" ||
+                type === "Achievements" ||
+                type === "Certificate") && (
                 <>
                   <Button
                     style={{ marginRight: "10px" }}
@@ -444,41 +540,29 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
                         closeImageFormHandler={() =>
                           setShowImgSubmitForm(false)
                         }
-                        image={experience?.[idx].image}
-                        setImage={(url, fileName) => {
-                          dispatch(
-                            resumeActions.setImageExperience({
-                              index: idx,
-                              image: { url, name: fileName },
-                            })
-                          );
-                        }}
+                        image={uploadHandler(type).image}
+                        idx={idx}
+                        setImage={uploadHandler(type).handlerImg}
                         aspectInit={{ value: 8 / 7, text: "8/7" }}
                       />
                     </Portal>
                   )}
 
-                  <label htmlFor="attachment">
-                    <Button
-                      style={{ marginRight: "10px" }}
-                      onClick={() => console.log("sssssssssss")}
-                    >
+                  <label
+                    htmlFor={"attachment_" + idx}
+                    onChange={() =>
+                      uploadFileHandler(fileRef, (url, fileName) => {
+                        uploadHandler(type).handlerFile(url, fileName, idx);
+                      })
+                    }
+                  >
+                    <Button style={{ marginRight: "10px" }}>
                       <FiUpload />
                     </Button>
                     <input
                       type="file"
                       style={{ display: "none" }}
-                      id="attachment"
-                      onChange={() =>
-                        uploadFileHandler(fileRef, (url, fileName) => {
-                          dispatch(
-                            resumeActions.setFileExperience({
-                              index: idx,
-                              file: { url: url, name: fileName },
-                            })
-                          );
-                        })
-                      }
+                      id={"attachment_" + idx}
                       accept=".pdf"
                       ref={fileRef}
                     />

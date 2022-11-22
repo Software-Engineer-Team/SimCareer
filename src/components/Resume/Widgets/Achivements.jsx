@@ -1,13 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import useImportWidget from "~/hooks/useImportWidget";
-const AchivementsItem = ({ name, descriptionHtml, idx }) => {
+import { Gallery, ImagesPreview, PdfDisplay, Portal } from "@components/index";
+
+const AchivementsItem = ({ name, image, file, descriptionHtml, idx }) => {
   useImportWidget({ html: descriptionHtml, elId: "ACHIEVEMENTS_" + idx });
+
+  const toggleShowFile = () => {
+    setShowFile(!showFile);
+  };
+  const [showFile, setShowFile] = useState(false);
   return (
-    <div className="achievements-content" id={"ACHIEVEMENTS_" + idx}>
-      <h4>{name}</h4>
-    </div>
+    <>
+      {name && !image?.url ? (
+        <h4>{name}</h4>
+      ) : (
+        <Gallery>
+          <ImagesPreview
+            url={image?.url}
+            fileName={name}
+            style={{ color: "white" }}
+          />
+        </Gallery>
+      )}
+      <div className="achievements-content" id={"ACHIEVEMENTS_" + idx}></div>
+
+      {file?.url && (
+        <div
+          style={{ color: "#ffffff" }}
+          onClick={() => {
+            setShowFile(!showFile);
+          }}
+        >
+          {file.name}
+        </div>
+      )}
+
+      {showFile && (
+        <Portal>
+          <PdfDisplay cb={toggleShowFile} url={file?.url} />
+        </Portal>
+      )}
+    </>
   );
 };
 
@@ -22,11 +57,13 @@ const Achivements = () => {
             <div className="title">
               <span>Thành tích</span>
             </div>
-            {achievement.map(({ name, descriptionHtml }, idx) => {
+            {achievement.map(({ name, file, image, descriptionHtml }, idx) => {
               return (
                 <AchivementsItem
                   name={name}
                   descriptionHtml={descriptionHtml}
+                  file={file}
+                  image={image}
                   key={idx}
                   idx={idx}
                 />
@@ -48,6 +85,10 @@ const AchivementContainer = styled.div`
 
   .achivement {
     width: 100%;
+
+    h4 {
+      margin: 0;
+    }
     .title {
       background: #453a98;
       font-size: 40px;

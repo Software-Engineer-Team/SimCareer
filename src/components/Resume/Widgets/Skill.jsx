@@ -1,15 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import useImportWidget from "@hooks/useImportWidget";
+import { Gallery, ImagesPreview, PdfDisplay, Portal } from "@components/index";
 
-const SkillItem = ({ name, descriptionHtml, idx }) => {
+const SkillItem = ({ name, descriptionHtml, image, file, idx }) => {
   useImportWidget({ html: descriptionHtml, elId: "SKILL_" + idx });
+
+  const toggleShowFile = () => {
+    setShowFile(!showFile);
+  };
+  const [showFile, setShowFile] = useState(false);
+
   return (
-    <div className="skill-content">
-      <h4>{name}</h4>
-      <div className="skill-content-item" id={"SKILL_" + idx}></div>
-    </div>
+    <>
+      <div className="skill-content">
+        {!image?.url && name ? (
+          <h4>{name}</h4>
+        ) : (
+          <Gallery>
+            <ImagesPreview url={image?.url} fileName={name} />
+          </Gallery>
+        )}
+        <div className="skill-content-item" id={"SKILL_" + idx}></div>
+        {file?.url && (
+          <div
+            style={{ color: "#453a98" }}
+            onClick={() => {
+              setShowFile(!showFile);
+            }}
+          >
+            {file.name}
+          </div>
+        )}
+      </div>
+
+      {showFile && (
+        <Portal>
+          <PdfDisplay cb={toggleShowFile} url={file?.url} />
+        </Portal>
+      )}
+    </>
   );
 };
 
@@ -23,11 +54,13 @@ const Skill = () => {
             <div className="title">
               <span>Kỹ năng</span>
             </div>
-            {skill.map(({ name, descriptionHtml }, idx) => {
+            {skill.map(({ name, descriptionHtml, image, file }, idx) => {
               return (
                 <SkillItem
                   name={name}
                   descriptionHtml={descriptionHtml}
+                  image={image}
+                  file={file}
                   idx={idx}
                   key={idx}
                 />
@@ -65,12 +98,10 @@ const SkillContainer = styled.div`
       overflow: hidden;
       text-overflow: ellipsis;
       word-break: break-word;
-      text-transform: uppercase;
       margin: 0px;
       /* margin-top: 20px; */
       font-size: 25px;
-      font-family: Cambria, Georgia, serif;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     p {
@@ -78,7 +109,7 @@ const SkillContainer = styled.div`
     }
 
     .skill-content {
-      padding: 0px 20px 20px 20px;
+      padding: 0px 0px 20px 0px;
 
       .skill-content-item {
         margin-left: 20px;

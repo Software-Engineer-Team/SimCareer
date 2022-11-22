@@ -59,6 +59,14 @@ const experienceInit = [
 const skillInit = [
   {
     name: "",
+    image: {
+      url: null,
+      name: "",
+    },
+    file: {
+      url: null,
+      name: "",
+    },
     descriptionHtml: null,
     editorState: createEditorStateWithText(""),
   },
@@ -69,6 +77,14 @@ const certificateInit = [
     date: {
       month: "1",
       year: 2024,
+    },
+    image: {
+      url: null,
+      name: "",
+    },
+    file: {
+      url: null,
+      name: "",
     },
     descriptionHtml: null,
     editorState: createEditorStateWithText(""),
@@ -84,6 +100,14 @@ const hobbyInit = [
 const achievementInit = [
   {
     name: "",
+    image: {
+      url: null,
+      name: "",
+    },
+    file: {
+      url: null,
+      name: "",
+    },
     descriptionHtml: null,
     editorState: createEditorStateWithText(""),
   },
@@ -122,6 +146,12 @@ export const resumeSlice = createSlice({
     setAchievementEditorState(state, action) {
       state.achievement[action.payload.index].editorState =
         action.payload.editorState;
+    },
+    setImageAchievement(state, action) {
+      state.achievement[action.payload.index].image = action.payload.image;
+    },
+    setFileAchievement(state, action) {
+      state.achievement[action.payload.index].file = action.payload.file;
     },
     addAchievementEntry(state, action) {
       state.achievement.push(achievementInit[0]);
@@ -270,6 +300,12 @@ export const resumeSlice = createSlice({
       state.skill[action.payload.index].editorState =
         action.payload.editorState;
     },
+    setImageSkill(state, action) {
+      state.skill[action.payload.index].image = action.payload.image;
+    },
+    setFileSkill(state, action) {
+      state.skill[action.payload.index].file = action.payload.file;
+    },
     addSkillEntry(state, action) {
       state.skill.push(skillInit[0]);
     },
@@ -299,6 +335,12 @@ export const resumeSlice = createSlice({
     setCertificateEditorState(state, action) {
       state.certificate[action.payload.index].editorState =
         action.payload.editorState;
+    },
+    setImageCertificate(state, action) {
+      state.certificate[action.payload.index].image = action.payload.image;
+    },
+    setFileCertificate(state, action) {
+      state.certificate[action.payload.index].file = action.payload.file;
     },
     addCertificateEntry(state, action) {
       state.certificate.push(certificateInit[0]);
