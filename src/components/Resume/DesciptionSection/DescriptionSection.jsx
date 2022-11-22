@@ -74,7 +74,7 @@ const DescriptionSection = ({ headerTitle, type }) => {
 
       {showTips && (
         <Portal>
-          <TipsSection onCloseTips={toggleTipsSection} />
+          <TipsSection onCloseTips={toggleTipsSection} type={type} />
         </Portal>
       )}
     </Container>

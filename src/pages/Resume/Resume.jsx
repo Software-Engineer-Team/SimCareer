@@ -40,7 +40,7 @@ const Resume = () => {
           <ResumeRightContainer backgroundColor={"#ffffff"}>
             <ResumeContentRight>
               <div className="resume-content-right">
-                <PersonalDetail />
+                <PersonalDetail type="PersonalDetail" />
 
                 <DescriptionSection headerTitle={"Tóm tắt"} type={"Summary"} />
                 <EntriesSection

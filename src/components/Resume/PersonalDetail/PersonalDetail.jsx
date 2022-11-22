@@ -14,7 +14,7 @@ import { PersonalDetailContainer } from "./PersonalDetail.styeld";
 import { useDispatch, useSelector } from "react-redux";
 import { resumeActions } from "@store/resume-slice";
 
-const PersonalDetail = () => {
+const PersonalDetail = ({ type }) => {
   const {
     personalDetail: {
       name,
@@ -226,7 +226,7 @@ const PersonalDetail = () => {
 
       {showTips && (
         <Portal>
-          <TipsSection onCloseTips={toggleTipsSection} />
+          <TipsSection onCloseTips={toggleTipsSection} type={type} />
         </Portal>
       )}
     </PersonalDetailContainer>
