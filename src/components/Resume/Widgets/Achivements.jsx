@@ -88,6 +88,8 @@ const AchivementContainer = styled.div`
 
     h4 {
       margin: 0;
+      font-size: 25px;
+      font-weight: 500;
     }
     .title {
       background: #453a98;
@@ -128,8 +130,7 @@ const AchivementContainer = styled.div`
       word-break: break-word;
       margin: 0px;
       font-size: 24px;
-      font-family: Cambria, Georgia, serif;
-      font-weight: 600;
+      font-weight: 500;
     }
     ul,
     ol,

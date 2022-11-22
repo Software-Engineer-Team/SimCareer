@@ -88,25 +88,9 @@ const TipsSection = ({ onCloseTips, type }) => {
           className: "outline-none",
         },
         {
-          field: "Tiêu đề:",
+          field: "",
           content:
             "Mục tiêu và dự định: trong ngắn hạn (1 – 3 năm) và mục tiêu dài hạn (> 3 năm) là gì? Dự định về ngành nghề hiện tại như thế nào? Lộ trình phát triển và kỳ vọng tương lai? ",
-          className: "",
-        },
-        {
-          field: "Ảnh đại diện:",
-          content:
-            "chèn ảnh phù hợp, nhìn thấy khuôn mặt trực diện đồng thời trang phục của ảnh cũng cần phù hợp. Không chọn ảnh chỉ nhìn thấy một phần khuôn mặt hoặc quay lưng về phía trước, ảnh selfie.",
-          className: "",
-        },
-        {
-          field: "Link:",
-          content: "website, blog cá nhân hay mạng xã hội (LinkedIn)",
-          className: "",
-        },
-        {
-          field: "Địa chỉ:",
-          content: "địa chỉ đang ở và sinh sống hiện tại",
           className: "",
         },
       ],
@@ -189,14 +173,14 @@ const TipsSection = ({ onCloseTips, type }) => {
     {
       type: "Achievements",
       title: "THÀNH TÍCH",
-      ptags: [
+      ptags: [],
+      liTags: [
         {
+          field: "",
           content:
             "Chọn thành tích nổi bật nhất của bản thân liên quan đến vị trí ứng tuyển",
           className: "",
         },
-      ],
-      liTags: [
         {
           field: "",
           content: "Mô tả thành tích bằng số liệu, dẫn chứng cụ thể ",

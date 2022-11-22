@@ -10,9 +10,6 @@ export const TipsSectionContainer = styled.div`
   }
 `;
 export const TipsSectionContent = styled.div`
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
   width: 670px;
   padding: 25px 25px 30px 25px;
   background: #fff;
