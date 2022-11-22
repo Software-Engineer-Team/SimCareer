@@ -3,7 +3,7 @@ import Cropper from "react-easy-crop";
 import { ImageCropDialogContainer } from "./ImageCropDialog.styled";
 
 const aspectRatios = [
-  { value: 4 / 3, text: "4/3" },
+  { value: 3 / 4, text: "3/4" },
   { value: 16 / 9, text: "16/9" },
   { value: 1 / 2, text: "1/2" },
 ];
@@ -20,6 +20,7 @@ const ImageCropDialog = ({
   console.log(aspectInit);
   const [crop, setCrop] = useState(cropInit || { x: 0, y: 0 });
   const [aspect] = useState(aspectInit || aspectRatios[0]);
+  console.log(aspect);
 
   return (
     <ImageCropDialogContainer>
