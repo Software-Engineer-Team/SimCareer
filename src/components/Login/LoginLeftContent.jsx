@@ -88,7 +88,7 @@ const LoginLeftContent = () => {
       <Zoom>
         <div className="login-left-content">
           <div className="login-left-content-inner">
-            <div className="login-left-title">Login in</div>
+            <div className="login-left-title">Login</div>
             <div className="login-left-welcome">
               Chào mừng bạn đến với SimCareer, vui lòng đăng nhập bên dưới để
               bắt đầu hành trình hack sự nghiệp của bạn với chúng tôi!
@@ -150,7 +150,7 @@ const LoginLeftContent = () => {
                   <p className="form-input-error">{errorPass}</p>
                 </div>
               </LoginLeftFormItem>
-              <Link to="/forgot-password">Forget Password ?</Link>
+              <Link to="/forgot-password">Forgot Password?</Link>
             </LoginLeftForm>
             <LoginLeftBtnContainer>
               <button
