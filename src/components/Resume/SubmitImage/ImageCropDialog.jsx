@@ -29,6 +29,7 @@ const ImageCropDialog = ({
         zoom={zoomInit || 1}
         crop={crop}
         aspect={aspect.value}
+        objectFit="horizontal-cover"
         rotation={rotationInit || 0}
         onCropChange={setCrop}
         onZoomChange={onZoomChange}
