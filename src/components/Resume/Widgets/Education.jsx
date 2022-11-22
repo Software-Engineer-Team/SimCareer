@@ -34,10 +34,11 @@ const EducationItem = ({
 
 const Education = () => {
   const { education } = useSelector((state) => state.resume);
+  console.log(education);
 
   return (
     <>
-      {education?.[0].descriptionHtml && (
+      {education?.[0].school !== "" && (
         <EducationContainer>
           <div className="education">
             <div className="title">
