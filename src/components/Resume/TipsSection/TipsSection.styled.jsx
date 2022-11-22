@@ -22,6 +22,7 @@ export const TipsSectionContainer = styled.div`
   h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
+    z-index: 100;
   }
   p {
     margin: 0;

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const useBackDrop = (elId) => {
+const useBackDrop = (elId, onClick = () => {}) => {
   useEffect(() => {
     let backDropEl = document.createElement("div");
     backDropEl.style.cssText = `
@@ -13,20 +13,22 @@ const useBackDrop = (elId) => {
       right: 0;
       bottom: 0;
       display: flex;
-      z-index: -1;
+      z-index: 0;
       position: fixed;
       align-items: center;
       justify-content: center;
       background-color: rgba(0, 0, 0, 0.5);
       -webkit-tap-highlight-color: transparent;
   `;
-
+    backDropEl.addEventListener("click", onClick);
     document.getElementById(elId)?.appendChild(backDropEl);
-
     return () => {
       document.getElementById(elId)?.removeChild(backDropEl);
+      backDropEl.removeEventListener("click", () => {
+        console.log("remove backDrop");
+      });
     };
-  }, [elId]);
+  }, [elId, onClick]);
 };
 
 export default useBackDrop;

@@ -84,7 +84,7 @@ const EntriesSection = ({ headerTitle, btnText, type }) => {
     }
   };
 
-  const toggleTipsSection = () => {
+  const toggleTipsSection = (e) => {
     setShowTips(!showTips);
   };
 

@@ -51,6 +51,9 @@ h2 {
   justify-content: center;
   visibility: hidden;
 }
+#root-portal div {
+  z-index: 1;
+}
 
 body {
   font-family: "Roboto", "Open Sans", sans-serif;

@@ -70,3 +70,13 @@ export const uploadImageHandler = (imgRef, callback) => {
     };
   }
 };
+
+export const showMenuHandler = (cb, showMenu) => {
+  const checkIsClickOutside = () => {
+    if (showMenu) cb();
+  };
+  document.addEventListener("click", checkIsClickOutside);
+  return () => {
+    document.removeEventListener("click", checkIsClickOutside);
+  };
+};

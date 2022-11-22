@@ -44,11 +44,12 @@ const SubmitImage = ({ closeImageFormHandler, uploadImageHandler }) => {
     dispatch(resumeActions.setPersonalDetailImage({ image: "" }));
   };
 
-  useBackDrop("submit-image");
+  useBackDrop("root-portal");
 
   return (
     <SubmitImageContainer id="submit-image">
       <Fade bottom>
+        {/* <div className="back-drop"></div> */}
         <div className="submit-form">
           <div className="submit-form-content">
             <div className="submit-form-head">
