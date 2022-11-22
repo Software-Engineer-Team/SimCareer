@@ -20,6 +20,8 @@ const FormImg = styled.a`
   display: block;
   max-height: 103px;
   max-width: 200px;
+  color: blue !important;
+  font-size: 20px !important;
   div.column {
     /* padding: 5px; */
     .lightgallery_item {

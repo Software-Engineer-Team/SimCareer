@@ -6,7 +6,6 @@ import { Button } from "@components/index";
 import ImageCropDialog from "./ImageCropDialog";
 import ImageCropDialogControls from "./ImageCropDialogControls";
 import getCroppedImg from "@utils/crop-image";
-import { useDispatch } from "react-redux";
 import useBackDrop from "@hooks/useBackDrop";
 import { uploadImageHandler } from "@utils/utils";
 
