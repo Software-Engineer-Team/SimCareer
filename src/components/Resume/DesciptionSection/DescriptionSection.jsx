@@ -1,18 +1,23 @@
 import React, { useState } from "react";
-import { Button, Draft } from "@components/index";
+import { Button, Draft, Portal, TipsSection } from "@components/index";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { Container } from "./DescriptionSection.styled";
 import { FaTrashAlt } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
 import { useDispatch } from "react-redux";
-import { resumeActions } from "~/store/resume-slice";
+import { resumeActions } from "@store/resume-slice";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
 
 const DescriptionSection = ({ headerTitle, type }) => {
   const dispatch = useDispatch();
   const [showContent, setShowContent] = useState(false);
+  const [showTips, setShowTips] = useState(false);
   const toggleContentHandler = () => {
     setShowContent(!showContent);
+  };
+
+  const toggleTipsSection = () => {
+    setShowTips(!showTips);
   };
 
   const deleteEntryHandler = (type) => {
@@ -33,7 +38,7 @@ const DescriptionSection = ({ headerTitle, type }) => {
         <div className="personal-detail-header">
           <div className="header-title">{headerTitle}</div>
           <div className="header-btn">
-            <Button style={{ marginRight: "10px" }}>
+            <Button style={{ marginRight: "10px" }} onClick={toggleTipsSection}>
               <MdOutlineTipsAndUpdates />
             </Button>
             <Button onClick={toggleContentHandler}>
@@ -66,6 +71,12 @@ const DescriptionSection = ({ headerTitle, type }) => {
           </div>
         )}
       </div>
+
+      {showTips && (
+        <Portal>
+          <TipsSection onCloseTips={toggleTipsSection} />
+        </Portal>
+      )}
     </Container>
   );
 };

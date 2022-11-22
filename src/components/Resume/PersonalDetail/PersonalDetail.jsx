@@ -5,6 +5,7 @@ import {
   Portal,
   SubmitImage,
   CustomSelections,
+  TipsSection,
 } from "@components/index";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FiMoreVertical } from "react-icons/fi";
@@ -27,8 +28,13 @@ const PersonalDetail = () => {
   } = useSelector((state) => state.resume);
   const [showImageForm, setShowImageForm] = useState(false);
   const [showPersonalContent, setShowPersonalContent] = useState(false);
+  const [showTips, setShowTips] = useState(false);
   const [socialOption, setSocialOption] = useState("Twitter");
   const dispatch = useDispatch();
+
+  const toggleTipsSection = () => {
+    setShowTips(!showTips);
+  };
 
   const uploadImageHandler = (imgRef) => {
     if (imgRef.current.files[0]) {
@@ -106,7 +112,7 @@ const PersonalDetail = () => {
         <div className="personal-detail-header">
           <div className="header-title">Chi tiết cá nhân</div>
           <div className="header-btn">
-            <Button style={{ marginRight: "10px" }}>
+            <Button style={{ marginRight: "10px" }} onClick={toggleTipsSection}>
               <MdOutlineTipsAndUpdates />
             </Button>
             <Button onClick={togglePersonalContentHandler}>
@@ -216,6 +222,12 @@ const PersonalDetail = () => {
           </div>
         )}
       </div>
+
+      {showTips && (
+        <Portal>
+          <TipsSection onCloseTips={toggleTipsSection} />
+        </Portal>
+      )}
     </PersonalDetailContainer>
   );
 };

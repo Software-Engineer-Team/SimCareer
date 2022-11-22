@@ -3,9 +3,10 @@ import { IoClose } from "react-icons/io5";
 import { Fade } from "react-reveal";
 import { SubmitCvContainer } from "./SubmitCV.styled";
 import dayjs from "dayjs";
-import { generateRandomId } from "~/utils/utils";
+import { generateRandomId } from "@utils/utils";
 import { useDispatch, useSelector } from "react-redux";
-import { fileActions } from "~/store/file-slice";
+import { fileActions } from "@store/file-slice";
+import useBackDrop from "@hooks/useBackDrop";
 
 const SubmitCV = ({ onShowFormSubmitCV, onSetFiles, currentFile }) => {
   /* ===================== Test ============================= */
@@ -49,8 +50,10 @@ const SubmitCV = ({ onShowFormSubmitCV, onSetFiles, currentFile }) => {
     }
   };
 
+  useBackDrop("submit-cv");
+
   return (
-    <SubmitCvContainer>
+    <SubmitCvContainer id="submit-cv">
       <div className="back-drop"></div>
       <Fade bottom>
         <div className="submit-form">

@@ -44,7 +44,7 @@ const PageControllerContainer = styled.div`
   bottom: 100px;
   transition: all 0.15s ease-in-out;
   position: absolute;
-  z-index: 20;
+  /* z-index: 20; */
 
   .controller-content {
     box-shadow: 0 4px 16px rgb(0 0 0 / 20%);

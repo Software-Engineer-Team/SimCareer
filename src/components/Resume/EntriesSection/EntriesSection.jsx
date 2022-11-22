@@ -84,8 +84,7 @@ const EntriesSection = ({ headerTitle, btnText, type }) => {
     }
   };
 
-  const toggleTipsSection = (e) => {
-    console.log(":1111111111111111");
+  const toggleTipsSection = () => {
     setShowTips(!showTips);
   };
 
@@ -133,7 +132,7 @@ const EntriesSection = ({ headerTitle, btnText, type }) => {
       </div>
       {showTips && (
         <Portal>
-          <TipsSection />
+          <TipsSection onCloseTips={toggleTipsSection} />
         </Portal>
       )}
     </Container>

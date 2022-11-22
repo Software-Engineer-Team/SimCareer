@@ -5,22 +5,6 @@ export const SubmitCvContainer = styled.div`
   z-index: 1300;
   inset: 0px;
 
-  .back-drop {
-    opacity: 1;
-    transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    z-index: -1;
-    position: fixed;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    -webkit-tap-highlight-color: transparent;
-  }
-
   .submit-form {
     transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
     height: 100%;

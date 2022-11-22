@@ -3,6 +3,7 @@ import { PersonalDetailContainer } from "../PersonalDetail/PersonalDetail.styeld
 export const Container = styled(PersonalDetailContainer)`
   margin-top: 10px;
   padding-right: 0;
+  position: relative;
   .items {
     width: 100%;
     margin-bottom: 1rem;

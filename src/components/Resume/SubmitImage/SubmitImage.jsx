@@ -7,7 +7,8 @@ import ImageCropDialog from "./ImageCropDialog";
 import ImageCropDialogControls from "./ImageCropDialogControls";
 import getCroppedImg from "@utils/crop-image";
 import { useDispatch, useSelector } from "react-redux";
-import { resumeActions } from "~/store/resume-slice";
+import { resumeActions } from "@store/resume-slice";
+import useBackDrop from "@hooks/useBackDrop";
 
 const SubmitImage = ({ closeImageFormHandler, uploadImageHandler }) => {
   const imgRef = useRef(null);
@@ -43,9 +44,11 @@ const SubmitImage = ({ closeImageFormHandler, uploadImageHandler }) => {
     dispatch(resumeActions.setPersonalDetailImage({ image: "" }));
   };
 
+  useBackDrop("submit-image");
+
   return (
-    <SubmitImageContainer>
-      <div className="back-drop"></div>
+    <SubmitImageContainer id="submit-image">
+      {/* <div className="back-drop"></div> */}
       <Fade bottom>
         <div className="submit-form">
           <div className="submit-form-content">

@@ -34,11 +34,22 @@ h2 {
   font-family: "Nunito";
 }
 
-#root,
-#root-portal {
+#root {
   height: 100%;
   width: 100%;
   overflow: hidden;
+}
+
+#root-portal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
 }
 
 body {
