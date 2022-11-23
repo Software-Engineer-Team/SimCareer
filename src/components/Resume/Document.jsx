@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { dragElement } from "@utils/drag-element";
 import {
   Body,
@@ -38,7 +38,9 @@ const Document = ({ closeResumeRight, toggleCloseResumeRight }) => {
     documentTitle: "Resume",
   });
 
-  dragElement(docRef.current);
+  useEffect(() => {
+    dragElement(docRef.current);
+  }, [docRef.current]);
 
   const documentWheelHandler = (e) => {
     if (e.deltaY > 0) {
