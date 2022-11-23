@@ -543,7 +543,7 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
                         image={uploadHandler(type).image}
                         idx={idx}
                         setImage={uploadHandler(type).handlerImg}
-                        aspectInit={{ value: 2 / 1 }}
+                        aspectInit={{ value: 7 / 3.81 }}
                       />
                     </Portal>
                   )}

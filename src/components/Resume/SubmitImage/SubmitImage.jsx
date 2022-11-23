@@ -88,6 +88,7 @@ const SubmitImage = ({ closeImageFormHandler, uploadImageHandler }) => {
                   imageUrl={personalDetail?.image && personalDetail.image}
                   zoomInit={zoom}
                   rotationInit={rotation}
+                  objectFit="contain"
                   onZoomChange={onZoomChange}
                   onCropComplete={onCropComplete}
                 />

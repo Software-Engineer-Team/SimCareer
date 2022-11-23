@@ -187,8 +187,8 @@ const HeaderContentRight = styled.div`
 
   img {
     border-radius: 9px;
-    width: 300px;
-    height: 300px;
+    width: 325px;
+    height: 400px;
     object-fit: cover;
   }
 `;

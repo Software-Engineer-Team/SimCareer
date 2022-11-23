@@ -61,53 +61,29 @@ const CustomSubmitImg = ({
               </div>
             </div>
 
-            {!image?.url ? (
-              <label
-                htmlFor="images"
-                onChange={() => uploadImageHandler(imgRef, setImage, idx)}
-              >
-                <div className="submit-form-middle">
-                  <div className="icon">
-                    <IoImageOutline />
-                  </div>
-                  <div className="file-name">
-                    Drag & drop a file here or click to upload.
-                  </div>
-                  <input
-                    type="file"
-                    style={{ display: "none" }}
-                    id="images"
-                    accept="image/*"
-                    ref={imgRef}
-                  />
+            <label
+              htmlFor="images"
+              onChange={() => {
+                uploadImageHandler(imgRef, setImage, idx);
+                closeImageFormHandler();
+              }}
+            >
+              <div className="submit-form-middle">
+                <div className="icon">
+                  <IoImageOutline />
                 </div>
-              </label>
-            ) : (
-              <>
-                <ImageCropDialog
-                  imageUrl={image?.url && image.url}
-                  zoomInit={zoom}
-                  rotationInit={rotation}
-                  onZoomChange={onZoomChange}
-                  onCropComplete={onCropComplete}
-                  aspectInit={aspectInit}
-                />
-                <ImageCropDialogControls
-                  onZoomChange={onZoomChange}
-                  zoom={zoom}
-                  newImgHandler={newImgHandler}
-                  rotateHandler={rotateHandler}
-                />
-
-                <div className="btn-confirm">
-                  <div className="btn-confirm-content">
-                    <button type="button" onClick={confirmHandler}>
-                      <div>Confirm</div>
-                    </button>
-                  </div>
+                <div className="file-name">
+                  Drag & drop a file here or click to upload.
                 </div>
-              </>
-            )}
+                <input
+                  type="file"
+                  style={{ display: "none" }}
+                  id="images"
+                  accept="image/*"
+                  ref={imgRef}
+                />
+              </div>
+            </label>
           </div>
         </div>
       </Fade>

@@ -2,25 +2,18 @@ import React, { useState } from "react";
 import Cropper from "react-easy-crop";
 import { ImageCropDialogContainer } from "./ImageCropDialog.styled";
 
-const aspectRatios = [
-  { value: 3 / 4, text: "3/4" },
-  { value: 16 / 9, text: "16/9" },
-  { value: 1 / 2, text: "1/2" },
-];
-
 const ImageCropDialog = ({
   imageUrl,
   cropInit,
   zoomInit,
+  objectFit,
   rotationInit,
   aspectInit,
   onZoomChange,
   onCropComplete,
 }) => {
-  console.log(aspectInit);
   const [crop, setCrop] = useState(cropInit || { x: 0, y: 0 });
-  const [aspect] = useState(aspectInit || aspectRatios[0]);
-  console.log(aspect);
+  const [aspect] = useState(aspectInit || { value: 6 / 8 });
 
   return (
     <ImageCropDialogContainer>
@@ -29,7 +22,7 @@ const ImageCropDialog = ({
         zoom={zoomInit || 1}
         crop={crop}
         aspect={aspect.value}
-        objectFit="horizontal-cover"
+        objectFit={objectFit}
         rotation={rotationInit || 0}
         onCropChange={setCrop}
         onZoomChange={onZoomChange}

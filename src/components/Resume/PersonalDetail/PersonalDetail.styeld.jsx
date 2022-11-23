@@ -78,7 +78,7 @@ export const PersonalDetailContainer = styled.div`
               padding: 0.5rem 0.75rem;
               background-color: #f4f4f5;
               min-width: 124px;
-              min-height: 124px;
+              min-height: 150px;
               width: 100%;
               height: 100%;
               display: flex;

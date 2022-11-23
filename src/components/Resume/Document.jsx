@@ -103,8 +103,8 @@ const Document = () => {
             <BodyRight>
               <Education />
               <Certificate />
-              <Hobby />
               <Achivements />
+              <Hobby />
             </BodyRight>
           </Body>
         </DocumentContent>

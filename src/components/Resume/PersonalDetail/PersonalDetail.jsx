@@ -212,7 +212,7 @@ const PersonalDetail = ({ type }) => {
               </CustomSelections>
               <Input
                 type="text"
-                label="Địa chỉ nhà"
+                label="Địa chỉ"
                 handler={addressHandler}
                 value={address}
                 error={() => {}}

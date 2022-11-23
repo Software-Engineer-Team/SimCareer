@@ -66,14 +66,14 @@ const Resume = () => {
                 />
 
                 <EntriesSection
-                  headerTitle={"Sở thích"}
-                  btnText={"Thêm sở thích"}
-                  type={"Hobby"}
-                />
-                <EntriesSection
                   headerTitle={"Thành tích"}
                   btnText={"Thêm thành tích"}
                   type={"Achievements"}
+                />
+                <EntriesSection
+                  headerTitle={"Sở thích"}
+                  btnText={"Thêm sở thích"}
+                  type={"Hobby"}
                 />
               </div>
             </ResumeContentRight>
