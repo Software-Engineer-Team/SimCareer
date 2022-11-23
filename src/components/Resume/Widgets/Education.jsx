@@ -34,7 +34,6 @@ const EducationItem = ({
 
 const Education = () => {
   const { education } = useSelector((state) => state.resume);
-  console.log(education);
 
   return (
     <>

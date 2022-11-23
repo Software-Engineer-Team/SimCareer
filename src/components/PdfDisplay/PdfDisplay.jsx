@@ -12,7 +12,6 @@ const PdfDisplay = ({ cb, url }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [file, setFile] = useState(url);
   useEffect(() => {
-    console.log(isLoading);
     setTimeout(() => {
       setIsLoading(false);
     }, 750);

@@ -10,12 +10,10 @@ const SelectOptions = ({
   selectVal,
 }) => {
   const selectMonthHandler = (e) => {
-    console.log(e.target.value);
     selectOptionsHandler({ month: e.target.value });
   };
 
   const selectYearHandler = (e) => {
-    console.log(e.target.value);
     selectOptionsHandler({ year: e.target.value });
   };
   return (

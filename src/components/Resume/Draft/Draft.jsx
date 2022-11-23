@@ -249,7 +249,6 @@ const Draft = (props) => {
       },
     };
     let html = stateToHTML(editorState.getCurrentContent(), options);
-    console.log(html);
     if (props.isEntriesSection) {
       editorStateEntriesSection(props.type, editorState, html, props.idx);
     } else {

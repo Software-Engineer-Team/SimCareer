@@ -87,7 +87,6 @@ const EntriesSection = ({ headerTitle, btnText, type }) => {
   const toggleTipsSection = (e) => {
     setShowTips(!showTips);
   };
-  console.log(type);
 
   return (
     <Container>

@@ -6,7 +6,6 @@ import { Fragment } from "react";
 
 const TipsSection = ({ onCloseTips, type }) => {
   useBackDrop("root-portal");
-  console.log(type);
   const tips = [
     {
       type: "PersonalDetail",

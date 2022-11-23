@@ -24,9 +24,7 @@ const useBackDrop = (elId, onClick = () => {}) => {
     document.getElementById(elId)?.appendChild(backDropEl);
     return () => {
       document.getElementById(elId)?.removeChild(backDropEl);
-      backDropEl.removeEventListener("click", () => {
-        console.log("remove backDrop");
-      });
+      backDropEl.removeEventListener("click", () => {});
     };
   }, [elId, onClick]);
 };

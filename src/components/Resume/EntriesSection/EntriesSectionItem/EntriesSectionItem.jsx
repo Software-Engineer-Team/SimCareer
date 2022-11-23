@@ -23,7 +23,6 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
   const toggleDetailHandler = () => {
     setShowDetail(!showDetail);
   };
-  console.log(idx);
   const { education, experience, skill, certificate, hobby, achievement } =
     useSelector((state) => state.resume);
   const dispatch = useDispatch();
@@ -213,7 +212,6 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
         return isStartDate
           ? {
               handler: () => {
-                console.log(value);
                 dispatch(
                   resumeActions.setExperienceStartDate({
                     index: idx,
