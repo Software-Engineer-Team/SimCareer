@@ -112,22 +112,22 @@ const Document = ({ closeResumeRight, toggleCloseResumeRight }) => {
           </Body>
         </DocumentContent>
       </DocumentContainer>
+      {/* {!closeResumeRight && ( */}
+      {/*   <JoinWithUsContainer> */}
+      {/*     <Fade bottom> */}
+      {/*       <h3>Tham gia ngay cùng SIMCareer để gia tăng cơ hội tuyển dụng</h3> */}
+      {/*       <div className="join-logo"> */}
+      {/*         <img src="/images/simcareer-not-label.png" alt="" /> */}
+      {/*       </div> */}
+      {/*       <div className="join-btn"> */}
+      {/*         <Link to={"/skill-trees"} className="join-btn-content"> */}
+      {/*           <span>Tiếp tục</span> */}
+      {/*         </Link> */}
+      {/*       </div> */}
+      {/*     </Fade> */}
+      {/*   </JoinWithUsContainer> */}
+      {/* )} */}
 
-      {!closeResumeRight && (
-        <JoinWithUsContainer>
-          <Fade bottom>
-            <h3>Tham gia ngay cùng SIMCareer để gia tăng cơ hội tuyển dụng</h3>
-            <div className="join-logo">
-              <img src="/images/simcareer-not-label.png" alt="" />
-            </div>
-            <div className="join-btn">
-              <Link to={"/skill-trees"} className="join-btn-content">
-                <span>Tiếp tục</span>
-              </Link>
-            </div>
-          </Fade>
-        </JoinWithUsContainer>
-      )}
       <PageController
         zoomInHandler={zoomInHandler}
         zoomOutHandler={zoomOutHandler}

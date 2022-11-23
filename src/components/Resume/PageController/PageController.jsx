@@ -1,13 +1,18 @@
 import React from "react";
 import { BsZoomIn, BsZoomOut } from "react-icons/bs";
 import { FiDownload, FiHelpCircle } from "react-icons/fi";
+import { GrFormNextLink } from "react-icons/gr";
 import { IoLinkOutline, IoReturnDownBack } from "react-icons/io5";
 import { MdCenterFocusStrong, MdLocalPrintshop } from "react-icons/md";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const PageController = (props) => {
   return (
-    <PageControllerContainer id="pageController">
+    <PageControllerContainer
+      id="pageController"
+      /* bottom={!props.closeResumeRight && "250px"} */
+    >
       <div className="controller-content">
         {!props.closeResumeRight && (
           <div
@@ -48,6 +53,18 @@ const PageController = (props) => {
         >
           <FiHelpCircle />
         </a>
+
+        {!props.closeResumeRight && (
+          <Link
+            className="controller-content-item continue"
+            to="/skill-trees"
+            /* target="_blank" */
+            /* rel="noopener noreferrer" */
+          >
+            {/* <GrFormNextLink /> */}
+            <span>Tiếp tục</span>
+          </Link>
+        )}
       </div>
     </PageControllerContainer>
   );
@@ -56,7 +73,7 @@ const PageController = (props) => {
 export default PageController;
 
 const PageControllerContainer = styled.div`
-  bottom: 100px;
+  bottom: ${({ bottom }) => (bottom ? bottom : "100px")};
   transition: all 0.15s ease-in-out;
   position: absolute;
   /* z-index: 20; */
@@ -86,11 +103,40 @@ const PageControllerContainer = styled.div`
         background-color: #edf2f7;
         opacity: 1;
       }
+      text-decoration: none;
       opacity: 0.75;
       color: #000000;
       padding: 0.75rem;
       cursor: pointer;
       display: flex;
+
+      --btn-color: #771fd3;
+      &.continue {
+        padding: 5px 0px;
+        width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--btn-color);
+        border-radius: 10px;
+        color: #ffffff;
+        transition: all 100ms ease-in;
+        border: 1px solid var(--btn-color);
+        cursor: pointer;
+        text-decoration: none;
+
+        &:hover {
+          background-color: #ffffff;
+          color: var(--btn-color);
+        }
+
+        & > span {
+          font-family: "Anton", sans-serif;
+          font-size: 14px;
+          text-transform: uppercase;
+          font-weight: 400 !important;
+        }
+      }
     }
   }
 `;
