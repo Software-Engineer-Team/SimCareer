@@ -132,15 +132,19 @@ const HeaderContentLeft = styled.div`
         width: 100%;
       }
 
-      &.email {
-        width: 65%;
-        min-width: 400.1px;
-      }
-
+      &.email,
       &.phone {
-        width: 35%;
-        min-width: 250.5px;
+        width: 100%;
       }
+      /* &.email { */
+      /*   width: 65%; */
+      /*   min-width: 400.1px; */
+      /* } */
+      /**/
+      /* &.phone { */
+      /*   width: 35%; */
+      /*   min-width: 250.5px; */
+      /* } */
 
       .icon {
         background: #ffffff;
@@ -187,8 +191,8 @@ const HeaderContentRight = styled.div`
 
   img {
     border-radius: 9px;
-    width: 325px;
-    height: 400px;
+    width: 295px;
+    height: 365px;
     object-fit: cover;
   }
 `;
