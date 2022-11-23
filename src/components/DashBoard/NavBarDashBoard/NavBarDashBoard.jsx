@@ -16,11 +16,11 @@ const NavBarDashBoard = (props) => {
 
   return (
     <NavBar>
-      <Link to="/profile">
+      <Link to="/create-resume">
         <div className="menu-container">
           <div className="menu-logo">
             <img src="/images/rounded_logo.png" alt="Logo" />
-            <div>SIRI</div>
+            <div>SIMCV</div>
           </div>
         </div>
       </Link>

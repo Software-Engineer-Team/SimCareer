@@ -1,6 +1,7 @@
 import React from "react";
 import { BsZoomIn, BsZoomOut } from "react-icons/bs";
 import { FiDownload, FiHelpCircle } from "react-icons/fi";
+import { IoLinkOutline, IoReturnDownBack } from "react-icons/io5";
 import { MdCenterFocusStrong, MdLocalPrintshop } from "react-icons/md";
 import styled from "styled-components";
 
@@ -8,6 +9,15 @@ const PageController = (props) => {
   return (
     <PageControllerContainer id="pageController">
       <div className="controller-content">
+        {!props.closeResumeRight && (
+          <div
+            className="controller-content-item"
+            onClick={props.toggleCloseResumeRight}
+          >
+            <IoReturnDownBack />
+          </div>
+        )}
+
         <div className="controller-content-item" onClick={props.zoomInHandler}>
           <BsZoomIn />
         </div>
@@ -25,6 +35,11 @@ const PageController = (props) => {
           <FiDownload />
         </div>
         <div className="text-br">|</div>
+        {!props.closeResumeRight && (
+          <div className="controller-content-item">
+            <IoLinkOutline />
+          </div>
+        )}
         <a
           className="controller-content-item"
           href="https://simcareer.me"

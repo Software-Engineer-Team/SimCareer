@@ -6,6 +6,7 @@ import {
   BodyRight,
   DocumentContainer,
   DocumentContent,
+  JoinWithUsContainer,
 } from "./Document.styled";
 import Achivements from "./Widgets/Achivements";
 import Certificate from "./Widgets/Certificate";
@@ -19,6 +20,8 @@ import PageController from "./PageController/PageController";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import { useReactToPrint } from "react-to-print";
+import { Fade } from "react-reveal";
+import { Link } from "react-router-dom";
 
 let a = 0.544816,
   b = 0,
@@ -27,7 +30,7 @@ let a = 0.544816,
   tx = 232.161,
   ty = 195.849;
 
-const Document = () => {
+const Document = ({ closeResumeRight, toggleCloseResumeRight }) => {
   const docRef = useRef(null);
   const docContentRef = useRef(null);
   const handlePrint = useReactToPrint({
@@ -109,12 +112,30 @@ const Document = () => {
           </Body>
         </DocumentContent>
       </DocumentContainer>
+
+      {!closeResumeRight && (
+        <JoinWithUsContainer>
+          <Fade bottom>
+            <h3>Tham gia ngay cùng SIMCareer để gia tăng cơ hội tuyển dụng</h3>
+            <div className="join-logo">
+              <img src="/images/simcareer-not-label.png" alt="" />
+            </div>
+            <div className="join-btn">
+              <Link to={"/skill-trees"} className="join-btn-content">
+                <span>Tiếp tục</span>
+              </Link>
+            </div>
+          </Fade>
+        </JoinWithUsContainer>
+      )}
       <PageController
         zoomInHandler={zoomInHandler}
         zoomOutHandler={zoomOutHandler}
         focusStrong={focusStrong}
         printDocument={printDocument}
         handlePrint={handlePrint}
+        closeResumeRight={closeResumeRight}
+        toggleCloseResumeRight={toggleCloseResumeRight}
       />
     </>
   );

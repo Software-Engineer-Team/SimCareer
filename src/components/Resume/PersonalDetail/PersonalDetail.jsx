@@ -27,7 +27,7 @@ const PersonalDetail = ({ type }) => {
     },
   } = useSelector((state) => state.resume);
   const [showImageForm, setShowImageForm] = useState(false);
-  const [showPersonalContent, setShowPersonalContent] = useState(false);
+  const [showPersonalContent, setShowPersonalContent] = useState(true);
   const [showTips, setShowTips] = useState(false);
   const [socialOption, setSocialOption] = useState("Twitter");
   const dispatch = useDispatch();
@@ -111,7 +111,7 @@ const PersonalDetail = ({ type }) => {
     <PersonalDetailContainer>
       <div className="personal-detail">
         <div className="personal-detail-header">
-          <div className="header-title">Chi tiết cá nhân</div>
+          <div className="header-title">Thông tin cá nhân</div>
           <div className="header-btn">
             <Button style={{ marginRight: "10px" }} onClick={toggleTipsSection}>
               <MdOutlineTipsAndUpdates />

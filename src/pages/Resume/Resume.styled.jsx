@@ -44,6 +44,37 @@ export const ResumeContentRight = styled.div`
   .resume-content-right {
     margin: 0 auto;
   }
+
+  .btn-container {
+    width: 100%;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .btn-done {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 12px 2px 4px;
+      text-align: right;
+      margin-top: 10px;
+      background-color: #4314b6;
+      font-family: "Poppins", sans-serif;
+      cursor: pointer;
+      border-radius: 4px;
+      color: #fff;
+      transition: all 0.15s ease-in-out;
+      margin-bottom: 10px;
+      width: 100px;
+      svg {
+        padding: 2px;
+        font-size: 30px;
+      }
+      &:hover {
+        background-color: #5d25e7;
+      }
+    }
+  }
 `;
 
 export const ResumeHeader = styled.header`
@@ -58,7 +89,7 @@ export const ResumeHeader = styled.header`
   .feedback-image {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     min-width: 190px;
 
     img {

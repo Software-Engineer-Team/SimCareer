@@ -158,7 +158,7 @@ const EntriesSectionItem = ({ title, type, idx, toggleContentHandler }) => {
       }
       case "Experience": {
         return {
-          label: "Thành phố",
+          label: "Địa chỉ",
           inputVal: experience?.[idx].city,
           handler: () => {
             dispatch(

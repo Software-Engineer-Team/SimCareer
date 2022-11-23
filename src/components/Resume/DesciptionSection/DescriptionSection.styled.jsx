@@ -21,6 +21,7 @@ export const Container = styled(PersonalDetailContainer)`
         justify-content: center;
         padding: 2px 12px 2px 4px;
         margin-left: 10px;
+        width: 100px;
         background-color: #4314b6;
         font-family: "Poppins", sans-serif;
         cursor: pointer;
