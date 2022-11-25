@@ -18,11 +18,9 @@ const HeaderDashBoard = (props) => {
     clientId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
     scope: "",
   });
-  /* const navigate = useNavigate(); */
 
   const signOutHandler = () => {
     signOut();
-    /* navigate("/login"); */
   };
 
   return (

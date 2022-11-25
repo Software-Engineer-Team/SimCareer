@@ -80,7 +80,13 @@ const LoginLeftContent = () => {
   };
 
   const googleSubmitHandler = (s) => {
+    /* const isSignedIn = localStorage.getItem("isSignedIn"); */
+    /* if (isSignedIn) { */
+    /*   navigate("/dash-board"); */
+    /* } else { */
+    /* localStorage.setItem("isSignedIn", true); */
     navigate("/judgements");
+    /* } */
   };
 
   return (
@@ -175,7 +181,8 @@ const LoginLeftContent = () => {
                 onSuccess={googleSubmitHandler}
                 onFailure={() => console.log("Failure")}
                 cookiePolicy={"single_host_origin"}
-                isSignedIn={true}
+                isSignedIn={false}
+                prompt="select_account"
               />
             </div>
           </div>
