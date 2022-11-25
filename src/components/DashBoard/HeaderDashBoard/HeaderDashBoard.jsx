@@ -21,6 +21,7 @@ const HeaderDashBoard = (props) => {
 
   const signOutHandler = () => {
     signOut();
+    localStorage.setItem("isSignedIn", false);
   };
 
   return (
