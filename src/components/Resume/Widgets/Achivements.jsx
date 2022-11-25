@@ -90,6 +90,7 @@ const AchivementContainer = styled.div`
       margin: 0;
       font-size: 25px;
       font-weight: 500;
+      word-break: break-word;
     }
     .title {
       background: #453a98;

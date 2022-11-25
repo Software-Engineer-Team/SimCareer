@@ -22,12 +22,12 @@ export const DocumentContent = styled.div`
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 25%);
   width: 31cm;
   min-width: 31cm;
-  min-height: 29.7cm;
-  height: 29.7cm;
+  min-height: 39.7cm;
+  /* height: 29.7cm; */
   /* max-height: 40cm; */
   display: inline-block;
   transform-origin: 0px 0px 0px;
-  transform: matrix(0.544816, 0, 0, 0.544816, 232.161, 195.849);
+  transform: matrix(0.544816, 0, 0, 0.544816, 232.161, 375.849);
   transition: all 0.1s linear 0s;
   will-change: transform;
 
@@ -122,4 +122,5 @@ export const BodyRight = styled.div`
   background: #453a98;
   width: 35%;
   padding: 20px;
+  min-height: 28.7cm;
 `;
