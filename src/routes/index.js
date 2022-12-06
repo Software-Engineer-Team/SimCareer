@@ -2,7 +2,6 @@ import {
   LoginPage,
   DashBoard,
   Judgements,
-  FeedBack,
   ScoreCV,
   Resume,
 } from "@pages/index";
@@ -49,11 +48,6 @@ export const routes = [
     path: "/price-list",
     element: DashBoard,
     type: "price-list",
-  },
-  {
-    path: "/feed-back",
-    element: FeedBack,
-    type: "feed-back",
   },
   {
     path: "/create-resume",
