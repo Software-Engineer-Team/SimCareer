@@ -25,6 +25,11 @@ export const LiTag = styled.li`
     width: 100%;
     z-index: -1;
   }
+
+  @media screen and (max-width: 500px) {
+    justify-content: center;
+    margin-left: 0;
+  }
 `;
 
 export const NavBar = styled.div`
@@ -98,6 +103,33 @@ export const NavBar = styled.div`
     ${LiTag} {
     }
   }
+
+  @media screen and (max-width: 500px) {
+    bottom: 70px;
+    width: 100%;
+    height: 70px;
+    flex-direction: row;
+    padding: 0;
+    div.menu-container {
+      .menu-logo {
+        img {
+        }
+        div {
+        }
+      }
+      svg {
+      }
+    }
+
+    & > a {
+      display: none;
+      width: 52px;
+      height: 100%;
+      margin: 0;
+      img {
+      }
+    }
+  }
 `;
 
 export const UlNav = styled.ul`
@@ -148,6 +180,18 @@ export const UlNav = styled.ul`
       }
       & li svg {
         color: #000;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    flex-direction: row;
+    margin: 0;
+
+    & a {
+      &.active {
+        &::after {
+          display: none;
       }
     }
   }

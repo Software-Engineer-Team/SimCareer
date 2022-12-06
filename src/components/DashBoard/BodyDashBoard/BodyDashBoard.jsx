@@ -66,8 +66,38 @@ const BodyDashBoard = () => {
         <Functions>
           <div className="container">
             <div className="img-bg">
-              <Events>
-                <div style={{ textAlign: "right", marginBottom: "10px" }}>
+              <WeeklyNewsContainer className="weeklyNews">
+                <Zoom left>
+                  {weeklyNews.map(
+                    (
+                      { url, specificTime, title, specificContent, link },
+                      idx
+                    ) => {
+                      return (
+                        <WeeklyNews
+                          key={uuidv4()}
+                          url={url}
+                          title={title}
+                          specificTime={specificTime}
+                          specificContent={specificContent}
+                          flexReverse={idx % 2 === 0 ? false : true}
+                          link={link}
+                        />
+                      );
+                    }
+                  )}
+                </Zoom>
+                <div style={{ fontSize: "17px" }}>See more</div>
+              </WeeklyNewsContainer>
+
+              <Events className="events">
+                <div
+                  style={{
+                    textAlign: "right",
+                    marginBottom: "10px",
+                    fontSize: "17px",
+                  }}
+                >
                   See more
                 </div>
                 <Zoom right>
@@ -96,30 +126,6 @@ const BodyDashBoard = () => {
                 </Zoom>
               </Events>
 
-              <WeeklyNewsContainer>
-                <Zoom left>
-                  {weeklyNews.map(
-                    (
-                      { url, specificTime, title, specificContent, link },
-                      idx
-                    ) => {
-                      return (
-                        <WeeklyNews
-                          key={uuidv4()}
-                          url={url}
-                          title={title}
-                          specificTime={specificTime}
-                          specificContent={specificContent}
-                          flexReverse={idx % 2 === 0 ? false : true}
-                          link={link}
-                        />
-                      );
-                    }
-                  )}
-                </Zoom>
-                <div>See more</div>
-              </WeeklyNewsContainer>
-
               <JobTrackersContainer>
                 <div>See more</div>
                 <div className="job-content">
@@ -143,6 +149,7 @@ const BodyDashBoard = () => {
                 position="absolute"
                 left={-40}
                 top={125}
+                number={1}
               />
 
               <Title
@@ -152,6 +159,7 @@ const BodyDashBoard = () => {
                 position="absolute"
                 left={850}
                 top={100}
+                number={2}
               />
 
               <Title
@@ -161,7 +169,9 @@ const BodyDashBoard = () => {
                 position="absolute"
                 left={730}
                 top={605}
+                number={3}
               />
+
               <img src="/images/bodydashboard-bg.png" alt="BodyDashBoard" />
             </div>
           </div>

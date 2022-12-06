@@ -91,6 +91,10 @@ export const NavMenu = styled.div`
       transition: transform 0.2s ease-in-out;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 export const UserImg = styled.img`

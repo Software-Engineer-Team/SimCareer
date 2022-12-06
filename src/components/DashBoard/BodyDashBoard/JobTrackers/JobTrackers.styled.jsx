@@ -73,4 +73,32 @@ export const Container = styled.div`
       color: red;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    & .job {
+      margin: 10px 0;
+      & .img {
+        margin-right: 10px;
+        border-radius: 10px;
+        img {
+          display: block;
+        }
+      }
+      & .content {
+        width: 250px;
+        height: 100px;
+        h5 {
+          font-size: 12px;
+          font-weight: 500;
+          color: #000000;
+          width: 100%;
+          line-height: 20px;
+          font-weight: 700;
+        }
+        & .text-muted {
+          font-size: 10px;
+        }
+      }
+    }
+  }
 `;

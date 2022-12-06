@@ -20,6 +20,10 @@ export const Content = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @media screen and (max-width: 500px) {
+    padding: 20px;
+  }
 `;
 
 export const QuickLinks = styled.div`
@@ -99,6 +103,43 @@ export const QuickLinks = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    & .title {
+      font-size: 30px;
+    }
+    & .links {
+      margin-top: 10px;
+      flex-wrap: wrap;
+      border-radius: 20px;
+      justify-content: space-between;
+      & .link {
+        max-width: 50%;
+        div.content {
+          font-size: 12px;
+          min-width: 100px;
+          display: flex;
+          align-items: center;
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+        & .svg {
+          width: 40px;
+          height: 40px;
+          img,
+          svg {
+            width: 38px;
+            height: 38px;
+          }
+        }
+      }
+    }
+  }
 `;
 
 export const Functions = styled.div`
@@ -121,6 +162,45 @@ export const Functions = styled.div`
         width: 100%;
         height: 100%;
         max-width: 1500px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    min-height: auto;
+    & .container {
+      & .img-bg {
+        min-width: 100%;
+        /* max-height: 700px; */
+        width: 100%;
+        flex-direction: column;
+        & > div.weeklyNews {
+          margin-top: 70px;
+          margin-bottom: 20px;
+        }
+        & > div.events {
+          margin-top: 70px;
+          margin-bottom: 100px;
+        }
+
+        img {
+          display: none;
+        }
+        & .title-1 {
+          top: 20px;
+          left: 10px;
+          font-size: 18px;
+        }
+        & .title-2 {
+          top: 990px;
+          left: 10px;
+          font-size: 18px;
+        }
+        & .title-3 {
+          top: 1450px;
+          left: 10px;
+          font-size: 18px;
+        }
       }
     }
   }
@@ -149,6 +229,16 @@ export const WeeklyNewsContainer = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @media screen and (max-width: 500px) {
+    display: block;
+    position: static;
+    max-width: 400px;
+    min-width: auto;
+    border-width: 2px;
+    padding: 10px;
+    box-shadow: none;
+  }
 `;
 
 export const Events = styled.div`
@@ -171,6 +261,16 @@ export const Events = styled.div`
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media screen and (max-width: 500px) {
+    display: block;
+    position: static;
+    max-width: 400px;
+    min-width: auto;
+    border-width: 2px;
+    padding: 10px;
+    box-shadow: none;
   }
 `;
 
@@ -202,5 +302,16 @@ export const JobTrackersContainer = styled.div`
     &::-webkit-scrollbar {
       display: none;
     }
+  }
+
+  @media screen and (max-width: 500px) {
+    display: block;
+    position: static;
+    max-width: 360px;
+    min-width: auto;
+    border-width: 2px;
+    padding: 10px;
+    box-shadow: none;
+    margin-bottom: 180px;
   }
 `;

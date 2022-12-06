@@ -140,4 +140,87 @@ export const EventItem = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 500px) {
+    &.event-item {
+      &:last-child {
+        margin-bottom: 0px !important;
+        .event-right-container {
+          &:before {
+            height: 100% !important;
+          }
+        }
+      }
+
+      .event-left-container {
+        display: none;
+      }
+
+      .event-right-container {
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          width: 1px;
+          height: calc(100% + var(--event-item-margin-bottom));
+          background-color: #000000;
+          left: var(--line);
+        }
+
+        &:after {
+          left: var(--line);
+          top: 60px;
+          width: 30px;
+          height: 1px;
+        }
+
+        .event-right-content {
+          display: flex;
+          margin-bottom: 9px;
+
+          .event-img {
+            width: 150px;
+            height: 140px;
+            img {
+              display: block;
+              border-radius: 20px;
+              width: 150px;
+              height: 140px;
+              object-fit: cover;
+            }
+          }
+          .event-content {
+            margin-left: 10px;
+            .title,
+            .time {
+              font-size: 12px;
+            }
+
+            .time {
+              line-height: 1.2;
+            }
+
+            .time > span {
+              font-size: 9px;
+            }
+          }
+        }
+        .event-register {
+          margin-top: 7px;
+
+          .event-register-content {
+            min-width: 80px;
+            padding: 2.5px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            & > span {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
 `;

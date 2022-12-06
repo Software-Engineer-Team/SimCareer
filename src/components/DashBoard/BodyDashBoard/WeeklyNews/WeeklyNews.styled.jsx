@@ -104,4 +104,60 @@ export const WeeklyNewsItem = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 500px) {
+    .content {
+      flex-direction: column;
+      margin-bottom: 10px;
+      .news-img {
+        /* display: none; */
+        img {
+          display: block;
+          border-radius: 10px;
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+
+      .news-title,
+      .specific-time,
+      .specific-content {
+        font-size: 10px;
+      }
+
+      .news-content {
+        margin: 10px 0;
+        .day-time {
+          margin-top: 5px;
+
+          .specific-time > span {
+            font-size: 8px;
+            line-height: 2.2;
+            margin-right: 10px;
+          }
+
+          .news-read {
+            .news-read-content {
+              padding: 2px 15px;
+              text-align: center;
+              border-radius: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              & > span {
+                font-size: 10px;
+              }
+            }
+          }
+        }
+
+        .specific-content {
+          font-size: 10px;
+          font-weight: 400;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
 `;

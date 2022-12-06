@@ -9,6 +9,7 @@ const Title = ({
   position,
   top,
   left,
+  number,
 }) => {
   return (
     <Text
@@ -19,6 +20,7 @@ const Title = ({
       top={top}
       left={left}
       fontWeight={fontWeight}
+      className={`title-${number}`}
     >
       {text}
     </Text>
@@ -43,4 +45,10 @@ const Text = styled.div`
   min-width: 300px;
   text-transform: uppercase;
   z-index: 100;
+
+  @media screen and (max-width: 500px) {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
 `;
