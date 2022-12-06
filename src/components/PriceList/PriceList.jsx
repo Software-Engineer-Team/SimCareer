@@ -78,7 +78,7 @@ const PriceList = () => {
                     <Fade top>
                       <PriceBtn className="price-btn" btnColor={btnColor}>
                         <Link
-                          to={idx === 1 ? "/profile" : "/dash-board"}
+                          to={idx === 1 ? "/dash-board" : "/dash-board"}
                           className="price-btn-content"
                           onClick={() => {
                             if (idx === 0) {
