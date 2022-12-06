@@ -64,7 +64,7 @@ const LoginLeftContent = () => {
       setIsFetching(true);
       const { data } = await postData(
         { email, password },
-        "http://localhost:8080/api/user/sign-in"
+        `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/sign-in`
       );
       console.log(data);
       navigate("/judgements");
