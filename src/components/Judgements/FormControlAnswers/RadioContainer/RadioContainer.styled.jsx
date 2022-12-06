@@ -11,11 +11,15 @@ export const ControlLabelAnswer = styled(FormControlLabel)`
   min-width: ${({ radiorow }) => (radiorow === "true" ? " 380px" : "0")};
   margin: 0;
   span {
-    /* font-weight: 500 !important; */
-    /* font-family: "Gilroy-Regular"; */
-
     font-family: "Roboto", "Open Sans", sans-serif;
     font-weight: 300 !important;
     font-size: 20px;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin-left: 42px;
+    span {
+      font-size: 15px;
+    }
   }
 `;

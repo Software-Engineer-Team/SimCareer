@@ -83,6 +83,7 @@ const Judgement = () => {
       <Button
         variant="contained"
         size="medium"
+        className="btn"
         style={{
           marginTop: "30px",
           padding: "15px 55px",
@@ -125,5 +126,17 @@ const Container = styled.div`
     font-family: "Roboto", "Open Sans", sans-serif !important;
     font-weight: 300;
     letter-spacing: 1px;
+  }
+
+  @media screen and (max-width: 500px) {
+    div.introductionJudgement {
+      width: auto;
+      font-size: 15px;
+    }
+
+    button.btn {
+      font-size: 12px;
+      height: 40px;
+    }
   }
 `;

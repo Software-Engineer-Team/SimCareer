@@ -118,4 +118,8 @@ export const LoginRightContainer = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;

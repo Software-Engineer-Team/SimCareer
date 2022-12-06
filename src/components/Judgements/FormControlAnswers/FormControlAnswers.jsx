@@ -44,4 +44,11 @@ const QuestionTitle = styled(FormLabel)`
   line-height: 1;
   font-family: "Gilroy-Medium", sans-serif;
   margin-bottom: 30px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 20px !important;
+    text-align: center;
+    width: 100%;
+    margin-left: 7px;
+  }
 `;

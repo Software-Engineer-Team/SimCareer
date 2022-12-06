@@ -198,6 +198,136 @@ export const LoginLeftContainer = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+
+    .login-left-content {
+      padding: 16px;
+      width: auto;
+
+      .login-left-content-inner {
+        .login-left-title {
+          font-size: 28px;
+        }
+
+        .registration-steps-breadcrumb,
+        .forgot-pass-steps-breadcrumb {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          margin-bottom: 4rem;
+          gap: 8px;
+
+          .step-circle {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            border: 1px solid rgb(110, 110, 110);
+
+            &.current {
+              border: none;
+              background: rgb(36, 36, 36);
+            }
+          }
+
+          .next-line {
+            width: 69px;
+            height: 0.5px;
+            border: 0.5px solid rgb(151, 151, 151);
+          }
+        }
+
+        .registration-content {
+          font-size: 20px;
+          margin-bottom: 3.2rem;
+          width: 100%;
+          text-align: center;
+        }
+
+        .registration-content-verification,
+        .forgot-pass-content-verification {
+          font-size: 16px;
+          color: rgb(110, 110, 110);
+          margin-bottom: 40px;
+          text-align: center;
+
+          .text-red {
+            font-size: 20px;
+            color: rgb(244, 67, 54);
+          }
+        }
+
+        .get-code-again {
+          font-size: 11px;
+          color: rgb(233, 11, 53);
+          text-align: center;
+          cursor: pointer;
+          margin-top: 0.4rem;
+          margin-bottom: 2.8rem;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .login-left-welcome {
+          line-height: 1.2;
+          margin-bottom: 2.8rem;
+          font-size: 14px;
+          color: rgb(116, 116, 116);
+        }
+
+        .break-line {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 2rem 0.4rem;
+          & > div {
+            height: 1px;
+            width: 100%;
+            background-color: #e2dfdf;
+          }
+        }
+
+        .login-google {
+          display: flex;
+          justify-content: center;
+
+          button {
+            width: 250px;
+          }
+        }
+      }
+    }
+
+    .login-left-register,
+    .signup-left,
+    .forgot-pass-left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      padding-bottom: 3.2rem;
+
+      .login-left-register-text,
+      .signup-left-text,
+      .forgot-pass-left-text {
+        text-align: center;
+
+        & > span {
+          color: inherit;
+        }
+
+        & > a {
+          text-decoration: none;
+          font-weight: 700;
+          color: inherit;
+        }
+      }
+    }
+  }
 `;
 
 export const LoginLeftForm = styled.form`
@@ -217,6 +347,15 @@ export const LoginLeftForm = styled.form`
   }
   .ReactInputVerificationCode__container {
     justify-content: flex-start;
+  }
+
+  @media screen and (max-width: 500px) {
+    .ReactInputVerificationCode__container {
+      justify-content: center;
+      width: 100%;
+      --ReactInputVerificationCode-itemWidth: 3rem;
+      --ReactInputVerificationCode-itemHeight: 3rem;
+    }
   }
 `;
 
@@ -313,6 +452,11 @@ export const LoginLeftFormItem = styled.div`
       color: rgb(211, 47, 47);
     }
   }
+  @media screen and (max-width: 500px) {
+    .form-input-type {
+      width: 190px;
+    }
+  }
 `;
 
 export const LoginLeftBtnContainer = styled.div`
@@ -359,6 +503,11 @@ export const LoginLeftBtnContainer = styled.div`
       text-decoration: none;
       box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px -1px,
         rgb(0 0 0 / 14%) 0px 4px 5px 0px, rgb(0 0 0 / 12%) 0px 1px;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    button {
+      width: 250px;
     }
   }
 `;
