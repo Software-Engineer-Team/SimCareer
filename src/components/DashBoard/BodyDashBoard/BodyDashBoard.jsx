@@ -127,7 +127,7 @@ const BodyDashBoard = () => {
               </Events>
 
               <JobTrackersContainer>
-                <div>See more</div>
+                <div style={{ fontSize: "17px" }}>See more</div>
                 <div className="job-content">
                   {jobTrackers.map(({ src, title, text, address, link }) => (
                     <JobTrackers
