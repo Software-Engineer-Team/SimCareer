@@ -337,6 +337,7 @@ export const LoginLeftForm = styled.form`
   width: 100%;
 
   & > a {
+    align-self: flex-end;
     width: 100%;
     text-decoration: none;
     display: inline-block;
@@ -355,6 +356,10 @@ export const LoginLeftForm = styled.form`
       width: 100%;
       --ReactInputVerificationCode-itemWidth: 3rem;
       --ReactInputVerificationCode-itemHeight: 3rem;
+    }
+
+    & > a {
+      width: 120px;
     }
   }
 `;

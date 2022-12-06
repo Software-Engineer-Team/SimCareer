@@ -66,6 +66,8 @@ const LoginLeftContent = () => {
         { email, password },
         "http://localhost:8080/api/user/sign-in"
       );
+      console.log(data);
+      navigate("/judgements");
       setPassword("");
       setEmail("");
     } catch (err) {

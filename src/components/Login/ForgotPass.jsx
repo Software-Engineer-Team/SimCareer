@@ -116,6 +116,8 @@ const ForgotPass = () => {
               error: "Get your password fail 🤯",
             }
           );
+          setPassword("");
+          setConfirmPass("");
           break;
         }
         default:
