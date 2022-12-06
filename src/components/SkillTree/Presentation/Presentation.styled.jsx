@@ -146,4 +146,81 @@ export const PresentationContainer = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 500px) {
+    .dialog-container {
+      .dialog-content {
+        width: auto;
+        max-width: 350px;
+        max-height: calc(100% - 200px);
+        margin: 0;
+
+        .dialog-content-des {
+          &:first-child {
+            padding-top: 0px;
+          }
+          flex: 1 1 auto;
+          padding: 8px 24px;
+          overflow-y: auto;
+          min-height: 200px;
+
+          .virtual-env {
+            padding-top: 1rem;
+            width: auto;
+            margin: 0px auto;
+
+            h1 {
+              font-size: 18px;
+              text-align: center;
+              line-height: 1.2;
+            }
+
+            p {
+              font-size: 14px;
+              margin-bottom: 10px;
+            }
+
+            .text-muted {
+              font-size: 12px;
+              margin-bottom: 10px;
+            }
+
+            h2 {
+              font-size: 17px;
+              color: #292929;
+              font-weight: 800;
+              margin-bottom: 20px;
+              margin-top: 20px;
+            }
+
+            ul {
+              margin: 0;
+              margin-left: 10px;
+              li {
+                font-size: 13px;
+                color: #292929;
+                font-weight: 400;
+                font-family: var(--font--family);
+                margin-bottom: 5px;
+              }
+            }
+
+            a {
+              text-decoration: none;
+              & > button {
+                font-size: 12px;
+                width: 100px !important;
+              }
+            }
+          }
+        }
+
+        .btn-container {
+          .btn {
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
 `;

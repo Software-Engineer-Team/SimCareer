@@ -33,4 +33,16 @@ export const SkillTreeContent = styled.div`
     font-size: 40px;
     text-transform: uppercase;
   }
+
+  @media screen and (max-width: 500px) {
+    padding: 20px;
+    .skill-tree-title {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    & > div:last-child {
+      margin-bottom: 150px;
+    }
+  }
 `;

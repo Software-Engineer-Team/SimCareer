@@ -91,4 +91,61 @@ export const SkillTreeItemContainer = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 500px) {
+    width: auto;
+    min-width: auto;
+    height: auto;
+    .skill-tree-content-title {
+      font-size: 15px;
+      margin-top: 12px;
+      font-weight: 500;
+    }
+
+    .skill-tree-content-list {
+      padding: 10px;
+      flex-wrap: wrap;
+
+      .skill-tree-content {
+        width: 50%;
+        height: auto;
+        position: relative;
+        margin: 10px 0;
+        justify-content: space-between;
+
+        .skill-tree-content-img {
+          width: 50px;
+          min-height: 50px;
+          border-radius: 6px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            max-width: inherit !important;
+            object-fit: cover;
+          }
+        }
+
+        .skill-tree-text {
+          width: 120px;
+          font-size: 12px;
+          margin-top: 5px;
+          text-align: center;
+          line-height: 1;
+          /* font-family: "Gilroy-Bold"; */
+          font-family: "Roboto", Helvetica, Arial, sans-serif !important;
+          font-weight: 500;
+        }
+
+        .click-for-more {
+          right: 52px;
+
+          .poppins {
+            color: #ffffff;
+            font-family: "Poppins", sans-serif;
+          }
+        }
+      }
+    }
+  }
 `;

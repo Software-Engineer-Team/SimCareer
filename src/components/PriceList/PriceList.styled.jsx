@@ -110,6 +110,51 @@ export const PriceListContent = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 500px) {
+    padding: 20px;
+    .inner-price-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      .price-content {
+        --min-max-height-width: 350px;
+        border-width: 2px;
+        .image-price {
+          position: relative;
+          .price {
+            min-height: 45px;
+            font-size: 22px;
+          }
+        }
+        .price-content-column {
+          .price-content-description {
+            .text {
+              padding: 10px;
+              font-size: 16px;
+              min-height: 100px;
+              &.last-row-text {
+                & > img {
+                  width: 25px;
+                  height: 25px;
+                }
+              }
+            }
+            .text-more {
+              padding: 10px;
+              font-size: 20px;
+              min-height: 55px;
+            }
+          }
+        }
+      }
+
+      & > div:last-child {
+        margin-bottom: 150px;
+      }
+    }
+  }
 `;
 
 export const PriceBtn = styled.div`
@@ -144,6 +189,16 @@ export const PriceBtn = styled.div`
         font-size: 17px;
         text-transform: uppercase;
         font-weight: 400 !important;
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .price-btn-content {
+      padding: 5px 0px;
+
+      & > span {
+        font-size: 14px !important;
       }
     }
   }
