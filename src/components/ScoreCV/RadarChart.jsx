@@ -31,7 +31,7 @@ const RadarChart = () => {
   const delayed = useRef(null);
 
   const data = {
-    labels: ["Học tập", "Hoạt Động Xã Hội", "Thái Độ", "Kỹ Năng", "Thể Chất"],
+    labels: ["Học tập", "Thái Độ", "Hoạt Động Xã Hội", "Kỹ Năng", "Thể Chất"],
     datasets: [
       {
         label: "Năm 1",
@@ -138,7 +138,7 @@ const RadarChart = () => {
           lineHeight: 1.2,
         },
         bodyFont: {
-          size: 13,
+          size: 15,
           color: "#ffffff",
           lineHeight: 1.2,
         },
@@ -155,7 +155,7 @@ const RadarChart = () => {
           boxWidth: 12,
           boxHeight: 12,
           font: {
-            size: 12,
+            size: 14,
           },
           color: "#ffffff",
         },
@@ -184,9 +184,9 @@ const RadarChart = () => {
           lineWidth: 2,
         },
         pointLabels: {
-          color: "#8b93ac",
+          color: "#ffffff",
           font: {
-            size: 9,
+            size: 15,
           },
         },
       },
@@ -208,7 +208,7 @@ const RadarContainer = styled.div`
   z-index: 1000 !important;
 
   canvas {
-    min-width: 400px !important;
+    /* min-width: 400px !important; */
     max-height: 800px !important;
   }
 `;

@@ -50,7 +50,6 @@ const WaveContent = styled.div`
 
   @media screen and (max-width: 500px) {
     & > div {
-      margin-bottom: 10px;
       & svg {
         min-height: auto;
       }

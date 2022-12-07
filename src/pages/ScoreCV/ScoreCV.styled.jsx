@@ -10,7 +10,7 @@ export const ScoreCVContainer = styled.div`
   }
 
   @media screen and (max-width: 500px) {
-    height: auto;
+    height: 100vh;
   }
 `;
 
@@ -74,7 +74,7 @@ export const ScoreCVBody = styled.div`
       }
 
       .score-number {
-        font-size: 152px;
+        font-size: 92px;
         font-family: "Anton", sans-serif;
         letter-spacing: 1.2px;
         text-align: center;
@@ -214,7 +214,7 @@ export const ScoreCVBody = styled.div`
         margin: 30px 0;
 
         .score-number {
-          font-size: 50px;
+          font-size: 40px;
           line-height: 1;
           letter-spacing: 2.2px;
           font-family: "Times New Roman", Times, serif;
