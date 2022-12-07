@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { Fade } from "react-reveal";
 import { introductionJudgement, questions } from "@assets/data/judgements";
+import { postData } from "@utils/utils";
 
 const Judgement = () => {
   const dispatch = useDispatch();
@@ -17,8 +18,9 @@ const Judgement = () => {
 
   const { questionNumber, firstAnswer, secondAnswer, thirdAnswer } =
     useSelector((state) => state.judgement);
+  const user = useSelector((state) => state.user);
 
-  const clickButtonHandler = () => {
+  const clickButtonHandler = async () => {
     if (questionNumber === -1)
       return dispatch(
         judgementActions.setQuestionNumber({
@@ -44,9 +46,18 @@ const Judgement = () => {
       })
     );
     if (questionNum === questions.length - 1) {
-      navigate("/dash-board");
+      console.log(user);
+      const { data } = await postData(
+        {
+          user: { email: user.email },
+          firstAnswer,
+          secondAnswer,
+          thirdAnswer,
+        },
+        `${process.env.REACT_APP_ENDPOINT_SERVER}/api/answers`
+      );
 
-      // some logic
+      navigate("/dash-board");
     }
   };
 

@@ -14,6 +14,8 @@ import { Zoom } from "react-reveal";
 import { CircularProgress } from "@components/index";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { login } from "@store/user-slice";
 
 const LoginLeftContent = () => {
   const [passVisible, setPassVisible] = useState(false);
@@ -23,6 +25,7 @@ const LoginLeftContent = () => {
   const [errorPass, setErrorPass] = useState("");
   const [isFetching, setIsFetching] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const initClient = () => {
@@ -67,6 +70,14 @@ const LoginLeftContent = () => {
         `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/sign-in`
       );
       console.log(data);
+      dispatch(
+        login({
+          email,
+          access_token: data.access_token,
+          refresh_token: data.refresh_token,
+        })
+      );
+
       navigate("/judgements");
       setPassword("");
       setEmail("");
