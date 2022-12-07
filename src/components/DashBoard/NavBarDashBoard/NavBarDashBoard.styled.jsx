@@ -192,6 +192,7 @@ export const UlNav = styled.ul`
       &.active {
         &::after {
           display: none;
+        }
       }
     }
   }

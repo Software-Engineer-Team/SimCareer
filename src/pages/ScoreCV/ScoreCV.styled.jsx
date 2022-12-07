@@ -8,6 +8,10 @@ export const ScoreCVContainer = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @media screen and (max-width: 500px) {
+    height: auto;
+  }
 `;
 
 export const ScoreCVContent = styled.div`
@@ -198,6 +202,49 @@ export const ScoreCVBody = styled.div`
           background-color: #354163;
           &.another-color {
             background-color: #525f8b;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .score-show-container {
+      .score-show-content {
+        margin: 30px 0;
+
+        .score-number {
+          font-size: 50px;
+          line-height: 1;
+          letter-spacing: 2.2px;
+          font-family: "Times New Roman", Times, serif;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .join-with-us {
+      margin-bottom: 0px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      h3 {
+        display: none;
+      }
+
+      .join-logo {
+        display: none;
+      }
+
+      .join-btn {
+        /* margin-bottom: 10px; */
+
+        .join-btn-content {
+          padding: 5px 0px;
+          width: 100px;
+          border-radius: 6px;
+          & > span {
+            font-size: 13px;
           }
         }
       }

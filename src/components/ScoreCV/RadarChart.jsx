@@ -31,17 +31,11 @@ const RadarChart = () => {
   const delayed = useRef(null);
 
   const data = {
-    labels: [
-      "Trình độ học vấn",
-      "Kĩ năng",
-      "Hình thức",
-      "Thương hiệu cá nhân",
-      "Kinh nghiệm",
-    ],
+    labels: ["Học tập", "Hoạt Động Xã Hội", "Thái Độ", "Kỹ Năng", "Thể Chất"],
     datasets: [
       {
-        label: "Đánh giá chung",
-        data: [58.3, 50, 58.3, 40, 41.7],
+        label: "Năm 1",
+        data: [3, 1, 4, 1, 3],
         fill: true,
         backgroundColor: "#841a9e95",
         borderColor: "#841a9e95",
@@ -49,6 +43,43 @@ const RadarChart = () => {
         pointBorderColor: "#841a9e95",
         pointHoverBackgroundColor: "#841a9e",
         pointHoverBorderColor: "#841a9e",
+      },
+      {
+        label: "Năm 2",
+        data: [5, 1, 6, 3, 3],
+        fill: true,
+        backgroundColor: "rgba(255, 99, 132, 0.2)",
+        borderColor: "rgba(255, 99, 132, .8)",
+
+        pointBackgroundColor: "rgba(255, 99, 132, .8)",
+        pointBorderColor: "rgba(255, 99, 132, .8)",
+
+        pointHoverBackgroundColor: "rgba(255, 99, 132, 1)",
+        pointHoverBorderColor: "rgba(255, 99, 132, 1)",
+
+        borderWidth: 1,
+      },
+      {
+        label: "Năm 3",
+        data: [6, 1, 7, 4, 4],
+        fill: true,
+        backgroundColor: "rgba(255, 206, 86, 0.5)",
+        borderColor: "rgba(255, 206, 86, .8)",
+        pointBackgroundColor: "rgba(255, 206, 86, .8)",
+        pointBorderColor: "rgba(255, 206, 86, .8)",
+        pointHoverBackgroundColor: "rgba(255, 206, 86, 1)",
+        pointHoverBorderColor: "rgba(255, 206, 86, 1)",
+      },
+      {
+        label: "Năm 4",
+        data: [9, 3, 7, 4, 4],
+        fill: true,
+        backgroundColor: "rgba(75, 192, 192, 0.2)",
+        borderColor: "rgba(75, 192, 192, .8)",
+        pointBackgroundColor: "rgba(75, 192, 192, .8)",
+        pointBorderColor: "rgba(75, 192, 192, .8)",
+        pointHoverBackgroundColor: "rgba(75, 192, 192, 1)",
+        pointHoverBorderColor: "rgba(75, 192, 192, 1)",
       },
     ],
   };
@@ -78,7 +109,7 @@ const RadarChart = () => {
         return delay;
       },
     },
-    hoverRadius: 12,
+    hoverRadius: 8,
     interaction: {
       mode: "nearest",
       intersect: false,
@@ -102,12 +133,12 @@ const RadarChart = () => {
         enabled: true,
         position: "average",
         titleFont: {
-          size: 20,
+          size: 16,
           color: "#ffffff",
           lineHeight: 1.2,
         },
         bodyFont: {
-          size: 18,
+          size: 13,
           color: "#ffffff",
           lineHeight: 1.2,
         },
@@ -120,9 +151,11 @@ const RadarChart = () => {
         position: "chartArea",
         align: "start",
         labels: {
-          padding: 150,
+          padding: 15,
+          boxWidth: 12,
+          boxHeight: 12,
           font: {
-            size: 25,
+            size: 12,
           },
           color: "#ffffff",
         },
@@ -131,20 +164,21 @@ const RadarChart = () => {
     maintainAspectRatio: true,
     scales: {
       r: {
+        weight: 1,
         ticks: {
           display: false,
           color: "#ffffff",
           font: {
-            size: 25,
+            size: 15,
           },
-          stepSize: 16.7,
+          stepSize: 2,
         },
         angleLines: {
           color: "#ffffff",
-          lineWidth: 2,
+          lineWidth: 1,
         },
         min: 0,
-        max: 100,
+        max: 10,
         grid: {
           color: "#ffffff",
           lineWidth: 2,
@@ -152,7 +186,7 @@ const RadarChart = () => {
         pointLabels: {
           color: "#8b93ac",
           font: {
-            size: 25,
+            size: 9,
           },
         },
       },
@@ -170,7 +204,7 @@ export default RadarChart;
 const RadarContainer = styled.div`
   width: 100%;
   height: 100%;
-  margin-top: 60px;
+  margin-top: 80px;
   z-index: 1000 !important;
 
   canvas {
