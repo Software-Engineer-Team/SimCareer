@@ -81,6 +81,20 @@ body {
     max-width: auto;
     width: auto;
   }
+
+  .Toastify__toast-container {
+    margin-top: 20px !important;
+    width: 100% !important;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .Toastify__toast-container .Toastify__toast {
+    width: 320px;
+  }
 }
 
 #particles-js {

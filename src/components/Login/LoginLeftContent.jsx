@@ -81,13 +81,28 @@ const LoginLeftContent = () => {
     }
   };
 
-  const googleSubmitHandler = (s) => {
-    const isSignedIn = localStorage.getItem("isSignedIn") === "true";
-    if (isSignedIn) {
-      navigate("/dash-board");
-    } else {
-      localStorage.setItem("isSignedIn", true);
-      navigate("/judgements");
+  const googleSubmitHandler = async (s) => {
+    try {
+      setIsFetching(true);
+      const { data } = await postData(
+        {
+          email: s.profileObj.email,
+          password: "",
+          name: s.profileObj.name,
+          imgUrl: s.profileObj.imageUrl,
+        },
+        `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/sign-in-google`
+      );
+      const isSignedIn = localStorage.getItem("isSignedIn") === "true";
+      if (isSignedIn) {
+        navigate("/dash-board");
+      } else {
+        localStorage.setItem("isSignedIn", true);
+        navigate("/judgements");
+      }
+    } catch (err) {
+    } finally {
+      setIsFetching(false);
     }
   };
 
