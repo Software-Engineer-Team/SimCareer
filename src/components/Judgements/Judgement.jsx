@@ -46,7 +46,6 @@ const Judgement = () => {
       })
     );
     if (questionNum === questions.length - 1) {
-      console.log(user);
       const { data } = await postData(
         {
           user: { email: user.email },

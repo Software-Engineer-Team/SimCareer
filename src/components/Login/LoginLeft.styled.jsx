@@ -137,6 +137,7 @@ export const LoginLeftContainer = styled.div`
         justify-content: center;
 
         button {
+          outline: none !important;
           width: 332px;
           height: 40px;
           box-shadow: none !important;
@@ -150,6 +151,8 @@ export const LoginLeftContainer = styled.div`
             background-color: transparent !important;
             margin-right: 0px !important;
             padding-right: 0px !important;
+            padding: 0 !important;
+            padding-left: 10px !important;
 
             & > svg {
               margin-top: 4px;

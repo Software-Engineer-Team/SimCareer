@@ -29,80 +29,82 @@ export const quickLinks = [
 export const weeklyNews = [
   {
     url: "/images/news-1.webp",
-    specificTime: "01/11/2022",
+    specificTime: "8/12/2022",
     title:
-      "Founders Young Marketers “hiến kế” giải đề mùa 11: “Hãy quay lại những điều cốt lõi trong marketing”",
+      "Data Station #37: e-Conomy SEA 2022 - Việt Nam dẫn đầu khu vực về mức tăng trưởng của nền kinh tế số với 23 tỷ USD GMV",
     specificContent:
-      "Mùa thi thứ 11 là một mùa với một màu sắc đặc trưng, rất “Young Marketers”. Sau 10 năm hướng tới giải quyết các vấn đề ở rất nhiều ngành hàng khác nhau, lần đầu tiên Young Marketers quay trở về với chính ngành nghề của mình – quảng cáo truyền thông.",
-    link: "https://www.brandsvietnam.com/congdong/topic/328433-Founders-Young-Marketers-hien-ke-giai-de-mua-11-Hay-quay-lai-nhung-dieu-cot-loi-trong-marketing",
+      "Mức độ tăng trưởng của nền kinh tế số Việt Nam đang dẫn đầu khu vực Đông Nam Á khi đạt 23 tỷ USD tổng giá trị hàng hóa (GMV) trong năm 2022 và đang trên đà đạt 50 tỷ USD vào năm 2025. ",
+    link: "https://www.brandsvietnam.com/congdong/topic/329237-Data-Station-37-e-Conomy-SEA-2022-Viet-Nam-dan-dau-khu-vuc-ve-muc-tang-truong-cua-nen-kinh-te-so-voi-23-ty-USD-GMV",
   },
   {
-    url: "/images/news-2.webp",
-    specificTime: "26/10/2022",
-    title:
-      "Asia CMO McDonald’s hé lộ kế hoạch cho World Cup 2022 và chiến lược marketing tại khu vực Châu Á",
+    url: "/images/news-2.png",
+    specificTime: "8/12/2022",
+    title: "40 giải pháp công nghệ được vinh danh tại Make in Viet Nam",
     specificContent:
-      "Ông Eugene Lee – CMO khu vực Châu Á của McDonald’s – chia sẻ về chiến dịch truyền thông cho sự kiện FIFA World Cup 2022 cùng Campaign Asia. Bên cạnh những thông tin về chiến dịch truyền thông mùa World Cup, ông Lee cũng chia sẻ quan điểm về việc tận dụng khả năng sáng tạo, metaverse, thực đơn của thương hiệu và vai trò của mình với cương vị Asia CMO.",
-    link: "https://www.brandsvietnam.com/congdong/topic/328321-Asia-CMO-McDonald-s-he-lo-ke-hoach-cho-World-Cup-2022-va-chien-luoc-marketing-tai-khu-vuc-Chau-A",
+      "Các sản phẩm công nghệ của Rynan Technologics Vietnam, Viettel, FPT và MISA nhận giải vàng nhờ có tính tác động đến sự phát triển chính phủ số, kinh tế số và xã hội số thời gian qua.",
+    link: "https://vnexpress.net/40-giai-phap-cong-nghe-duoc-vinh-danh-tai-make-in-viet-nam-4545454.html",
   },
   {
-    url: "/images/news-3.png",
-    specificTime: "03/11/2022",
+    url: "/images/news-3.webp",
+    specificTime: "8/12/2022",
     title:
-      "Du học Marketing #3: Summer Doan @ Sheffield Hallam University – “Sốc văn hóa - thích nghi chứ đừng kỳ vọng”",
+      "OpenAI's ChatGPT has answers to life's great mysteries (Just not real ones)",
     specificContent:
-      "Ở số thứ ba của series, chị Summer sẽ chia sẻ về hành trình du học Film & Media Production tại Sheffield Hallam University ở Anh. Vốn có quan điểm không đặt kỳ vọng trong cuộc sống, vậy chị Summer có phải đối mặt với những khó khăn, shock văn hóa – câu chuyện muôn thuở của các du học sinh?",
-    link: "https://www.brandsvietnam.com/congdong/topic/328495-Du-hoc-Marketing-3-Summer-Doan-at-Sheffield-Hallam-University-Soc-van-hoa-thich-nghi-chu-dung-ky-vong",
+      "ChatGPT from OpenAI took the world by storm last week, and users are still learning how to break it in exciting new ways to produce responses its creators never intended, including turning it into an all-purpose crystal ball.",
+    link: "https://sea.mashable.com/tech/22000/openais-chatgpt-has-answers-to-lifes-great-mysteries-just-not-real-ones",
   },
   {
-    url: "/images/news-4.png",
-    specificTime: "14/10/2022",
-    title: "World Cup 2022: Nhìn lại 10 TVC thú vị qua các mùa World Cup",
+    url: "/images/news-4.webp",
+    specificTime: "7/12/2022",
+    title:
+      "Ogilvy tận dụng thời điểm Tết để giải quyết sứ mệnh lớn của các nhãn hàng như thế nào?",
     specificContent:
-      "Sự kiện thể thao toàn cầu 4 năm một lần – World Cup được xem là thời điểm vàng để các thương hiệu “trình làng” với một lượng người theo dõi khổng lồ. Hãy cùng Brands Việt Nam điểm qua 10 TVC xưa nhưng không cũ trong suốt lịch sử hơn 90 năm tổ chức giải vô địch bóng đá thế giới.",
-    link: "https://www.brandsvietnam.com/congdong/topic/328084-World-Cup-2022-Nhin-lai-10-TVC-thu-vi-qua-cac-mua-World-Cup",
+      "Trong hai chiến dịch Tết, “Bộ 63 lon bản sắc Việt – Tết đi lên cùng nhau” của Bia Saigon và “Trao điều lành – Đón lộc xanh” của Nestlé vừa được vinh danh tại giải thưởng danh giá MMA Smarties Awards vừa qua, Ogilvy cùng thương hiệu đã đưa những hoạt động ngày Tết quen thuộc trở nên ý nghĩa hơn.",
+    link: "https://www.brandsvietnam.com/23363-Ogilvy-tan-dung-thoi-diem-Tet-de-giai-quyet-su-menh-lon-cua-cac-nhan-hang-nhu-the-nao",
   },
 ];
+
 export const events = [
   {
-    url: "/images/event-1.png",
-    dayTime: "thứ sáu",
-    monthYear: "4/11",
-    specificTime: "Thứ 6|04/11/2022|15:00 - 17:30",
-    title: "Talkshow 'Customer centric in social commerce era'",
-    link: "https://useinsider.com/customer-centric-in-social-commerce-era/?utm_campaign=VN%20-%20Tiktokshop%204/11/2022&utm_source=COM&fbclid=IwAR0Pn3RJdhqrMI94ue24Z1ooL5cjh9xCxBjJcvoCCt5OgXjXbHxRtQHTCVE",
+    url: "/images/event-1.jpg",
+    dayTime: "thứ tư",
+    monthYear: "14/12",
+    specificTime:
+      "Thứ 4|14/12/2022|17:00. Địa điểm: Hội trường A.116, Cơ sở A Trường Đại học Kinh tế TP.HCM - 59C, Nguyễn Đình Chiểu, P.6, Q.3, TP.HCM",
+    title: "GALA CHUNG KẾT STARTUP ZONE 2022 ",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSdqmiMSd6SbHvyieHaDHioJqH6P694rC0d13S2M1XbCJV74rA/closedform",
   },
   {
-    url: "/images/event-2.jpg",
-    dayTime: "chủ nhật",
-    monthYear: "6/11",
+    url: "/images/event-2.png",
+    dayTime: "thứ 7",
+    monthYear: "10/12",
     specificTime:
-      "Chủ Nhật|06/11/2022|18:00. Địa điểm: Hội trường A116, cơ sở A - Đại học UEH (59C, Nguyễn Đình Chiểu, P.6, Q.3, TP.HCM)",
-    title: "KHÁM PHÁ SỰ NĂNG ĐỘNG 2022: Connæct",
-    link: "https://www.facebook.com/margroup.ueh/posts/pfbid034kUez4wTxy5DRQ8zuvKzZ1qubE8YLXXGF2V8S1SUbfcDxd16GmpSGvALap8YdKuEl",
+      "Thứ 7|10/12/2022. Địa điểm: B2-216 StudioLab 2, 279 Nguyễn Tri Phương, Phường 5, Quận 10, TP HCM",
+    title: "Triển lãm Sản phẩm: Future Resilience",
+    link: "",
   },
 ];
 
 export const jobTrackers = [
   {
     src: "/images/career-tracker-1.webp",
-    title: "Digital Marketing Intern",
-    text: "Công ty Cổ Phần Con Cưng ",
+    title: "Thực tập sinh Công nghệ -  Technology ",
+    text: "CÔNG TY TNHH QT-DATA VIỆT NAM ",
     address: "TP Hồ Chí Minh",
-    link: "https://www.topcv.vn/viec-lam/digital-marketing-intern/860208.html?ta_source=JobSearchList&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSeq2yBZDt9dGKz_rtWhtkCfPJdMYDRy2A2I2fB2mdtHcJiCoA/viewform",
+  },
+  {
+    src: "/images/career-tracker-1.webp",
+    title: "Thực tập sinh Hành chính & Nhân sự",
+    text: "CÔNG TY TNHH QT-DATA VIỆT NAM ",
+    address: "TP Hồ Chí Minh",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSeq2yBZDt9dGKz_rtWhtkCfPJdMYDRy2A2I2fB2mdtHcJiCoA/viewform",
   },
   {
     src: "/images/career-tracker-2.jpg",
-    title: "Digital Marketing Intern",
-    text: "CÔNG TY CỔ PHẦN KHOÁNG SẢN VẬT LIỆU Á CỘNG",
+    title: "Thực tập sinh Kế toán - Kiểm toán",
+    text: "CÔNG TY TNHH AICA VIỆT NAM",
     address: "TP Hồ Chí Minh",
-    link: "https://www.topcv.vn/viec-lam/digital-marketing-intern/854443.html?ta_source=JobSearchList&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
-  },
-  {
-    src: "/images/career-tracker-3.jpg",
-    title: "Digital Marketing Intern",
-    text: "THE FASHION JOINT STOCK COMPANY",
-    address: "TP Hồ Chí Minh",
-    link: "https://www.topcv.vn/viec-lam/digital-marketing-internship-thuc-tap-sinh/293815.html?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+    link: "",
   },
 ];

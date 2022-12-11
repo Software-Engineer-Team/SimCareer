@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   LoginLeftBtnContainer,
   LoginLeftForm,
@@ -16,6 +16,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { login } from "@store/user-slice";
+import { isMobile } from "react-device-detect";
 
 const LoginLeftContent = () => {
   const [passVisible, setPassVisible] = useState(false);
@@ -69,7 +70,6 @@ const LoginLeftContent = () => {
         { email, password },
         `${process.env.REACT_APP_ENDPOINT_SERVER}/api/user/sign-in`
       );
-      console.log(data);
       dispatch(
         login({
           email,
@@ -204,6 +204,7 @@ const LoginLeftContent = () => {
             </div>
             <div className="login-google">
               <GoogleLogin
+                disabled={isMobile ? true : false}
                 clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                 buttonText="Sign in with Google"
                 onSuccess={googleSubmitHandler}

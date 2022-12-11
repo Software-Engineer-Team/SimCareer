@@ -21,16 +21,8 @@ import {
   HeadlineThreeButton,
   UnorderedListButton,
   OrderedListButton,
-  BlockquoteButton,
 } from "@draft-js-plugins/buttons";
-import {
-  convertToRaw,
-  EditorState,
-  convertFromHTML,
-  ContentState,
-  CompositeDecorator,
-} from "draft-js";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   EditorContainer,
   HeadlineButton,
