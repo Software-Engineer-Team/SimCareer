@@ -204,9 +204,12 @@ export const LoginLeftContainer = styled.div`
 
   @media screen and (max-width: 500px) {
     width: 100%;
+    justify-content: center;
 
     .login-left-content {
+      margin-top: 0 !important;
       padding: 16px;
+      min-height: auto;
       width: auto;
 
       .login-left-content-inner {
@@ -295,7 +298,7 @@ export const LoginLeftContainer = styled.div`
         }
 
         .login-google {
-          display: flex;
+          display: none;
           justify-content: center;
 
           button {

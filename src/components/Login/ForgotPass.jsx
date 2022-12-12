@@ -157,7 +157,10 @@ const ForgotPass = () => {
     <>
       <div
         className="login-left-content"
-        style={{ minHeight: step === 1 ? 620 : step === 2 ? 730 : 610 }}
+        style={{
+          minHeight: step === 1 ? 500 : step === 2 ? 730 : 610,
+          marginTop: "70px",
+        }}
       >
         <Fade right>
           <div

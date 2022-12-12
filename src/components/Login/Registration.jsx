@@ -9,8 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineMail } from "react-icons/ai";
 import { MdOutlineVisibility, MdOutlineVisibilityOff } from "react-icons/md";
 import { BsFillPersonFill } from "react-icons/bs";
-import { FaSchool } from "react-icons/fa";
-import { IoSchoolOutline } from "react-icons/io5";
+/* import { FaSchool } from "react-icons/fa"; */
+/* import { IoSchoolOutline } from "react-icons/io5"; */
 import ReactInputVerificationCode from "react-input-verification-code";
 import Fade from "react-reveal/Fade";
 import axios from "axios";
@@ -29,12 +29,12 @@ const Registration = () => {
   const [errorEmail, setErrorEmail] = useState("");
   const [fullName, setFullName] = useState("");
   const [errorFullName, setErrorFullName] = useState("");
-  const [university, setUniversity] = useState("");
-  const [errorUniversity, setErrorUniversity] = useState("");
-  const [major, setMajor] = useState("");
-  const [errorMajor, setErrorMajor] = useState("");
-  const [graduationYear, setGraduationYear] = useState("");
-  const [errorGraduationYear, setErrorGraduationYear] = useState("");
+  /* const [university, setUniversity] = useState(""); */
+  /* const [errorUniversity, setErrorUniversity] = useState(""); */
+  /* const [major, setMajor] = useState(""); */
+  /* const [errorMajor, setErrorMajor] = useState(""); */
+  /* const [graduationYear, setGraduationYear] = useState(""); */
+  /* const [errorGraduationYear, setErrorGraduationYear] = useState(""); */
   const [verificationCode, setVerificationCode] = useState("");
   const [step, setStep] = useState(1);
   const [isFetching, setIsFetching] = useState(false);
@@ -71,7 +71,8 @@ const Registration = () => {
       setErrorPass("Vui lòng nhập mật khẩu của bạn.");
       e.target.parentElement.classList.add("error");
     } else if (e.target.value.length < 8) {
-      setErrorPass("Mật khẩu quá ngắn - tối thiểu phải là 8 ký tự.");
+      /* setErrorPass("Mật khẩu quá ngắn - tối thiểu phải là 8 ký tự."); */
+      setErrorPass("Mật khẩu quá ngắn - tối thiểu là 8 ký tự.");
     } else {
       e.target.parentElement.classList.remove("error");
       setErrorPass(null);
@@ -103,38 +104,38 @@ const Registration = () => {
     }
   };
 
-  const universityHandler = (e) => {
-    setUniversity(e.target.value);
-    if (e.target.value === "") {
-      setErrorUniversity("Vui lòng nhập trường đại học");
-      e.target.parentElement.classList.add("error");
-    } else {
-      e.target.parentElement.classList.remove("error");
-      setErrorUniversity(null);
-    }
-  };
-
-  const majorHandler = (e) => {
-    setMajor(e.target.value);
-    if (e.target.value === "") {
-      setErrorMajor("Vui lòng nhập chuyên ngành của bạn");
-      e.target.parentElement.classList.add("error");
-    } else {
-      e.target.parentElement.classList.remove("error");
-      setErrorMajor(null);
-    }
-  };
-
-  const graduationYearHandler = (e) => {
-    setGraduationYear(e.target.value);
-    if (e.target.value === "") {
-      setErrorGraduationYear("Vui lòng chọn năm tốt nghiệp của bạn");
-      e.target.parentElement.classList.add("error");
-    } else {
-      e.target.parentElement.classList.remove("error");
-      setErrorGraduationYear(null);
-    }
-  };
+  /* const universityHandler = (e) => { */
+  /*   setUniversity(e.target.value); */
+  /*   if (e.target.value === "") { */
+  /*     setErrorUniversity("Vui lòng nhập trường đại học"); */
+  /*     e.target.parentElement.classList.add("error"); */
+  /*   } else { */
+  /*     e.target.parentElement.classList.remove("error"); */
+  /*     setErrorUniversity(null); */
+  /*   } */
+  /* }; */
+  /**/
+  /* const majorHandler = (e) => { */
+  /*   setMajor(e.target.value); */
+  /*   if (e.target.value === "") { */
+  /*     setErrorMajor("Vui lòng nhập chuyên ngành của bạn"); */
+  /*     e.target.parentElement.classList.add("error"); */
+  /*   } else { */
+  /*     e.target.parentElement.classList.remove("error"); */
+  /*     setErrorMajor(null); */
+  /*   } */
+  /* }; */
+  /**/
+  /* const graduationYearHandler = (e) => { */
+  /*   setGraduationYear(e.target.value); */
+  /*   if (e.target.value === "") { */
+  /*     setErrorGraduationYear("Vui lòng chọn năm tốt nghiệp của bạn"); */
+  /*     e.target.parentElement.classList.add("error"); */
+  /*   } else { */
+  /*     e.target.parentElement.classList.remove("error"); */
+  /*     setErrorGraduationYear(null); */
+  /*   } */
+  /* }; */
 
   const verificationCodeHandler = (value) => {
     setVerificationCode(value);
@@ -153,9 +154,9 @@ const Registration = () => {
             {
               email,
               password,
-              major,
-              graduationYear,
-              university,
+              /* major, */
+              /* graduationYear, */
+              /* university, */
               imgUrl: "1111111",
               name: fullName,
             }
@@ -176,9 +177,9 @@ const Registration = () => {
                 {
                   email,
                   password,
-                  major,
-                  graduationYear,
-                  university,
+                  /* major, */
+                  /* graduationYear, */
+                  /* university, */
                   verificationCode: null,
                 }
               ),
@@ -228,7 +229,10 @@ const Registration = () => {
     <>
       <div
         className="login-left-content"
-        style={{ minHeight: step === 1 ? 820 : step === 2 ? 660 : 642 }}
+        style={{
+          minHeight: step === 1 ? 500 : step === 2 ? 580 : 642,
+          marginTop: "60px",
+        }}
       >
         <Fade right>
           <div
@@ -334,75 +338,75 @@ const Registration = () => {
                       <p className="form-input-error">{errorEmail}</p>
                     </div>
                   </LoginLeftFormItem>
-                  <LoginLeftFormItem>
-                    <div className="form-input-type">Trường đại học</div>
-                    <div className="form-input-container">
-                      <div className="form-input-content">
-                        <input
-                          type="text"
-                          name="university"
-                          value={university}
-                          required
-                          onFocus={(e) =>
-                            e.target.parentElement.classList.add("focus")
-                          }
-                          onBlur={(e) =>
-                            e.target.parentElement.classList.remove("focus")
-                          }
-                          onChange={universityHandler}
-                        />
-                        <div className="form-input-content-icon">
-                          <FaSchool />
-                        </div>
-                      </div>
-                      <p className="form-input-error">{errorUniversity}</p>
-                    </div>
-                  </LoginLeftFormItem>
-                  <LoginLeftFormItem>
-                    <div className="form-input-type">Nghành học</div>
-                    <div className="form-input-container">
-                      <div className="form-input-content">
-                        <input
-                          type="text"
-                          name="major"
-                          value={major}
-                          required
-                          onFocus={(e) =>
-                            e.target.parentElement.classList.add("focus")
-                          }
-                          onBlur={(e) =>
-                            e.target.parentElement.classList.remove("focus")
-                          }
-                          onChange={majorHandler}
-                        />
-                        <div className="form-input-content-icon">
-                          <IoSchoolOutline />
-                        </div>
-                      </div>
-                      <p className="form-input-error">{errorMajor}</p>
-                    </div>
-                  </LoginLeftFormItem>
-                  <LoginLeftFormItem>
-                    <div className="form-input-type">Năm tốt nghiệp</div>
-                    <div className="form-input-container">
-                      <div className="form-input-content">
-                        <input
-                          type="date"
-                          name="gradurationYear"
-                          value={graduationYear}
-                          required
-                          onFocus={(e) =>
-                            e.target.parentElement.classList.add("focus")
-                          }
-                          onBlur={(e) =>
-                            e.target.parentElement.classList.remove("focus")
-                          }
-                          onChange={graduationYearHandler}
-                        />
-                      </div>
-                      <p className="form-input-error">{errorGraduationYear}</p>
-                    </div>
-                  </LoginLeftFormItem>{" "}
+                  {/* <LoginLeftFormItem> */}
+                  {/*   <div className="form-input-type">Trường đại học</div> */}
+                  {/*   <div className="form-input-container"> */}
+                  {/*     <div className="form-input-content"> */}
+                  {/*       <input */}
+                  {/*         type="text" */}
+                  {/*         name="university" */}
+                  {/*         value={university} */}
+                  {/*         required */}
+                  {/*         onFocus={(e) => */}
+                  {/*           e.target.parentElement.classList.add("focus") */}
+                  {/*         } */}
+                  {/*         onBlur={(e) => */}
+                  {/*           e.target.parentElement.classList.remove("focus") */}
+                  {/*         } */}
+                  {/*         onChange={universityHandler} */}
+                  {/*       /> */}
+                  {/*       <div className="form-input-content-icon"> */}
+                  {/*         <FaSchool /> */}
+                  {/*       </div> */}
+                  {/*     </div> */}
+                  {/*     <p className="form-input-error">{errorUniversity}</p> */}
+                  {/*   </div> */}
+                  {/* </LoginLeftFormItem> */}
+                  {/* <LoginLeftFormItem> */}
+                  {/*   <div className="form-input-type">Nghành học</div> */}
+                  {/*   <div className="form-input-container"> */}
+                  {/*     <div className="form-input-content"> */}
+                  {/*       <input */}
+                  {/*         type="text" */}
+                  {/*         name="major" */}
+                  {/*         value={major} */}
+                  {/*         required */}
+                  {/*         onFocus={(e) => */}
+                  {/*           e.target.parentElement.classList.add("focus") */}
+                  {/*         } */}
+                  {/*         onBlur={(e) => */}
+                  {/*           e.target.parentElement.classList.remove("focus") */}
+                  {/*         } */}
+                  {/*         onChange={majorHandler} */}
+                  {/*       /> */}
+                  {/*       <div className="form-input-content-icon"> */}
+                  {/*         <IoSchoolOutline /> */}
+                  {/*       </div> */}
+                  {/*     </div> */}
+                  {/*     <p className="form-input-error">{errorMajor}</p> */}
+                  {/*   </div> */}
+                  {/* </LoginLeftFormItem> */}
+                  {/* <LoginLeftFormItem> */}
+                  {/*   <div className="form-input-type">Năm tốt nghiệp</div> */}
+                  {/*   <div className="form-input-container"> */}
+                  {/*     <div className="form-input-content"> */}
+                  {/*       <input */}
+                  {/*         type="date" */}
+                  {/*         name="gradurationYear" */}
+                  {/*         value={graduationYear} */}
+                  {/*         required */}
+                  {/*         onFocus={(e) => */}
+                  {/*           e.target.parentElement.classList.add("focus") */}
+                  {/*         } */}
+                  {/*         onBlur={(e) => */}
+                  {/*           e.target.parentElement.classList.remove("focus") */}
+                  {/*         } */}
+                  {/*         onChange={graduationYearHandler} */}
+                  {/*       /> */}
+                  {/*     </div> */}
+                  {/*     <p className="form-input-error">{errorGraduationYear}</p> */}
+                  {/*   </div> */}
+                  {/* </LoginLeftFormItem>{" "} */}
                 </>
               ) : step === 2 ? (
                 <Fade right>
@@ -499,16 +503,14 @@ const Registration = () => {
                   type="submit"
                   onClick={buttonHandler}
                   className={
-                    step === 1 &&
-                    email &&
-                    errorEmail === null &&
-                    university &&
-                    errorUniversity === null &&
-                    major &&
-                    errorMajor === null &&
-                    graduationYear &&
-                    errorGraduationYear === null
-                      ? ""
+                    step === 1 && email && errorEmail === null
+                      ? /* university && */
+                        /* errorUniversity === null && */
+                        /* major && */
+                        /* errorMajor === null && */
+                        /* graduationYear && */
+                        /* errorGraduationYear === null */
+                        ""
                       : "disabled"
                   }
                 >
