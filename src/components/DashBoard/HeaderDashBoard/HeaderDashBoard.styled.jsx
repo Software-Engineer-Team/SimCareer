@@ -100,8 +100,8 @@ export const NavMenu = styled.div`
 export const UserImg = styled.img`
   height: 48px;
   width: 48px;
-  display: block;
   border-radius: 50%;
+  object-fit: cover;
 `;
 
 export const DropDown = styled.div`
