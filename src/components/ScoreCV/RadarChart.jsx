@@ -44,6 +44,7 @@ const RadarChart = () => {
         pointBorderColor: "#841a9e95",
         pointHoverBackgroundColor: "#841a9e",
         pointHoverBorderColor: "#841a9e",
+        hidden: true,
       },
       {
         label: "Năm 2",
@@ -59,6 +60,7 @@ const RadarChart = () => {
         pointHoverBorderColor: "rgba(255, 99, 132, 1)",
 
         borderWidth: 1,
+        hidden: true,
       },
       {
         label: "Năm 3",
@@ -70,6 +72,7 @@ const RadarChart = () => {
         pointBorderColor: "rgba(255, 206, 86, .8)",
         pointHoverBackgroundColor: "rgba(255, 206, 86, 1)",
         pointHoverBorderColor: "rgba(255, 206, 86, 1)",
+        hidden: true,
       },
       {
         label: "Năm 4",
@@ -81,6 +84,7 @@ const RadarChart = () => {
         pointBorderColor: "rgba(75, 192, 192, .8)",
         pointHoverBackgroundColor: "rgba(75, 192, 192, 1)",
         pointHoverBorderColor: "rgba(75, 192, 192, 1)",
+        hidden: true,
       },
     ],
   };

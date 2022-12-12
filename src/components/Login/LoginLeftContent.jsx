@@ -130,8 +130,8 @@ const LoginLeftContent = () => {
           <div className="login-left-content-inner">
             <div className="login-left-title">Đăng nhập</div>
             <div className="login-left-welcome">
-              Chào mừng bạn đến với SimCareer, vui lòng đăng nhập bên dưới để
-              bắt đầu hành trình hack sự nghiệp của bạn với chúng tôi!
+              Chào mừng bạn đến với SIMCareer, vui lòng đăng nhập bên dưới để
+              bắt đầu hành trình chinh phục sự nghiệp của bạn với chúng tôi!
             </div>
             <LoginLeftForm>
               <LoginLeftFormItem>
