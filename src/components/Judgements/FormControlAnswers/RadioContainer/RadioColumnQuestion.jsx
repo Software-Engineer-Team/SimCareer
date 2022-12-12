@@ -11,7 +11,6 @@ const RadioColumnQuestion = ({ arrayVal, clickButtonHandler }) => {
   const dispath = useDispatch();
   const { questionNumber, firstAnswer, secondAnswer, thirdAnswer } =
     useSelector((state) => state.judgement);
-  console.log(firstAnswer, secondAnswer, thirdAnswer);
 
   const groupQuestionsValue = () => {
     if (questionNumber === 0) return firstAnswer?.answer1;

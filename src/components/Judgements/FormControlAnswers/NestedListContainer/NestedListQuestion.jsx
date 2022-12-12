@@ -24,7 +24,6 @@ export default function NestedListQuestion({ array, label, type }) {
   const dispath = useDispatch();
   const { questionNumber, firstAnswer, secondAnswer, thirdAnswer } =
     useSelector((state) => state.judgement);
-  console.log(type);
 
   const groupQuestionsValue = () => {
     if (questionNumber === 0) {
@@ -51,7 +50,6 @@ export default function NestedListQuestion({ array, label, type }) {
     answerHandler(event.target.value);
   };
 
-  console.log("TESTtttttttttttttttttt");
   return (
     <Container>
       <Flip left>

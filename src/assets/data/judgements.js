@@ -3,7 +3,7 @@ export const introductionJudgement =
   "Chúng tôi mong rằng bạn có thể hoàn thành một số câu hỏi dưới đây để đạt được trải nghiệm tốt nhất trên hành trình chinh phục nhà tuyển dụng";
 export const questions = [
   {
-    titleHeader: "Q1/3 Bạn hiện đang là sinh viên:",
+    titleHeader: "Q1/2 Bạn hiện đang là sinh viên:",
     answers: [
       {
         value: "Năm 1",
@@ -63,41 +63,55 @@ export const questions = [
     ],
   },
   {
-    titleHeader:
-      "Q2/3 Bạn mong muốn được làm việc ở lĩnh vực nào trong tương lai ?",
+    titleHeader: "Q2/2 Chuẩn bị trước các kỹ năng khi tham gia ứng tuyển ?",
     answers: [
       {
-        value: "Lập trình",
+        value: "Cần thiết",
       },
       {
-        value: "Marketing",
-      },
-      {
-        value: "Bán hàng",
-      },
-      {
-        value: "Tư vấn",
+        value: "Không cần thiết ",
       },
       {
         value: "Khác...",
       },
     ],
   },
-  {
-    titleHeader: "Q3/3 Điều bạn mong muốn nhất khi sử dụng SIMCareer là ?",
-    answers: [
-      {
-        value: "Hoàn thiện hồ sơ tuyển dụng (CV)",
-      },
-      {
-        value: "Tìm hiểu về công ty dự định ứng tuyển",
-      },
-      {
-        value: "Học hỏi kiến thức từ công việc",
-      },
-      {
-        value: "Khác...",
-      },
-    ],
-  },
+  /* { */
+  /*   titleHeader: */
+  /*     "Q2/3 Bạn mong muốn được làm việc ở lĩnh vực nào trong tương lai ?", */
+  /*   answers: [ */
+  /*     { */
+  /*       value: "Lập trình", */
+  /*     }, */
+  /*     { */
+  /*       value: "Marketing", */
+  /*     }, */
+  /*     { */
+  /*       value: "Bán hàng", */
+  /*     }, */
+  /*     { */
+  /*       value: "Tư vấn", */
+  /*     }, */
+  /*     { */
+  /*       value: "Khác...", */
+  /*     }, */
+  /*   ], */
+  /* }, */
+  /* { */
+  /*   titleHeader: "Q3/3 Điều bạn mong muốn nhất khi sử dụng SIMCareer là ?", */
+  /*   answers: [ */
+  /*     { */
+  /*       value: "Hoàn thiện hồ sơ tuyển dụng (CV)", */
+  /*     }, */
+  /*     { */
+  /*       value: "Tìm hiểu về công ty dự định ứng tuyển", */
+  /*     }, */
+  /*     { */
+  /*       value: "Học hỏi kiến thức từ công việc", */
+  /*     }, */
+  /*     { */
+  /*       value: "Khác...", */
+  /*     }, */
+  /*   ], */
+  /* }, */
 ];

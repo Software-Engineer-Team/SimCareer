@@ -16,8 +16,9 @@ const Judgement = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { questionNumber, firstAnswer, secondAnswer, thirdAnswer } =
-    useSelector((state) => state.judgement);
+  const { questionNumber, firstAnswer, secondAnswer } = useSelector(
+    (state) => state.judgement
+  );
   const user = useSelector((state) => state.user);
 
   const clickButtonHandler = async () => {
@@ -34,12 +35,15 @@ const Judgement = () => {
         return toast.error("Vui lòng chọn một lựa chọn!");
       if (firstAnswer.answer2 === "")
         return toast.error("Vui lòng chọn một trường đại học!");
+      if (firstAnswer.answer3 === "")
+        return toast.error("Vui lòng chọn một chuyên ngành!");
     } else if (questionNumber === 1) {
       if (secondAnswer === "")
         return toast.error("Vui lòng chọn một lựa chọn!");
-    } else if (questionNumber === 2) {
-      if (thirdAnswer === "") return toast.error("Vui lòng chọn một lựa chọn!");
     }
+    /* else if (questionNumber === 2) { */
+    /*   if (thirdAnswer === "") return toast.error("Vui lòng chọn một lựa chọn!"); */
+    /* } */
 
     dispatch(
       judgementActions.setQuestionNumber({
@@ -47,15 +51,16 @@ const Judgement = () => {
       })
     );
     if (questionNum === questions.length - 1) {
-      /* const { data } = await postData( */
-      /*   { */
-      /*     user: { email: user.email }, */
-      /*     firstAnswer, */
-      /*     secondAnswer, */
-      /*     thirdAnswer, */
-      /*   }, */
-      /*   `${process.env.REACT_APP_ENDPOINT_SERVER}/api/answers` */
-      /* ); */
+      postData(
+        {
+          user: { email: user.email },
+          firstAnswer,
+          secondAnswer,
+        },
+        `${process.env.REACT_APP_ENDPOINT_SERVER}/api/answers`
+      ).then((data) => {
+        console.log(data);
+      });
 
       navigate("/dash-board");
     }
