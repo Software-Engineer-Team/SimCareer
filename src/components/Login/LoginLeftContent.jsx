@@ -78,7 +78,13 @@ const LoginLeftContent = () => {
         })
       );
 
-      navigate("/judgements");
+      const isSignedIn = localStorage.getItem("isSignedIn") === "true";
+      if (isSignedIn) {
+        navigate("/dash-board");
+      } else {
+        localStorage.setItem("isSignedIn", true);
+        navigate("/judgements");
+      }
       setPassword("");
       setEmail("");
     } catch (err) {
