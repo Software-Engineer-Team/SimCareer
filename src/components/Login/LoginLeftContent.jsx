@@ -122,14 +122,14 @@ const LoginLeftContent = () => {
       <Zoom>
         <div className="login-left-content">
           <div className="login-left-content-inner">
-            <div className="login-left-title">Login</div>
+            <div className="login-left-title">Đăng nhập</div>
             <div className="login-left-welcome">
               Chào mừng bạn đến với SimCareer, vui lòng đăng nhập bên dưới để
               bắt đầu hành trình hack sự nghiệp của bạn với chúng tôi!
             </div>
             <LoginLeftForm>
               <LoginLeftFormItem>
-                <div className="form-input-type">Email</div>
+                <div className="form-input-type">E-mail</div>
                 <div className="form-input-container">
                   <div className="form-input-content">
                     <input
@@ -153,7 +153,7 @@ const LoginLeftContent = () => {
                 </div>
               </LoginLeftFormItem>
               <LoginLeftFormItem>
-                <div className="form-input-type">Password</div>
+                <div className="form-input-type">Mật Khẩu</div>
                 <div className="form-input-container">
                   <div className="form-input-content">
                     <input
@@ -184,7 +184,7 @@ const LoginLeftContent = () => {
                   <p className="form-input-error">{errorPass}</p>
                 </div>
               </LoginLeftFormItem>
-              <Link to="/forgot-password">Forgot Password?</Link>
+              <Link to="/forgot-password">Quên mật khẩu?</Link>
             </LoginLeftForm>
             <LoginLeftBtnContainer>
               <button
@@ -196,7 +196,7 @@ const LoginLeftContent = () => {
                 }
                 onClick={submitHandler}
               >
-                {isFetching ? <CircularProgress top="-5" /> : "Log in"}
+                {isFetching ? <CircularProgress top="-5" /> : "Đăng nhập"}
               </button>
             </LoginLeftBtnContainer>
             <div className="break-line">
@@ -206,7 +206,7 @@ const LoginLeftContent = () => {
               <GoogleLogin
                 disabled={isMobile ? true : false}
                 clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                buttonText="Sign in with Google"
+                buttonText="Đăng nhập bằng Google"
                 onSuccess={googleSubmitHandler}
                 onFailure={() => console.log("Failure")}
                 cookiePolicy={"single_host_origin"}
@@ -220,8 +220,8 @@ const LoginLeftContent = () => {
 
       <div className="login-left-register">
         <div className="login-left-register-text">
-          <span>Don't have an account? </span>
-          <Link to="/register">Sign up</Link>
+          <span>Không có tài khoản?</span>
+          <Link to="/register"> Đăng ký</Link>
         </div>
       </div>
 

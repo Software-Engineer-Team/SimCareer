@@ -31,13 +31,14 @@ const Judgement = () => {
     const questionNum = questionNumber;
     if (questionNumber === 0) {
       if (firstAnswer.answer1 === "")
-        return toast.error("Please choose an option!");
+        return toast.error("Vui lòng chọn một lựa chọn!");
       if (firstAnswer.answer2 === "")
-        return toast.error("Please choose an university!");
+        return toast.error("Vui lòng chọn một trường đại học!");
     } else if (questionNumber === 1) {
-      if (secondAnswer === "") return toast.error("Please choose an option!");
+      if (secondAnswer === "")
+        return toast.error("Vui lòng chọn một lựa chọn!");
     } else if (questionNumber === 2) {
-      if (thirdAnswer === "") return toast.error("Please choose an option!");
+      if (thirdAnswer === "") return toast.error("Vui lòng chọn một lựa chọn!");
     }
 
     dispatch(
@@ -46,15 +47,15 @@ const Judgement = () => {
       })
     );
     if (questionNum === questions.length - 1) {
-      const { data } = await postData(
-        {
-          user: { email: user.email },
-          firstAnswer,
-          secondAnswer,
-          thirdAnswer,
-        },
-        `${process.env.REACT_APP_ENDPOINT_SERVER}/api/answers`
-      );
+      /* const { data } = await postData( */
+      /*   { */
+      /*     user: { email: user.email }, */
+      /*     firstAnswer, */
+      /*     secondAnswer, */
+      /*     thirdAnswer, */
+      /*   }, */
+      /*   `${process.env.REACT_APP_ENDPOINT_SERVER}/api/answers` */
+      /* ); */
 
       navigate("/dash-board");
     }
@@ -86,6 +87,12 @@ const Judgement = () => {
           <NestedListQuestion
             label={"Trường đại học"}
             array={questions[0]?.universities}
+            type={"answer2"}
+          />
+          <NestedListQuestion
+            label={"Chuyên ngành"}
+            array={questions[0]?.majors}
+            type={"answer3"}
           />
         </>
       )}

@@ -20,22 +20,28 @@ const MenuProps = {
   },
 };
 
-export default function NestedListQuestion({ array, label }) {
+export default function NestedListQuestion({ array, label, type }) {
   const dispath = useDispatch();
   const { questionNumber, firstAnswer, secondAnswer, thirdAnswer } =
     useSelector((state) => state.judgement);
+  console.log(type);
 
   const groupQuestionsValue = () => {
-    if (questionNumber === 0) return firstAnswer?.answer2;
-    else if (questionNumber === 1) return secondAnswer;
+    if (questionNumber === 0) {
+      if (type === "answer2") return firstAnswer?.answer2;
+      if (type === "answer3") return firstAnswer?.answer3;
+    } else if (questionNumber === 1) return secondAnswer;
     else if (questionNumber === 2) return thirdAnswer;
   };
 
   const answerHandler = (value) => {
     if (value === "" || value === null) return;
-    if (questionNumber === 0)
-      dispath(judgementActions.setFirstAnswer2({ answer2: value }));
-    else if (questionNumber === 1)
+    if (questionNumber === 0) {
+      if (type === "answer2")
+        dispath(judgementActions.setFirstAnswer2({ answer2: value }));
+      if (type === "answer3")
+        dispath(judgementActions.setFirstAnswer3({ answer3: value }));
+    } else if (questionNumber === 1)
       dispath(judgementActions.setSecondAnswer({ secondAnswer: value }));
     else if (questionNumber === 2)
       dispath(judgementActions.setThirdAnswer({ thirdAnswer: value }));
@@ -45,6 +51,7 @@ export default function NestedListQuestion({ array, label }) {
     answerHandler(event.target.value);
   };
 
+  console.log("TESTtttttttttttttttttt");
   return (
     <Container>
       <Flip left>
@@ -85,5 +92,14 @@ const Container = styled.div`
   }
   svg {
     color: var(--color-general);
+  }
+
+  @media screen and (max-width: 500px) {
+    label {
+      font-size: 14px;
+    }
+    div {
+      font-size: 14px;
+    }
   }
 `;

@@ -6,6 +6,7 @@ export const judgementSlice = createSlice({
     firstAnswer: {
       answer1: "",
       answer2: "",
+      answer3: "",
     },
     secondAnswer: "",
     thirdAnswer: "",
@@ -17,6 +18,9 @@ export const judgementSlice = createSlice({
     },
     setFirstAnswer2(state, action) {
       state.firstAnswer.answer2 = action.payload.answer2;
+    },
+    setFirstAnswer3(state, action) {
+      state.firstAnswer.answer3 = action.payload.answer3;
     },
     setSecondAnswer(state, action) {
       state.secondAnswer = action.payload.secondAnswer;

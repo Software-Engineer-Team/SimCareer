@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   LoginLeftBtnContainer,
   LoginLeftForm,
@@ -37,7 +37,6 @@ const Registration = () => {
   const [errorGraduationYear, setErrorGraduationYear] = useState("");
   const [verificationCode, setVerificationCode] = useState("");
   const [step, setStep] = useState(1);
-  const btnRef = useRef(null);
   const [isFetching, setIsFetching] = useState(false);
   const navigate = useNavigate();
 
@@ -55,10 +54,10 @@ const Registration = () => {
   const emailHandler = (e) => {
     setEmail(e.target.value);
     if (e.target.value === "") {
-      setErrorEmail("You must enter a email.");
+      setErrorEmail("Vui lòng nhập email hợp lệ.");
       e.target.parentElement.classList.add("error");
     } else if (!validateEmail(e.target.value)) {
-      setErrorEmail("You must enter a valid email.");
+      setErrorEmail("Vui lòng nhập email hợp lệ.");
       e.target.parentElement.classList.add("error");
     } else {
       e.target.parentElement.classList.remove("error");
@@ -69,10 +68,10 @@ const Registration = () => {
   const passHandler = (e) => {
     setPassword(e.target.value);
     if (e.target.value === "") {
-      setErrorPass("Please enter your password.");
+      setErrorPass("Vui lòng nhập mật khẩu của bạn.");
       e.target.parentElement.classList.add("error");
     } else if (e.target.value.length < 8) {
-      setErrorPass("Password is too short - should be 8 chars minimum.");
+      setErrorPass("Mật khẩu quá ngắn - tối thiểu phải là 8 ký tự.");
     } else {
       e.target.parentElement.classList.remove("error");
       setErrorPass(null);
@@ -82,10 +81,10 @@ const Registration = () => {
   const confirmPassHandler = (e) => {
     setConfirmPass(e.target.value);
     if (e.target.value === "") {
-      setErrorConfirmPass("Please enter your password again.");
+      setErrorConfirmPass("Vui lòng nhập lại mật khẩu của bạn.");
       e.target.parentElement.classList.add("error");
     } else if (e.target.value !== password) {
-      setErrorConfirmPass("Passwords must match");
+      setErrorConfirmPass("Mật khẩu không khớp.");
       e.target.parentElement.classList.add("error");
     } else {
       e.target.parentElement.classList.remove("error");
@@ -96,7 +95,7 @@ const Registration = () => {
   const fullNameHandler = (e) => {
     setFullName(e.target.value);
     if (e.target.value === "") {
-      setErrorFullName("Please enter your full name.");
+      setErrorFullName("Vui lòng nhập tên đầy đủ của bạn.");
       e.target.parentElement.classList.add("error");
     } else {
       e.target.parentElement.classList.remove("error");
@@ -107,7 +106,7 @@ const Registration = () => {
   const universityHandler = (e) => {
     setUniversity(e.target.value);
     if (e.target.value === "") {
-      setErrorUniversity("You must enter an univeristy");
+      setErrorUniversity("Vui lòng nhập trường đại học");
       e.target.parentElement.classList.add("error");
     } else {
       e.target.parentElement.classList.remove("error");
@@ -118,7 +117,7 @@ const Registration = () => {
   const majorHandler = (e) => {
     setMajor(e.target.value);
     if (e.target.value === "") {
-      setErrorMajor("You must enter your major");
+      setErrorMajor("Vui lòng nhập chuyên ngành của bạn");
       e.target.parentElement.classList.add("error");
     } else {
       e.target.parentElement.classList.remove("error");
@@ -129,7 +128,7 @@ const Registration = () => {
   const graduationYearHandler = (e) => {
     setGraduationYear(e.target.value);
     if (e.target.value === "") {
-      setErrorGraduationYear("You must enter your graduation year");
+      setErrorGraduationYear("Vui lòng chọn năm tốt nghiệp của bạn");
       e.target.parentElement.classList.add("error");
     } else {
       e.target.parentElement.classList.remove("error");
@@ -203,6 +202,7 @@ const Registration = () => {
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.error);
+      setStep(1);
     } finally {
       setIsFetching(false);
     }
@@ -245,20 +245,30 @@ const Registration = () => {
                 marginBottom: "50px",
               }}
             >
-              Account Registration
+              Đăng ký tài khoản
             </div>
 
             <div className="registration-steps-breadcrumb">
-              <div className="step-circle"></div>
+              <div
+                className="step-circle"
+                onClick={() => {
+                  setStep(1);
+                }}
+              ></div>
               <div className="next-line"></div>
-              <div className="step-circle"></div>
+              <div
+                className="step-circle"
+                onClick={() => {
+                  setStep(2);
+                }}
+              ></div>
               <div className="next-line"></div>
               <div className="step-circle"></div>
             </div>
 
             {step === 2 ? (
               <Fade right>
-                <div className="registration-content">Choose your password</div>
+                <div className="registration-content">Đặt mật khẩu</div>
               </Fade>
             ) : (
               step === 3 && (
@@ -277,7 +287,7 @@ const Registration = () => {
               {step === 1 ? (
                 <>
                   <LoginLeftFormItem>
-                    <div className="form-input-type">Full Name</div>
+                    <div className="form-input-type">Họ và tên</div>
                     <div className="form-input-container">
                       <div className="form-input-content">
                         <input
@@ -301,7 +311,7 @@ const Registration = () => {
                     </div>
                   </LoginLeftFormItem>
                   <LoginLeftFormItem>
-                    <div className="form-input-type">Email</div>
+                    <div className="form-input-type">E-mail</div>
                     <div className="form-input-container">
                       <div className="form-input-content">
                         <input
@@ -325,7 +335,7 @@ const Registration = () => {
                     </div>
                   </LoginLeftFormItem>
                   <LoginLeftFormItem>
-                    <div className="form-input-type">University</div>
+                    <div className="form-input-type">Trường đại học</div>
                     <div className="form-input-container">
                       <div className="form-input-content">
                         <input
@@ -349,7 +359,7 @@ const Registration = () => {
                     </div>
                   </LoginLeftFormItem>
                   <LoginLeftFormItem>
-                    <div className="form-input-type">Major</div>
+                    <div className="form-input-type">Nghành học</div>
                     <div className="form-input-container">
                       <div className="form-input-content">
                         <input
@@ -373,7 +383,7 @@ const Registration = () => {
                     </div>
                   </LoginLeftFormItem>
                   <LoginLeftFormItem>
-                    <div className="form-input-type">Graduation Year</div>
+                    <div className="form-input-type">Năm tốt nghiệp</div>
                     <div className="form-input-container">
                       <div className="form-input-content">
                         <input
@@ -397,7 +407,7 @@ const Registration = () => {
               ) : step === 2 ? (
                 <Fade right>
                   <LoginLeftFormItem>
-                    <div className="form-input-type">Password</div>
+                    <div className="form-input-type">Mật khẩu</div>
                     <div className="form-input-container">
                       <div className="form-input-content">
                         <input
@@ -429,7 +439,7 @@ const Registration = () => {
                     </div>
                   </LoginLeftFormItem>
                   <LoginLeftFormItem>
-                    <div className="form-input-type">Confirm Password</div>
+                    <div className="form-input-type">Xác nhận mật khẩu</div>
                     <div className="form-input-container">
                       <div className="form-input-content">
                         <input
@@ -484,32 +494,52 @@ const Registration = () => {
             )}
 
             <LoginLeftBtnContainer>
-              <button
-                type="submit"
-                ref={btnRef}
-                onClick={buttonHandler}
-                className={
-                  step === 1 &&
-                  email &&
-                  errorEmail === null &&
-                  university &&
-                  errorUniversity === null &&
-                  major &&
-                  errorMajor === null &&
-                  graduationYear &&
-                  errorGraduationYear === null
-                    ? ""
-                    : step === 2 &&
-                      ((errorPass === null && errorConfirmPass === null) ||
-                        (password && confirmPass && password === confirmPass))
-                    ? ""
-                    : step === 3 && verificationCode !== "······"
-                    ? ""
-                    : "disabled"
-                }
-              >
-                {isFetching ? <CircularProgress top="-5" /> : "Next"}
-              </button>
+              {step === 1 && (
+                <button
+                  type="submit"
+                  onClick={buttonHandler}
+                  className={
+                    step === 1 &&
+                    email &&
+                    errorEmail === null &&
+                    university &&
+                    errorUniversity === null &&
+                    major &&
+                    errorMajor === null &&
+                    graduationYear &&
+                    errorGraduationYear === null
+                      ? ""
+                      : "disabled"
+                  }
+                >
+                  {isFetching ? <CircularProgress top="-5" /> : "Tiếp tục"}
+                </button>
+              )}
+
+              {step === 2 && (
+                <button
+                  type="submit"
+                  onClick={buttonHandler}
+                  className={
+                    (errorPass === null && errorConfirmPass === null) ||
+                    (password && confirmPass && password === confirmPass)
+                      ? ""
+                      : "disabled"
+                  }
+                >
+                  {isFetching ? <CircularProgress top="-5" /> : "Tiếp tục"}
+                </button>
+              )}
+
+              {step === 3 && (
+                <button
+                  type="submit"
+                  onClick={buttonHandler}
+                  className={verificationCode !== "······" ? "" : "disabled"}
+                >
+                  {isFetching ? <CircularProgress top="-5" /> : "Tiếp tục"}
+                </button>
+              )}
             </LoginLeftBtnContainer>
           </div>
         </Fade>
@@ -517,8 +547,8 @@ const Registration = () => {
 
       <div className="signup-left">
         <div className="signup-left-text">
-          <span>Already have an account? </span>
-          <Link to="/login">Login</Link>
+          <span>Đã có tài khoản? </span>
+          <Link to="/login">Đăng nhập</Link>
         </div>
       </div>
 

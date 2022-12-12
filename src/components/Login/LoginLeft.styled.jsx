@@ -456,7 +456,6 @@ export const LoginLeftFormItem = styled.div`
       line-height: 1.66;
       letter-spacing: 0.03333em;
       text-align: left;
-      margin: 4px 14px 0px;
       color: rgb(211, 47, 47);
     }
   }
