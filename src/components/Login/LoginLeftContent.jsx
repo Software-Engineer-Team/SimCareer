@@ -41,10 +41,10 @@ const LoginLeftContent = () => {
   const emailHandler = (e) => {
     setEmail(e.target.value);
     if (e.target.value === "") {
-      setErrorEmail("You must enter a email.");
+      setErrorEmail("Vui lòng nhập email hợp lệ.");
       e.target.parentElement.classList.add("error");
     } else if (!validateEmail(e.target.value)) {
-      setErrorEmail("You must enter a valid email.");
+      setErrorEmail("Vui lòng nhập email hợp lệ.");
       e.target.parentElement.classList.add("error");
     } else {
       e.target.parentElement.classList.remove("error");
@@ -55,7 +55,7 @@ const LoginLeftContent = () => {
   const passHandler = (e) => {
     setPassword(e.target.value);
     if (e.target.value === "") {
-      setErrorPass("Please enter your password.");
+      setErrorPass("Vui lòng nhập mật khẩu.");
       e.target.parentElement.classList.add("error");
     } else {
       e.target.parentElement.classList.remove("error");
@@ -89,7 +89,7 @@ const LoginLeftContent = () => {
       setEmail("");
     } catch (err) {
       if (err.response?.data.error === "Bad credentials") {
-        return toast.error("Incorrect username or password", {
+        return toast.error("Tên đăng nhập hoặc mật khẩu không chính xác", {
           position: toast.POSITION.TOP_CENTER,
         });
       }
