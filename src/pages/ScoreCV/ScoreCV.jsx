@@ -43,10 +43,7 @@ const ScoreCV = () => {
             <div className="score-show-content">
               <Flip left>
                 {/* <h3>Your CV Score</h3> */}
-                <div className="score-number">
-                  SIRI’S
-                  <br /> PROFILE
-                </div>
+                <div className="score-number">YOUR PROFILE</div>
               </Flip>
             </div>
           </div>

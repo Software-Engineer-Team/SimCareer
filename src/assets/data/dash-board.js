@@ -81,7 +81,7 @@ export const events = [
     specificTime:
       "Thứ 7|10/12/2022. Địa điểm: B2-216 StudioLab 2, 279 Nguyễn Tri Phương, Phường 5, Quận 10, TP HCM",
     title: "Triển lãm Sản phẩm: Future Resilience",
-    link: "",
+    link: "https://www.facebook.com/DSA.UEH/posts/pfbid02A5g7EWPw7HsR84WpKSJ7nWJvvN5mGDgKRnwe6XmBWURq5ptThmtdapmMSXdwbLscl",
   },
 ];
 
@@ -89,21 +89,21 @@ export const jobTrackers = [
   {
     src: "/images/career-tracker-1.webp",
     title: "Thực tập sinh Công nghệ -  Technology ",
-    text: "CÔNG TY TNHH QT-DATA VIỆT NAM ",
+    text: "Công ty TNHH QT-DATA Việt Nam",
     address: "TP Hồ Chí Minh",
     link: "https://docs.google.com/forms/d/e/1FAIpQLSeq2yBZDt9dGKz_rtWhtkCfPJdMYDRy2A2I2fB2mdtHcJiCoA/viewform",
   },
   {
     src: "/images/career-tracker-1.webp",
     title: "Thực tập sinh Hành chính & Nhân sự",
-    text: "CÔNG TY TNHH QT-DATA VIỆT NAM ",
+    text: "Công ty TNHH QT-DATA Việt Nam",
     address: "TP Hồ Chí Minh",
     link: "https://docs.google.com/forms/d/e/1FAIpQLSeq2yBZDt9dGKz_rtWhtkCfPJdMYDRy2A2I2fB2mdtHcJiCoA/viewform",
   },
   {
     src: "/images/career-tracker-2.jpg",
     title: "Thực tập sinh Kế toán - Kiểm toán",
-    text: "CÔNG TY TNHH AICA VIỆT NAM",
+    text: "Công ty TNHH AICA Việt Nam",
     address: "TP Hồ Chí Minh",
     link: "",
   },

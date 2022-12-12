@@ -58,8 +58,8 @@ export const Container = styled.div`
         font-weight: 700;
       }
       & .text-muted {
-        font-size: 16px;
-        text-transform: lowercase;
+        font-size: 13px;
+        /* text-transform: lowercase; */
         color: #000;
         font-weight: 400;
         width: 100%;
