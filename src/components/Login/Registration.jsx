@@ -189,7 +189,7 @@ const Registration = () => {
               }
             )
             .then(() => {
-              navigate("/login");
+              navigate("/dash-board");
             });
           break;
         }
