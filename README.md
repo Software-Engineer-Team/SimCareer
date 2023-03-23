@@ -87,7 +87,7 @@ _Below is an installation guide:_
 
 - Here you can easily visit our SIMCAREER Web App with a live preview.
 
-🎯 <https://api.simcareer.me>
+🎯 <https://app.simcareer.me>
 
 [![Product Name Screen Shot][product-screenshot1]](https://app.simcareer.me)
 
