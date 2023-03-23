@@ -39,7 +39,7 @@
 
 ## About The Project
 
-SIMCAREER landing page shows brief introduction of how simcareer can do.
+Starting with small start-up with some students in UEH created SIMCAREER.
 
 [![Product Name Screen Shot][product-screenshot]](https://app.simcareer.me)
 
