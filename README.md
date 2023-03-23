@@ -1,71 +1,103 @@
-# Getting Started with Create React App
+<div align="center">
+  <a href="https://simcareer.me">
+    <img src="./public/images/simcareer.png" alt="Logo" width="190" height="240">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h3 align="center" style="margin: 0; margin-bottom: 20px">SIMCareer Landing Page</h3>
 
-## Available Scripts
+  <p align="center">
+    This project aims to help student create their own resume
+    <br />
+    <a href="https://app.simcareer.me">View Demo</a>
+    ·
+    <a href="https://github.com/Software-Engineer-Team/SimCareer/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Software-Engineer-Team/SimCareer/issues/issues">Request Feature</a>
+  </p>
 
-In the project directory, you can run:
+</div>
 
-### `npm start`
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#%E2%9A%A1-installation">Installation</a></li>
+        <li><a href="#%E2%9A%99-our-demo-site">Our demo site</a></li>
+      </ul>
+    </li>
+  </ol>
+</details>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## About The Project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+SIMCAREER landing page shows brief introduction of how simcareer can do.
 
-### `npm test`
+[![Product Name Screen Shot][product-screenshot]](https://app.simcareer.me)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Built With
 
-### `npm run build`
+Our project uses the following frameworks:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [![React][React.js]][React-url]
+- [![styled-components][styled-components]][styled-components-url]
+- [![Spring Boot][Spring-Boot]][Spring-Boot-url]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
-### `npm run eject`
+### ⚡ Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+_Below is an installation guide:_
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repo
+   ```sh
+   https://github.com/Software-Engineer-Team/SimCareer.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+   or
+   ```
+   yarn install
+   ```
+3. Run the web application
+   ```js
+   yarn start
+   ```
+   or
+   ```js
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### ⚙ Our demo site
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Here you can easily visit our SIMCAREER Web App with a live preview.
 
-## Learn More
+🎯 <https://api.simcareer.me>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[![Product Name Screen Shot][product-screenshot1]](https://app.simcareer.me)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<h1 align="center">🌟 Good Luck and Cheers! 🌟</h1>
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# SimCareer
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[styled-components]: https://img.shields.io/badge/styled--components-%23DB7093.svg?style=for-the-badge&logo=styled-components&logoColor=white
+[styled-components-url]: https://styled-components.com/
+[Spring-Boot-url]: https://spring.io/projects/spring-boot
+[Spring-Boot]: https://img.shields.io/badge/Spring%20Boot-2.7.5-green.svg?style=for-the-badge&logo=spring
+[product-screenshot]: ./public/images/login.png
+[product-screenshot1]: ./public/images/resume-builder.png
